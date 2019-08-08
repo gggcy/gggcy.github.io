@@ -272,15 +272,11 @@
   
 <nav id="article-nav">
   
-    <a href="/uncategorized/我的第一篇博客" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          markdown格式编写
-        
-      </div>
-    </a>
   
+    <a href="/uncategorized/markdown格式编写" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown格式编写</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

@@ -11,12 +11,12 @@
   <meta name="description" content="markdown格式编写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="markdown格式编写">
-<meta property="og:url" content="cygao.xyz/uncategorized/我的第一篇博客">
+<meta property="og:url" content="cygao.xyz/uncategorized/markdown格式编写">
 <meta property="og:site_name" content="哲人存远">
 <meta property="og:description" content="markdown格式编写">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=robomaster%E7%9B%B4%E6%92%AD&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=3125832727,3597497147&os=1898171743,3878211660&simid=3369673952,459146154&pn=1&rn=1&di=20790&ln=361&fr=&fmq=1565251372619_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fi.dyt8.cc%2F66%2Fab%2F0a%2Ff1%2F38%2F38%2F4d%2Fe5%2Fa2%2Fd2%2F4d%2F0d%2Fb8%2Fc7%2F62%2Ffb.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined">
-<meta property="og:updated_time" content="2019-08-08T08:09:54.379Z">
+<meta property="og:updated_time" content="2019-08-08T08:49:19.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="markdown格式编写">
 <meta name="twitter:description" content="markdown格式编写">
@@ -152,7 +152,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-markdown格式编写" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -164,8 +164,8 @@
   
 
         
-        <a href="/uncategorized/我的第一篇博客" class="archive-article-date">
-  	<time datetime="2019-08-08T07:30:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+        <a href="/uncategorized/markdown格式编写" class="archive-article-date">
+  	<time datetime="2019-06-08T07:30:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-08</time>
 </a>
         
       </header>
@@ -276,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:cygao.xyz/uncategorized/我的第一篇博客" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:cygao.xyz/uncategorized/markdown格式编写" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,11 +290,15 @@
   
 <nav id="article-nav">
   
-  
-    <a href="/uncategorized/hello-world" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
+    <a href="/uncategorized/hello-world" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
     </a>
+  
   
 </nav>
 
