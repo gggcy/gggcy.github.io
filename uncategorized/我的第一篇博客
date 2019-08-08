@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="cygao.xyz">
-  <title>Archives | 哲人存远</title>
+  <title>markdown格式编写 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="哲人存远">
-<meta property="og:url" content="cygao.xyz/archives/index.html">
+  <meta name="description" content="markdown格式编写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown格式编写">
+<meta property="og:url" content="cygao.xyz/uncategorized/我的第一篇博客">
 <meta property="og:site_name" content="哲人存远">
+<meta property="og:description" content="markdown格式编写">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=robomaster%E7%9B%B4%E6%92%AD&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=3125832727,3597497147&os=1898171743,3878211660&simid=3369673952,459146154&pn=1&rn=1&di=20790&ln=361&fr=&fmq=1565251372619_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fi.dyt8.cc%2F66%2Fab%2F0a%2Ff1%2F38%2F38%2F4d%2Fe5%2Fa2%2Fd2%2F4d%2F0d%2Fb8%2Fc7%2F62%2Ffb.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined">
+<meta property="og:updated_time" content="2019-08-08T08:09:54.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲人存远">
+<meta name="twitter:title" content="markdown格式编写">
+<meta name="twitter:description" content="markdown格式编写">
+<meta name="twitter:image" content="http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=robomaster%E7%9B%B4%E6%92%AD&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=3125832727,3597497147&os=1898171743,3878211660&simid=3369673952,459146154&pn=1&rn=1&di=20790&ln=361&fr=&fmq=1565251372619_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fi.dyt8.cc%2F66%2Fab%2F0a%2Ff1%2F38%2F38%2F4d%2Fe5%2Fa2%2Fd2%2F4d%2F0d%2Fb8%2Fc7%2F62%2Ffb.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -146,76 +152,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-我的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      markdown格式编写
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/我的第一篇博客" class="archive-article-date">
+
+        
+        <a href="/uncategorized/我的第一篇博客" class="archive-article-date">
   	<time datetime="2019-08-08T07:30:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/我的第一篇博客">markdown格式编写</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="markdown格式编写"><a href="#markdown格式编写" class="headerlink" title="markdown格式编写"></a>markdown格式编写</h1><a id="more"></a>
+<h2 id="第一个标题"><a href="#第一个标题" class="headerlink" title="第一个标题"></a>第一个标题</h2><p>段落1 中间空一行</p>
+<p>段落2</p>
+<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><blockquote>
+<p>使用“&gt;”和空格高亮</p>
+<p>这是一段段落高亮</p>
+</blockquote>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><a href="www.baidu.com">百度</a>  利用中括号小括号的格式</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="http://image.baidu.com/search/detail?ct=503316480&amp;z=undefined&amp;tn=baiduimagedetail&amp;ipn=d&amp;word=robomaster%E7%9B%B4%E6%92%AD&amp;step_word=&amp;ie=utf-8&amp;in=&amp;cl=2&amp;lm=-1&amp;st=undefined&amp;hd=undefined&amp;latest=undefined&amp;copyright=undefined&amp;cs=3125832727,3597497147&amp;os=1898171743,3878211660&amp;simid=3369673952,459146154&amp;pn=1&amp;rn=1&amp;di=20790&amp;ln=361&amp;fr=&amp;fmq=1565251372619_R&amp;fm=&amp;ic=undefined&amp;s=undefined&amp;se=&amp;sme=&amp;tab=0&amp;width=undefined&amp;height=undefined&amp;face=undefined&amp;is=0,0&amp;istype=0&amp;ist=&amp;jit=&amp;bdtype=0&amp;spn=0&amp;pi=0&amp;gsm=0&amp;objurl=http%3A%2F%2Fi.dyt8.cc%2F66%2Fab%2F0a%2Ff1%2F38%2F38%2F4d%2Fe5%2Fa2%2Fd2%2F4d%2F0d%2Fb8%2Fc7%2F62%2Ffb.jpg&amp;rpstart=0&amp;rpnum=0&amp;adpicid=0&amp;force=undefined" alt="风景"> 超链接前面+!</p>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
+<li>1</li>
+<li>1</li>
+<li>1 “*”</li>
+</ul>
+<ul>
+<li>2</li>
+<li>2</li>
+<li>2 “-“</li>
+</ul>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
+<li>“1.”<br>2.<br>3.</li>
+</ol>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><hr>
+<hr>
+<p>“ *或是-” 大于3个</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:cygao.xyz/uncategorized/我的第一篇博客" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/hello-world" class="archive-article-date">
-  	<time datetime="2019-08-08T03:31:26.034Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/uncategorized/hello-world" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/hello-world">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -238,8 +348,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
