@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://img-blog.csdn.net/20171228215449091?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVsdW9ob25nc2hhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="https://img-blog.csdn.net/20171229151134399?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVsdW9ob25nc2hhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="https://img-blog.csdn.net/20181015092756674?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NDUxMTE5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2019-08-09T03:31:15.583Z">
+<meta property="og:updated_time" content="2019-08-09T03:33:21.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Joint Detection and Identification Feature Learning for Person Search">
 <meta name="twitter:description" content="论文：Joint Detection and Identification Feature Learning for Person Search（整合行人检测和行人再识别的行人搜索新框架）链接：https://arxiv.org/abs/1604.01850代码地址： https://github.com/ShuangLI59/person_search caffe版本疑似复现地址：https:/">
