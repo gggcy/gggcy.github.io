@@ -320,15 +320,6 @@
   
 <nav id="article-nav">
   
-    <a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Joint Detection and Identification Feature Learning for Person Search
-        
-      </div>
-    </a>
-  
   
     <a href="/uncategorized/markdown格式编写" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">markdown格式编写</div>
@@ -474,6 +465,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码踩坑</a>
               </li>
             
             <div class="clearfix"></div>
