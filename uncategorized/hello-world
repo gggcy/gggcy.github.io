@@ -62,6 +62,12 @@
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/tags/论文笔记/">论文笔记</a></li>
+	        
+				<li><a href="/tags/代码踩坑/">代码踩坑</a></li>
+	        
+				<li><a href="/archives/index.html">汇总</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -123,6 +129,12 @@
 			
 				
 			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -138,12 +150,18 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 20%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/论文笔记/">论文笔记</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/代码踩坑/">代码踩坑</a></li>
+		        
+					<li style="width: 20%"><a href="/archives/index.html">汇总</a></li>
 		        
 				</ul>
 			</nav>
@@ -301,6 +319,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Joint Detection and Identification Feature Learning for Person Search
+        
+      </div>
+    </a>
   
   
     <a href="/uncategorized/markdown格式编写" id="article-nav-older" class="article-nav-link-wrap">

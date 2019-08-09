@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="cygao.xyz/"/>
-  <updated>2019-08-09T01:21:27.492Z</updated>
+  <updated>2019-08-09T02:27:11.099Z</updated>
   <id>cygao.xyz/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Joint Detection and Identification Feature Learning for Person Search</title>
+    <link href="cygao.xyz/uncategorized/Joint%20Detection%20and%20Identification%20Feature%20Learning%20for%20Person%20Search"/>
+    <id>cygao.xyz/uncategorized/Joint Detection and Identification Feature Learning for Person Search</id>
+    <published>2019-08-09T02:27:11.000Z</published>
+    <updated>2019-08-09T02:27:11.099Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
