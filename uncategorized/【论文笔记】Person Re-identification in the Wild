@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="哲人存远">
 <meta property="og:description" content="论文：Person Re-identification in the Wild（整合行人检测和行人再识别的行人搜索新框架）链接：https://arxiv.org/abs/1604.02531代码地址：https://github.com/liangzheng06/PRW-baseline">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2019-08-10T03:11:17.633Z">
+<meta property="og:updated_time" content="2019-08-10T14:03:10.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Person Re-identification in the Wild">
 <meta name="twitter:description" content="论文：Person Re-identification in the Wild（整合行人检测和行人再识别的行人搜索新框架）链接：https://arxiv.org/abs/1604.02531代码地址：https://github.com/liangzheng06/PRW-baseline">
@@ -319,11 +319,11 @@
   
 <nav id="article-nav">
   
-    <a href="/uncategorized/Joint" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/uncategorized/【论文笔记】Joint Detection and Identification Feature Learning for Person Search" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          markdown格式编写
+          【论文笔记】 Joint Detection and Identification Feature Learning for Person Search
         
       </div>
     </a>
