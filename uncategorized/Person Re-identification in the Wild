@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW2.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW3.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW4.png">
-<meta property="og:updated_time" content="2019-08-11T01:52:27.350Z">
+<meta property="og:updated_time" content="2019-08-11T03:13:00.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Person Search】 Person Re-identification in the Wild">
 <meta name="twitter:description" content="论文：Person Re-identification in the Wild链接：https://arxiv.org/abs/1604.02531代码地址：https://github.com/liangzheng06/PRW-baseline">
@@ -206,11 +206,13 @@
         <p>论文：Person Re-identification in the Wild<br>链接：<a href="https://arxiv.org/abs/1604.02531" target="_blank" rel="noopener">https://arxiv.org/abs/1604.02531</a><br>代码地址：<a href="https://github.com/liangzheng06/PRW-baseline" target="_blank" rel="noopener">https://github.com/liangzheng06/PRW-baseline</a><br><a id="more"></a></p>
 <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p> 这篇论文发布了一个可以研究端到端的行人检测-重识别的大规模数据集和一些baselines，baselines主要包括不同检测器和reid识别算法组合的性能，行人检测怎么有助于reid准确率的提升及评估不同检测器对reid的有效性。<br>  贡献：  </p>
 <ol>
-<li><p>提出了一个新的数据集：PRW，及基于数据集的广泛的benchmark。  </p>
-<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW1.png" alt></div>       
+<li>提出了一个新的数据集：PRW，及基于数据集的广泛的benchmark。  <div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW1.png" alt></div>       
+
+
 </li>
-<li><p>行人检测通过以下两种方式对re-id有帮助，IDE 级联微调训练策略（充分利用detector得到的数据）+ CWS（Confidence Weighted Similarity，加入到相似度度量中（给错检附更低的权重，即通过优化相似度计算的方法改进detector对reid的影响）。</p>
-</li>
+</ol>
+<ol start="2">
+<li>行人检测通过以下两种方式对re-id有帮助，IDE 级联微调训练策略（充分利用detector得到的数据）+ CWS（Confidence Weighted Similarity，加入到相似度度量中（给错检附更低的权重，即通过优化相似度计算的方法改进detector对reid的影响）。</li>
 <li>在特定场合下的accurate re-id过程中，检测器性能评价和一些关于发布数据集的实验结论。</li>
 </ol>
 <h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人识别和重识别通常被分为两个不同的问题来考虑。作者开创性的在自己的数据集上研究了不同检测器和reid识别方法组合的性能，研究是否检测可以帮助提升reid准确率，研究选择怎样的检测器可以最大程度的提升reid准确率。<br>文中提出了与以往不同的新的dataset（PRW）和baselines（which moves beyond sequential application of detection and recognition），因为目前的许多数据集缺少annotations，从而无法将识别与再识别进行结合来评估。  </p>

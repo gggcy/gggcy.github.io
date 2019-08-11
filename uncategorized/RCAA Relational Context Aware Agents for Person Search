@@ -16,15 +16,16 @@
 <meta property="og:site_name" content="哲人存远">
 <meta property="og:description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW1.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW2.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW3.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW4.png">
-<meta property="og:updated_time" content="2019-08-11T01:52:12.264Z">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA1.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA2.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA3.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA4.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA5.png">
+<meta property="og:updated_time" content="2019-08-11T03:15:19.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Person Search】 RCAA Relational Context-Aware Agents for Person Search">
 <meta name="twitter:description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
-<meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW1.png">
+<meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -204,34 +205,31 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>论文：RCAA Relational Context-Aware Agents for Person Search<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p>
-<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p> 这篇论文发布了一个可以研究端到端的行人检测-重识别的大规模数据集和一些baselines，baselines主要包括不同检测器和reid识别算法组合的性能，行人检测怎么有助于reid准确率的提升及评估不同检测器对reid的有效性。<br>  贡献：  </p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>在本文中，我们通过训练relational context-aware agents来解决这个问题，这些agens从整个场景图像库中学习定位目标人物的操作。我们将相关的空间和时间上下文合并到框架中。具体地说，我们建议在依赖查询的关系网络中使用目标人员作为查询。agent通过同时考虑局部的视觉信息、关系上下文和时间上下文，以及目标人员，确定在每个时间步上要采取的最佳操作。</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>时空背景可能会提供额外的重要信息，但对人的搜索仍然不够深入。空间语境已被证明在回答视觉问题等任务中是有用的。在整个场景图像中，目标人物依赖的物体之间的空间关系可能有助于更有辨别力的表示。此外，序列决策在目标检测中的成功应用也为人的识别提供了借鉴。多步推理的agent可以更好地定位目标人，同时考虑到目标人的时间行为和状态记忆。在这项工作中，我们提出了一个自顶向下的搜索策略，由一个时空上下文感知的代理提供支持，以解决上面讨论的限制和机会。具体地说，考虑到整个场景、它的本地图像特性和查询图像，我们利用一个依赖于目标-人的关系网络来提取对象之间的空间上下文。然后，我们的深度强化学习代理根据空间上下文及其时间动作和状态记忆，在每一个时间步选择最佳动作，以缩小目标人物的精确位置。整个框架不包含人员建议计算，并且是端到端可培训的。<br>贡献：  </p>
 <ol>
-<li><p>提出了一个新的数据集：PRW，及基于数据集的广泛的benchmark。  </p>
-<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW1.png" alt></div>       
+<li><p>我们最早尝试将人的搜索问题作为一个决策过程来解决，并构建了第一个基于深度强化学习的人的搜索框架。 </p>
 </li>
-<li><p>行人检测通过以下两种方式对re-id有帮助，IDE 级联微调训练策略（充分利用detector得到的数据）+ CWS（Confidence Weighted Similarity，加入到相似度度量中（给错检附更低的权重，即通过优化相似度计算的方法改进detector对reid的影响）。</p>
+<li><p>该模型采用端到端方式进行训练，不需要进行冗余和噪声的proposal  computing。有趣的是，我们的模型甚至比负载完美的proposal detector方法性能更好。</p>
 </li>
-<li>在特定场合下的accurate re-id过程中，检测器性能评价和一些关于发布数据集的实验结论。</li>
+<li>我们在训练过程中加入了相关的时空背景，从而引导模型产生更多的信息“经验”。  </li>
 </ol>
-<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人识别和重识别通常被分为两个不同的问题来考虑。作者开创性的在自己的数据集上研究了不同检测器和reid识别方法组合的性能，研究是否检测可以帮助提升reid准确率，研究选择怎样的检测器可以最大程度的提升reid准确率。<br>文中提出了与以往不同的新的dataset（PRW）和baselines（which moves beyond sequential application of detection and recognition），因为目前的许多数据集缺少annotations，从而无法将识别与再识别进行结合来评估。  </p>
 <h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul>
-<li>前人的研究工作无法体现不同质量的detector对re-id精确度的影响。本文的pipline则是考虑了从detection到re-id的整个过程。  </li>
-<li>Pedestrian detection的发展过程.</li>
-<li>Person re-identification的发展过程。</li>
+<li>Person re-id<br>pass  </li>
+<li>pedestrian detection<br>pass    </li>
+<li>Deep Reinforcement Learning<br>文献中讨论了两种广泛使用的DRL方法——Deep QNetworks(DQN)和策略policy gradient，具体的看论文吧。</li>
 </ul>
-<h1 id="3-The-PRW-Dataset"><a href="#3-The-PRW-Dataset" class="headerlink" title="3. The PRW Dataset"></a>3. The PRW Dataset</h1><p><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW2.png" alt></div><br>具体最直观的了解数据集方法就是下载它，一张张看加了解命名规则，README.md里介绍的很清楚。</p>
-<h1 id="4-Evaluation-Protocols"><a href="#4-Evaluation-Protocols" class="headerlink" title="4. Evaluation Protocols"></a>4. Evaluation Protocols</h1><p>沿用了Person re-id的标准</p>
-<h1 id="5-Experiments"><a href="#5-Experiments" class="headerlink" title="5. Experiments"></a>5. Experiments</h1><p><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW3.png" alt></div>    </p>
-<p><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW4.png" alt></div><br>还有很多张实验的对比图没放，一些最基本的Detector+Metic-learning的方法，基本是作为以后Person Search论文里吊打的对比方法，毕竟拿深度学习的方法和传统方法对比，起码表格里看得出拉开了差距。</p>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ul>
-<li>设计有效的框回归方案来提升行人框定位精度，总而提升行人匹配正确率 </li>
-<li>设计更复杂有效的权重方案，用检测的置信度或其他来指导更有效的相似度计算 </li>
-<li>re-ranking方法对于可扩展的reid应用很有帮助 </li>
-<li>怎样能够利用无ID标注的现存数据或若标签数据来提升reid性能也具有重要的研究价值 </li>
-<li>检测和识别的联合学习问题，而不是组合形式，更符合reid实用需求 </li>
-<li>有效的基于部件的reid，如对齐网络的引进和设计，将极大提升端到端网络的reid性能   </li>
+<h1 id="3-Relational-Context-Aware-Agents"><a href="#3-Relational-Context-Aware-Agents" class="headerlink" title="3. Relational Context-Aware Agents"></a>3. Relational Context-Aware Agents</h1><h2 id="3-1-Overview"><a href="#3-1-Overview" class="headerlink" title="3.1 Overview"></a>3.1 Overview</h2><p>行人搜索解决了从整个场景图像库中寻找目标人物的精确位置的问题。系统通过时空上下文感知agent确定的顺序操作动态定位目标行人。我们的代理接受空间和时间上下文、本地图像特征和查询图像作为输入，并预测要采取的最佳操作。通过预测动作将包围框从当前状态转换为下一个状态，并从下一个状态预测下一个动作。这个过程不断重复，直到达到最优结果。</p>
+<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/RCAA1.png" alt></div><br>具体最直观的了解数据集方法就是下载它，一张张看加了解命名规则，README.md里介绍的很清楚。<br><br><br>## 3.2 Relational Decision Making<br><br>该模型遵循马尔可夫决策过程(MDP)，适用于序列决策过程的建模。<br>- Action 存在移动，扩张和裁剪共14个操作。<br><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/RCAA2.png" alt></div><br>- State<br>- Reward<br>这个具体看懂得有一些强化学习得知识和MDP的相关知识。<br><br><br>## 3.3 Network Structure<br><br>我们使用ResNet-50进行特征提取，因为它在人的识别方面显示了极大的优越性。为了编码关系上下文信息，我们结合了一个关系网络(RN)，上文所述，来考虑图像中所有对对象之间的所有关系。<br><br><br>## 3.4 Training<br><br>为了避免次优解决方案，我们使用了actor-critic (A3C) method，它在环境的多个实例上异步并行地执行多个agents。我们使用ADAM optimizer训练模型，中间还介绍了强化学习的损失函数和训练策略，不太懂不展开了。<br><br><br># 4. Experiments<br><br>相当高的表现，在两个数据集上，表现见下图，即使放在19年也是很有竞争力的表现了。<br><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/RCAA3.png" alt></div><br><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/RCAA4.png" alt></div><br><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/RCAA5.png" alt></div>   
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>本文首先尝试解决人的搜索问题，建立了第一个基于深度强化学习的人的搜索框架。与以往依赖proposal learning的工作不同，我们的方法利用了关系上下文信息，并在联合框架中预先利用视觉信息和query。<br>在未来，我们计划在我们的框架中使用宽松的学习lenient learning，因为存储的转换可能会因为agents并行更新它们各自的策略而过时。</p>
+<h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>有点复杂的论文，需要有强化学习和一些机器学习的基础，与众多的利用以Faster R-CNN为行人检测器的论文不同，还有以前用proposal learning的传统检测器。总感觉和我之前认知的Person Search有些不同。</p>
+<ul>
+<li><p>我的理解包括跑的一些Person Search的代码：Testing的时候，query和gallery的图像是分批次进入的，query的特征和再和所有gallery检测出的行人特征（也是通过检测后的行人包围框的特征），进行特征对比（比如用余弦相似度或是欧式距离等等），如果detction时候没有检测出iou&gt;0.5的包围框，再怎么query对比都没意义。</p>
+</li>
+<li><p>这篇RCAA，看文章模型的structure，<strong>Our agent accepts the spatial and temporal context, the local image feature and the query image as input</strong>,<strong>When the training is finished, we fix the policy and value network for testing. A single agent is used to process each query for testing. For each query, we rank all the value V and retrieve the top ranked results.</strong> 看的像是test的时候同时可以输入query引导detectoring的过程，和之前的方法推理过程有点不太一样。如果有研究person search的同学可以评论一下，和我交流。</p>
+</li>
 </ul>
-<h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>  论文用的是matlab的代码，由于是16年的论文，从19年返回再来看价值不是很高，虽然现在也有很多还是把re-id和detection分开做的工作，但是只是在detection部分加入了简单的CNN层，re-id部分还是传统的图像处理。但是毕竟是提出的PRW的论文，引用也是必须的，PRW数据集是market1501的整帧图片，提出的作者也是同一个郑良大大，太厉害了。了解一下数据集图片命名的规则，对于做无监督的同学也是大有帮助的。</p>
 
       
 
@@ -368,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction"><span class="toc-number">2.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Related-Work"><span class="toc-number">3.</span> <span class="toc-text">2. Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-The-PRW-Dataset"><span class="toc-number">4.</span> <span class="toc-text">3. The PRW Dataset</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Evaluation-Protocols"><span class="toc-number">5.</span> <span class="toc-text">4. Evaluation Protocols</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Experiments"><span class="toc-number">6.</span> <span class="toc-text">5. Experiments</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-number">7.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#个人心得"><span class="toc-number">8.</span> <span class="toc-text">个人心得</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction"><span class="toc-number">2.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Related-Work"><span class="toc-number">3.</span> <span class="toc-text">2. Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Relational-Context-Aware-Agents"><span class="toc-number">4.</span> <span class="toc-text">3. Relational Context-Aware Agents</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Overview"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 Overview</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#个人心得"><span class="toc-number">6.</span> <span class="toc-text">个人心得</span></a></li></ol>
                     </div>
                 </span>
             </div>
