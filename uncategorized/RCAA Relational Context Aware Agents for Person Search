@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://gggcy.github.io">
-  <title>Tag: 随笔 | 哲人存远</title>
+  <title>【Person Search】 RCAA Relational Context-Aware Agents for Person Search | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="哲人存远">
-<meta property="og:url" content="http://gggcy.github.io/tags/随笔/index.html">
+  <meta name="description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
+<meta name="keywords" content="论文笔记,代码踩坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Person Search】 RCAA Relational Context-Aware Agents for Person Search">
+<meta property="og:url" content="http://gggcy.github.io/uncategorized/RCAA Relational Context Aware Agents for Person Search">
 <meta property="og:site_name" content="哲人存远">
+<meta property="og:description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW1.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW2.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW3.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW4.png">
+<meta property="og:updated_time" content="2019-08-11T01:52:12.264Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲人存远">
+<meta name="twitter:title" content="【Person Search】 RCAA Relational Context-Aware Agents for Person Search">
+<meta name="twitter:description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
+<meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/PRW1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -172,59 +182,212 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+
+<article id="post-RCAA Relational Context Aware Agents for Person Search" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/hello-world" class="archive-article-date">
-  	<time datetime="2019-08-08T03:31:26.034Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/hello-world">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      【Person Search】 RCAA Relational Context-Aware Agents for Person Search
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/uncategorized/RCAA Relational Context Aware Agents for Person Search" class="archive-article-date">
+  	<time datetime="2018-12-09T10:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>论文：RCAA Relational Context-Aware Agents for Person Search<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p> 这篇论文发布了一个可以研究端到端的行人检测-重识别的大规模数据集和一些baselines，baselines主要包括不同检测器和reid识别算法组合的性能，行人检测怎么有助于reid准确率的提升及评估不同检测器对reid的有效性。<br>  贡献：  </p>
+<ol>
+<li><p>提出了一个新的数据集：PRW，及基于数据集的广泛的benchmark。  </p>
+<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW1.png" alt></div>       
+</li>
+<li><p>行人检测通过以下两种方式对re-id有帮助，IDE 级联微调训练策略（充分利用detector得到的数据）+ CWS（Confidence Weighted Similarity，加入到相似度度量中（给错检附更低的权重，即通过优化相似度计算的方法改进detector对reid的影响）。</p>
+</li>
+<li>在特定场合下的accurate re-id过程中，检测器性能评价和一些关于发布数据集的实验结论。</li>
+</ol>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人识别和重识别通常被分为两个不同的问题来考虑。作者开创性的在自己的数据集上研究了不同检测器和reid识别方法组合的性能，研究是否检测可以帮助提升reid准确率，研究选择怎样的检测器可以最大程度的提升reid准确率。<br>文中提出了与以往不同的新的dataset（PRW）和baselines（which moves beyond sequential application of detection and recognition），因为目前的许多数据集缺少annotations，从而无法将识别与再识别进行结合来评估。  </p>
+<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul>
+<li>前人的研究工作无法体现不同质量的detector对re-id精确度的影响。本文的pipline则是考虑了从detection到re-id的整个过程。  </li>
+<li>Pedestrian detection的发展过程.</li>
+<li>Person re-identification的发展过程。</li>
+</ul>
+<h1 id="3-The-PRW-Dataset"><a href="#3-The-PRW-Dataset" class="headerlink" title="3. The PRW Dataset"></a>3. The PRW Dataset</h1><p><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW2.png" alt></div><br>具体最直观的了解数据集方法就是下载它，一张张看加了解命名规则，README.md里介绍的很清楚。</p>
+<h1 id="4-Evaluation-Protocols"><a href="#4-Evaluation-Protocols" class="headerlink" title="4. Evaluation Protocols"></a>4. Evaluation Protocols</h1><p>沿用了Person re-id的标准</p>
+<h1 id="5-Experiments"><a href="#5-Experiments" class="headerlink" title="5. Experiments"></a>5. Experiments</h1><p><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW3.png" alt></div>    </p>
+<p><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/PRW4.png" alt></div><br>还有很多张实验的对比图没放，一些最基本的Detector+Metic-learning的方法，基本是作为以后Person Search论文里吊打的对比方法，毕竟拿深度学习的方法和传统方法对比，起码表格里看得出拉开了差距。</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ul>
+<li>设计有效的框回归方案来提升行人框定位精度，总而提升行人匹配正确率 </li>
+<li>设计更复杂有效的权重方案，用检测的置信度或其他来指导更有效的相似度计算 </li>
+<li>re-ranking方法对于可扩展的reid应用很有帮助 </li>
+<li>怎样能够利用无ID标注的现存数据或若标签数据来提升reid性能也具有重要的研究价值 </li>
+<li>检测和识别的联合学习问题，而不是组合形式，更符合reid实用需求 </li>
+<li>有效的基于部件的reid，如对齐网络的引进和设计，将极大提升端到端网络的reid性能   </li>
+</ul>
+<h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>  论文用的是matlab的代码，由于是16年的论文，从19年返回再来看价值不是很高，虽然现在也有很多还是把re-id和detection分开做的工作，但是只是在detection部分加入了简单的CNN层，re-id部分还是传统的图像处理。但是毕竟是提出的PRW的论文，引用也是必须的，PRW数据集是market1501的整帧图片，提出的作者也是同一个郑良大大，太厉害了。了解一下数据集图片命名的规则，对于做无监督的同学也是大有帮助的。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码踩坑</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/uncategorized/Joint" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          markdown格式编写
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Person Search】 Joint Detection and Identification Feature Learning for Person Search</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction"><span class="toc-number">2.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Related-Work"><span class="toc-number">3.</span> <span class="toc-text">2. Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-The-PRW-Dataset"><span class="toc-number">4.</span> <span class="toc-text">3. The PRW Dataset</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Evaluation-Protocols"><span class="toc-number">5.</span> <span class="toc-text">4. Evaluation Protocols</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Experiments"><span class="toc-number">6.</span> <span class="toc-text">5. Experiments</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-number">7.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#个人心得"><span class="toc-number">8.</span> <span class="toc-text">个人心得</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -250,9 +413,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -342,10 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码踩坑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
