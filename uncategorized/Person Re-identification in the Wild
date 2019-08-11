@@ -103,7 +103,7 @@
 <!-- 网易云音乐插件 -->
 
 	<div style="position:absolute; bottom:120px left:auto; width:85%">
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=32"></iframe>
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=468761987&auto=1&height=32"></iframe>
 	</div>
 
 
@@ -246,7 +246,14 @@
 <h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>  论文用的是matlab的代码，由于是16年的论文，从19年返回再来看价值不是很高，虽然现在也有很多还是把re-id和detection分开做的工作，但是只是在detection部分加入了简单的CNN层，re-id部分还是传统的图像处理。但是毕竟是提出的PRW的论文，引用也是必须的，PRW数据集是market1501的整帧图片，提出的作者也是同一个郑良大大，太厉害了。了解一下数据集图片命名的规则，对于做无监督的同学也是大有帮助的。</p>
 
       
-
+      <!-- 增加版权声明 -->
+      
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+      <!-- 增加版权声明结束 -->
       
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -386,6 +393,7 @@
 
 
 
+  
   
   
   
@@ -605,7 +613,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">江苏昆山人&lt;br&gt;矿大计算机硕士在读&lt;br&gt;喜欢山玩水，坐不住的码农&lt;br&gt;&lt;br&gt;喜欢结交朋友&lt;br&gt;聊旅游，聊技术，聊人生&lt;br&gt;欢迎通过扫描二维码加我好友</div>
   	  	
     	</section>
     

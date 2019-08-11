@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA3.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA4.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA5.png">
-<meta property="og:updated_time" content="2019-08-11T05:17:33.022Z">
+<meta property="og:updated_time" content="2019-08-11T07:08:30.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Person Search】 Person Search by Multi-Scale Matching">
 <meta name="twitter:description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
@@ -104,7 +104,7 @@
 <!-- 网易云音乐插件 -->
 
 	<div style="position:absolute; bottom:120px left:auto; width:85%">
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=32"></iframe>
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=468761987&auto=1&height=32"></iframe>
 	</div>
 
 
@@ -215,6 +215,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>论文：Person Search by Multi-Scale Matching<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=863970833&auto=0&height=66"></iframe>
+
 <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>研究了无约束场景图像中的人搜索问题。现有的检测方法多侧重于提高人的检测精度，以减轻自动检测噪声引起的配准误差、误检等带来的负面影响。与以往的研究相比，我们发现，通过改进现有的深度学习对象检测器(如Fast R-CNN)，可以实现足够的可重复责任人实例裁剪，而在人员搜索中尚未得到充分研究的多尺度匹配问题是一个更为严重的障碍。在这项工作中，我们提出了一种跨层次语义对齐(CLSA)的深度学习方法，能够在统一的端到端模型中学习更具鉴别性的身份特征表示，从而解决了这个多尺度的人搜索挑战。这是通过利用深度神经网络的网络内特征金字塔结构来实现的。这很好地消除了构建计算开销昂贵的图像金字塔和复杂的多分支网络体系结构的需要。</p>
 <h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人搜索处理原始的未细化的检测与许多错误裁剪和未知程度的错位。这就产生了一个更具挑战性的匹配问题，尤其是在人的重新识别过程中。此外，自动检测的人员框通常在规模(分辨率)上比常规的差异更大。由于人与摄像机之间固有的无法控制的距离(图1(a))。因此，它本质上是一个多尺度匹配问题。然而，这一问题目前在人员搜索中研究不足。</p>
 <p>贡献：    </p>
@@ -250,7 +252,28 @@
 <h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>主要通过提升检测时候增加了多尺度匹配，通过特征金字塔，在re-id部分增加语义对齐，这个在re-id里也是常用手段，但是是跨层次的，相当于multi-scale的。最后结尾在一些image-based re-id数据集上也做了实验，比如market1501和cuhk03上，但是提升效果寥寥，88.9的top1在market1501上真的很一般。为啥能在person search上表现这么好，总之person search的坑很多，一些在detection上和re-id上能提升的，改进一些都可以在person search上有提高。但是这也提高了太多了把~</p>
 
       
-
+      <!-- 增加版权声明 -->
+      
+      
+      
+        <div class="declare">
+          <strong>本文作者：</strong>
+          
+            Cunyuan
+          
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="http://gggcy.github.io/uncategorized/Person Search by Multi-Scale Matching">http://gggcy.github.io/uncategorized/Person Search by Multi-Scale Matching</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+          进行许可。转载请注明出处！
+          
+        </div>
+      
+      
+      <!-- 增加版权声明结束 -->
       
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -391,6 +414,7 @@
 
 
 
+  
   
   
   
@@ -610,7 +634,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">江苏昆山人&lt;br&gt;矿大计算机硕士在读&lt;br&gt;喜欢山玩水，坐不住的码农&lt;br&gt;&lt;br&gt;喜欢结交朋友&lt;br&gt;聊旅游，聊技术，聊人生&lt;br&gt;欢迎通过扫描二维码加我好友</div>
   	  	
     	</section>
     

@@ -105,7 +105,7 @@
 <!-- 网易云音乐插件 -->
 
 	<div style="position:absolute; bottom:120px left:auto; width:85%">
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=32"></iframe>
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=468761987&auto=1&height=32"></iframe>
 	</div>
 
 
@@ -256,7 +256,14 @@
 <h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>上手Person Search相关的科研论文，这篇文章是必读的，是第一篇整合两个子任务到同一个框架的工作，源码由于是caffe的，对于新手不太友好，尤其是18年开始入坑CV的小白来说，一些更轻便的框架,把层，代价函数，模块封装好的，如tensorflow或是pytorch则更容易手上，建议可以从那个疑似复现代码的地址上手，可能复现不到这篇论文的结果，相差大约1~2%,但从熟悉整个Person Search的框架再好不过了，主要还是大部分的Person Search论文都没有开源，或者只是提供了test的部分代码和训练好的网络参数和结构，打包成了.pth等让读者在云盘上下载，有点小坑，很难复现到原始论文的结果。</p>
 
       
-
+      <!-- 增加版权声明 -->
+      
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+      <!-- 增加版权声明结束 -->
       
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -401,6 +408,7 @@
 
 
 
+  
   
   
   
@@ -620,7 +628,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">江苏昆山人&lt;br&gt;矿大计算机硕士在读&lt;br&gt;喜欢山玩水，坐不住的码农&lt;br&gt;&lt;br&gt;喜欢结交朋友&lt;br&gt;聊旅游，聊技术，聊人生&lt;br&gt;欢迎通过扫描二维码加我好友</div>
   	  	
     	</section>
     
