@@ -9,7 +9,7 @@
   <title>【Person Search】 RCAA Relational Context-Aware Agents for Person Search | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
-<meta name="keywords" content="论文笔记,代码踩坑">
+<meta name="keywords" content="论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Person Search】 RCAA Relational Context-Aware Agents for Person Search">
 <meta property="og:url" content="http://gggcy.github.io/uncategorized/RCAA Relational Context Aware Agents for Person Search">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA3.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA4.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/RCAA5.png">
-<meta property="og:updated_time" content="2019-08-11T03:40:18.419Z">
+<meta property="og:updated_time" content="2019-08-11T03:51:54.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Person Search】 RCAA Relational Context-Aware Agents for Person Search">
 <meta name="twitter:description" content="论文：RCAA Relational Context-Aware Agents for Person Search链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html代码地址：没有公开">
@@ -206,13 +206,12 @@
       
         <p>论文：RCAA Relational Context-Aware Agents for Person Search<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p>
 <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>在本文中，我们通过训练relational context-aware agents来解决这个问题，这些agens从整个场景图像库中学习定位目标人物的操作。我们将相关的空间和时间上下文合并到框架中。具体地说，我们建议在依赖查询的关系网络中使用目标人员作为查询。agent通过同时考虑局部的视觉信息、关系上下文和时间上下文，以及目标人员，确定在每个时间步上要采取的最佳操作。</p>
-<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>时空背景可能会提供额外的重要信息，但对人的搜索仍然不够深入。空间语境已被证明在回答视觉问题等任务中是有用的。在整个场景图像中，目标人物依赖的物体之间的空间关系可能有助于更有辨别力的表示。此外，序列决策在目标检测中的成功应用也为人的识别提供了借鉴。多步推理的agent可以更好地定位目标人，同时考虑到目标人的时间行为和状态记忆。在这项工作中，我们提出了一个自顶向下的搜索策略，由一个时空上下文感知的代理提供支持，以解决上面讨论的限制和机会。具体地说，考虑到整个场景、它的本地图像特性和查询图像，我们利用一个依赖于目标-人的关系网络来提取对象之间的空间上下文。然后，我们的深度强化学习代理根据空间上下文及其时间动作和状态记忆，在每一个时间步选择最佳动作，以缩小目标人物的精确位置。整个框架不包含人员建议计算，并且是端到端可培训的。<br>贡献：  </p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>时空背景可能会提供额外的重要信息，但对人的搜索仍然不够深入。空间语境已被证明在回答视觉问题等任务中是有用的。在整个场景图像中，目标人物依赖的物体之间的空间关系可能有助于更有辨别力的表示。此外，序列决策在目标检测中的成功应用也为人的识别提供了借鉴。多步推理的agent可以更好地定位目标人，同时考虑到目标人的时间行为和状态记忆。在这项工作中，我们提出了一个自顶向下的搜索策略，由一个时空上下文感知的代理提供支持，以解决上面讨论的限制和机会。具体地说，考虑到整个场景、它的本地图像特性和查询图像，我们利用一个依赖于目标-人的关系网络来提取对象之间的空间上下文。然后，我们的深度强化学习代理根据空间上下文及其时间动作和状态记忆，在每一个时间步选择最佳动作，以缩小目标人物的精确位置。整个框架不包含人员建议计算，并且是端到端可培训的。</p>
+<p>贡献：    </p>
 <ol>
-<li><p>我们最早尝试将人的搜索问题作为一个决策过程来解决，并构建了第一个基于深度强化学习的人的搜索框架。 </p>
-</li>
-<li><p>该模型采用端到端方式进行训练，不需要进行冗余和噪声的proposal  computing。有趣的是，我们的模型甚至比负载完美的proposal detector方法性能更好。</p>
-</li>
-<li>我们在训练过程中加入了相关的时空背景，从而引导模型产生更多的信息“经验”。  </li>
+<li>我们最早尝试将人的搜索问题作为一个决策过程来解决，并构建了第一个基于深度强化学习的人的搜索框架。</li>
+<li>该模型采用端到端方式进行训练，不需要进行冗余和噪声的proposal Scomputing。有趣的是，我们的模型甚至比负载完美的proposal detector方法性能更好。</li>
+<li>我们在训练过程中加入了相关的时空背景，从而引导模型产生更多的信息“经验”。 </li>
 </ol>
 <h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul>
 <li>Person re-id<br>pass  </li>
@@ -272,10 +271,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码踩坑</a>
         		</li>
       		
 		</ul>
@@ -345,8 +340,8 @@
     </a>
   
   
-    <a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【Person Search】 Joint Detection and Identification Feature Learning for Person Search</div>
+    <a href="/uncategorized/Person Search by Multi-Scale Matching" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Person Search】 Person Search by Multi-Scale Matching</div>
       <i class="icon-circle-right"></i>
     </a>
   

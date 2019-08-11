@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://gggcy.github.io">
-  <title>Tag: 论文笔记 | 哲人存远</title>
+  <title>【Person Search】 Person Search by Multi-Scale Matching | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="哲人存远">
-<meta property="og:url" content="http://gggcy.github.io/tags/论文笔记/index.html">
+  <meta name="description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
+<meta name="keywords" content="论文笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Person Search】 Person Search by Multi-Scale Matching">
+<meta property="og:url" content="http://gggcy.github.io/uncategorized/Person Search by Multi-Scale Matching">
 <meta property="og:site_name" content="哲人存远">
+<meta property="og:description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA1.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA2.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA3.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA4.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA5.png">
+<meta property="og:updated_time" content="2019-08-11T05:17:33.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲人存远">
+<meta name="twitter:title" content="【Person Search】 Person Search by Multi-Scale Matching">
+<meta name="twitter:description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
+<meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -172,73 +183,90 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+
+<article id="post-Person Search by Multi-Scale Matching" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/RCAA Relational Context Aware Agents for Person Search" class="archive-article-date">
-  	<time datetime="2018-12-09T10:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/RCAA Relational Context Aware Agents for Person Search">【Person Search】 RCAA Relational Context-Aware Agents for Person Search</a>
+    <h1 class="article-title" itemprop="name">
+      【Person Search】 Person Search by Multi-Scale Matching
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/Person Search by Multi-Scale Matching" class="archive-article-date">
+        
+        <a href="/uncategorized/Person Search by Multi-Scale Matching" class="archive-article-date">
   	<time datetime="2018-11-28T03:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/Person Search by Multi-Scale Matching">【Person Search】 Person Search by Multi-Scale Matching</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>论文：Person Search by Multi-Scale Matching<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>研究了无约束场景图像中的人搜索问题。现有的检测方法多侧重于提高人的检测精度，以减轻自动检测噪声引起的配准误差、误检等带来的负面影响。与以往的研究相比，我们发现，通过改进现有的深度学习对象检测器(如Fast R-CNN)，可以实现足够的可重复责任人实例裁剪，而在人员搜索中尚未得到充分研究的多尺度匹配问题是一个更为严重的障碍。在这项工作中，我们提出了一种跨层次语义对齐(CLSA)的深度学习方法，能够在统一的端到端模型中学习更具鉴别性的身份特征表示，从而解决了这个多尺度的人搜索挑战。这是通过利用深度神经网络的网络内特征金字塔结构来实现的。这很好地消除了构建计算开销昂贵的图像金字塔和复杂的多分支网络体系结构的需要。</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人搜索处理原始的未细化的检测与许多错误裁剪和未知程度的错位。这就产生了一个更具挑战性的匹配问题，尤其是在人的重新识别过程中。此外，自动检测的人员框通常在规模(分辨率)上比常规的差异更大。由于人与摄像机之间固有的无法控制的距离(图1(a))。因此，它本质上是一个多尺度匹配问题。然而，这一问题目前在人员搜索中研究不足。</p>
+<p>贡献：    </p>
+<ol>
+<li>我们确定了人搜索中的多尺度匹配问题，这是文献中缺少的一个元素，但发现它对提高模型性能具有重要意义。</li>
+<li>我们提出了一个跨层次语义对齐(CLSA)的深度学习方法来解决多尺度匹配的挑战。这是基于学习一个端到端的网络内特征金字塔表示，具有较强的鲁棒性，以应对可变尺度的自动检测人的边界框。</li>
+<li>我们改进了Faster R-CNN模型，在不受控制的场景中实现更可靠的行人定位，从而提高了整体搜索性能。以及用实验证明了<div align="center"><br><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA1.png" alt></div>  
 
-        <div class="article-info info-on-right">
-          
+</li>
+</ol>
+<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul>
+<li>Person search<br>pass  </li>
+<li>pedestrian detection<br>pass    </li>
+</ul>
+<h1 id="3-Cross-Level-Semantic-Alignment-for-Person-Search"><a href="#3-Cross-Level-Semantic-Alignment-for-Person-Search" class="headerlink" title="3. Cross-Level Semantic Alignment for Person Search"></a>3. Cross-Level Semantic Alignment for Person Search</h1><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA2.png" alt><br></div>  
+
+<h2 id="3-1-Person-Detection"><a href="#3-1-Person-Detection" class="headerlink" title="3.1 Person Detection"></a>3.1 Person Detection</h2><p>进一步提高检测性能和效率,我们介绍一些设计改进原模型。</p>
+<ol>
+<li>不是使用传统的RoI的利益(地区)池层,我们该地区农作物和调整功能映射到14×14像素,并进一步最大池他们7×7获得更好的效率</li>
+<li>在ImageNet-1K上对backbone ResNet-50网络进行预训练后，我们将第一个构建块(前4层)固定在目标人物搜索数据的微调中。这允许保留从较大的源数据中学到的共享底层特性，同时使模型适应目标数据。</li>
+<li>在非最大抑制(NMS)操作之前，我们保留并利用所有大小的proposals来降低在不受控制的场景中极端尺度下的误检率。在部署中，我们考虑所有的检测框得分都在0.5以上，而不是从每个场景图像中提取固定数量的框。这个很好理解。<h2 id="3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment"><a href="#3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment" class="headerlink" title="3.2 Multi-Scale Matching by Cross-Level Semantic Alignment"></a>3.2 Multi-Scale Matching by Cross-Level Semantic Alignment</h2><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA3.png" alt></div>
+
+</li>
+</ol>
+<p>有点复杂，具体可以见论文。</p>
+<h1 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4. Experiments"></a>4. Experiments</h1><h2 id="On-CUHK-SYSU"><a href="#On-CUHK-SYSU" class="headerlink" title="On CUHK-SYSU"></a>On CUHK-SYSU</h2><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA4.png" alt></div>
+
+<h2 id="On-PRW"><a href="#On-PRW" class="headerlink" title="On PRW"></a>On PRW</h2><p>pass</p>
+<h2 id="Further-Analysis-and-Discussions"><a href="#Further-Analysis-and-Discussions" class="headerlink" title="Further Analysis and Discussions"></a>Further Analysis and Discussions</h2><p>在re-id和detection的数据集上也做了一些实验。</p>
+<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA5.png" alt></div>   
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>在本文中，我们提出了一种新的跨层次语义对齐(CLSA)深度学习框架，用于无约束场景图像中的人物搜索。与现有的以提高人的检测性能为核心的人的搜索方法相比，我们的实验表明，解决多尺度匹配问题对提高人的搜索结果更为重要。<br>为了解决这一研究不足的跨尺度人员搜索问题，我们提出了一种端到端的CLSA深度学习方法，通过构造网络内特征金字塔结构表示，利用语义对齐学习损失函数增强其表示能力。以使所有特征金字塔等级识别具有辨别力，从而导致更有效的分层表示，用于匹配具有大且无约束的尺度变化的人物图像。</p>
+<h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>主要通过提升检测时候增加了多尺度匹配，通过特征金字塔，在re-id部分增加语义对齐，这个在re-id里也是常用手段，但是是跨层次的，相当于multi-scale的。最后结尾在一些image-based re-id数据集上也做了实验，比如market1501和cuhk03上，但是提升效果寥寥，88.9的top1在market1501上真的很一般。为啥能在person search上表现这么好，总之person search的坑很多，一些在detection上和re-id上能提升的，改进一些都可以在person search上有提高。但是这也提高了太多了把~</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -250,103 +278,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" class="archive-article-date">
-  	<time datetime="2018-10-21T02:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/uncategorized/RCAA Relational Context Aware Agents for Person Search" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【Person Search】 RCAA Relational Context-Aware Agents for Person Search
+        
+      </div>
+    </a>
+  
+  
+    <a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Person Search】 Joint Detection and Identification Feature Learning for Person Search</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search">【Person Search】 Joint Detection and Identification Feature Learning for Person Search</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction"><span class="toc-number">2.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Related-Work"><span class="toc-number">3.</span> <span class="toc-text">2. Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Cross-Level-Semantic-Alignment-for-Person-Search"><span class="toc-number">4.</span> <span class="toc-text">3. Cross-Level Semantic Alignment for Person Search</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Person-Detection"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 Person Detection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 Multi-Scale Matching by Cross-Level Semantic Alignment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Experiments"><span class="toc-number">5.</span> <span class="toc-text">4. Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#On-CUHK-SYSU"><span class="toc-number">5.1.</span> <span class="toc-text">On CUHK-SYSU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-PRW"><span class="toc-number">5.2.</span> <span class="toc-text">On PRW</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-Analysis-and-Discussions"><span class="toc-number">5.3.</span> <span class="toc-text">Further Analysis and Discussions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#个人心得"><span class="toc-number">7.</span> <span class="toc-text">个人心得</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/uncategorized/Person Re-identification in the Wild" class="archive-article-date">
-  	<time datetime="2018-10-02T02:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/Person Re-identification in the Wild">【Person Search】 Person Re-identification in the Wild</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码踩坑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -372,9 +415,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
