@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://gggcy.github.io">
+  <link rel="dns-prefetch" href="cygao.xyz">
   <title>【Person Search】 Person Re-identification in the Wild | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="论文：Person Re-identification in the Wild链接：https://arxiv.org/abs/1604.02531代码地址：https://github.com/liangzheng06/PRW-baseline">
 <meta name="keywords" content="论文笔记,代码踩坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Person Search】 Person Re-identification in the Wild">
-<meta property="og:url" content="http://gggcy.github.io/uncategorized/Person Re-identification in the Wild">
+<meta property="og:url" content="cygao.xyz/uncategorized/Person Re-identification in the Wild">
 <meta property="og:site_name" content="哲人存远">
 <meta property="og:description" content="论文：Person Re-identification in the Wild链接：https://arxiv.org/abs/1604.02531代码地址：https://github.com/liangzheng06/PRW-baseline">
 <meta property="og:locale" content="Chinese">
@@ -349,7 +349,7 @@
   
 <nav id="article-nav">
   
-    <a href="/uncategorized/Joint Detection and Identification Feature Learning for Person Search" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/uncategorized/Neural Person Search Machines" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
