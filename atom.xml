@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="cygao.xyz/"/>
+  <link href="http://www.cygao.xyz/"/>
   <updated>2019-08-08T08:49:19.714Z</updated>
-  <id>cygao.xyz/</id>
+  <id>http://www.cygao.xyz/</id>
   
   <author>
     <name>Cunyuan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>markdown格式编写</title>
-    <link href="cygao.xyz/uncategorized/Joint"/>
-    <id>cygao.xyz/uncategorized/Joint</id>
+    <link href="http://www.cygao.xyz/2019/06/08/Joint/"/>
+    <id>http://www.cygao.xyz/2019/06/08/Joint/</id>
     <published>2019-06-08T07:30:28.000Z</published>
     <updated>2019-08-08T08:49:19.714Z</updated>
     
@@ -36,8 +36,8 @@
   
   <entry>
     <title>【Person Search】 RCAA Relational Context-Aware Agents for Person Search</title>
-    <link href="cygao.xyz/uncategorized/RCAA%20Relational%20Context%20Aware%20Agents%20for%20Person%20Search"/>
-    <id>cygao.xyz/uncategorized/RCAA Relational Context Aware Agents for Person Search</id>
+    <link href="http://www.cygao.xyz/2018/12/09/RCAA%20Relational%20Context%20Aware%20Agents%20for%20Person%20Search/"/>
+    <id>http://www.cygao.xyz/2018/12/09/RCAA Relational Context Aware Agents for Person Search/</id>
     <published>2018-12-09T10:27:11.000Z</published>
     <updated>2019-08-11T06:05:42.353Z</updated>
     
@@ -50,14 +50,14 @@
     </summary>
     
     
-      <category term="论文笔记" scheme="cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>【Person Search】 Person Search by Multi-Scale Matching</title>
-    <link href="cygao.xyz/uncategorized/Person%20Search%20by%20Multi-Scale%20Matching"/>
-    <id>cygao.xyz/uncategorized/Person Search by Multi-Scale Matching</id>
+    <link href="http://www.cygao.xyz/2018/11/28/Person%20Search%20by%20Multi-Scale%20Matching/"/>
+    <id>http://www.cygao.xyz/2018/11/28/Person Search by Multi-Scale Matching/</id>
     <published>2018-11-28T03:23:45.000Z</published>
     <updated>2019-08-11T07:08:30.474Z</updated>
     
@@ -70,14 +70,14 @@
     </summary>
     
     
-      <category term="论文笔记" scheme="cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>【Person Search】 Joint Detection and Identification Feature Learning for Person Search</title>
-    <link href="cygao.xyz/uncategorized/Joint%20Detection%20and%20Identification%20Feature%20Learning%20for%20Person%20Search"/>
-    <id>cygao.xyz/uncategorized/Joint Detection and Identification Feature Learning for Person Search</id>
+    <link href="http://www.cygao.xyz/2018/10/21/Joint%20Detection%20and%20Identification%20Feature%20Learning%20for%20Person%20Search/"/>
+    <id>http://www.cygao.xyz/2018/10/21/Joint Detection and Identification Feature Learning for Person Search/</id>
     <published>2018-10-21T02:27:11.000Z</published>
     <updated>2019-08-11T01:50:05.037Z</updated>
     
@@ -90,16 +90,16 @@
     </summary>
     
     
-      <category term="论文笔记" scheme="cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="代码踩坑" scheme="cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
   </entry>
   
   <entry>
     <title>【Person Search】 Joint Detection and Identification Feature Learning for Person Search</title>
-    <link href="cygao.xyz/uncategorized/Neural%20Person%20Search%20Machines"/>
-    <id>cygao.xyz/uncategorized/Neural Person Search Machines</id>
+    <link href="http://www.cygao.xyz/2018/10/21/Neural%20Person%20Search%20Machines/"/>
+    <id>http://www.cygao.xyz/2018/10/21/Neural Person Search Machines/</id>
     <published>2018-10-21T02:27:11.000Z</published>
     <updated>2019-08-11T01:50:05.037Z</updated>
     
@@ -112,16 +112,16 @@
     </summary>
     
     
-      <category term="论文笔记" scheme="cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="代码踩坑" scheme="cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
   </entry>
   
   <entry>
     <title>【Person Search】 Person Re-identification in the Wild</title>
-    <link href="cygao.xyz/uncategorized/Person%20Re-identification%20in%20the%20Wild"/>
-    <id>cygao.xyz/uncategorized/Person Re-identification in the Wild</id>
+    <link href="http://www.cygao.xyz/2018/10/02/Person%20Re-identification%20in%20the%20Wild/"/>
+    <id>http://www.cygao.xyz/2018/10/02/Person Re-identification in the Wild/</id>
     <published>2018-10-02T02:27:11.000Z</published>
     <updated>2019-08-11T03:13:00.285Z</updated>
     
@@ -134,9 +134,9 @@
     </summary>
     
     
-      <category term="论文笔记" scheme="cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="代码踩坑" scheme="cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
   </entry>
   
