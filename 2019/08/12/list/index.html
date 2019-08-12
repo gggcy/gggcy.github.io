@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.cygao.xyz">
-  <title>Archives: 2019/8 | 哲人存远</title>
+  <title>【python】 list的基本实现 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="哲人存远">
-<meta property="og:url" content="http://www.cygao.xyz/archives/2019/08/index.html">
+  <meta name="description" content="python中list的基本实现技术元素外置的顺序表python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。">
+<meta name="keywords" content="编程语言,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【python】 list的基本实现">
+<meta property="og:url" content="http://www.cygao.xyz/2019/08/12/list/index.html">
 <meta property="og:site_name" content="哲人存远">
+<meta property="og:description" content="python中list的基本实现技术元素外置的顺序表python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/list1.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/list2.png">
+<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/list3.png">
+<meta property="og:updated_time" content="2019-08-12T08:39:25.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲人存远">
+<meta name="twitter:title" content="【python】 list的基本实现">
+<meta name="twitter:description" content="python中list的基本实现技术元素外置的顺序表python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。">
+<meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/list1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -172,35 +181,102 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+
+<article id="post-list" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/12/list/" class="archive-article-date">
-  	<time datetime="2019-08-12T08:26:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/12/list/">【python】 list的基本实现</a>
+    <h1 class="article-title" itemprop="name">
+      【python】 list的基本实现
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+
+  <br>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+  
+        
+        <a href="/2019/08/12/list/" class="archive-article-date">
+  	<time datetime="2019-08-12T08:26:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python中list的基本实现技术"><a href="#python中list的基本实现技术" class="headerlink" title="python中list的基本实现技术"></a>python中list的基本实现技术</h1><h2 id="元素外置的顺序表"><a href="#元素外置的顺序表" class="headerlink" title="元素外置的顺序表"></a>元素外置的顺序表</h2><p>python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="string">"abc"</span>,<span class="number">2.2</span>]</span><br></pre></td></tr></table></figure></p>
+<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list1.png" alt></div>  
+
+<blockquote>
+<p>Loc(li) = Loc(l0) + c*i </p>
+</blockquote>
+<p>元素的大小不统一，则须采用如图的元素外置的形式，将实际数据元素另行存储，而顺序表中各单元位置保存对应元素的地址信息（即链接）。由于每个链接所需的存储量相同，通过上述公式，可以计算出元素链接的存储位置，而后顺着链接找到实际存储的数据元素。注意，图b中的c不再是数据元素的大小，而是存储一个链接地址所需的存储量，这个量通常很小。<br>如图这样的顺序表也被称为对实际数据的索引，这是最简单的索引结构。</p>
+<h2 id="顺序表的结构"><a href="#顺序表的结构" class="headerlink" title="顺序表的结构"></a>顺序表的结构</h2><p>一个顺序表的完整信息包括两部分，一部分是表中的元素集合，另一部分是为实现正确操作而需记录的信息，即有关表的整体情况的信息，这部分信息主要包括元素存储区的容量和当前表中已有的元素个数两项。</p>
+<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list2.png" alt></div><br>python中的list主要采用分离式结构，如图<br><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list3.png" alt></div>  
+
+<p>表对象里只保存与整个表有关的信息（即容量和元素个数），实际数据元素存放在另一个独立的元素存储区里，通过链接与基本表对象关联。这样在进行扩充的时候，数据的迁移，不用迁徙表头，指针指向的地址改变就行。</p>
+<h2 id="list的数据扩充"><a href="#list的数据扩充" class="headerlink" title="list的数据扩充"></a>list的数据扩充</h2><p>在Python的官方实现中，list实现采用了如下的策略：在建立空表（或者很小的表）时，系统分配一块能容纳8个元素的存储区；在执行插入操作（insert或append）时，如果元素存储区满就换一块4倍大的存储区。但如果此时的表已经很大（目前的阀值为50000），则改变策略，采用加一倍的方法。引入这种改变策略的方式，是为了避免出现过多空闲的存储位置。</p>
+
+      
+      <!-- 增加版权声明 -->
+      <!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+      <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -216,59 +292,151 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/12/python timeit/" class="archive-article-date">
-  	<time datetime="2019-08-12T01:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/12/python timeit/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【python】 timeit模块,list及dict操作复杂度</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/12/python timeit/">【python】 timeit模块,list及dict操作复杂度</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python中list的基本实现技术"><span class="toc-number">1.</span> <span class="toc-text">python中list的基本实现技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#元素外置的顺序表"><span class="toc-number">1.1.</span> <span class="toc-text">元素外置的顺序表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顺序表的结构"><span class="toc-number">1.2.</span> <span class="toc-text">顺序表的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list的数据扩充"><span class="toc-number">1.3.</span> <span class="toc-text">list的数据扩充</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+    </div>
+</aside>
 
 
+
+  
+    <div class="valine_comment"></div>
+<!--载入js，在</body>之前插入即可-->
+<!--Leancloud 操作库:-->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--Valine 的核心代码库-->
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'true' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  new Valine({
+      // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+      av: AV,
+      el: '.valine_comment',
+      emoticon_url: 'https://cloud.panjunwen.com/alu',
+      emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+      app_id: '5bpmqQ4MrKPysDXE0gVbfMKG-gzGzoHsz',
+      app_key: 'pP0cI6JOgjj5FVYXF6gh5aFh',
+      placeholder: '有话要说？'
+    });
+</script>
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+
+
+
+<script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
           </div>
         </div>
       </div>
@@ -303,8 +471,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -1,3 +1,4 @@
+http://www.cygao.xyz/2019/08/12/list/
 http://www.cygao.xyz/2019/08/12/python timeit/
 http://www.cygao.xyz/2019/06/08/Joint/
 http://www.cygao.xyz/2018/12/09/RCAA Relational Context Aware Agents for Person Search/
