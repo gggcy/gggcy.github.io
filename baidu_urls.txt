@@ -1,8 +1,7 @@
-https://gggcy.github.io/2019/08/12/googlef8c1920f6ab7d8b9/
 https://gggcy.github.io/2019/08/12/python memo/
 https://gggcy.github.io/2019/06/08/Joint/
 https://gggcy.github.io/2018/12/09/RCAA Relational Context Aware Agents for Person Search/
 https://gggcy.github.io/2018/11/28/Person Search by Multi-Scale Matching/
-https://gggcy.github.io/2018/10/21/Neural Person Search Machines/
 https://gggcy.github.io/2018/10/21/Joint Detection and Identification Feature Learning for Person Search/
+https://gggcy.github.io/2018/10/21/Neural Person Search Machines/
 https://gggcy.github.io/2018/10/02/Person Re-identification in the Wild/

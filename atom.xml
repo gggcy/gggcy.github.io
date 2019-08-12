@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gggcy.github.io/"/>
-  <updated>2019-08-12T01:23:27.708Z</updated>
+  <updated>2019-08-12T01:01:56.002Z</updated>
   <id>https://gggcy.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://gggcy.github.io/2019/08/12/googlef8c1920f6ab7d8b9/"/>
-    <id>https://gggcy.github.io/2019/08/12/googlef8c1920f6ab7d8b9/</id>
-    <published>2019-08-12T01:23:27.368Z</published>
-    <updated>2019-08-12T01:23:27.708Z</updated>
-    
-    <content type="html"><![CDATA[google-site-verification: googlef8c1920f6ab7d8b9.html]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        google-site-verification: googlef8c1920f6ab7d8b9.html
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>memo</title>
@@ -111,8 +90,8 @@
   
   <entry>
     <title>【Person Search】 Joint Detection and Identification Feature Learning for Person Search</title>
-    <link href="https://gggcy.github.io/2018/10/21/Neural%20Person%20Search%20Machines/"/>
-    <id>https://gggcy.github.io/2018/10/21/Neural Person Search Machines/</id>
+    <link href="https://gggcy.github.io/2018/10/21/Joint%20Detection%20and%20Identification%20Feature%20Learning%20for%20Person%20Search/"/>
+    <id>https://gggcy.github.io/2018/10/21/Joint Detection and Identification Feature Learning for Person Search/</id>
     <published>2018-10-21T02:27:11.000Z</published>
     <updated>2019-08-11T01:50:05.037Z</updated>
     
@@ -133,8 +112,8 @@
   
   <entry>
     <title>【Person Search】 Joint Detection and Identification Feature Learning for Person Search</title>
-    <link href="https://gggcy.github.io/2018/10/21/Joint%20Detection%20and%20Identification%20Feature%20Learning%20for%20Person%20Search/"/>
-    <id>https://gggcy.github.io/2018/10/21/Joint Detection and Identification Feature Learning for Person Search/</id>
+    <link href="https://gggcy.github.io/2018/10/21/Neural%20Person%20Search%20Machines/"/>
+    <id>https://gggcy.github.io/2018/10/21/Neural Person Search Machines/</id>
     <published>2018-10-21T02:27:11.000Z</published>
     <updated>2019-08-11T01:50:05.037Z</updated>
     
