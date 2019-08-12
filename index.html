@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/编程语言/">随笔</a></li>
 	        
 				<li><a href="/tags/论文笔记/">论文笔记</a></li>
 	        
@@ -150,7 +150,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 20%"><a href="/tags/编程语言/">随笔</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/论文笔记/">论文笔记</a></li>
 		        
@@ -173,21 +173,21 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="python-python memo" class="article article-type-python  article-index" itemscope itemprop="blogPost">
+    <article id="post-python timeit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/12/python memo/">memo</a>
+      <a class="article-title" href="/2019/08/12/python timeit/">【python】 timeit模块,list及dict操作复杂度</a>
     </h1>
   
 
         <!--显示阅读次数-->
 
         
-        <a href="/2019/08/12/python memo/" class="archive-article-date">
+        <a href="/2019/08/12/python timeit/" class="archive-article-date">
   	<time datetime="2019-08-12T01:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
 </a>
         
@@ -195,7 +195,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Python内置类型性能分析"><a href="#Python内置类型性能分析" class="headerlink" title="Python内置类型性能分析"></a>Python内置类型性能分析</h1><h2 id="timeit模块"><a href="#timeit模块" class="headerlink" title="timeit模块"></a>timeit模块</h2><p>timeit模块可以用来测试一小段Python代码的执行速度。</p>
+<h3 id="class-timeit-Timer-stmt-’pass’-setup-’pass’-timer"><a href="#class-timeit-Timer-stmt-’pass’-setup-’pass’-timer" class="headerlink" title="class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)"></a>class timeit.Timer(stmt=’pass’, setup=’pass’ timer=<timer function>)</timer></h3><p>Timer是测量小段代码执行速度的类。</p>
+<p>stmt参数是要测试的代码语句（statment）；</p>
+<p>setup参数是运行代码时需要的设置；</p>
+<p>timer参数是一个定时器函数，与平台有关。</p>
+<h3 id="timeit-Timer-timeit-number-1000000"><a href="#timeit-Timer-timeit-number-1000000" class="headerlink" title="timeit.Timer.timeit(number=1000000)"></a>timeit.Timer.timeit(number=1000000)</h3><p>Timer类中测试语句执行速度的对象方法。number参数是测试代码时的测试次数，默认为1000000次。方法返回执行代码的平均耗时，一个float类型的秒数。</p>
+<h2 id="比较list的操作复杂度"><a href="#比较list的操作复杂度" class="headerlink" title="比较list的操作复杂度"></a>比较list的操作复杂度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">   l = []</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">      l = l + [i] <span class="comment">#会先创建一个新的列表l + [i]再赋值到新的l上，效率很差。尽量使用l+=[i]，已在python内部优化了。 </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">   l = []</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">      l.append(i)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test3</span><span class="params">()</span>:</span></span><br><span class="line">   l = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test4</span><span class="params">()</span>:</span></span><br><span class="line">   l = list(range(<span class="number">1000</span>))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test5</span><span class="params">()</span>:</span></span><br><span class="line">   l =[]</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">      l.extend([i]) <span class="comment"># 类似于 l+=[i]，是直接在列表l上操作</span></span><br><span class="line"><span class="keyword">from</span> timeit <span class="keyword">import</span> Timer</span><br><span class="line"></span><br><span class="line">t1 = Timer(<span class="string">"test1()"</span>, <span class="string">"from __main__ import test1"</span>)</span><br><span class="line">print(<span class="string">"concat "</span>,t1.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t2 = Timer(<span class="string">"test2()"</span>, <span class="string">"from __main__ import test2"</span>)</span><br><span class="line">print(<span class="string">"append "</span>,t2.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t3 = Timer(<span class="string">"test3()"</span>, <span class="string">"from __main__ import test3"</span>)</span><br><span class="line">print(<span class="string">"comprehension "</span>,t3.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t4 = Timer(<span class="string">"test4()"</span>, <span class="string">"from __main__ import test4"</span>)</span><br><span class="line">print(<span class="string">"list range "</span>,t4.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t4 = Timer(<span class="string">"test5()"</span>, <span class="string">"from __main__ import test5"</span>)</span><br><span class="line">print(<span class="string">"extend "</span>,t5.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line"><span class="comment"># ('concat ', 1.7890608310699463, 'seconds')</span></span><br><span class="line"><span class="comment"># ('append ', 0.13796091079711914, 'seconds')</span></span><br><span class="line"><span class="comment"># ('comprehension ', 0.05671119689941406, 'seconds')</span></span><br><span class="line"><span class="comment"># ('list range ', 0.014147043228149414, 'seconds')</span></span><br><span class="line"><span class="comment"># ('extend ', 0.12147043228149414, 'seconds')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>list range(迭代转化) &lt; comprehension(包含) &lt; extend &lt; append &lt; concat </p>
+</blockquote>
+<h3 id="pop操作比较"><a href="#pop操作比较" class="headerlink" title="pop操作比较"></a>pop操作比较</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = range(<span class="number">2000000</span>)</span><br><span class="line">pop_zero = Timer(<span class="string">"x.pop(0)"</span>,<span class="string">"from __main__ import x"</span>)</span><br><span class="line">print(<span class="string">"pop_zero "</span>,pop_zero.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">x = range(<span class="number">2000000</span>)</span><br><span class="line">pop_end = Timer(<span class="string">"x.pop()"</span>,<span class="string">"from __main__ import x"</span>)</span><br><span class="line">print(<span class="string">"pop_end "</span>,pop_end.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ('pop_zero ', 1.9101738929748535, 'seconds')</span></span><br><span class="line"><span class="comment"># ('pop_end ', 0.00023603439331054688, 'seconds')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试pop操作：从结果可以看出，pop最后一个元素的效率远远高于pop第一个元素</p>
+</blockquote>
+<h3 id="切片赋值"><a href="#切片赋值" class="headerlink" title="切片赋值"></a>切片赋值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">l1[<span class="number">0</span>:<span class="number">2</span>] = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>] <span class="comment">#可以是任意长度</span></span><br><span class="line">&gt;&gt; l1 = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
       
       <!-- 增加版权声明 -->
       <!- 百度自动推送方式提交 -->
@@ -227,11 +241,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/12/python memo/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/12/python timeit/">展开全文 >></a>
         </p>
       
 
@@ -984,6 +1009,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">论文笔记</a>

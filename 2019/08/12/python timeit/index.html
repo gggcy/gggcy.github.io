@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.cygao.xyz">
-  <title>Archives: 2019/8 | 哲人存远</title>
+  <title>【python】 timeit模块,list及dict操作复杂度 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="哲人存远">
-<meta property="og:url" content="http://www.cygao.xyz/archives/2019/08/index.html">
+  <meta name="description" content="Python内置类型性能分析timeit模块timeit模块可以用来测试一小段Python代码的执行速度。 class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)Timer是测量小段代码执行速度的类。 stmt参数是要测试的代码语句（statment）； setup参数是运行代码时需要的设置； timer参数是一个定时器函数，与平台有关。 time">
+<meta name="keywords" content="编程语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【python】 timeit模块,list及dict操作复杂度">
+<meta property="og:url" content="http://www.cygao.xyz/2019/08/12/python timeit/index.html">
 <meta property="og:site_name" content="哲人存远">
+<meta property="og:description" content="Python内置类型性能分析timeit模块timeit模块可以用来测试一小段Python代码的执行速度。 class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)Timer是测量小段代码执行速度的类。 stmt参数是要测试的代码语句（statment）； setup参数是运行代码时需要的设置； timer参数是一个定时器函数，与平台有关。 time">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2019-08-12T03:20:25.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲人存远">
+<meta name="twitter:title" content="【python】 timeit模块,list及dict操作复杂度">
+<meta name="twitter:description" content="Python内置类型性能分析timeit模块timeit模块可以用来测试一小段Python代码的执行速度。 class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)Timer是测量小段代码执行速度的类。 stmt参数是要测试的代码语句（statment）； setup参数是运行代码时需要的设置； timer参数是一个定时器函数，与平台有关。 time">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -172,35 +177,104 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+
+<article id="post-python timeit" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/12/python timeit/" class="archive-article-date">
-  	<time datetime="2019-08-12T01:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/12/python timeit/">【python】 timeit模块,list及dict操作复杂度</a>
+    <h1 class="article-title" itemprop="name">
+      【python】 timeit模块,list及dict操作复杂度
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+
+  <br>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+  
+        
+        <a href="/2019/08/12/python timeit/" class="archive-article-date">
+  	<time datetime="2019-08-12T01:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Python内置类型性能分析"><a href="#Python内置类型性能分析" class="headerlink" title="Python内置类型性能分析"></a>Python内置类型性能分析</h1><h2 id="timeit模块"><a href="#timeit模块" class="headerlink" title="timeit模块"></a>timeit模块</h2><p>timeit模块可以用来测试一小段Python代码的执行速度。</p>
+<h3 id="class-timeit-Timer-stmt-’pass’-setup-’pass’-timer"><a href="#class-timeit-Timer-stmt-’pass’-setup-’pass’-timer" class="headerlink" title="class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)"></a>class timeit.Timer(stmt=’pass’, setup=’pass’ timer=<timer function>)</timer></h3><p>Timer是测量小段代码执行速度的类。</p>
+<p>stmt参数是要测试的代码语句（statment）；</p>
+<p>setup参数是运行代码时需要的设置；</p>
+<p>timer参数是一个定时器函数，与平台有关。</p>
+<h3 id="timeit-Timer-timeit-number-1000000"><a href="#timeit-Timer-timeit-number-1000000" class="headerlink" title="timeit.Timer.timeit(number=1000000)"></a>timeit.Timer.timeit(number=1000000)</h3><p>Timer类中测试语句执行速度的对象方法。number参数是测试代码时的测试次数，默认为1000000次。方法返回执行代码的平均耗时，一个float类型的秒数。</p>
+<h2 id="比较list的操作复杂度"><a href="#比较list的操作复杂度" class="headerlink" title="比较list的操作复杂度"></a>比较list的操作复杂度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">   l = []</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">      l = l + [i] <span class="comment">#会先创建一个新的列表l + [i]再赋值到新的l上，效率很差。尽量使用l+=[i]，已在python内部优化了。 </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">   l = []</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">      l.append(i)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test3</span><span class="params">()</span>:</span></span><br><span class="line">   l = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test4</span><span class="params">()</span>:</span></span><br><span class="line">   l = list(range(<span class="number">1000</span>))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test5</span><span class="params">()</span>:</span></span><br><span class="line">   l =[]</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">      l.extend([i]) <span class="comment"># 类似于 l+=[i]，是直接在列表l上操作</span></span><br><span class="line"><span class="keyword">from</span> timeit <span class="keyword">import</span> Timer</span><br><span class="line"></span><br><span class="line">t1 = Timer(<span class="string">"test1()"</span>, <span class="string">"from __main__ import test1"</span>)</span><br><span class="line">print(<span class="string">"concat "</span>,t1.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t2 = Timer(<span class="string">"test2()"</span>, <span class="string">"from __main__ import test2"</span>)</span><br><span class="line">print(<span class="string">"append "</span>,t2.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t3 = Timer(<span class="string">"test3()"</span>, <span class="string">"from __main__ import test3"</span>)</span><br><span class="line">print(<span class="string">"comprehension "</span>,t3.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t4 = Timer(<span class="string">"test4()"</span>, <span class="string">"from __main__ import test4"</span>)</span><br><span class="line">print(<span class="string">"list range "</span>,t4.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">t4 = Timer(<span class="string">"test5()"</span>, <span class="string">"from __main__ import test5"</span>)</span><br><span class="line">print(<span class="string">"extend "</span>,t5.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line"><span class="comment"># ('concat ', 1.7890608310699463, 'seconds')</span></span><br><span class="line"><span class="comment"># ('append ', 0.13796091079711914, 'seconds')</span></span><br><span class="line"><span class="comment"># ('comprehension ', 0.05671119689941406, 'seconds')</span></span><br><span class="line"><span class="comment"># ('list range ', 0.014147043228149414, 'seconds')</span></span><br><span class="line"><span class="comment"># ('extend ', 0.12147043228149414, 'seconds')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>list range(迭代转化) &lt; comprehension(包含) &lt; extend &lt; append &lt; concat </p>
+</blockquote>
+<h3 id="pop操作比较"><a href="#pop操作比较" class="headerlink" title="pop操作比较"></a>pop操作比较</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = range(<span class="number">2000000</span>)</span><br><span class="line">pop_zero = Timer(<span class="string">"x.pop(0)"</span>,<span class="string">"from __main__ import x"</span>)</span><br><span class="line">print(<span class="string">"pop_zero "</span>,pop_zero.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line">x = range(<span class="number">2000000</span>)</span><br><span class="line">pop_end = Timer(<span class="string">"x.pop()"</span>,<span class="string">"from __main__ import x"</span>)</span><br><span class="line">print(<span class="string">"pop_end "</span>,pop_end.timeit(number=<span class="number">1000</span>), <span class="string">"seconds"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ('pop_zero ', 1.9101738929748535, 'seconds')</span></span><br><span class="line"><span class="comment"># ('pop_end ', 0.00023603439331054688, 'seconds')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试pop操作：从结果可以看出，pop最后一个元素的效率远远高于pop第一个元素</p>
+</blockquote>
+<h3 id="切片赋值"><a href="#切片赋值" class="headerlink" title="切片赋值"></a>切片赋值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">l1[<span class="number">0</span>:<span class="number">2</span>] = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>] <span class="comment">#可以是任意长度</span></span><br><span class="line">&gt;&gt; l1 = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+      
+      <!-- 增加版权声明 -->
+      <!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+      <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,21 +286,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/06/08/Joint/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown格式编写</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python内置类型性能分析"><span class="toc-number">1.</span> <span class="toc-text">Python内置类型性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#timeit模块"><span class="toc-number">1.1.</span> <span class="toc-text">timeit模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#class-timeit-Timer-stmt-’pass’-setup-’pass’-timer"><span class="toc-number">1.1.1.</span> <span class="toc-text">class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timeit-Timer-timeit-number-1000000"><span class="toc-number">1.1.2.</span> <span class="toc-text">timeit.Timer.timeit(number=1000000)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较list的操作复杂度"><span class="toc-number">1.2.</span> <span class="toc-text">比较list的操作复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pop操作比较"><span class="toc-number">1.2.1.</span> <span class="toc-text">pop操作比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片赋值"><span class="toc-number">1.2.2.</span> <span class="toc-text">切片赋值</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
+
+
+<script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
           </div>
         </div>
       </div>
@@ -261,8 +442,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
