@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.cygao.xyz">
-  <title>【Person Search】 Person Search by Multi-Scale Matching | 哲人存远</title>
+  <title>栈的应用，括号匹配问题，中缀、后缀表达式 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
-<meta name="keywords" content="论文笔记">
+  <meta name="description" content="栈的应用使用场景1.符号匹配2.计算机表达式的转换3.CPU内部栈主要是用来进行子程序调用和返回4.进制转换">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Person Search】 Person Search by Multi-Scale Matching">
-<meta property="og:url" content="http://www.cygao.xyz/2018/11/28/Person Search by Multi-Scale Matching/index.html">
+<meta property="og:title" content="栈的应用，括号匹配问题，中缀、后缀表达式">
+<meta property="og:url" content="http://www.cygao.xyz/2019/08/12/stack/index.html">
 <meta property="og:site_name" content="哲人存远">
-<meta property="og:description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
+<meta property="og:description" content="栈的应用使用场景1.符号匹配2.计算机表达式的转换3.CPU内部栈主要是用来进行子程序调用和返回4.进制转换">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA1.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA2.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA3.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA4.png">
-<meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA5.png">
-<meta property="og:updated_time" content="2019-08-11T07:08:30.474Z">
+<meta property="og:updated_time" content="2019-08-13T02:55:57.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Person Search】 Person Search by Multi-Scale Matching">
-<meta name="twitter:description" content="论文：Person Search by Multi-Scale Matching链接：http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html代码地址：没有公开">
-<meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/CLSA1.png">
+<meta name="twitter:title" content="栈的应用，括号匹配问题，中缀、后缀表达式">
+<meta name="twitter:description" content="栈的应用使用场景1.符号匹配2.计算机表达式的转换3.CPU内部栈主要是用来进行子程序调用和返回4.进制转换">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
   
@@ -184,14 +178,14 @@
           <div id="js-content" class="content-ll">
             
 
-<article id="post-Person Search by Multi-Scale Matching" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-stack" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【Person Search】 Person Search by Multi-Scale Matching
+      栈的应用，括号匹配问题，中缀、后缀表达式
     </h1>
   
 
@@ -206,50 +200,46 @@
   </a>
   
         
-        <a href="/2018/11/28/Person Search by Multi-Scale Matching/" class="archive-article-date">
-  	<time datetime="2018-11-28T03:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
+        <a href="/2019/08/12/stack/" class="archive-article-date">
+  	<time datetime="2019-08-12T04:54:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>论文：Person Search by Multi-Scale Matching<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=863970833&auto=0&height=66"></iframe>
-
-<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>研究了无约束场景图像中的人搜索问题。现有的检测方法多侧重于提高人的检测精度，以减轻自动检测噪声引起的配准误差、误检等带来的负面影响。与以往的研究相比，我们发现，通过改进现有的深度学习对象检测器(如Fast R-CNN)，可以实现足够的可重复责任人实例裁剪，而在人员搜索中尚未得到充分研究的多尺度匹配问题是一个更为严重的障碍。在这项工作中，我们提出了一种跨层次语义对齐(CLSA)的深度学习方法，能够在统一的端到端模型中学习更具鉴别性的身份特征表示，从而解决了这个多尺度的人搜索挑战。这是通过利用深度神经网络的网络内特征金字塔结构来实现的。这很好地消除了构建计算开销昂贵的图像金字塔和复杂的多分支网络体系结构的需要。</p>
-<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人搜索处理原始的未细化的检测与许多错误裁剪和未知程度的错位。这就产生了一个更具挑战性的匹配问题，尤其是在人的重新识别过程中。此外，自动检测的人员框通常在规模(分辨率)上比常规的差异更大。由于人与摄像机之间固有的无法控制的距离(图1(a))。因此，它本质上是一个多尺度匹配问题。然而，这一问题目前在人员搜索中研究不足。</p>
-<p>贡献：    </p>
-<ol>
-<li>我们确定了人搜索中的多尺度匹配问题，这是文献中缺少的一个元素，但发现它对提高模型性能具有重要意义。</li>
-<li>我们提出了一个跨层次语义对齐(CLSA)的深度学习方法来解决多尺度匹配的挑战。这是基于学习一个端到端的网络内特征金字塔表示，具有较强的鲁棒性，以应对可变尺度的自动检测人的边界框。</li>
-<li>我们改进了Faster R-CNN模型，在不受控制的场景中实现更可靠的行人定位，从而提高了整体搜索性能。以及用实验证明了<div align="center"><br><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA1.png" alt></div>  
-
-</li>
-</ol>
-<h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul>
-<li>Person search<br>pass  </li>
-<li>pedestrian detection<br>pass    </li>
+        <h1 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h1><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>1.符号匹配<br>2.计算机表达式的转换<br>3.CPU内部栈主要是用来进行子程序调用和返回<br>4.进制转换<br><a id="more"></a></p>
+<h3 id="1-括号匹配问题"><a href="#1-括号匹配问题" class="headerlink" title="1.括号匹配问题"></a>1.括号匹配问题</h3><p>大多数计算机语言中都需要检测括号是否匹配，那么如何实现符号成对检测？  </p>
+<p><strong>算法思路</strong>：</p>
+<ul>
+<li>从第一个字符开始扫描</li>
+<li>当遇见普通字符时忽略，</li>
+<li>当遇见左符号时压入栈中</li>
+<li>当遇见右符号时从栈中弹出栈顶符号，并进行匹配</li>
+<li>匹配成功：继续读入下一个字符</li>
+<li>匹配失败：立即停止，并报错</li>
+<li>结束：<br>成功: 所有字符扫描完毕，且栈为空<br>失败：匹配失败或所有字符扫描完毕但栈非空</li>
 </ul>
-<h1 id="3-Cross-Level-Semantic-Alignment-for-Person-Search"><a href="#3-Cross-Level-Semantic-Alignment-for-Person-Search" class="headerlink" title="3. Cross-Level Semantic Alignment for Person Search"></a>3. Cross-Level Semantic Alignment for Person Search</h1><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA2.png" alt><br></div>  
-
-<h2 id="3-1-Person-Detection"><a href="#3-1-Person-Detection" class="headerlink" title="3.1 Person Detection"></a>3.1 Person Detection</h2><p>进一步提高检测性能和效率,我们介绍一些设计改进原模型。</p>
-<ol>
-<li>不是使用传统的RoI的利益(地区)池层,我们该地区农作物和调整功能映射到14×14像素,并进一步最大池他们7×7获得更好的效率</li>
-<li>在ImageNet-1K上对backbone ResNet-50网络进行预训练后，我们将第一个构建块(前4层)固定在目标人物搜索数据的微调中。这允许保留从较大的源数据中学到的共享底层特性，同时使模型适应目标数据。</li>
-<li>在非最大抑制(NMS)操作之前，我们保留并利用所有大小的proposals来降低在不受控制的场景中极端尺度下的误检率。在部署中，我们考虑所有的检测框得分都在0.5以上，而不是从每个场景图像中提取固定数量的框。这个很好理解。<h2 id="3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment"><a href="#3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment" class="headerlink" title="3.2 Multi-Scale Matching by Cross-Level Semantic Alignment"></a>3.2 Multi-Scale Matching by Cross-Level Semantic Alignment</h2><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA3.png" alt></div>
-
-</li>
-</ol>
-<p>有点复杂，具体可以见论文。</p>
-<h1 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4. Experiments"></a>4. Experiments</h1><h2 id="On-CUHK-SYSU"><a href="#On-CUHK-SYSU" class="headerlink" title="On CUHK-SYSU"></a>On CUHK-SYSU</h2><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA4.png" alt></div>
-
-<h2 id="On-PRW"><a href="#On-PRW" class="headerlink" title="On PRW"></a>On PRW</h2><p>pass</p>
-<h2 id="Further-Analysis-and-Discussions"><a href="#Further-Analysis-and-Discussions" class="headerlink" title="Further Analysis and Discussions"></a>Further Analysis and Discussions</h2><p>在re-id和detection的数据集上也做了一些实验。</p>
-<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/CLSA5.png" alt></div>   
-
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>在本文中，我们提出了一种新的跨层次语义对齐(CLSA)深度学习框架，用于无约束场景图像中的人物搜索。与现有的以提高人的检测性能为核心的人的搜索方法相比，我们的实验表明，解决多尺度匹配问题对提高人的搜索结果更为重要。<br>为了解决这一研究不足的跨尺度人员搜索问题，我们提出了一种端到端的CLSA深度学习方法，通过构造网络内特征金字塔结构表示，利用语义对齐学习损失函数增强其表示能力。以使所有特征金字塔等级识别具有辨别力，从而导致更有效的分层表示，用于匹配具有大且无约束的尺度变化的人物图像。</p>
-<h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>主要通过提升检测时候增加了多尺度匹配，通过特征金字塔，在re-id部分增加语义对齐，这个在re-id里也是常用手段，但是是跨层次的，相当于multi-scale的。最后结尾在一些image-based re-id数据集上也做了实验，比如market1501和cuhk03上，但是提升效果寥寥，88.9的top1在market1501上真的很一般。为啥能在person search上表现这么好，总之person search的坑很多，一些在detection上和re-id上能提升的，改进一些都可以在person search上有提高。但是这也提高了太多了把~</p>
+<h3 id="2-计算机表达式转换"><a href="#2-计算机表达式转换" class="headerlink" title="2.计算机表达式转换"></a>2.计算机表达式转换</h3><p>计算机的本质工作就是做数学运算，那计算机可以读入字符串<br>“9 + (3 - 1) * 5 + 8 / 2”并计算值吗？</p>
+<p><strong>中缀表达式和后缀表达式</strong><br>后缀表达式（由波兰科学家在20世纪50年代提出）<br>将运算符放在数字后面 ===》 符合计算机运算<br>我们习惯的数学表达式叫做中缀表达式===》符合人类思考习惯<br>实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 + 4 =&gt; 5 4 +    </span><br><span class="line">1 + 2 * 3 =&gt; 1 2 3 * +    </span><br><span class="line">8 + ( 3 – 1 ) * 5 =&gt; 8 3 1 – 5 * +</span><br></pre></td></tr></table></figure></p>
+<p><strong>算法思路</strong><br>中缀转后缀：<br>遍历中缀表达式中的数字和符号</p>
+<ul>
+<li>对于数字：直接输出</li>
+<li>对于符号：  </li>
+</ul>
+<p>（1）左括号：进栈<br>（2）运算符号：与栈顶符号进行优先级比较<br>若栈顶符号优先级低：此符号进栈<br>（默认栈顶若是左括号，左括号优先级最低）<br>若栈顶符号优先级不低：将栈顶符号弹出并输出，之后进栈<br>（3）右括号：将栈顶符号弹出并输出，直到匹配左括号   </p>
+<ul>
+<li>遍历结束：将栈中的所有符号弹出并输出</li>
+</ul>
+<blockquote>
+<p><strong>计算机如何基于后缀表达式结算结果</strong><br>例如：8 3 1 – 5 * +</p>
+</blockquote>
+<ul>
+<li>计算规则：  </li>
+<li>遍历后缀表达式中的数字和符号  </li>
+<li>对于数字：进栈  </li>
+<li>对于符号：<br>（1）从栈中弹出右操作数<br>（2）从栈中弹出左操作数<br>根据符号进行运算<br>将运算结果压入栈中<br>遍历结束：栈中的唯一数字为计算结果</li>
+</ul>
 
       
       <!-- 增加版权声明 -->
@@ -273,21 +263,7 @@
 <!- 百度自动推送方式提交结束 -->
       
       
-        <div class="declare">
-          <strong>本文作者：</strong>
-          
-            Cunyuan
-          
-          <br>
-          <strong>本文链接：</strong>
-          <a rel="license" href="http://www.cygao.xyz/2018/11/28/Person Search by Multi-Scale Matching/">http://www.cygao.xyz/2018/11/28/Person Search by Multi-Scale Matching/</a>
-          <br>
-          <strong>版权声明：</strong>
-          本作品采用
-          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-          进行许可。转载请注明出处！
-          
-        </div>
+        <div class="declare" hidden="hidden"></div>
       
       
       <!-- 增加版权声明结束 -->
@@ -322,7 +298,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -382,18 +358,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/09/RCAA Relational Context Aware Agents for Person Search/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/12/list/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【Person Search】 RCAA Relational Context-Aware Agents for Person Search
+          【python】 list的基本实现
         
       </div>
     </a>
   
   
-    <a href="/2018/10/21/Joint Detection and Identification Feature Learning for Person Search/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【Person Search】 Joint Detection and Identification Feature Learning for Person Search</div>
+    <a href="/2019/08/12/python timeit/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【python】 timeit模块,list及dict操作复杂度</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -420,7 +396,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction"><span class="toc-number">2.</span> <span class="toc-text">1. Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Related-Work"><span class="toc-number">3.</span> <span class="toc-text">2. Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Cross-Level-Semantic-Alignment-for-Person-Search"><span class="toc-number">4.</span> <span class="toc-text">3. Cross-Level Semantic Alignment for Person Search</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Person-Detection"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 Person Detection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 Multi-Scale Matching by Cross-Level Semantic Alignment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Experiments"><span class="toc-number">5.</span> <span class="toc-text">4. Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#On-CUHK-SYSU"><span class="toc-number">5.1.</span> <span class="toc-text">On CUHK-SYSU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-PRW"><span class="toc-number">5.2.</span> <span class="toc-text">On PRW</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-Analysis-and-Discussions"><span class="toc-number">5.3.</span> <span class="toc-text">Further Analysis and Discussions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#个人心得"><span class="toc-number">7.</span> <span class="toc-text">个人心得</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#栈的应用"><span class="toc-number">1.</span> <span class="toc-text">栈的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用场景"><span class="toc-number">1.0.1.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-括号匹配问题"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.括号匹配问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-计算机表达式转换"><span class="toc-number">1.0.3.</span> <span class="toc-text">2.计算机表达式转换</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
