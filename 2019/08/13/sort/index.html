@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://www.cygao.xyz">
   <title>【python】冒泡，选择，插入，希尔，快速，归并排序的实现及图解 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="冒泡排序冒泡排序（英语：Bubble Sort）是一种简单的排序算法。它重复地遍历要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。遍历数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。">
+  <meta name="description" content="总结基本的排序算法。">
 <meta name="keywords" content="基本算法，编程语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【python】冒泡，选择，插入，希尔，快速，归并排序的实现及图解">
 <meta property="og:url" content="http://www.cygao.xyz/2019/08/13/sort/index.html">
 <meta property="og:site_name" content="哲人存远">
-<meta property="og:description" content="冒泡排序冒泡排序（英语：Bubble Sort）是一种简单的排序算法。它重复地遍历要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。遍历数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。">
+<meta property="og:description" content="总结基本的排序算法。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/sort1.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/sort2.gif">
@@ -25,10 +25,10 @@
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/quicksort.jpg">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/mergesort.gif">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/compare.png">
-<meta property="og:updated_time" content="2019-08-22T02:42:12.143Z">
+<meta property="og:updated_time" content="2019-08-29T13:45:39.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【python】冒泡，选择，插入，希尔，快速，归并排序的实现及图解">
-<meta name="twitter:description" content="冒泡排序冒泡排序（英语：Bubble Sort）是一种简单的排序算法。它重复地遍历要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。遍历数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。">
+<meta name="twitter:description" content="总结基本的排序算法。">
 <meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/sort1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
@@ -218,8 +218,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p><strong>冒泡排序</strong>（英语：Bubble Sort）是一种简单的排序算法。它重复地遍历要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。遍历数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br><a id="more"></a></p>
-<p>冒泡排序算法的运作如下：</p>
+        <p>总结基本的排序算法。<br><a id="more"></a></p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p><strong>冒泡排序</strong>（英语：Bubble Sort）是一种简单的排序算法。它重复地遍历要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。遍历数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br>冒泡排序算法的运作如下：</p>
 <ul>
 <li>比较相邻的元素。如果第一个比第二个大（升序），就交换他们两个。</li>
 <li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</li>
@@ -659,10 +659,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基本算法，编程语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
@@ -671,7 +667,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基本算法，编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构，刷题笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷题笔记</a>
               </li>
             
             <div class="clearfix"></div>

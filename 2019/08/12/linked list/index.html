@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://www.cygao.xyz">
   <title>【python】 多种链表的实现及python中“=”的解读 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python中“=”的理解">
+  <meta name="description" content="python中“=”的正确、简单好记的理解以及python链表的实现。">
 <meta name="keywords" content="编程语言,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【python】 多种链表的实现及python中“=”的解读">
 <meta property="og:url" content="http://www.cygao.xyz/2019/08/12/linked list/index.html">
 <meta property="og:site_name" content="哲人存远">
-<meta property="og:description" content="python中“=”的理解">
+<meta property="og:description" content="python中“=”的正确、简单好记的理解以及python链表的实现。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/link1.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/link2.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/link3.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/link4.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/link5.png">
-<meta property="og:updated_time" content="2019-08-13T02:06:51.071Z">
+<meta property="og:updated_time" content="2019-08-29T13:43:15.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【python】 多种链表的实现及python中“=”的解读">
-<meta name="twitter:description" content="python中“=”的理解">
+<meta name="twitter:description" content="python中“=”的正确、简单好记的理解以及python链表的实现。">
 <meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/link1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
@@ -214,8 +214,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python中“-”的理解"><a href="#python中“-”的理解" class="headerlink" title="python中“=”的理解"></a>python中“=”的理解</h1><a id="more"></a>
-<p>python并不像是c/c++，c++中新建一个变量，比如<code>int a = 3</code>，此时必须申明变量的类型，找一块内存空间存储3，这个内存空间的别名是a，占4个字节且a只能存整数。</p>
+        <p>python中“=”的正确、简单好记的理解以及python链表的实现。<br><a id="more"></a></p>
+<h1 id="python中“-”的理解"><a href="#python中“-”的理解" class="headerlink" title="python中“=”的理解"></a>python中“=”的理解</h1><p>python并不像是c/c++，c++中新建一个变量，比如<code>int a = 3</code>，此时必须申明变量的类型，找一块内存空间存储3，这个内存空间的别名是a，占4个字节且a只能存整数。</p>
 <p>python中并不需要申明类型，<code>a  = 10</code>这种隐式申明的的原因是，a是另外一个内存，保存的是一个地址，地址指向什么就代表a是什么。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def C():</span><br><span class="line">    pass</span><br><span class="line">a = C</span><br></pre></td></tr></table></figure></p>
 <p>a可以重新指向一个方法，类或是对象中的元素都行。所以 <strong>=</strong> 只能代表把指向更改，指向了什么。</p>
 <h1 id="节点实现"><a href="#节点实现" class="headerlink" title="节点实现"></a>节点实现</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""单链表的结点"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        <span class="comment"># _item存放数据元素</span></span><br><span class="line">        self.item = item</span><br><span class="line">        <span class="comment"># _next是下一个节点的标识</span></span><br><span class="line">        self.next = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
@@ -594,10 +594,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基本算法，编程语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
@@ -606,7 +602,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基本算法，编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构，刷题笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷题笔记</a>
               </li>
             
             <div class="clearfix"></div>

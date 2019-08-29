@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://www.cygao.xyz">
   <title>【python】 list的基本实现 | 哲人存远</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python中list的基本实现技术元素外置的顺序表python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。">
+  <meta name="description" content="总结python在list中的原理和实现。">
 <meta name="keywords" content="编程语言,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【python】 list的基本实现">
 <meta property="og:url" content="http://www.cygao.xyz/2019/08/12/list/index.html">
 <meta property="og:site_name" content="哲人存远">
-<meta property="og:description" content="python中list的基本实现技术元素外置的顺序表python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。">
+<meta property="og:description" content="总结python在list中的原理和实现。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/list1.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/list2.png">
 <meta property="og:image" content="http://pw0x0t99o.bkt.clouddn.com/list3.png">
-<meta property="og:updated_time" content="2019-08-12T08:39:25.441Z">
+<meta property="og:updated_time" content="2019-08-29T13:44:00.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【python】 list的基本实现">
-<meta name="twitter:description" content="python中list的基本实现技术元素外置的顺序表python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。">
+<meta name="twitter:description" content="总结python在list中的原理和实现。">
 <meta name="twitter:image" content="http://pw0x0t99o.bkt.clouddn.com/list1.png">
   
     <link rel="alternative" href="/atom.xml" title="哲人存远" type="application/atom+xml">
@@ -212,7 +212,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python中list的基本实现技术"><a href="#python中list的基本实现技术" class="headerlink" title="python中list的基本实现技术"></a>python中list的基本实现技术</h1><h2 id="元素外置的顺序表"><a href="#元素外置的顺序表" class="headerlink" title="元素外置的顺序表"></a>元素外置的顺序表</h2><p>python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="string">"abc"</span>,<span class="number">2.2</span>]</span><br></pre></td></tr></table></figure></p>
+        <p>总结python在list中的原理和实现。<br><a id="more"></a></p>
+<h1 id="python中list的基本实现技术"><a href="#python中list的基本实现技术" class="headerlink" title="python中list的基本实现技术"></a>python中list的基本实现技术</h1><h2 id="元素外置的顺序表"><a href="#元素外置的顺序表" class="headerlink" title="元素外置的顺序表"></a>元素外置的顺序表</h2><p>python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>,<span class="string">"abc"</span>,<span class="number">2.2</span>]</span><br></pre></td></tr></table></figure></p>
 <div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list1.png" alt></div>  
 
 <blockquote>
@@ -575,10 +576,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基本算法，编程语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
@@ -587,7 +584,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基本算法，编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构，刷题笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷题笔记</a>
               </li>
             
             <div class="clearfix"></div>
