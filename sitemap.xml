@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.cygao.xyz/about/index.html</loc>
+    
+    <lastmod>2019-09-01T13:17:02.463Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.cygao.xyz/2019/08/22/algorithm40/</loc>
     
     <lastmod>2019-09-01T13:15:08.404Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://www.cygao.xyz/2018/11/28/Person%20Search%20by%20Multi-Scale%20Matching/</loc>
     
     <lastmod>2019-09-01T13:14:53.960Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/about/index.html</loc>
-    
-    <lastmod>2019-09-01T13:10:19.871Z</lastmod>
     
   </url>
   
