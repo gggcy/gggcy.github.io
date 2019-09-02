@@ -19,7 +19,7 @@
 <meta property="og:description" content="总结python在list中的原理和实现。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-01T13:18:13.252Z">
+<meta property="og:updated_time" content="2019-09-02T01:52:33.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【python】 list的基本实现">
 <meta name="twitter:description" content="总结python在list中的原理和实现。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 682 个字)
+                    5 分钟 读完 (大约 679 个字)
                 </span>
                 
                 
@@ -187,14 +187,14 @@
         <div class="content">
             <p>总结python在list中的原理和实现。<br><a id="more"></a></p>
 <h1 id="python中list的基本实现技术"><a href="#python中list的基本实现技术" class="headerlink" title="python中list的基本实现技术"></a>python中list的基本实现技术</h1><h2 id="元素外置的顺序表"><a href="#元素外置的顺序表" class="headerlink" title="元素外置的顺序表"></a>元素外置的顺序表</h2><p>python中的list可以存放不同类型的数据，比如int，char，float等等，这些数据元素大小不同，所以得用到外置顺序表。<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="hljs-number">1</span>,<span class="hljs-string">"abc"</span>,<span class="hljs-number">2.2</span>]</span><br></pre></td></tr></table></figure></p>
-<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list1.png" alt></div>  
+<div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/list1.png" alt></div>  
 
 <blockquote>
 <p>Loc(li) = Loc(l0) + c*i </p>
 </blockquote>
 <p>元素的大小不统一，则须采用如图的元素外置的形式，将实际数据元素另行存储，而顺序表中各单元位置保存对应元素的地址信息（即链接）。由于每个链接所需的存储量相同，通过上述公式，可以计算出元素链接的存储位置，而后顺着链接找到实际存储的数据元素。注意，图b中的c不再是数据元素的大小，而是存储一个链接地址所需的存储量，这个量通常很小。<br>如图这样的顺序表也被称为对实际数据的索引，这是最简单的索引结构。</p>
 <h2 id="顺序表的结构"><a href="#顺序表的结构" class="headerlink" title="顺序表的结构"></a>顺序表的结构</h2><p>一个顺序表的完整信息包括两部分，一部分是表中的元素集合，另一部分是为实现正确操作而需记录的信息，即有关表的整体情况的信息，这部分信息主要包括元素存储区的容量和当前表中已有的元素个数两项。</p>
-<div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list2.png" alt></div><br>python中的list主要采用分离式结构，如图<br><div align="center"><img src="http://pw0x0t99o.bkt.clouddn.com/list3.png" alt></div>  
+<div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/list2.png" alt></div><br>python中的list主要采用分离式结构，如图<br><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/list3.png" alt></div>  
 
 <p>表对象里只保存与整个表有关的信息（即容量和元素个数），实际数据元素存放在另一个独立的元素存储区里，通过链接与基本表对象关联。这样在进行扩充的时候，数据的迁移，不用迁徙表头，指针指向的地址改变就行。</p>
 <h2 id="list的数据扩充"><a href="#list的数据扩充" class="headerlink" title="list的数据扩充"></a>list的数据扩充</h2><p>在Python的官方实现中，list实现采用了如下的策略：在建立空表（或者很小的表）时，系统分配一块能容纳8个元素的存储区；在执行插入操作（insert或append）时，如果元素存储区满就换一块4倍大的存储区。但如果此时的表已经很大（目前的阀值为50000），则改变策略，采用加一倍的方法。引入这种改变策略的方式，是为了避免出现过多空闲的存储位置。</p>
