@@ -10,19 +10,19 @@
 <title>NMS算法（NonMaximumSuppression） - Cy的学习日常</title>
 
 
-    <meta name="description" content="NMS算法原理及其python代码实现。">
+    <meta name="description" content="NMS算法原理及其python代码实现,其中也包含了IOU交并比的实现。">
 <meta name="keywords" content="机器学习,检测算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NMS算法（NonMaximumSuppression）">
 <meta property="og:url" content="http://www.cygao.xyz/2019/09/05/nms/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
-<meta property="og:description" content="NMS算法原理及其python代码实现。">
+<meta property="og:description" content="NMS算法原理及其python代码实现,其中也包含了IOU交并比的实现。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-05T02:42:56.743Z">
+<meta property="og:updated_time" content="2019-09-05T12:34:12.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NMS算法（NonMaximumSuppression）">
-<meta name="twitter:description" content="NMS算法原理及其python代码实现。">
+<meta name="twitter:description" content="NMS算法原理及其python代码实现,其中也包含了IOU交并比的实现。">
 <meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
 
 
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 797 个字)
+                    5 分钟 读完 (大约 810 个字)
                 </span>
                 
                 
@@ -185,7 +185,7 @@
             
         </h1>
         <div class="content">
-            <p>NMS算法原理及其python代码实现。</p>
+            <p>NMS算法原理及其python代码实现,其中也包含了IOU交并比的实现。</p>
 <a id="more"></a>
 <h1 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h1><hr>
 <p>非极大值抑制（NMS）顾名思义就是抑制不是极大值的元素，搜索局部的极大值。这个局部代表的是一个邻域，邻域有两个参数可变，一是邻域的维数，二是邻域的大小。这里不讨论通用的NMS算法，而是用于在目标检测中用于提取分数最高的窗口的。<br>例如在行人检测中，滑动窗口经提取特征，经分类器分类识别后，每个窗口都会得到一个分数。但是滑动窗口会导致很多窗口与其他窗口存在包含或者大部分交叉的情况。这时就需要用到NMS来选取那些邻域里分数最高（是行人的概率最大），并且抑制那些分数低的窗口。</p>
