@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-09-05T13:23:22.929Z</updated>
+  <updated>2019-09-06T00:49:46.113Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>K-means原理及常见问题</title>
+    <link href="http://www.cygao.xyz/2019/09/06/kmeans/"/>
+    <id>http://www.cygao.xyz/2019/09/06/kmeans/</id>
+    <published>2019-09-06T00:33:55.000Z</published>
+    <updated>2019-09-06T00:49:46.113Z</updated>
+    
+    <content type="html"><![CDATA[<p>主要关注伪代码，k怎么选择，初始点怎么选择，原理及优缺点。</p><a id="more"></a><h2 id="原理和流程"><a href="#原理和流程" class="headerlink" title="原理和流程"></a>原理和流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> 对给定的<strong>无标记</strong>的样本数据集，事先确定<strong>聚类簇数K</strong>，让簇内的样本尽可能紧密分布在一起，使簇间的距离尽可能大。K-Means作为无监督的聚类算法，其类似于全自动分类，簇内越相似，聚类效果越好，实现较简单，聚类效果好，因此被广泛使用。用以下的效果图更能直观地看出其过程：<br> <img src="https://img-blog.csdnimg.cn/20190815155230514.gif" alt></p><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol><li>随即确定K个初始点作为质心（这里如何确定k将在下面给出解释）  </li><li>将数据集中的每个点分配到一个簇中，即为每个点找距离其最近的质心，并将其分配给之心所对应的簇  </li><li>簇分好后，计算每个簇所有点的平均值，将平均值作为对应簇新的质心  </li><li><p>循环2、3步骤，直到质心不变</p><p><strong>伪代码是：</strong></p></li></ol><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">创建k个点作为起始质心（经常是随机选择）</span><br><span class="line">当任意一个点的簇分配结果发生改变时</span><br><span class="line">对数据集中的每个数据点</span><br><span class="line">对每个质心</span><br><span class="line">计算质心和数据点之间的距离</span><br><span class="line">将数据点分配到距离其最近的簇</span><br><span class="line">对每一个簇，计算簇中所有点的均值并将均值作为质心</span><br></pre></td></tr></table></figure><p> 上面“最近”质心，意味着需要进行<strong>某种距离</strong>的计算，即下文要介绍的K-means中常用的到中心距离的度量有哪些？</p><h2 id="K-means中常用的到中心距离的度量"><a href="#K-means中常用的到中心距离的度量" class="headerlink" title="K-means中常用的到中心距离的度量"></a>K-means中常用的到中心距离的度量</h2><p> 这里最常用的有以下两种</p><p> <strong>1、曼哈顿距离</strong><br> <img src="https://img-blog.csdnimg.cn/20190815155442301.png" alt><br> <strong>2、欧几里得距离</strong>（别称“欧式距离”）<br> <img src="https://img-blog.csdnimg.cn/2019081515485016.png" alt></p><h2 id="K-means中的k值如何选取-了解一下"><a href="#K-means中的k值如何选取-了解一下" class="headerlink" title="K-means中的k值如何选取(了解一下)"></a>K-means中的k值如何选取(了解一下)</h2><ul><li>手肘法</li><li>轮廓系数法</li></ul><h2 id="面试常见问题回答"><a href="#面试常见问题回答" class="headerlink" title="面试常见问题回答"></a>面试常见问题回答</h2><h3 id="1、K-means算法中初始点的选择对最终结果有影响吗？"><a href="#1、K-means算法中初始点的选择对最终结果有影响吗？" class="headerlink" title="1、K-means算法中初始点的选择对最终结果有影响吗？"></a>1、K-means算法中初始点的选择对最终结果有影响吗？</h3><p> 会有影响的，不同的初始值结果可能不一样</p><h3 id="2、K-means聚类中每个类别中心的初始点如何选择？"><a href="#2、K-means聚类中每个类别中心的初始点如何选择？" class="headerlink" title="2、K-means聚类中每个类别中心的初始点如何选择？"></a>2、K-means聚类中每个类别中心的初始点如何选择？</h3><p> （1）这k个点的距离尽可能远  </p><p> （2）可以对数据先进行<strong>层次聚类</strong>，得到K个簇之后，从每个类簇中选择一个点，该点可以是该类簇的中心点，或者是距离类簇中心点最近的那个点。</p><h3 id="3、K-means中空聚类的处理"><a href="#3、K-means中空聚类的处理" class="headerlink" title="3、K-means中空聚类的处理"></a>3、K-means中空聚类的处理</h3><p>（1）选择一个距离当前任何质心最远的点。这将消除当前对总平方误差影响最大的点。<br> （2）从具有最大SSE的簇中选择一个替补的质心，这将分裂簇并降低聚类的总SSE。如果有多个空簇，则该过程重复多次。<br> （3）如果噪点或者孤立点过多，考虑更换算法，如<strong>密度聚类</strong>。</p><h3 id="4、K-means是否会一直陷入选择质心的循环停不下来？-（1）迭代次数设置"><a href="#4、K-means是否会一直陷入选择质心的循环停不下来？-（1）迭代次数设置" class="headerlink" title="4、K-means是否会一直陷入选择质心的循环停不下来？ （1）迭代次数设置"></a>4、K-means是否会一直陷入选择质心的循环停不下来？ （1）迭代次数设置</h3><p> （2）设定收敛判断距离</p><h3 id="5、如何快速收敛数据量超大的K-means？-相关解释可以去这个博客稍做了解"><a href="#5、如何快速收敛数据量超大的K-means？-相关解释可以去这个博客稍做了解" class="headerlink" title="5、如何快速收敛数据量超大的K-means？ 相关解释可以去这个博客稍做了解"></a>5、如何快速收敛数据量超大的K-means？ 相关解释可以去这个博客稍做了解</h3><p> <a href="https://blog.csdn.net/sunnyxidian/article/details/89630815" target="_blank" rel="noopener">https://blog.csdn.net/sunnyxidian/article/details/89630815</a></p><h3 id="6、K-means算法的优点和缺点是什么？-K-Means的主要优点："><a href="#6、K-means算法的优点和缺点是什么？-K-Means的主要优点：" class="headerlink" title="6、K-means算法的优点和缺点是什么？ K-Means的主要优点："></a>6、K-means算法的优点和缺点是什么？ K-Means的<strong>主要优点</strong>：</h3><p> （1）原理简单，容易实现<br> （2）可解释度较强</p><h3 id="7、-K-Means的主要缺点："><a href="#7、-K-Means的主要缺点：" class="headerlink" title="7、 K-Means的主要缺点："></a>7、 K-Means的<strong>主要缺点</strong>：</h3><p> （1）K值很难确定<br> （2）局部最优<br> （3）对噪音和异常点敏感<br> （4）需样本存在均值（限定数据种类）<br> （5）聚类效果依赖于聚类中心的初始化<br> （6）对于非凸数据集或类别规模差异太大的数据效果不好</p><hr><p>参考 <a href="https://blog.csdn.net/WangZixuan1111/article/details/98970139" target="_blank" rel="noopener">https://blog.csdn.net/WangZixuan1111/article/details/98970139</a> </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要关注伪代码，k怎么选择，初始点怎么选择，原理及优缺点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
+    
+    
+      <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="聚类算法" scheme="http://www.cygao.xyz/tags/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>L1正则&amp;L2正则常见问题</title>
