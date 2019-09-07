@@ -10,19 +10,19 @@
 <title>手推SVM及常见面试问题 - Cy的学习日常</title>
 
 
-    <meta name="description" content="面试必备 手推SVM差不多这个程度应该够了。        SVM为什么叫支持向量机这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。 SVM的损失函数（求导省略了）   核函数了解哪些，为什么要用核函数当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。     线性核，主要用于线性可">
+    <meta name="description" content="面试必备">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手推SVM及常见面试问题">
 <meta property="og:url" content="http://www.cygao.xyz/2019/09/07/svm/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
-<meta property="og:description" content="面试必备 手推SVM差不多这个程度应该够了。        SVM为什么叫支持向量机这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。 SVM的损失函数（求导省略了）   核函数了解哪些，为什么要用核函数当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。     线性核，主要用于线性可">
+<meta property="og:description" content="面试必备">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-07T12:13:49.967Z">
+<meta property="og:updated_time" content="2019-09-07T12:29:41.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手推SVM及常见面试问题">
-<meta name="twitter:description" content="面试必备 手推SVM差不多这个程度应该够了。        SVM为什么叫支持向量机这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。 SVM的损失函数（求导省略了）   核函数了解哪些，为什么要用核函数当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。     线性核，主要用于线性可">
+<meta name="twitter:description" content="面试必备">
 <meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
 
 
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1003 个字)
+                    7 分钟 读完 (大约 990 个字)
                 </span>
                 
                 
@@ -185,18 +185,15 @@
             
         </h1>
         <div class="content">
-            <p>面试必备</p>
-<h2 id="手推SVM"><a href="#手推SVM" class="headerlink" title="手推SVM"></a>手推SVM</h2><p>差不多这个程度应该够了。</p>
-<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm1.jpg" alt></div> 
+            <p>面试必备<br><a id="more"></a></p>
+<h2 id="1、手推SVM"><a href="#1、手推SVM" class="headerlink" title="1、手推SVM"></a>1、手推SVM</h2><p>差不多这个程度应该够了。</p>
+<p><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm1.jpg" style="transform:rotate(90deg);"></p>
+<p><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm2.jpg" style="transform:rotate(90deg);"></p>
+<h2 id="2、SVM为什么叫支持向量机"><a href="#2、SVM为什么叫支持向量机" class="headerlink" title="2、SVM为什么叫支持向量机"></a>2、SVM为什么叫支持向量机</h2><p>这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。</p>
+<h2 id="3、SVM的损失函数（求导省略了）"><a href="#3、SVM的损失函数（求导省略了）" class="headerlink" title="3、SVM的损失函数（求导省略了）"></a>3、SVM的损失函数（求导省略了）</h2><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm4.png" alt></div> 
 
-<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm2.jpg" alt></div> 
-
-
-<h2 id="SVM为什么叫支持向量机"><a href="#SVM为什么叫支持向量机" class="headerlink" title="SVM为什么叫支持向量机"></a>SVM为什么叫支持向量机</h2><p>这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。</p>
-<h2 id="SVM的损失函数（求导省略了）"><a href="#SVM的损失函数（求导省略了）" class="headerlink" title="SVM的损失函数（求导省略了）"></a>SVM的损失函数（求导省略了）</h2><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm4.png" alt></div> 
-
-<h2 id="核函数了解哪些，为什么要用核函数"><a href="#核函数了解哪些，为什么要用核函数" class="headerlink" title="核函数了解哪些，为什么要用核函数"></a>核函数了解哪些，为什么要用核函数</h2><p>当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。</p>
-<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm1.jpg" alt></div> 
+<h2 id="4、核函数了解哪些，为什么要用核函数"><a href="#4、核函数了解哪些，为什么要用核函数" class="headerlink" title="4、核函数了解哪些，为什么要用核函数"></a>4、核函数了解哪些，为什么要用核函数</h2><p>当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。</p>
+<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm3.jpg" alt></div> 
 
 <ol>
 <li><p>线性核，主要用于线性可分的情况，我们可以看到特征空间到输入空间的维度是一样的，其参数少速度快，对于线性可分数据，其分类效果很理想，因此我们通常首先尝试用线性核函数来做分类，看看效果如何，如果不行再换别的。</p>
@@ -328,21 +325,21 @@
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#手推SVM">
+        <a class="is-flex" href="#1、手推SVM">
         <span class="has-mr-6">1</span>
-        <span>手推SVM</span>
+        <span>1、手推SVM</span>
         </a></li><li>
-        <a class="is-flex" href="#SVM为什么叫支持向量机">
+        <a class="is-flex" href="#2、SVM为什么叫支持向量机">
         <span class="has-mr-6">2</span>
-        <span>SVM为什么叫支持向量机</span>
+        <span>2、SVM为什么叫支持向量机</span>
         </a></li><li>
-        <a class="is-flex" href="#SVM的损失函数（求导省略了）">
+        <a class="is-flex" href="#3、SVM的损失函数（求导省略了）">
         <span class="has-mr-6">3</span>
-        <span>SVM的损失函数（求导省略了）</span>
+        <span>3、SVM的损失函数（求导省略了）</span>
         </a></li><li>
-        <a class="is-flex" href="#核函数了解哪些，为什么要用核函数">
+        <a class="is-flex" href="#4、核函数了解哪些，为什么要用核函数">
         <span class="has-mr-6">4</span>
-        <span>核函数了解哪些，为什么要用核函数</span>
+        <span>4、核函数了解哪些，为什么要用核函数</span>
         </a></li><li>
         <a class="is-flex" href="#为什么要将求解SVM的原始问题转换为其对偶问题？">
         <span class="has-mr-6">5</span>
