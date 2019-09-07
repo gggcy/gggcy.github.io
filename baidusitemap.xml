@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.cygao.xyz2019/09/07/svm/</loc>
+    <lastmod>2019-09-07</lastmod>
+  </url>  <url>
+    <loc>https://www.cygao.xyz2019/09/05/bp/</loc>
+    <lastmod>2019-09-07</lastmod>
+  </url>  <url>
     <loc>https://www.cygao.xyz2019/09/06/kmeans/</loc>
     <lastmod>2019-09-06</lastmod>
   </url>  <url>
@@ -8,9 +14,6 @@
     <lastmod>2019-09-05</lastmod>
   </url>  <url>
     <loc>https://www.cygao.xyz2019/09/05/nms/</loc>
-    <lastmod>2019-09-05</lastmod>
-  </url>  <url>
-    <loc>https://www.cygao.xyz2019/09/05/bp/</loc>
     <lastmod>2019-09-05</lastmod>
   </url>  <url>
     <loc>https://www.cygao.xyz2019/09/05/pca/</loc>

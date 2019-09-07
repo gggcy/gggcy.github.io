@@ -157,6 +157,82 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-07T11:45:39.000Z">2019-09-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1003 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/09/07/svm/">手推SVM及常见面试问题</a>
+            
+        </h1>
+        <div class="content">
+            <p>面试必备</p>
+<h2 id="手推SVM"><a href="#手推SVM" class="headerlink" title="手推SVM"></a>手推SVM</h2><p>差不多这个程度应该够了。</p>
+<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm1.jpg" alt></div> 
+
+<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm2.jpg" alt></div> 
+
+
+<h2 id="SVM为什么叫支持向量机"><a href="#SVM为什么叫支持向量机" class="headerlink" title="SVM为什么叫支持向量机"></a>SVM为什么叫支持向量机</h2><p>这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。</p>
+<h2 id="SVM的损失函数（求导省略了）"><a href="#SVM的损失函数（求导省略了）" class="headerlink" title="SVM的损失函数（求导省略了）"></a>SVM的损失函数（求导省略了）</h2><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm4.png" alt></div> 
+
+<h2 id="核函数了解哪些，为什么要用核函数"><a href="#核函数了解哪些，为什么要用核函数" class="headerlink" title="核函数了解哪些，为什么要用核函数"></a>核函数了解哪些，为什么要用核函数</h2><p>当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。</p>
+<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm1.jpg" alt></div> 
+
+<ol>
+<li><p>线性核，主要用于线性可分的情况，我们可以看到特征空间到输入空间的维度是一样的，其参数少速度快，对于线性可分数据，其分类效果很理想，因此我们通常首先尝试用线性核函数来做分类，看看效果如何，如果不行再换别的。</p>
+</li>
+<li><p>多项式核函数可以实现将低维的输入空间映射到高纬的特征空间，但是多项式核函数的参数多，当多项式的阶数比较高的时候，核矩阵的元素值将趋于无穷大或者无穷小，计算复杂度会大到无法计算。</p>
+</li>
+<li><p>高斯（RBF）核函数 是一种局部性强的核函数，其可以将一个样本映射到一个更高维的空间内，该核函数是应用最广的一个，无论大样本还是小样本都有比较好的性能，而且其相对于多项式核函数参数要少，因此大多数情况下在不知道用什么核函数的时候，优先使用高斯核函数。</p>
+</li>
+<li><p>采用sigmoid核函数，支持向量机实现的就是一种多层神经网络。<br>因此，在选用核函数的时候，如果我们对我们的数据有一定的先验知识，就利用先验来选择符合数据分布的核函数；如果不知道的话，通常使用交叉验证的方法，来试用不同的核函数，误差最下的即为效果最好的核函数，或者也可以将多个核函数结合起来，形成混合核函数。在吴恩达的课上，也曾经给出过一系列的选择核函数的方法.</p>
+</li>
+</ol>
+<p><strong><em>如果特征的数量大到和样本数量差不多，则选用LR或者线性核的SVM；<br>如果特征的数量小，样本的数量正常，则选用SVM+高斯核函数；<br>如果特征的数量小，而样本的数量很大，则需要手工添加一些特征从而变成第一种情况。</em></strong></p>
+<h2 id="为什么要将求解SVM的原始问题转换为其对偶问题？"><a href="#为什么要将求解SVM的原始问题转换为其对偶问题？" class="headerlink" title="为什么要将求解SVM的原始问题转换为其对偶问题？"></a>为什么要将求解SVM的原始问题转换为其对偶问题？</h2><ol>
+<li>是对偶问题往往更易求解（当我们寻找约束存在时的最优点的时候，约束的存在虽然减小了需要搜寻的范围，但是却使问题变得更加复杂。为了使问题变得易于处理，<strong>把目标函数和约束全部融入一个新的函数，即拉格朗日函数，再通过这个函数来寻找最优点。</strong>）</li>
+<li>自然引入核函数，进而推广到非线性分类问题。</li>
+</ol>
+<h2 id="SVM为什么可以处理非线性问题"><a href="#SVM为什么可以处理非线性问题" class="headerlink" title="SVM为什么可以处理非线性问题"></a>SVM为什么可以处理非线性问题</h2><p>非线性的话通过核函数将其隐射到高维空间，在高维空间非线性问题转化为线性问题。 </p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>周志华的<br>《机器学习》</p>
+
+            
+        </div>
+                
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-09-06T00:33:55.000Z">2019-09-06</time>
                 
                 <div class="level-item">
@@ -633,56 +709,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-12T04:54:16.000Z">2019-08-12</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 分钟 读完 (大约 619 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/12/stack/">栈的应用，括号匹配问题，中缀、后缀表达式</a>
-            
-        </h1>
-        <div class="content">
-            <p>主要是中缀、后缀表达式的转换。<br></p>
-            
-        </div>
-                
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/12/stack/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -745,7 +771,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -873,7 +899,7 @@
                 <span class="level-item">interview</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/python/">
@@ -904,7 +930,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/代码踩坑/" style="font-size: 14px;">代码踩坑</a> <a href="/tags/刷题笔记/" style="font-size: 10px;">刷题笔记</a> <a href="/tags/基本算法/" style="font-size: 12px;">基本算法</a> <a href="/tags/数据结构/" style="font-size: 16px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 18px;">机器学习</a> <a href="/tags/检测算法/" style="font-size: 10px;">检测算法</a> <a href="/tags/深度学习/" style="font-size: 10px;">深度学习</a> <a href="/tags/神经网络/" style="font-size: 12px;">神经网络</a> <a href="/tags/编程语言/" style="font-size: 20px;">编程语言</a> <a href="/tags/聚类算法/" style="font-size: 10px;">聚类算法</a> <a href="/tags/论文笔记/" style="font-size: 18px;">论文笔记</a>
+        <a href="/tags/代码踩坑/" style="font-size: 14px;">代码踩坑</a> <a href="/tags/刷题笔记/" style="font-size: 10px;">刷题笔记</a> <a href="/tags/基本算法/" style="font-size: 12px;">基本算法</a> <a href="/tags/数据结构/" style="font-size: 16px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/检测算法/" style="font-size: 10px;">检测算法</a> <a href="/tags/深度学习/" style="font-size: 12px;">深度学习</a> <a href="/tags/神经网络/" style="font-size: 12px;">神经网络</a> <a href="/tags/编程语言/" style="font-size: 20px;">编程语言</a> <a href="/tags/聚类算法/" style="font-size: 10px;">聚类算法</a> <a href="/tags/论文笔记/" style="font-size: 18px;">论文笔记</a>
     </div>
 </div>
 
@@ -919,6 +945,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/09/07/svm/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="手推SVM及常见面试问题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-07T11:45:39.000Z">2019-09-07</time></div>
+                    <a href="/2019/09/07/svm/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手推SVM及常见面试问题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -996,25 +1041,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/05/nms/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="NMS算法（NonMaximumSuppression）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-05T01:58:02.000Z">2019-09-05</time></div>
-                    <a href="/2019/09/05/nms/" class="title has-link-black-ter is-size-6 has-text-weight-normal">NMS算法（NonMaximumSuppression）</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1033,7 +1059,7 @@
                     <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1148,7 +1174,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/机器学习/">
                         <span class="tag">机器学习</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1162,7 +1188,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/深度学习/">
                         <span class="tag">深度学习</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1220,6 +1246,25 @@
         
         <article class="media">
             
+            <a href="/2019/09/07/svm/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="手推SVM及常见面试问题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-07T11:45:39.000Z">2019-09-07</time></div>
+                    <a href="/2019/09/07/svm/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手推SVM及常见面试问题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/06/kmeans/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="K-means原理及常见问题">
@@ -1294,25 +1339,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/05/nms/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="NMS算法（NonMaximumSuppression）">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-05T01:58:02.000Z">2019-09-05</time></div>
-                    <a href="/2019/09/05/nms/" class="title has-link-black-ter is-size-6 has-text-weight-normal">NMS算法（NonMaximumSuppression）</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1331,7 +1357,7 @@
                     <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1446,7 +1472,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/机器学习/">
                         <span class="tag">机器学习</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1460,7 +1486,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/深度学习/">
                         <span class="tag">深度学习</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
