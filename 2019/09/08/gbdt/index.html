@@ -10,19 +10,19 @@
 <title>手推GBDT和常见问题 - Cy的学习日常</title>
 
 
-    <meta name="description" content="手推GBDT   GBDT中的CART回归树每个叶子结点的输出值是什么 对于分类树，其输出变量的众数就是分类结果。 对于回归树，其输出变量的平均值就是预测结果。​ GDBT的GB是什么意思，如何体现？Gradient BoostingBoosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，  Gradient Boosting是一种实现Bo">
+    <meta name="description" content="主要是手推算法。 手推GBDT   GBDT中的CART回归树每个叶子结点的输出值是什么 对于分类树，其输出变量的众数就是分类结果。 对于回归树，其输出变量的平均值就是预测结果。​ GDBT的GB是什么意思，如何体现？Gradient BoostingBoosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，  Gradient Boosti">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手推GBDT和常见问题">
 <meta property="og:url" content="http://www.cygao.xyz/2019/09/08/gbdt/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
-<meta property="og:description" content="手推GBDT   GBDT中的CART回归树每个叶子结点的输出值是什么 对于分类树，其输出变量的众数就是分类结果。 对于回归树，其输出变量的平均值就是预测结果。​ GDBT的GB是什么意思，如何体现？Gradient BoostingBoosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，  Gradient Boosting是一种实现Bo">
+<meta property="og:description" content="主要是手推算法。 手推GBDT   GBDT中的CART回归树每个叶子结点的输出值是什么 对于分类树，其输出变量的众数就是分类结果。 对于回归树，其输出变量的平均值就是预测结果。​ GDBT的GB是什么意思，如何体现？Gradient BoostingBoosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，  Gradient Boosti">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-08T12:27:40.644Z">
+<meta property="og:updated_time" content="2019-09-08T12:32:30.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手推GBDT和常见问题">
-<meta name="twitter:description" content="手推GBDT   GBDT中的CART回归树每个叶子结点的输出值是什么 对于分类树，其输出变量的众数就是分类结果。 对于回归树，其输出变量的平均值就是预测结果。​ GDBT的GB是什么意思，如何体现？Gradient BoostingBoosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，  Gradient Boosting是一种实现Bo">
+<meta name="twitter:description" content="主要是手推算法。 手推GBDT   GBDT中的CART回归树每个叶子结点的输出值是什么 对于分类树，其输出变量的众数就是分类结果。 对于回归树，其输出变量的平均值就是预测结果。​ GDBT的GB是什么意思，如何体现？Gradient BoostingBoosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，  Gradient Boosti">
 <meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
 
 
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 375 个字)
+                    3 分钟 读完 (大约 383 个字)
                 </span>
                 
                 
@@ -185,7 +185,8 @@
             
         </h1>
         <div class="content">
-            <h2 id="手推GBDT"><a href="#手推GBDT" class="headerlink" title="手推GBDT"></a>手推GBDT</h2><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/gbdt.png" alt></div> 
+            <p>主要是手推算法。</p>
+<h2 id="手推GBDT"><a href="#手推GBDT" class="headerlink" title="手推GBDT"></a>手推GBDT</h2><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/gbdt.jpg" alt></div> 
 
 <h2 id="GBDT中的CART回归树每个叶子结点的输出值是什么"><a href="#GBDT中的CART回归树每个叶子结点的输出值是什么" class="headerlink" title="GBDT中的CART回归树每个叶子结点的输出值是什么"></a>GBDT中的CART回归树每个叶子结点的输出值是什么</h2><ol>
 <li>对于分类树，其输出变量的众数就是分类结果。</li>
