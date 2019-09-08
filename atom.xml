@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-09-08T03:34:38.526Z</updated>
+  <updated>2019-09-08T03:36:23.819Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.cygao.xyz/2019/09/08/lr/"/>
     <id>http://www.cygao.xyz/2019/09/08/lr/</id>
     <published>2019-09-08T03:11:48.000Z</published>
-    <updated>2019-09-08T03:34:38.526Z</updated>
+    <updated>2019-09-08T03:36:23.819Z</updated>
     
-    <content type="html"><![CDATA[<p>概念，公式推导，常见问题。</p><a id="more"></a><h2 id="1、逻辑斯蒂回归的概念"><a href="#1、逻辑斯蒂回归的概念" class="headerlink" title="1、逻辑斯蒂回归的概念"></a>1、逻辑斯蒂回归的概念</h2><p>算法的名字叫做逻辑斯蒂回归（我也不知道为什么这么翻译）但其实它是一种分类模型，一定不能把它和线性回归混为一谈。简单说一下分类和回归之间的区别：</p><ul><li>分类：给定一个数据，根据给出的训练集训练模型并推断出它所对应的类别（+1，-1），是一种定性的输出，也叫作离散变量预测。</li><li>回归：给定一个数据，根据给出的训练集训练模型并推断出该数据下的输出值是多少，此时输出的是一个真实的数值，是一种定量的输出，也叫作连续变量预测。</li></ul><h3 id="具体概念"><a href="#具体概念" class="headerlink" title="具体概念"></a>具体概念</h3><p>LR模型其实仅在线性回归的基础上，套用了一个逻辑函数（sigmoid）。逻辑回归是一个非线性的二分类模型，主要是计算在某个样本特征下事件发生的概率，但是他本质上是一个线性回归模型，因为除去sigmoid映射函数外，其他步骤算法都是线性回归的。</p><h2 id="2、手推LR"><a href="#2、手推LR" class="headerlink" title="2、手推LR"></a>2、手推LR</h2><p>图片转载自 <a href="https://blog.csdn.net/SweetSeven_/article/details/94620627" target="_blank" rel="noopener">https://blog.csdn.net/SweetSeven_/article/details/94620627</a></p><div align="center"><br><img width="400" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/lr1.png"><br></div> <h2 id="3、LR怎么加入非线性"><a href="#3、LR怎么加入非线性" class="headerlink" title="3、LR怎么加入非线性"></a>3、LR怎么加入非线性</h2><p>套用了一个逻辑函数（sigmoid），逻辑回归是一个非线性的二分类模型。</p><h2 id="4、LR的LOSS"><a href="#4、LR的LOSS" class="headerlink" title="4、LR的LOSS"></a>4、LR的LOSS</h2><p>上述图片中的J(θ)。</p><h2 id="5、极大似然的概念"><a href="#5、极大似然的概念" class="headerlink" title="5、极大似然的概念"></a>5、极大似然的概念</h2><p>先验概率是<strong>知因求果</strong>，后验概率是<strong>知果求因</strong>，极大似然是<strong>知果求最可能的原因</strong>,就是在参数θ的可能取值范围内，选取使L(θ)达到最大的参数值θ，作为参数θ的估计值。</p>]]></content>
+    <content type="html"><![CDATA[<p>概念，公式推导，常见问题。</p><a id="more"></a><h2 id="1、逻辑斯蒂回归的概念"><a href="#1、逻辑斯蒂回归的概念" class="headerlink" title="1、逻辑斯蒂回归的概念"></a>1、逻辑斯蒂回归的概念</h2><p>算法的名字叫做逻辑斯蒂回归（我也不知道为什么这么翻译）但其实它是一种分类模型，一定不能把它和线性回归混为一谈。简单说一下分类和回归之间的区别：</p><ul><li>分类：给定一个数据，根据给出的训练集训练模型并推断出它所对应的类别（+1，-1），是一种定性的输出，也叫作离散变量预测。</li><li>回归：给定一个数据，根据给出的训练集训练模型并推断出该数据下的输出值是多少，此时输出的是一个真实的数值，是一种定量的输出，也叫作连续变量预测。</li></ul><h3 id="具体概念"><a href="#具体概念" class="headerlink" title="具体概念"></a>具体概念</h3><p>LR模型其实仅在线性回归的基础上，套用了一个逻辑函数（sigmoid）。逻辑回归是一个非线性的二分类模型，主要是计算在某个样本特征下事件发生的概率，但是他本质上是一个线性回归模型，因为除去sigmoid映射函数外，其他步骤算法都是线性回归的。</p><h2 id="2、手推LR"><a href="#2、手推LR" class="headerlink" title="2、手推LR"></a>2、手推LR</h2><p>图片转载自 <a href="https://blog.csdn.net/SweetSeven_/article/details/94620627" target="_blank" rel="noopener">https://blog.csdn.net/SweetSeven_/article/details/94620627</a></p><div align="center"><br><img width="700" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/lr1.png"><br></div> <h2 id="3、LR怎么加入非线性"><a href="#3、LR怎么加入非线性" class="headerlink" title="3、LR怎么加入非线性"></a>3、LR怎么加入非线性</h2><p>套用了一个逻辑函数（sigmoid），逻辑回归是一个非线性的二分类模型。</p><h2 id="4、LR的LOSS"><a href="#4、LR的LOSS" class="headerlink" title="4、LR的LOSS"></a>4、LR的LOSS</h2><p>上述图片中的J(θ)。</p><h2 id="5、极大似然的概念"><a href="#5、极大似然的概念" class="headerlink" title="5、极大似然的概念"></a>5、极大似然的概念</h2><p>先验概率是<strong>知因求果</strong>，后验概率是<strong>知果求因</strong>，极大似然是<strong>知果求最可能的原因</strong>,就是在参数θ的可能取值范围内，选取使L(θ)达到最大的参数值θ，作为参数θ的估计值。</p>]]></content>
     
     <summary type="html">
     
