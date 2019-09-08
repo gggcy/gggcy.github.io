@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>手推SVM及常见面试问题 - Cy的学习日常</title>
+<title>手推LR（Logistic Regression）逻辑斯蒂回归及常见问题 - Cy的学习日常</title>
 
 
-    <meta name="description" content="面试必备">
-<meta name="keywords" content="机器学习">
+    <meta name="description" content="概念，公式推导，常见问题。">
+<meta name="keywords" content="机器学习,检测算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手推SVM及常见面试问题">
-<meta property="og:url" content="http://www.cygao.xyz/2019/09/07/svm/index.html">
+<meta property="og:title" content="手推LR（Logistic Regression）逻辑斯蒂回归及常见问题">
+<meta property="og:url" content="http://www.cygao.xyz/2019/09/08/lr/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
-<meta property="og:description" content="面试必备">
+<meta property="og:description" content="概念，公式推导，常见问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-07T13:07:13.062Z">
+<meta property="og:updated_time" content="2019-09-08T03:34:38.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手推SVM及常见面试问题">
-<meta name="twitter:description" content="面试必备">
+<meta name="twitter:title" content="手推LR（Logistic Regression）逻辑斯蒂回归及常见问题">
+<meta name="twitter:description" content="概念，公式推导，常见问题。">
 <meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
 
 
@@ -93,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="手推SVM及常见面试问题" height="28">
+                <img src="/images/logo.svg" alt="手推LR（Logistic Regression）逻辑斯蒂回归及常见问题" height="28">
             
             </a>
         </div>
@@ -162,7 +162,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-07T11:45:39.000Z">2019-09-07</time>
+                <time class="level-item has-text-grey" datetime="2019-09-08T03:11:48.000Z">2019-09-08</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/interview/">interview</a>
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 974 个字)
+                    3 分钟 读完 (大约 484 个字)
                 </span>
                 
                 
@@ -181,50 +181,33 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                手推SVM及常见面试问题
+                手推LR（Logistic Regression）逻辑斯蒂回归及常见问题
             
         </h1>
         <div class="content">
-            <p>面试必备<br><a id="more"></a></p>
-<h2 id="1、手推SVM"><a href="#1、手推SVM" class="headerlink" title="1、手推SVM"></a>1、手推SVM</h2><p>差不多这个程度应该够了。</p>
-<div align="center"><br><img width="500" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm1.jpg"></div>  
+            <p>概念，公式推导，常见问题。</p>
+<a id="more"></a>
+<h2 id="1、逻辑斯蒂回归的概念"><a href="#1、逻辑斯蒂回归的概念" class="headerlink" title="1、逻辑斯蒂回归的概念"></a>1、逻辑斯蒂回归的概念</h2><p>算法的名字叫做逻辑斯蒂回归（我也不知道为什么这么翻译）但其实它是一种分类模型，一定不能把它和线性回归混为一谈。简单说一下分类和回归之间的区别：</p>
+<ul>
+<li>分类：给定一个数据，根据给出的训练集训练模型并推断出它所对应的类别（+1，-1），是一种定性的输出，也叫作离散变量预测。</li>
+<li>回归：给定一个数据，根据给出的训练集训练模型并推断出该数据下的输出值是多少，此时输出的是一个真实的数值，是一种定量的输出，也叫作连续变量预测。</li>
+</ul>
+<h3 id="具体概念"><a href="#具体概念" class="headerlink" title="具体概念"></a>具体概念</h3><p>LR模型其实仅在线性回归的基础上，套用了一个逻辑函数（sigmoid）。逻辑回归是一个非线性的二分类模型，主要是计算在某个样本特征下事件发生的概率，但是他本质上是一个线性回归模型，因为除去sigmoid映射函数外，其他步骤算法都是线性回归的。</p>
+<h2 id="2、手推LR"><a href="#2、手推LR" class="headerlink" title="2、手推LR"></a>2、手推LR</h2><p>图片转载自 <a href="https://blog.csdn.net/SweetSeven_/article/details/94620627" target="_blank" rel="noopener">https://blog.csdn.net/SweetSeven_/article/details/94620627</a></p>
+<div align="center"><br><img width="400" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/lr1.png"><br></div> 
 
-<div align="center"><br><img width="500" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm2.jpg"></div>  
-
-
-
-<h2 id="2、SVM为什么叫支持向量机"><a href="#2、SVM为什么叫支持向量机" class="headerlink" title="2、SVM为什么叫支持向量机"></a>2、SVM为什么叫支持向量机</h2><p>这个名字是强调了此类学习器的关键是如何从支持向量构建出解；同时也暗示了其复杂度主要与支持向量的数目有关。</p>
-<h2 id="3、SVM的损失函数（求导省略了）"><a href="#3、SVM的损失函数（求导省略了）" class="headerlink" title="3、SVM的损失函数（求导省略了）"></a>3、SVM的损失函数（求导省略了）</h2><div align="center"><br><img width="400" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm4.png"><br></div> 
-
-<h2 id="4、核函数了解哪些，为什么要用核函数"><a href="#4、核函数了解哪些，为什么要用核函数" class="headerlink" title="4、核函数了解哪些，为什么要用核函数"></a>4、核函数了解哪些，为什么要用核函数</h2><p>当样本在原始空间线性不可分时，可将样本从原始空间映射到一个更高维的特征空间，使得样本在这个特征空间内线性可分。</p>
-<div align="center"><br><img width="400" src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/svm3.jpg"><br></div> 
-
-<ol>
-<li><p>线性核，主要用于线性可分的情况，我们可以看到特征空间到输入空间的维度是一样的，其参数少速度快，对于线性可分数据，其分类效果很理想，因此我们通常首先尝试用线性核函数来做分类，看看效果如何，如果不行再换别的。</p>
-</li>
-<li><p>多项式核函数可以实现将低维的输入空间映射到高纬的特征空间，但是多项式核函数的参数多，当多项式的阶数比较高的时候，核矩阵的元素值将趋于无穷大或者无穷小，计算复杂度会大到无法计算。</p>
-</li>
-<li><p>高斯（RBF）核函数 是一种局部性强的核函数，其可以将一个样本映射到一个更高维的空间内，该核函数是应用最广的一个，无论大样本还是小样本都有比较好的性能，而且其相对于多项式核函数参数要少，因此大多数情况下在不知道用什么核函数的时候，优先使用高斯核函数。</p>
-</li>
-<li><p>采用sigmoid核函数，支持向量机实现的就是一种多层神经网络。<br>因此，在选用核函数的时候，如果我们对我们的数据有一定的先验知识，就利用先验来选择符合数据分布的核函数；如果不知道的话，通常使用交叉验证的方法，来试用不同的核函数，误差最下的即为效果最好的核函数，或者也可以将多个核函数结合起来，形成混合核函数。在吴恩达的课上，也曾经给出过一系列的选择核函数的方法.</p>
-</li>
-</ol>
-<p><strong><em>如果特征的数量大到和样本数量差不多，则选用LR或者线性核的SVM；<br>如果特征的数量小，样本的数量正常，则选用SVM+高斯核函数；<br>如果特征的数量小，而样本的数量很大，则需要手工添加一些特征从而变成第一种情况。</em></strong></p>
-<h2 id="5、为什么要将求解SVM的原始问题转换为其对偶问题？"><a href="#5、为什么要将求解SVM的原始问题转换为其对偶问题？" class="headerlink" title="5、为什么要将求解SVM的原始问题转换为其对偶问题？"></a>5、为什么要将求解SVM的原始问题转换为其对偶问题？</h2><ol>
-<li>是对偶问题往往更易求解（当我们寻找约束存在时的最优点的时候，约束的存在虽然减小了需要搜寻的范围，但是却使问题变得更加复杂。为了使问题变得易于处理，<strong>把目标函数和约束全部融入一个新的函数，即拉格朗日函数，再通过这个函数来寻找最优点。</strong>）</li>
-<li>自然引入核函数，进而推广到非线性分类问题。</li>
-</ol>
-<h2 id="6、SVM为什么可以处理非线性问题"><a href="#6、SVM为什么可以处理非线性问题" class="headerlink" title="6、SVM为什么可以处理非线性问题"></a>6、SVM为什么可以处理非线性问题</h2><p>非线性的话通过核函数将其隐射到高维空间，在高维空间非线性问题转化为线性问题。 </p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>周志华的<br>《机器学习》</p>
+<h2 id="3、LR怎么加入非线性"><a href="#3、LR怎么加入非线性" class="headerlink" title="3、LR怎么加入非线性"></a>3、LR怎么加入非线性</h2><p>套用了一个逻辑函数（sigmoid），逻辑回归是一个非线性的二分类模型。</p>
+<h2 id="4、LR的LOSS"><a href="#4、LR的LOSS" class="headerlink" title="4、LR的LOSS"></a>4、LR的LOSS</h2><p>上述图片中的J(θ)。</p>
+<h2 id="5、极大似然的概念"><a href="#5、极大似然的概念" class="headerlink" title="5、极大似然的概念"></a>5、极大似然的概念</h2><p>先验概率是<strong>知因求果</strong>，后验概率是<strong>知果求因</strong>，极大似然是<strong>知果求最可能的原因</strong>,就是在参数θ的可能取值范围内，选取使L(θ)达到最大的参数值θ，作为参数θ的估计值。</p>
 
             
         </div>
                 
                         <ul class="post-copyright">
-                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/09/07/svm/">手推SVM及常见面试问题</a></li>
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/09/08/lr/">手推LR（Logistic Regression）逻辑斯蒂回归及常见问题</a></li>
                         <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
-                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/09/07/svm/">http://www.cygao.xyz/2019/09/07/svm/</a></li>
-                        <li><strong>发布时间：</strong>2019-09-07</li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/09/08/lr/">http://www.cygao.xyz/2019/09/08/lr/</a></li>
+                        <li><strong>发布时间：</strong>2019-09-08</li>
                         <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                         </li>
                         </ul>
@@ -234,7 +217,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/机器学习/">机器学习</a>
+                    <a class="has-link-grey -link" href="/tags/机器学习/">机器学习</a>, <a class="has-link-grey -link" href="/tags/检测算法/">检测算法</a>
                 </div>
             </div>
         </div>
@@ -280,17 +263,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/08/lr/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">手推LR（Logistic Regression）逻辑斯蒂回归及常见问题</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/06/kmeans/">
-                <span class="level-item">K-means原理及常见问题</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/07/svm/">
+                <span class="level-item">手推SVM及常见面试问题</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -336,33 +312,29 @@
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#1、手推SVM">
+        <a class="is-flex" href="#1、逻辑斯蒂回归的概念">
         <span class="has-mr-6">1</span>
-        <span>1、手推SVM</span>
-        </a></li><li>
-        <a class="is-flex" href="#2、SVM为什么叫支持向量机">
+        <span>1、逻辑斯蒂回归的概念</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#具体概念">
+        <span class="has-mr-6">1.1</span>
+        <span>具体概念</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2、手推LR">
         <span class="has-mr-6">2</span>
-        <span>2、SVM为什么叫支持向量机</span>
+        <span>2、手推LR</span>
         </a></li><li>
-        <a class="is-flex" href="#3、SVM的损失函数（求导省略了）">
+        <a class="is-flex" href="#3、LR怎么加入非线性">
         <span class="has-mr-6">3</span>
-        <span>3、SVM的损失函数（求导省略了）</span>
+        <span>3、LR怎么加入非线性</span>
         </a></li><li>
-        <a class="is-flex" href="#4、核函数了解哪些，为什么要用核函数">
+        <a class="is-flex" href="#4、LR的LOSS">
         <span class="has-mr-6">4</span>
-        <span>4、核函数了解哪些，为什么要用核函数</span>
+        <span>4、LR的LOSS</span>
         </a></li><li>
-        <a class="is-flex" href="#5、为什么要将求解SVM的原始问题转换为其对偶问题？">
+        <a class="is-flex" href="#5、极大似然的概念">
         <span class="has-mr-6">5</span>
-        <span>5、为什么要将求解SVM的原始问题转换为其对偶问题？</span>
-        </a></li><li>
-        <a class="is-flex" href="#6、SVM为什么可以处理非线性问题">
-        <span class="has-mr-6">6</span>
-        <span>6、SVM为什么可以处理非线性问题</span>
-        </a></li><li>
-        <a class="is-flex" href="#参考">
-        <span class="has-mr-6">7</span>
-        <span>参考</span>
+        <span>5、极大似然的概念</span>
         </a></li></ul>
         </div>
     </div>
@@ -387,7 +359,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="手推SVM及常见面试问题" height="28">
+                    <img src="/images/logo.svg" alt="手推LR（Logistic Regression）逻辑斯蒂回归及常见问题" height="28">
                 
                 </a>
                 <p class="is-size-7">
