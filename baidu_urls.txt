@@ -1,3 +1,4 @@
+http://www.cygao.xyz/2019/09/09/xgboost/
 http://www.cygao.xyz/2019/09/08/gbdt/
 http://www.cygao.xyz/2019/09/08/lr/
 http://www.cygao.xyz/2019/09/07/svm/
@@ -17,4 +18,3 @@ http://www.cygao.xyz/2019/06/08/Joint/
 http://www.cygao.xyz/2018/12/09/RCAA Relational Context Aware Agents for Person Search/
 http://www.cygao.xyz/2018/11/28/Person Search by Multi-Scale Matching/
 http://www.cygao.xyz/2018/10/21/Joint Detection and Identification Feature Learning for Person Search/
-http://www.cygao.xyz/2018/10/21/Neural Person Search Machines/
