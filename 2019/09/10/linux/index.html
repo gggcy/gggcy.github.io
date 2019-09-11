@@ -19,7 +19,7 @@
 <meta property="og:description" content="纯个人向认为比较重要的，需要熟记。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-10T13:36:50.905Z">
+<meta property="og:updated_time" content="2019-09-11T10:02:54.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux的个人向常用操作">
 <meta name="twitter:description" content="纯个人向认为比较重要的，需要熟记。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1259 个字)
+                    27 分钟 读完 (大约 4096 个字)
                 </span>
                 
                 
@@ -253,10 +253,204 @@
 <p>$ date “+%Y-%m-%d”</p>
 <blockquote>
 <blockquote>
-<p>2019-9-10<br>$ mkdir $(date “+%Y-%m-%d”)<br>2019-9-10/ #创建了日期命名的目录<br><code>`</code><br>这个是极为强大的功能，无处不在。</p>
+<p>2019-9-10<br>$ mkdir $(date “+%Y-%m-%d”)<br>2019-9-10/ #创建了日期命名的目录<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这个是极为强大的功能，无处不在。</span><br><span class="line"></span><br><span class="line">## | 将一条命令的输出用作另外一条命令的输入</span><br><span class="line">```linux</span><br><span class="line">$ ps ux | grep firefox</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 </blockquote>
-
+<h2 id="gt-将命令的输出重定向到文件"><a href="#gt-将命令的输出重定向到文件" class="headerlink" title="&gt; 将命令的输出重定向到文件"></a>&gt; 将命令的输出重定向到文件</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l abc/ &gt; a.txt</span><br><span class="line">$ cat a.txt</span><br><span class="line"># abc目录下的文件</span><br></pre></td></tr></table></figure>
+<p>若文件a.txt不存在则会被创建，已存在则会被完全覆盖。所以使用重定向要十分谨慎。</p>
+<h2 id="gt-gt-将命令的输出追加到文件中"><a href="#gt-gt-将命令的输出追加到文件中" class="headerlink" title="&gt;&gt; 将命令的输出追加到文件中"></a>&gt;&gt; 将命令的输出追加到文件中</h2><p>如果文件不存在，会创建新的文件；<br>但是，如果使用 &gt;&gt; 代替 &gt;，就会把输出追加到指定文件按的结尾。</p>
+<p><strong>如果无意间输入 &gt; ，就不是追加了，而是覆盖了。</strong></p>
+<h2 id="lt-将文件用作命令的输入"><a href="#lt-将文件用作命令的输入" class="headerlink" title="&lt; 将文件用作命令的输入"></a>&lt; 将文件用作命令的输入</h2><p>不常用，举例<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tr &apos;A-Z&apos; &apos;a-z&apos; &lt; commands.txt</span><br></pre></td></tr></table></figure></p>
+<p>将txt用于输入，tr用来进行处理。</p>
+<h2 id="结合使用输入和输出重定向"><a href="#结合使用输入和输出重定向" class="headerlink" title="结合使用输入和输出重定向"></a>结合使用输入和输出重定向</h2><p>[command] &lt; [file] &gt;[output]<br>了解一下<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tr &apos;A-Z&apos; &apos;a-z&apos; &lt; commands.txt &gt; a.txt</span><br></pre></td></tr></table></figure></p>
+<p>tr处理后的commands.txt的内容输出到a.txt</p>
+<h2 id="tee-将输出同时发送到文件和stdout"><a href="#tee-将输出同时发送到文件和stdout" class="headerlink" title="tee 将输出同时发送到文件和stdout"></a>tee 将输出同时发送到文件和stdout</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l a/ | tee b.txt</span><br></pre></td></tr></table></figure>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><ol>
+<li>查看文件</li>
+<li>拼接文件至标准输出设备 cat file1 file2</li>
+<li>拼接文件到其他文件 cat file1 file2 &gt; file3</li>
+<li>追加到其他文件上 cat file1 &gt;&gt; file2</li>
+<li>拼接文件并显示行号 cat -n file1 file2</li>
+</ol>
+<h2 id="less-逐屏查看文本文件"><a href="#less-逐屏查看文本文件" class="headerlink" title="less 逐屏查看文本文件"></a>less 逐屏查看文本文件</h2><ol>
+<li>PageDn、e或空格键 前进一页</li>
+<li>PageUp或b 后退一页</li>
+<li>上下箭头对应 前进和后退一行</li>
+<li>Q 退出</li>
+</ol>
+<h2 id="head-查看文件前十行"><a href="#head-查看文件前十行" class="headerlink" title="head 查看文件前十行"></a>head 查看文件前十行</h2><ol>
+<li>head file1 file2也可以查看多个文件的前十行内容。</li>
+<li>head -n 5 file1 只看前五行</li>
+</ol>
+<h2 id="tail-查看最后十行"><a href="#tail-查看最后十行" class="headerlink" title="tail 查看最后十行"></a>tail 查看最后十行</h2><p>大部分与head相同</p>
+<ol>
+<li>tail -f 查看一个或多个文件中经常更新的最后几行内容。</li>
+</ol>
+<h2 id="wc-计算文件中的单词数，行数和字符数"><a href="#wc-计算文件中的单词数，行数和字符数" class="headerlink" title="wc 计算文件中的单词数，行数和字符数"></a>wc 计算文件中的单词数，行数和字符数</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wc a.txt</span><br><span class="line">&gt;&gt; 192 11134 70923 a.txt</span><br></pre></td></tr></table></figure>
+<p>按顺序给出了行数、单词数和字符数。</p>
+<ol>
+<li>-l -w -m 分别对应行数、单词数和字符数。</li>
+</ol>
+<p>更重要的是理解这是一个<strong>过滤器</strong>。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep JerkyJerks sever_access.log | wc -l</span><br><span class="line">&gt;&gt; 11542</span><br></pre></td></tr></table></figure></p>
+<p>使用wc -l来计算这些网络黑客对计算机攻击了多少次。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep [/]usr/bin.cronolog | wc -l</span><br><span class="line">&gt;&gt; 83</span><br></pre></td></tr></table></figure></p>
+<p>多少个cronolog实例征在运行。</p>
+<h2 id="nl对文件中的行进行编号"><a href="#nl对文件中的行进行编号" class="headerlink" title="nl对文件中的行进行编号"></a>nl对文件中的行进行编号</h2><ol>
+<li>nl a.txt 不给空行编号</li>
+<li>nl -b a a.txt 也会给空行进行编号</li>
+</ol>
+<h2 id="cut-选择分隔文件中的整列数据"><a href="#cut-选择分隔文件中的整列数据" class="headerlink" title="cut 选择分隔文件中的整列数据"></a>cut 选择分隔文件中的整列数据</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cut -f 1,3 a.txt</span><br></pre></td></tr></table></figure>
+<p>提取数据的第一列和第三列<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo wu.images.ccc.com | cut -d &apos;.&apos; -f 2-4</span><br><span class="line">&gt;&gt; images.ccc.com</span><br></pre></td></tr></table></figure></p>
+<h2 id="sort-排序文件中的内容"><a href="#sort-排序文件中的内容" class="headerlink" title="sort 排序文件中的内容"></a>sort 排序文件中的内容</h2><h2 id="uniq-删除文件中重复的行"><a href="#uniq-删除文件中重复的行" class="headerlink" title="uniq 删除文件中重复的行"></a>uniq 删除文件中重复的行</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ history | awl &apos;&#123;print $2&#125;&apos;| uniq</span><br></pre></td></tr></table></figure>
+<p>删除重复的命令</p>
+<h2 id="tr-使用其他字符替换选择的字符"><a href="#tr-使用其他字符替换选择的字符" class="headerlink" title="tr 使用其他字符替换选择的字符"></a>tr 使用其他字符替换选择的字符</h2><ol>
+<li>tr -s 使用单个实例替换重复的字符</li>
+<li>tr -d 删除匹配的字符</li>
+</ol>
+<h2 id="sed-转变文件中的文本"><a href="#sed-转变文件中的文本" class="headerlink" title="sed 转变文件中的文本"></a>sed 转变文件中的文本</h2><p>搭配正则表达式，功能强大，stream editor的简写</p>
+<h2 id="awk-打印文件中的特定字段"><a href="#awk-打印文件中的特定字段" class="headerlink" title="awk 打印文件中的特定字段"></a>awk 打印文件中的特定字段</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h | awk &apos;NR&gt;1 &#123;print $6 &quot;has&quot; $4 &quot; of &quot; $2 &quot;left&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p>df -h可以显示计算机上文件系统的磁盘使用情况，NR&gt;1告诉awk跳过第一行。</p>
+<h2 id="su-username-切换用户"><a href="#su-username-切换用户" class="headerlink" title="su username 切换用户"></a>su username 切换用户</h2><h2 id="su-成为root用户"><a href="#su-成为root用户" class="headerlink" title="su 成为root用户"></a>su 成为root用户</h2><p>whoami可以查看当前用户名称</p>
+<h2 id="su-成为root用户并使用其环境变量"><a href="#su-成为root用户并使用其环境变量" class="headerlink" title="su - 成为root用户并使用其环境变量"></a>su - 成为root用户并使用其环境变量</h2><p>只是用su，可以拥有root用户的权限，但是在后台，非root用户环境变量仍然在起作用。所以需要使用su -</p>
+<h2 id="chgrp-更改用户或目录所属用户组"><a href="#chgrp-更改用户或目录所属用户组" class="headerlink" title="chgrp 更改用户或目录所属用户组"></a>chgrp 更改用户或目录所属用户组</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chgrp admins a.sh</span><br></pre></td></tr></table></figure>
+<p>使用 cat/etc/group 查看用户组的情况。</p>
+<ol>
+<li>-R 递归更改目录所属的用户组</li>
+</ol>
+<h2 id="chown-更改文件和目录的拥有者"><a href="#chown-更改文件和目录的拥有者" class="headerlink" title="chown 更改文件和目录的拥有者"></a>chown 更改文件和目录的拥有者</h2><p>只有root用户，或使用sudo拥有root身份的用户，才可以更改文件的拥有者。</p>
+<ol>
+<li>-R 同样可以递归</li>
+</ol>
+<h2 id="chown-owner-group-同时更改文件和目录的拥有者和用户组"><a href="#chown-owner-group-同时更改文件和目录的拥有者和用户组" class="headerlink" title="chown owner:group  同时更改文件和目录的拥有者和用户组"></a>chown owner:group  同时更改文件和目录的拥有者和用户组</h2><p>root用户可以一直能够对任何文件或目录进行任意操作</p>
+<h2 id="chmod-修改文件和目录的权限"><a href="#chmod-修改文件和目录的权限" class="headerlink" title="chmod 修改文件和目录的权限"></a>chmod 修改文件和目录的权限</h2><ol>
+<li>chmod [ugo][+-=][rwx] </li>
+<li>chmod a[+-=][rwx]影响所有用户组</li>
+<li>-R 递归地修改全年</li>
+</ol>
+<h2 id="suid-设置和清除"><a href="#suid-设置和清除" class="headerlink" title="suid 设置和清除"></a>suid 设置和清除</h2><ol>
+<li>chmod u[+-]s 设置和清除，用户就可以使用拥有者的权限执行这个文件。</li>
+</ol>
+<h2 id="zip-压缩文件"><a href="#zip-压缩文件" class="headerlink" title="zip 压缩文件"></a>zip 压缩文件</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip 压缩后的文件名.zip 需要压缩的文件</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>zip -[0-9]，-9获得的压缩率最大</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip -9 mo.zip *.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>-P和-e 可以用密码来保护压缩的zip文档。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ zip -P 123 mo.zip *.txt</span><br><span class="line">$ zip -e  mo.zip *.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>-e 密码不可见，不会存在shell事件的历史记录之中。</p>
+<h2 id="unzip解压缩文件"><a href="#unzip解压缩文件" class="headerlink" title="unzip解压缩文件"></a>unzip解压缩文件</h2><ol>
+<li>unzip -t 测试将要解压缩的文件。因为有时候zip压缩文档会损毁，最好在解压缩之前，都进行一次测试。</li>
+</ol>
+<h2 id="gzip-归档和压缩文件"><a href="#gzip-归档和压缩文件" class="headerlink" title="gzip 归档和压缩文件"></a>gzip 归档和压缩文件</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gzip a.txt</span><br><span class="line">&gt;&gt; a.txt.gz #原来的a.txt不存在了</span><br></pre></td></tr></table></figure>
+<p>如果想让gzip保留原始文件，需要使用-c，且要搭配重定向。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gzip -c a.txt &gt; a.txt.gz</span><br></pre></td></tr></table></figure></p>
+<p>现在既有原始文件，也有压缩文件。</p>
+<ol>
+<li>-r 递归</li>
+<li>也可以用-[0-9] 指定压缩率<h2 id="gunzip-解压缩gzip压缩的文件"><a href="#gunzip-解压缩gzip压缩的文件" class="headerlink" title="gunzip 解压缩gzip压缩的文件"></a>gunzip 解压缩gzip压缩的文件</h2>操作和gzip相同，如果要保留.gz文件，也需要用上述的重定向和-c。<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip -c a.txt.gz &gt; a.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="bzip2-压缩"><a href="#bzip2-压缩" class="headerlink" title="bzip2 压缩"></a>bzip2 压缩</h2><p>和gzip几乎一样，但保留原始文件，使用-k，且不用重定向<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 -k a.txt</span><br></pre></td></tr></table></figure></p>
+<h2 id="bunzip2-解压缩bzip2压缩的文件"><a href="#bunzip2-解压缩bzip2压缩的文件" class="headerlink" title="bunzip2 解压缩bzip2压缩的文件"></a>bunzip2 解压缩bzip2压缩的文件</h2><ol>
+<li>-t 最好解压缩前测试一下</li>
+</ol>
+<h2 id="tar-cf-归档文件"><a href="#tar-cf-归档文件" class="headerlink" title="tar -cf 归档文件"></a>tar -cf 归档文件</h2><p>tar不执行压缩 必须接着-cf，-c告诉tar命令正在创建原始码，-f则用于为原始码指定文件名<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -cf moby.tar *.txt</span><br><span class="line"># 压缩所有.txt文件</span><br></pre></td></tr></table></figure></p>
+<p>也可以用于压缩整个目录结构，使用该命令可以批量归档大量的文件和子目录。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -cf moby.tar abc/</span><br></pre></td></tr></table></figure>
+<p>归档了abc目录</p>
+<h2 id="tar-pzcvf结合tar和gzip归档和压缩文件"><a href="#tar-pzcvf结合tar和gzip归档和压缩文件" class="headerlink" title="tar -pzcvf结合tar和gzip归档和压缩文件"></a>tar -pzcvf结合tar和gzip归档和压缩文件</h2><ol>
+<li>-p 确保保留权限 -z 能够在tar中调用gzip -v 运行时告知你执行的操作<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -pzcvf moby.tar.gz abc/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>最后的扩展名是.tar.gz，也可以使用.tgz或是tar.gzip</p>
+<ol start="2">
+<li>当然也可以使用tar结合bzip2<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -pjcvf moby.tar.bz2 abc/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意 -j 选项。</p>
+<h2 id="tar-zvtf-测试将要解开和解压缩的文件"><a href="#tar-zvtf-测试将要解开和解压缩的文件" class="headerlink" title="tar -zvtf 测试将要解开和解压缩的文件"></a>tar -zvtf 测试将要解开和解压缩的文件</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zvtf moby.tar.gz</span><br></pre></td></tr></table></figure>
+<ol>
+<li>-t 测试</li>
+<li>-f 必须是放在最后一个选项</li>
+<li>tar -jvtf moby.tar.gz 解压缩bzip2压缩的文件</li>
+</ol>
+<h2 id="grep-在文本文件中搜索匹配的模式"><a href="#grep-在文本文件中搜索匹配的模式" class="headerlink" title="grep 在文本文件中搜索匹配的模式"></a>grep 在文本文件中搜索匹配的模式</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep trian *</span><br><span class="line">$ grep &apos;hello wolrd!&apos; * #遇到有空格的字符串，用单引号，不要用双引号</span><br></pre></td></tr></table></figure>
+<ol>
+<li>-R 递归地搜索文件中的文本。</li>
+<li>-i 忽略大小写</li>
+<li>-w 只搜索完整单词</li>
+<li>-n 显示搜索单词在文件中的对应行号</li>
+<li>-v 显示文件中没有包含匹配单词的行</li>
+<li>-l 列出包含搜索词的文件名</li>
+<li>-c 列出文件中单词的出现次数</li>
+</ol>
+<h2 id="find-搜索文件"><a href="#find-搜索文件" class="headerlink" title="find 搜索文件"></a>find 搜索文件</h2><ol>
+<li><p>-name</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find . -name shaggs</span><br><span class="line">$ find . -name &quot;*shaggs*&quot; #最好搭配一些通配符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>-user 根据拥有者</p>
+</li>
+<li>-group 根据拥有组</li>
+<li>-size 根据文件大小</li>
+<li>-type 根据文件类型</li>
+<li>-a 组合选项时 均为ture (And) </li>
+<li>-o 任一表达式为 （OR）</li>
+</ol>
+<h2 id="history-查看历史命令"><a href="#history-查看历史命令" class="headerlink" title="history 查看历史命令"></a>history 查看历史命令</h2><h2 id="再次运行最近输入的命令"><a href="#再次运行最近输入的命令" class="headerlink" title="!! 再次运行最近输入的命令"></a>!! 再次运行最近输入的命令</h2><h2 id="！使用数字再次运行之前的命令"><a href="#！使用数字再次运行之前的命令" class="headerlink" title="！使用数字再次运行之前的命令"></a>！使用数字再次运行之前的命令</h2><p>history可以查到命令的编号，!499。</p>
+<h2 id="使用字符串再次运行之前的命令"><a href="#使用字符串再次运行之前的命令" class="headerlink" title="使用字符串再次运行之前的命令"></a>使用字符串再次运行之前的命令</h2><p>!cat /ect，部分信息就行</p>
+<h2 id="搜索之前输入的命令并运行"><a href="#搜索之前输入的命令并运行" class="headerlink" title="搜索之前输入的命令并运行"></a>搜索之前输入的命令并运行</h2><ol>
+<li>按Crtl+r键,r代表反向搜索和匹配</li>
+</ol>
+<h2 id="uptime-显示计算机的持续运行时间"><a href="#uptime-显示计算机的持续运行时间" class="headerlink" title="uptime 显示计算机的持续运行时间"></a>uptime 显示计算机的持续运行时间</h2><p>有趣的命令</p>
+<h2 id="ps-aux查看正在运行的所有进程"><a href="#ps-aux查看正在运行的所有进程" class="headerlink" title="ps aux查看正在运行的所有进程"></a>ps aux查看正在运行的所有进程</h2><ol>
+<li>a 表示所有用户</li>
+<li>u 以面向用户的格式显示，或显示拥有每个进程的用户</li>
+<li>x 没有控制终端设备或终端屏幕的进程，“显示每个进程”的另外一个说法</li>
+<li>-w 默认情况下输出会在终端窗口的边缘被切断，为了完整地查看输出行，可添加 -w 换行</li>
+</ol>
+<p>ps命令提供很多信息，包括拥有进程地用户、唯一地进程ID编号（PID，用于标识进程）、进程正在使用的CPU百分比（%CPU）和内存百分比（%MEM）、已经运行了多长时间、进程的当前状态STAT以及进程自身的名称。</p>
+<ul>
+<li>R 正在运行</li>
+<li>S 正在休眠</li>
+<li>T 已停止</li>
+<li>Z 僵尸进程 意味着该进程一直处于挂起状态，不能停止。只有重启计算机才能完全关闭这个程序。</li>
+</ul>
+<h2 id="ps-axjf-查看进程树"><a href="#ps-axjf-查看进程树" class="headerlink" title="ps axjf 查看进程树"></a>ps axjf 查看进程树</h2><h2 id="ps-U-username-查看特定用户拥有的进程"><a href="#ps-U-username-查看特定用户拥有的进程" class="headerlink" title="ps U username 查看特定用户拥有的进程"></a>ps U username 查看特定用户拥有的进程</h2><h2 id="kill-终止正在运行的程序"><a href="#kill-终止正在运行的程序" class="headerlink" title="kill 终止正在运行的程序"></a>kill 终止正在运行的程序</h2><ol>
+<li>-1 控制程序已停止运行，关闭进程</li>
+<li>-15 正常终止进程，清除将要失控的进程和文件</li>
+<li>-9 停止任何正在进行的处理工作，立即关闭进程<br>通常，先试试-15（实际上，这是默认值），没有响应，则使用-9</li>
+</ol>
+<h2 id="top-查看运行中进程的动态更新列表"><a href="#top-查看运行中进程的动态更新列表" class="headerlink" title="top 查看运行中进程的动态更新列表"></a>top 查看运行中进程的动态更新列表</h2><h2 id="df-显示文件系统的磁盘使用情况"><a href="#df-显示文件系统的磁盘使用情况" class="headerlink" title="df 显示文件系统的磁盘使用情况"></a>df 显示文件系统的磁盘使用情况</h2><h2 id="du-报告目录使用的文件空间"><a href="#du-报告目录使用的文件空间" class="headerlink" title="du 报告目录使用的文件空间"></a>du 报告目录使用的文件空间</h2><ol>
+<li>-hs 只报告占用空间的总量</li>
+</ol>
+<h2 id="rpm-安装软件包"><a href="#rpm-安装软件包" class="headerlink" title="rpm 安装软件包"></a>rpm 安装软件包</h2><p>用于安装以.rpm为后缀的软件安装程序。</p>
+<ol>
+<li>-ihv [package]  i 安装软件包，h 显示hash标记，以便观察安装进度，v 显示命令执行的操作</li>
+<li>-Uhv [package] 更好的选择 U 可以进行安装和升级。如果已经存在软件包，会自动更新。</li>
+<li>-e [package] 删除软件包</li>
+</ol>
+<h2 id="yum-安装软件包及其依赖程序-RPM"><a href="#yum-安装软件包及其依赖程序-RPM" class="headerlink" title="yum 安装软件包及其依赖程序(RPM)"></a>yum 安装软件包及其依赖程序(RPM)</h2><p>yum命令通过充当RPM的包装器来安装、升级和卸载软件包。</p>
+<ol>
+<li>install </li>
+<li>remove 删除软件包及其依赖程序</li>
+<li>update 更新升级</li>
+<li>list avaliable 查看可供下载的软件包<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum list avaliable | grep wireshark</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="dpkg-安装软件包-DEB"><a href="#dpkg-安装软件包-DEB" class="headerlink" title="dpkg 安装软件包(DEB)"></a>dpkg 安装软件包(DEB)</h2><ol>
+<li>-i [package] 就是这么简单</li>
+<li>-r [package] 删除</li>
+</ol>
+<h2 id="apt-get-install-安装软件包及其依赖程序-DEB"><a href="#apt-get-install-安装软件包及其依赖程序-DEB" class="headerlink" title="apt-get install 安装软件包及其依赖程序(DEB)"></a>apt-get install 安装软件包及其依赖程序(DEB)</h2><ol>
+<li>apt-get update 该命令会从APT服务器（称为仓库）下载当前的软件包列表，在APT配置文件（/etc/apt/sources.list）中列出了这些仓库（可以使用cat查看）。</li>
+<li>apt-get remove [package] 删除软件包及其依赖程序（DEB)</li>
+<li>–purge 卸载软件包不会删除这个包的所有数据，被删除软件的配置文件还会残留在计算机中。如果想要删除所有数据，使用 –purge，表示与这个包相关的配置文件包也要被删除。</li>
+<li>apt-cache search [package] 查找可供下载的软件包</li>
+<li>apt-get clean 清楚不再需要的安装包</li>
+</ol>
+<h2 id="ping-验证计算机是否正在运行和能否接受请求"><a href="#ping-验证计算机是否正在运行和能否接受请求" class="headerlink" title="ping 验证计算机是否正在运行和能否接受请求"></a>ping 验证计算机是否正在运行和能否接受请求</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ping ww.baidu.com</span><br></pre></td></tr></table></figure>
+<p>直到按下Ctrl + C组合键，ping命令才会停止。</p>
+<h2 id="ssh-安全登录到另外一台服务器"><a href="#ssh-安全登录到另外一台服务器" class="headerlink" title="ssh 安全登录到另外一台服务器"></a>ssh 安全登录到另外一台服务器</h2><h2 id="sftp-在计算机之间安全地传输文件"><a href="#sftp-在计算机之间安全地传输文件" class="headerlink" title="sftp 在计算机之间安全地传输文件"></a>sftp 在计算机之间安全地传输文件</h2><h2 id="scp-在主机之间安全地复制文件"><a href="#scp-在主机之间安全地复制文件" class="headerlink" title="scp 在主机之间安全地复制文件"></a>scp 在主机之间安全地复制文件</h2><h2 id="wget-非交互式下载文件或非交互式下载整个网站"><a href="#wget-非交互式下载文件或非交互式下载整个网站" class="headerlink" title="wget 非交互式下载文件或非交互式下载整个网站"></a>wget 非交互式下载文件或非交互式下载整个网站</h2>
             
         </div>
                 
@@ -428,6 +622,238 @@
         <a class="is-flex" href="#连续运行多个命令">
         <span class="has-mr-6">15</span>
         <span>; 连续运行多个命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#gt-将命令的输出重定向到文件">
+        <span class="has-mr-6">16</span>
+        <span>&gt; 将命令的输出重定向到文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#gt-gt-将命令的输出追加到文件中">
+        <span class="has-mr-6">17</span>
+        <span>&gt;&gt; 将命令的输出追加到文件中</span>
+        </a></li><li>
+        <a class="is-flex" href="#lt-将文件用作命令的输入">
+        <span class="has-mr-6">18</span>
+        <span>&lt; 将文件用作命令的输入</span>
+        </a></li><li>
+        <a class="is-flex" href="#结合使用输入和输出重定向">
+        <span class="has-mr-6">19</span>
+        <span>结合使用输入和输出重定向</span>
+        </a></li><li>
+        <a class="is-flex" href="#tee-将输出同时发送到文件和stdout">
+        <span class="has-mr-6">20</span>
+        <span>tee 将输出同时发送到文件和stdout</span>
+        </a></li><li>
+        <a class="is-flex" href="#cat">
+        <span class="has-mr-6">21</span>
+        <span>cat</span>
+        </a></li><li>
+        <a class="is-flex" href="#less-逐屏查看文本文件">
+        <span class="has-mr-6">22</span>
+        <span>less 逐屏查看文本文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#head-查看文件前十行">
+        <span class="has-mr-6">23</span>
+        <span>head 查看文件前十行</span>
+        </a></li><li>
+        <a class="is-flex" href="#tail-查看最后十行">
+        <span class="has-mr-6">24</span>
+        <span>tail 查看最后十行</span>
+        </a></li><li>
+        <a class="is-flex" href="#wc-计算文件中的单词数，行数和字符数">
+        <span class="has-mr-6">25</span>
+        <span>wc 计算文件中的单词数，行数和字符数</span>
+        </a></li><li>
+        <a class="is-flex" href="#nl对文件中的行进行编号">
+        <span class="has-mr-6">26</span>
+        <span>nl对文件中的行进行编号</span>
+        </a></li><li>
+        <a class="is-flex" href="#cut-选择分隔文件中的整列数据">
+        <span class="has-mr-6">27</span>
+        <span>cut 选择分隔文件中的整列数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#sort-排序文件中的内容">
+        <span class="has-mr-6">28</span>
+        <span>sort 排序文件中的内容</span>
+        </a></li><li>
+        <a class="is-flex" href="#uniq-删除文件中重复的行">
+        <span class="has-mr-6">29</span>
+        <span>uniq 删除文件中重复的行</span>
+        </a></li><li>
+        <a class="is-flex" href="#tr-使用其他字符替换选择的字符">
+        <span class="has-mr-6">30</span>
+        <span>tr 使用其他字符替换选择的字符</span>
+        </a></li><li>
+        <a class="is-flex" href="#sed-转变文件中的文本">
+        <span class="has-mr-6">31</span>
+        <span>sed 转变文件中的文本</span>
+        </a></li><li>
+        <a class="is-flex" href="#awk-打印文件中的特定字段">
+        <span class="has-mr-6">32</span>
+        <span>awk 打印文件中的特定字段</span>
+        </a></li><li>
+        <a class="is-flex" href="#su-username-切换用户">
+        <span class="has-mr-6">33</span>
+        <span>su username 切换用户</span>
+        </a></li><li>
+        <a class="is-flex" href="#su-成为root用户">
+        <span class="has-mr-6">34</span>
+        <span>su 成为root用户</span>
+        </a></li><li>
+        <a class="is-flex" href="#su-成为root用户并使用其环境变量">
+        <span class="has-mr-6">35</span>
+        <span>su - 成为root用户并使用其环境变量</span>
+        </a></li><li>
+        <a class="is-flex" href="#chgrp-更改用户或目录所属用户组">
+        <span class="has-mr-6">36</span>
+        <span>chgrp 更改用户或目录所属用户组</span>
+        </a></li><li>
+        <a class="is-flex" href="#chown-更改文件和目录的拥有者">
+        <span class="has-mr-6">37</span>
+        <span>chown 更改文件和目录的拥有者</span>
+        </a></li><li>
+        <a class="is-flex" href="#chown-owner-group-同时更改文件和目录的拥有者和用户组">
+        <span class="has-mr-6">38</span>
+        <span>chown owner:group  同时更改文件和目录的拥有者和用户组</span>
+        </a></li><li>
+        <a class="is-flex" href="#chmod-修改文件和目录的权限">
+        <span class="has-mr-6">39</span>
+        <span>chmod 修改文件和目录的权限</span>
+        </a></li><li>
+        <a class="is-flex" href="#suid-设置和清除">
+        <span class="has-mr-6">40</span>
+        <span>suid 设置和清除</span>
+        </a></li><li>
+        <a class="is-flex" href="#zip-压缩文件">
+        <span class="has-mr-6">41</span>
+        <span>zip 压缩文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#unzip解压缩文件">
+        <span class="has-mr-6">42</span>
+        <span>unzip解压缩文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#gzip-归档和压缩文件">
+        <span class="has-mr-6">43</span>
+        <span>gzip 归档和压缩文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#gunzip-解压缩gzip压缩的文件">
+        <span class="has-mr-6">44</span>
+        <span>gunzip 解压缩gzip压缩的文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#bzip2-压缩">
+        <span class="has-mr-6">45</span>
+        <span>bzip2 压缩</span>
+        </a></li><li>
+        <a class="is-flex" href="#bunzip2-解压缩bzip2压缩的文件">
+        <span class="has-mr-6">46</span>
+        <span>bunzip2 解压缩bzip2压缩的文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#tar-cf-归档文件">
+        <span class="has-mr-6">47</span>
+        <span>tar -cf 归档文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#tar-pzcvf结合tar和gzip归档和压缩文件">
+        <span class="has-mr-6">48</span>
+        <span>tar -pzcvf结合tar和gzip归档和压缩文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#tar-zvtf-测试将要解开和解压缩的文件">
+        <span class="has-mr-6">49</span>
+        <span>tar -zvtf 测试将要解开和解压缩的文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#grep-在文本文件中搜索匹配的模式">
+        <span class="has-mr-6">50</span>
+        <span>grep 在文本文件中搜索匹配的模式</span>
+        </a></li><li>
+        <a class="is-flex" href="#find-搜索文件">
+        <span class="has-mr-6">51</span>
+        <span>find 搜索文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#history-查看历史命令">
+        <span class="has-mr-6">52</span>
+        <span>history 查看历史命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#再次运行最近输入的命令">
+        <span class="has-mr-6">53</span>
+        <span>!! 再次运行最近输入的命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#！使用数字再次运行之前的命令">
+        <span class="has-mr-6">54</span>
+        <span>！使用数字再次运行之前的命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#使用字符串再次运行之前的命令">
+        <span class="has-mr-6">55</span>
+        <span>使用字符串再次运行之前的命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#搜索之前输入的命令并运行">
+        <span class="has-mr-6">56</span>
+        <span>搜索之前输入的命令并运行</span>
+        </a></li><li>
+        <a class="is-flex" href="#uptime-显示计算机的持续运行时间">
+        <span class="has-mr-6">57</span>
+        <span>uptime 显示计算机的持续运行时间</span>
+        </a></li><li>
+        <a class="is-flex" href="#ps-aux查看正在运行的所有进程">
+        <span class="has-mr-6">58</span>
+        <span>ps aux查看正在运行的所有进程</span>
+        </a></li><li>
+        <a class="is-flex" href="#ps-axjf-查看进程树">
+        <span class="has-mr-6">59</span>
+        <span>ps axjf 查看进程树</span>
+        </a></li><li>
+        <a class="is-flex" href="#ps-U-username-查看特定用户拥有的进程">
+        <span class="has-mr-6">60</span>
+        <span>ps U username 查看特定用户拥有的进程</span>
+        </a></li><li>
+        <a class="is-flex" href="#kill-终止正在运行的程序">
+        <span class="has-mr-6">61</span>
+        <span>kill 终止正在运行的程序</span>
+        </a></li><li>
+        <a class="is-flex" href="#top-查看运行中进程的动态更新列表">
+        <span class="has-mr-6">62</span>
+        <span>top 查看运行中进程的动态更新列表</span>
+        </a></li><li>
+        <a class="is-flex" href="#df-显示文件系统的磁盘使用情况">
+        <span class="has-mr-6">63</span>
+        <span>df 显示文件系统的磁盘使用情况</span>
+        </a></li><li>
+        <a class="is-flex" href="#du-报告目录使用的文件空间">
+        <span class="has-mr-6">64</span>
+        <span>du 报告目录使用的文件空间</span>
+        </a></li><li>
+        <a class="is-flex" href="#rpm-安装软件包">
+        <span class="has-mr-6">65</span>
+        <span>rpm 安装软件包</span>
+        </a></li><li>
+        <a class="is-flex" href="#yum-安装软件包及其依赖程序-RPM">
+        <span class="has-mr-6">66</span>
+        <span>yum 安装软件包及其依赖程序(RPM)</span>
+        </a></li><li>
+        <a class="is-flex" href="#dpkg-安装软件包-DEB">
+        <span class="has-mr-6">67</span>
+        <span>dpkg 安装软件包(DEB)</span>
+        </a></li><li>
+        <a class="is-flex" href="#apt-get-install-安装软件包及其依赖程序-DEB">
+        <span class="has-mr-6">68</span>
+        <span>apt-get install 安装软件包及其依赖程序(DEB)</span>
+        </a></li><li>
+        <a class="is-flex" href="#ping-验证计算机是否正在运行和能否接受请求">
+        <span class="has-mr-6">69</span>
+        <span>ping 验证计算机是否正在运行和能否接受请求</span>
+        </a></li><li>
+        <a class="is-flex" href="#ssh-安全登录到另外一台服务器">
+        <span class="has-mr-6">70</span>
+        <span>ssh 安全登录到另外一台服务器</span>
+        </a></li><li>
+        <a class="is-flex" href="#sftp-在计算机之间安全地传输文件">
+        <span class="has-mr-6">71</span>
+        <span>sftp 在计算机之间安全地传输文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#scp-在主机之间安全地复制文件">
+        <span class="has-mr-6">72</span>
+        <span>scp 在主机之间安全地复制文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#wget-非交互式下载文件或非交互式下载整个网站">
+        <span class="has-mr-6">73</span>
+        <span>wget 非交互式下载文件或非交互式下载整个网站</span>
         </a></li></ul>
         </div>
     </div>
