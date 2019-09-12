@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-09-11T10:02:54.513Z</updated>
+  <updated>2019-09-12T01:28:15.568Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>YOLOv1到v3相关</title>
+    <link href="http://www.cygao.xyz/2019/09/12/yolo/"/>
+    <id>http://www.cygao.xyz/2019/09/12/yolo/</id>
+    <published>2019-09-12T01:16:05.000Z</published>
+    <updated>2019-09-12T01:28:15.568Z</updated>
+    
+    <content type="html"><![CDATA[<p>懒得搬运了，直接贴原博客地址。</p><a id="more"></a><h1 id="详解YOLOv1到YOLOv3"><a href="#详解YOLOv1到YOLOv3" class="headerlink" title="详解YOLOv1到YOLOv3"></a>详解YOLOv1到YOLOv3</h1><p><a href="https://blog.csdn.net/guleileo/article/details/80581858" target="_blank" rel="noopener">从YOLOv1到YOLOv3，目标检测的进化之路</a> </p><p><a href="https://blog.csdn.net/calvinpaean/article/details/84820323" target="_blank" rel="noopener">YOLOv1到YOLOv3之比较</a> </p><h1 id="YOLOv3的损失函数"><a href="#YOLOv3的损失函数" class="headerlink" title="YOLOv3的损失函数"></a>YOLOv3的损失函数</h1><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/yolo.png" alt></div> ]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;懒得搬运了，直接贴原博客地址。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
+    
+    
+      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="深度学习，目标检测" scheme="http://www.cygao.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%8C%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>linux的个人向常用操作</title>
@@ -440,28 +464,6 @@
     <summary type="html">
     
       &lt;p&gt;论文：RCAA Relational Context-Aware Agents for Person Search&lt;br&gt;链接：&lt;a href=&quot;http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html&lt;/a&gt;&lt;br&gt;代码地址：没有公开&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="行人搜索" scheme="http://www.cygao.xyz/categories/%E8%A1%8C%E4%BA%BA%E6%90%9C%E7%B4%A2/"/>
-    
-    
-      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Person Search】 Person Search by Multi-Scale Matching</title>
-    <link href="http://www.cygao.xyz/2018/11/28/Person%20Search%20by%20Multi-Scale%20Matching/"/>
-    <id>http://www.cygao.xyz/2018/11/28/Person Search by Multi-Scale Matching/</id>
-    <published>2018-11-28T03:23:45.000Z</published>
-    <updated>2019-09-02T01:52:07.053Z</updated>
-    
-    <content type="html"><![CDATA[<p>论文：Person Search by Multi-Scale Matching<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=863970833&auto=0&height=66"></iframe><h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>研究了无约束场景图像中的人搜索问题。现有的检测方法多侧重于提高人的检测精度，以减轻自动检测噪声引起的配准误差、误检等带来的负面影响。与以往的研究相比，我们发现，通过改进现有的深度学习对象检测器(如Fast R-CNN)，可以实现足够的可重复责任人实例裁剪，而在人员搜索中尚未得到充分研究的多尺度匹配问题是一个更为严重的障碍。在这项工作中，我们提出了一种跨层次语义对齐(CLSA)的深度学习方法，能够在统一的端到端模型中学习更具鉴别性的身份特征表示，从而解决了这个多尺度的人搜索挑战。这是通过利用深度神经网络的网络内特征金字塔结构来实现的。这很好地消除了构建计算开销昂贵的图像金字塔和复杂的多分支网络体系结构的需要。</p><h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>行人搜索处理原始的未细化的检测与许多错误裁剪和未知程度的错位。这就产生了一个更具挑战性的匹配问题，尤其是在人的重新识别过程中。此外，自动检测的人员框通常在规模(分辨率)上比常规的差异更大。由于人与摄像机之间固有的无法控制的距离(图1(a))。因此，它本质上是一个多尺度匹配问题。然而，这一问题目前在人员搜索中研究不足。</p><p>贡献：    </p><ol><li>我们确定了人搜索中的多尺度匹配问题，这是文献中缺少的一个元素，但发现它对提高模型性能具有重要意义。</li><li>我们提出了一个跨层次语义对齐(CLSA)的深度学习方法来解决多尺度匹配的挑战。这是基于学习一个端到端的网络内特征金字塔表示，具有较强的鲁棒性，以应对可变尺度的自动检测人的边界框。</li><li>我们改进了Faster R-CNN模型，在不受控制的场景中实现更可靠的行人定位，从而提高了整体搜索性能。以及用实验证明了这一点。<div align="center"><br><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/CLSA1.png" alt></div>  </li></ol><h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul><li>Person search<br>pass  </li><li>pedestrian detection<br>pass    </li></ul><h1 id="3-Cross-Level-Semantic-Alignment-for-Person-Search"><a href="#3-Cross-Level-Semantic-Alignment-for-Person-Search" class="headerlink" title="3. Cross-Level Semantic Alignment for Person Search"></a>3. Cross-Level Semantic Alignment for Person Search</h1><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/CLSA2.png" alt><br></div>  <h2 id="3-1-Person-Detection"><a href="#3-1-Person-Detection" class="headerlink" title="3.1 Person Detection"></a>3.1 Person Detection</h2><p>进一步提高检测性能和效率,我们介绍一些设计改进原模型。</p><ol><li>不是使用传统的RoI的利益(地区)池层,我们该地区农作物和调整功能映射到14×14像素,并进一步最大池他们7×7获得更好的效率</li><li>在ImageNet-1K上对backbone ResNet-50网络进行预训练后，我们将第一个构建块(前4层)固定在目标人物搜索数据的微调中。这允许保留从较大的源数据中学到的共享底层特性，同时使模型适应目标数据。</li><li>在非最大抑制(NMS)操作之前，我们保留并利用所有大小的proposals来降低在不受控制的场景中极端尺度下的误检率。在部署中，我们考虑所有的检测框得分都在0.5以上，而不是从每个场景图像中提取固定数量的框。这个很好理解。<h2 id="3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment"><a href="#3-2-Multi-Scale-Matching-by-Cross-Level-Semantic-Alignment" class="headerlink" title="3.2 Multi-Scale Matching by Cross-Level Semantic Alignment"></a>3.2 Multi-Scale Matching by Cross-Level Semantic Alignment</h2><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/CLSA3.png" alt></div></li></ol><p>有点复杂，具体可以见论文。</p><h1 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4. Experiments"></a>4. Experiments</h1><h2 id="On-CUHK-SYSU"><a href="#On-CUHK-SYSU" class="headerlink" title="On CUHK-SYSU"></a>On CUHK-SYSU</h2><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/CLSA4.png" alt></div><h2 id="On-PRW"><a href="#On-PRW" class="headerlink" title="On PRW"></a>On PRW</h2><p>pass</p><h2 id="Further-Analysis-and-Discussions"><a href="#Further-Analysis-and-Discussions" class="headerlink" title="Further Analysis and Discussions"></a>Further Analysis and Discussions</h2><p>在re-id和detection的数据集上也做了一些实验。</p><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/CLSA5.png" alt></div>   <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>在本文中，我们提出了一种新的跨层次语义对齐(CLSA)深度学习框架，用于无约束场景图像中的人物搜索。与现有的以提高人的检测性能为核心的人的搜索方法相比，我们的实验表明，解决多尺度匹配问题对提高人的搜索结果更为重要。<br>为了解决这一研究不足的跨尺度人员搜索问题，我们提出了一种端到端的CLSA深度学习方法，通过构造网络内特征金字塔结构表示，利用语义对齐学习损失函数增强其表示能力。以使所有特征金字塔等级识别具有辨别力，从而导致更有效的分层表示，用于匹配具有大且无约束的尺度变化的人物图像。</p><h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>主要通过提升检测时候增加了多尺度匹配，通过特征金字塔，在re-id部分增加语义对齐，这个在re-id里也是常用手段，但是是跨层次的，相当于multi-scale的。最后结尾在一些image-based re-id数据集上也做了实验，比如market1501和cuhk03上，但是提升效果寥寥，88.9的top1在market1501上真的很一般。为啥能在person search上表现这么好，总之person search的坑很多，一些在detection上和re-id上能提升的，改进一些都可以在person search上有提高。但是这也提高了太多了把~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文：Person Search by Multi-Scale Matching&lt;br&gt;链接：&lt;a href=&quot;http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://openaccess.thecvf.com/content_ECCV_2018/html/Xu_Lan_Person_Search_by_ECCV_2018_paper.html&lt;/a&gt;&lt;br&gt;代码地址：没有公开&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
