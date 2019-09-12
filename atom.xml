@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-09-12T01:28:15.568Z</updated>
+  <updated>2019-09-12T11:50:46.225Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MobileNetv1~v3,ShufflNet等轻量级网络</title>
+    <link href="http://www.cygao.xyz/2019/09/12/lightweight/"/>
+    <id>http://www.cygao.xyz/2019/09/12/lightweight/</id>
+    <published>2019-09-12T11:45:33.000Z</published>
+    <updated>2019-09-12T11:50:46.225Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接搬运知乎高质量文章，通俗易懂。<br><a id="more"></a><br><a href="https://zhuanlan.zhihu.com/p/45496826" target="_blank" rel="noopener">轻量化神经网络综述</a> </p><p><a href="https://zhuanlan.zhihu.com/p/67009992" target="_blank" rel="noopener">轻量级神经网络“巡礼”（一）—— ShuffleNetV2</a> </p><p><a href="https://zhuanlan.zhihu.com/p/70703846" target="_blank" rel="noopener">轻量级神经网络“巡礼”（二）—— MobileNet，从V1到V3</a> </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;直接搬运知乎高质量文章，通俗易懂。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
+    
+    
+      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="深度学习" scheme="http://www.cygao.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>YOLOv1到v3相关</title>
     <link href="http://www.cygao.xyz/2019/09/12/yolo/"/>
     <id>http://www.cygao.xyz/2019/09/12/yolo/</id>
     <published>2019-09-12T01:16:05.000Z</published>
-    <updated>2019-09-12T01:28:15.568Z</updated>
+    <updated>2019-09-12T10:09:11.846Z</updated>
     
     <content type="html"><![CDATA[<p>懒得搬运了，直接贴原博客地址。</p><a id="more"></a><h1 id="详解YOLOv1到YOLOv3"><a href="#详解YOLOv1到YOLOv3" class="headerlink" title="详解YOLOv1到YOLOv3"></a>详解YOLOv1到YOLOv3</h1><p><a href="https://blog.csdn.net/guleileo/article/details/80581858" target="_blank" rel="noopener">从YOLOv1到YOLOv3，目标检测的进化之路</a> </p><p><a href="https://blog.csdn.net/calvinpaean/article/details/84820323" target="_blank" rel="noopener">YOLOv1到YOLOv3之比较</a> </p><h1 id="YOLOv3的损失函数"><a href="#YOLOv3的损失函数" class="headerlink" title="YOLOv3的损失函数"></a>YOLOv3的损失函数</h1><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/yolo.png" alt></div> ]]></content>
     
@@ -449,28 +473,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【Person Search】 RCAA Relational Context-Aware Agents for Person Search</title>
-    <link href="http://www.cygao.xyz/2018/12/09/RCAA%20Relational%20Context%20Aware%20Agents%20for%20Person%20Search/"/>
-    <id>http://www.cygao.xyz/2018/12/09/RCAA Relational Context Aware Agents for Person Search/</id>
-    <published>2018-12-09T10:27:11.000Z</published>
-    <updated>2019-09-02T01:52:56.673Z</updated>
-    
-    <content type="html"><![CDATA[<p>论文：RCAA Relational Context-Aware Agents for Person Search<br>链接：<a href="http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html</a><br>代码地址：没有公开<br><a id="more"></a></p><h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>在本文中，我们通过训练relational context-aware agents来解决这个问题，这些agens从整个场景图像库中学习定位目标人物的操作。我们将相关的空间和时间上下文合并到框架中。具体地说，我们建议在依赖查询的关系网络中使用目标人员作为查询。agent通过同时考虑局部的视觉信息、关系上下文和时间上下文，以及目标人员，确定在每个时间步上要采取的最佳操作。</p><h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>时空背景可能会提供额外的重要信息，但对人的搜索仍然不够深入。空间语境已被证明在回答视觉问题等任务中是有用的。在整个场景图像中，目标人物依赖的物体之间的空间关系可能有助于更有辨别力的表示。此外，序列决策在目标检测中的成功应用也为人的识别提供了借鉴。多步推理的agent可以更好地定位目标人，同时考虑到目标人的时间行为和状态记忆。在这项工作中，我们提出了一个自顶向下的搜索策略，由一个时空上下文感知的代理提供支持，以解决上面讨论的限制和机会。具体地说，考虑到整个场景、它的本地图像特性和查询图像，我们利用一个依赖于目标-人的关系网络来提取对象之间的空间上下文。然后，我们的深度强化学习代理根据空间上下文及其时间动作和状态记忆，在每一个时间步选择最佳动作，以缩小目标人物的精确位置。整个框架不包含人员建议计算，并且是端到端可培训的。</p><p>贡献：    </p><ol><li>我们最早尝试将人的搜索问题作为一个决策过程来解决，并构建了第一个基于深度强化学习的人的搜索框架。</li><li>该模型采用端到端方式进行训练，不需要进行冗余和噪声的proposal Scomputing。有趣的是，我们的模型甚至比负载完美的proposal detector方法性能更好。</li><li>我们在训练过程中加入了相关的时空背景，从而引导模型产生更多的信息“经验”。 </li></ol><h1 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h1><ul><li>Person re-id<br>pass  </li><li>pedestrian detection<br>pass    </li><li>Deep Reinforcement Learning<br>文献中讨论了两种广泛使用的DRL方法——Deep QNetworks(DQN)和策略policy gradient，具体的看论文吧。</li></ul><h1 id="3-Relational-Context-Aware-Agents"><a href="#3-Relational-Context-Aware-Agents" class="headerlink" title="3. Relational Context-Aware Agents"></a>3. Relational Context-Aware Agents</h1><h2 id="3-1-Overview"><a href="#3-1-Overview" class="headerlink" title="3.1 Overview"></a>3.1 Overview</h2><p>行人搜索解决了从整个场景图像库中寻找目标人物的精确位置的问题。系统通过时空上下文感知agent确定的顺序操作动态定位目标行人。我们的代理接受空间和时间上下文、本地图像特征和查询图像作为输入，并预测要采取的最佳操作。通过预测动作将包围框从当前状态转换为下一个状态，并从下一个状态预测下一个动作。这个过程不断重复，直到达到最优结果。<div align="center"><br><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/RCAA1.png" alt></div></p><h2 id="3-2-Relational-Decision-Making"><a href="#3-2-Relational-Decision-Making" class="headerlink" title="3.2 Relational Decision Making"></a>3.2 Relational Decision Making</h2><p>该模型遵循马尔可夫决策过程(MDP)，适用于序列决策过程的建模。</p><ul><li>Action 存在移动，扩张和裁剪共14个操作。<div align="center"><br><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/RCAA2.png" alt></div></li><li>State</li><li>Reward<br>这个具体看懂得有一些强化学习得知识和MDP的相关知识。 <h2 id="3-3-Network-Structure"><a href="#3-3-Network-Structure" class="headerlink" title="3.3 Network Structure"></a>3.3 Network Structure</h2>我们使用ResNet-50进行特征提取，因为它在人的识别方面显示了极大的优越性。为了编码关系上下文信息，我们结合了一个关系网络(RN)，上文所述，来考虑图像中所有对对象之间的所有关系。  <h2 id="3-4-Training"><a href="#3-4-Training" class="headerlink" title="3.4 Training"></a>3.4 Training</h2>为了避免次优解决方案，我们使用了actor-critic (A3C) method，它在环境的多个实例上异步并行地执行多个agents。我们使用ADAM optimizer训练模型，中间还介绍了强化学习的损失函数和训练策略，不太懂不展开了。<h1 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4. Experiments"></a>4. Experiments</h1></li></ul><p>相当高的表现，在两个数据集上，表现见下图，即使放在19年也是很有竞争力的表现了。</p><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/RCAA3.png" alt></div><br><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/RCAA4.png" alt></div><br><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/RCAA5.png" alt></div>   <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>本文首先尝试解决人的搜索问题，建立了第一个基于深度强化学习的人的搜索框架。与以往依赖proposal learning的工作不同，我们的方法利用了关系上下文信息，并在联合框架中预先利用视觉信息和query。<br>在未来，我们计划在我们的框架中使用宽松的学习lenient learning，因为存储的转换可能会因为agents并行更新它们各自的策略而过时。</p><h1 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h1><p>有点复杂的论文，需要有强化学习和一些机器学习的基础，与众多的利用以Faster R-CNN为行人检测器的论文不同，还有以前用proposal learning的传统检测器。总感觉和我之前认知的Person Search有些不同。</p><ul><li><p>我的理解包括跑的一些Person Search的代码：Testing的时候，query和gallery的图像是分批次进入的，query的特征和再和所有gallery检测出的行人特征（也是通过检测后的行人包围框的特征），进行特征对比（比如用余弦相似度或是欧式距离等等），如果detction时候没有检测出iou&gt;0.5的包围框，再怎么query对比都没意义。</p></li><li><p>这篇RCAA，看文章模型的structure，<strong>Our agent accepts the spatial and temporal context, the local image feature and the query image as input</strong>,<strong>When the training is finished, we fix the policy and value network for testing. A single agent is used to process each query for testing. For each query, we rank all the value V and retrieve the top ranked results.</strong> 看的像是test的时候同时可以输入query引导detectoring的过程，和之前的方法推理过程有点不太一样。如果有研究person search的同学可以评论一下，和我交流。</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文：RCAA Relational Context-Aware Agents for Person Search&lt;br&gt;链接：&lt;a href=&quot;http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://openaccess.thecvf.com/content_ECCV_2018/html/Xiaojun_Chang_RCAA_Relational_Context-Aware_ECCV_2018_paper.html&lt;/a&gt;&lt;br&gt;代码地址：没有公开&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="行人搜索" scheme="http://www.cygao.xyz/categories/%E8%A1%8C%E4%BA%BA%E6%90%9C%E7%B4%A2/"/>
-    
-    
-      <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

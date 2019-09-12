@@ -1,3 +1,4 @@
+http://www.cygao.xyz/2019/09/12/lightweight/
 http://www.cygao.xyz/2019/09/12/yolo/
 http://www.cygao.xyz/2019/09/10/linux/
 http://www.cygao.xyz/2019/09/09/xgboost/
@@ -17,4 +18,3 @@ http://www.cygao.xyz/2019/08/12/stack/
 http://www.cygao.xyz/2019/08/12/python timeit/
 http://www.cygao.xyz/2019/07/25/jian offer/
 http://www.cygao.xyz/2019/06/08/Joint/
-http://www.cygao.xyz/2018/12/09/RCAA Relational Context Aware Agents for Person Search/
