@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 深度学习，目标检测 - Cy的学习日常</title>
+<title>分类: valse - Cy的学习日常</title>
 
 
     <meta name="description" content="与其感慨路难行，不如马上出发吧！">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cy的学习日常">
-<meta property="og:url" content="http://www.cygao.xyz/tags/深度学习，目标检测/index.html">
+<meta property="og:url" content="http://www.cygao.xyz/categories/valse/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
 <meta property="og:description" content="与其感慨路难行，不如马上出发吧！">
 <meta property="og:locale" content="zh-CN">
@@ -154,8 +154,9 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">深度学习，目标检测</a></li>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">valse</a></li>
         </ul>
         </nav>
     </div>
@@ -167,17 +168,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-12T01:16:05.000Z">2019-09-12</time>
+                <time class="level-item has-text-grey" datetime="2019-09-19T08:21:45.000Z">2019-09-19</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                <a class="has-link-grey -link" href="/categories/valse/">valse</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 70 个字)
+                    1 分钟 读完 (大约 204 个字)
                 </span>
                 
                 
@@ -186,23 +187,42 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/09/12/yolo/">YOLOv1到v3相关</a>
+                <a class="has-link-black-ter" href="/2019/09/19/compression/">Valse笔记「浓缩的都是精华」之网络压缩</a>
             
         </h1>
         <div class="content">
-            <p>懒得搬运了，直接贴原博客地址。</p>
+            <p><a href="http://valser.org/webinar/slide/slides/20190911/2019.9.11-神经网络量化压缩%EF%BC%9A从算法到芯片-webinar.pdf" target="_blank" rel="noopener">程建老师的PPT</a></p>
+<p><a href="http://valser.org/webinar/slide/slides/20190911/2019.9.11-valse_DNN%20compression.pdf" target="_blank" rel="noopener">林绍辉老师的PPT</a></p>
+<h2 id="DNN-compression-and-acceleration"><a href="#DNN-compression-and-acceleration" class="headerlink" title="DNN compression and acceleration"></a>DNN compression and acceleration</h2><h3 id="5-main-groups"><a href="#5-main-groups" class="headerlink" title="5 main groups"></a>5 main groups</h3><ul>
+<li>Parameter pruning</li>
+<li>Parameter sharing</li>
+<li>Low-rank decomposition</li>
+<li>Compact network design</li>
+<li>Knowledge distillation<h3 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h3></li>
+<li>FFT、DCT</li>
+<li>Winograd </li>
+<li>Neural architecure search </li>
+</ul>
+<h2 id="Parameter-pruning"><a href="#Parameter-pruning" class="headerlink" title="Parameter pruning"></a>Parameter pruning</h2><ol>
+<li>Fine-grained</li>
+<li>Vector-level</li>
+<li>Kernel-level</li>
+<li>Filter-level</li>
+<li>Group-level</li>
+</ol>
+<h2 id="基于量化学习的模型压缩表示"><a href="#基于量化学习的模型压缩表示" class="headerlink" title="基于量化学习的模型压缩表示"></a>基于量化学习的模型压缩表示</h2><ol>
+<li>基于哈希的二值量化方法，二值权重-1或1。</li>
+</ol>
+<p>Qinghao Hu, Peisong Wang, Jian Cheng. From Hashing to CNNs: Training Binary Weight Networks via Hashing. AAAI 2018</p>
+<ol start="2">
+<li>基于三值定点量化方法。<br>提出一种定点分解网络（FFN），把CNN网络权重量化成[-1,0,1]，从<br>而把乘法计算转变成加法，有效提高网络inference速度。</li>
+</ol>
+<p>Peisong Wang and Jian Cheng, “Fixed-point Factorized Networks”. CVPR 2017</p>
+
             
         </div>
                 
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/12/yolo/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -258,7 +278,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        27
                     </p>
                 </div>
             </div>
@@ -268,7 +288,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -386,7 +406,7 @@
                 <span class="level-item">interview</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">12</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/python/">
@@ -395,6 +415,14 @@
             </span>
             <span class="level-end">
                 <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/valse/">
+            <span class="level-start">
+                <span class="level-item">valse</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/工作日常/">
@@ -425,7 +453,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/代码踩坑/" style="font-size: 13.33px;">代码踩坑</a> <a href="/tags/刷题笔记/" style="font-size: 10px;">刷题笔记</a> <a href="/tags/基本算法/" style="font-size: 11.67px;">基本算法</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/检测算法/" style="font-size: 11.67px;">检测算法</a> <a href="/tags/深度学习/" style="font-size: 13.33px;">深度学习</a> <a href="/tags/深度学习，目标检测/" style="font-size: 10px;">深度学习，目标检测</a> <a href="/tags/神经网络/" style="font-size: 15px;">神经网络</a> <a href="/tags/编程语言/" style="font-size: 18.33px;">编程语言</a> <a href="/tags/聚类算法/" style="font-size: 10px;">聚类算法</a> <a href="/tags/论文笔记/" style="font-size: 16.67px;">论文笔记</a>
+        <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/代码踩坑/" style="font-size: 13.33px;">代码踩坑</a> <a href="/tags/刷题笔记/" style="font-size: 10px;">刷题笔记</a> <a href="/tags/基本算法/" style="font-size: 11.67px;">基本算法</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/检测算法/" style="font-size: 11.67px;">检测算法</a> <a href="/tags/深度学习/" style="font-size: 18.33px;">深度学习</a> <a href="/tags/目标检测/" style="font-size: 10px;">目标检测</a> <a href="/tags/神经网络/" style="font-size: 18.33px;">神经网络</a> <a href="/tags/编程语言/" style="font-size: 18.33px;">编程语言</a> <a href="/tags/聚类算法/" style="font-size: 10px;">聚类算法</a> <a href="/tags/论文笔记/" style="font-size: 16.67px;">论文笔记</a>
     </div>
 </div>
 
@@ -440,6 +468,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/09/19/compression/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Valse笔记「浓缩的都是精华」之网络压缩">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-19T08:21:45.000Z">2019-09-19</time></div>
+                    <a href="/2019/09/19/compression/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Valse笔记「浓缩的都是精华」之网络压缩</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/valse/">valse</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/15/networks/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="经典卷积神经网络总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-15T11:42:08.000Z">2019-09-15</time></div>
+                    <a href="/2019/09/15/networks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">经典卷积神经网络总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -498,44 +564,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/09/xgboost/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="手推xgboost及常见问题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-09T07:24:53.000Z">2019-09-09</time></div>
-                    <a href="/2019/09/09/xgboost/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手推xgboost及常见问题</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/08/gbdt/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="手推GBDT和常见问题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-08T09:48:01.000Z">2019-09-08</time></div>
-                    <a href="/2019/09/08/gbdt/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手推GBDT和常见问题</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -554,7 +582,7 @@
                     <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">14</span>
                 </span>
             </a>
         </li>
@@ -690,13 +718,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/深度学习/">
                         <span class="tag">深度学习</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/深度学习，目标检测/">
-                        <span class="tag">深度学习，目标检测</span>
+                    <a class="tags has-addons" href="/tags/目标检测/">
+                        <span class="tag">目标检测</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -704,7 +732,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/神经网络/">
                         <span class="tag">神经网络</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -755,6 +783,44 @@
         
         <article class="media">
             
+            <a href="/2019/09/19/compression/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Valse笔记「浓缩的都是精华」之网络压缩">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-19T08:21:45.000Z">2019-09-19</time></div>
+                    <a href="/2019/09/19/compression/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Valse笔记「浓缩的都是精华」之网络压缩</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/valse/">valse</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/15/networks/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="经典卷积神经网络总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-15T11:42:08.000Z">2019-09-15</time></div>
+                    <a href="/2019/09/15/networks/" class="title has-link-black-ter is-size-6 has-text-weight-normal">经典卷积神经网络总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/12/lightweight/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="MobileNetv1~v3,ShufflNet等轻量级网络">
@@ -810,44 +876,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/09/xgboost/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="手推xgboost及常见问题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-09T07:24:53.000Z">2019-09-09</time></div>
-                    <a href="/2019/09/09/xgboost/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手推xgboost及常见问题</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/08/gbdt/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="手推GBDT和常见问题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-08T09:48:01.000Z">2019-09-08</time></div>
-                    <a href="/2019/09/08/gbdt/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手推GBDT和常见问题</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/interview/">interview</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -866,7 +894,7 @@
                     <span class="level-item">九月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">14</span>
                 </span>
             </a>
         </li>
@@ -1002,13 +1030,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/深度学习/">
                         <span class="tag">深度学习</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/深度学习，目标检测/">
-                        <span class="tag">深度学习，目标检测</span>
+                    <a class="tags has-addons" href="/tags/目标检测/">
+                        <span class="tag">目标检测</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1016,7 +1044,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/神经网络/">
                         <span class="tag">神经网络</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.cygao.xyz2019/09/12/lightweight/</loc>
-    <lastmod>2019-09-12</lastmod>
+    <loc>https://www.cygao.xyz2019/09/05/bp/</loc>
+    <lastmod>2019-09-19</lastmod>
+  </url>  <url>
+    <loc>https://www.cygao.xyz2019/09/19/compression/</loc>
+    <lastmod>2019-09-19</lastmod>
+  </url>  <url>
+    <loc>https://www.cygao.xyz2019/09/15/networks/</loc>
+    <lastmod>2019-09-15</lastmod>
   </url>  <url>
     <loc>https://www.cygao.xyz2019/09/12/yolo/</loc>
+    <lastmod>2019-09-15</lastmod>
+  </url>  <url>
+    <loc>https://www.cygao.xyz2019/09/12/lightweight/</loc>
     <lastmod>2019-09-12</lastmod>
   </url>  <url>
     <loc>https://www.cygao.xyz2019/09/10/linux/</loc>
     <lastmod>2019-09-11</lastmod>
-  </url>  <url>
-    <loc>https://www.cygao.xyz2019/09/05/bp/</loc>
-    <lastmod>2019-09-09</lastmod>
   </url>  <url>
     <loc>https://www.cygao.xyz2019/09/08/gbdt/</loc>
     <lastmod>2019-09-09</lastmod>
