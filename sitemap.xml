@@ -2,79 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/19/compression/</loc>
+    <loc>https://www.cygao.xyz/2018/09/22/algorithm40/</loc>
     
-    <lastmod>2019-09-19T10:18:02.336Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/05/bp/</loc>
-    
-    <lastmod>2019-09-19T09:05:10.380Z</lastmod>
+    <lastmod>2019-09-20T06:54:56.309Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/15/networks/</loc>
+    <loc>https://www.cygao.xyz/2018/12/08/lr/</loc>
     
-    <lastmod>2019-09-15T12:20:37.025Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/12/yolo/</loc>
-    
-    <lastmod>2019-09-15T11:42:22.755Z</lastmod>
+    <lastmod>2019-09-20T06:54:35.387Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/12/lightweight/</loc>
+    <loc>https://www.cygao.xyz/2019/02/15/networks/</loc>
     
-    <lastmod>2019-09-12T14:02:22.257Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/10/linux/</loc>
-    
-    <lastmod>2019-09-11T10:02:54.513Z</lastmod>
+    <lastmod>2019-09-20T06:54:26.071Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/08/gbdt/</loc>
+    <loc>https://www.cygao.xyz/2019/07/05/nms/</loc>
     
-    <lastmod>2019-09-09T11:45:05.373Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/09/xgboost/</loc>
-    
-    <lastmod>2019-09-09T07:53:23.589Z</lastmod>
+    <lastmod>2019-09-20T06:54:12.318Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/08/lr/</loc>
+    <loc>https://www.cygao.xyz/2019/06/05/pca/</loc>
     
-    <lastmod>2019-09-08T03:43:33.283Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/07/svm/</loc>
-    
-    <lastmod>2019-09-07T13:07:13.062Z</lastmod>
+    <lastmod>2019-09-20T06:54:05.795Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/06/kmeans/</loc>
+    <loc>https://www.cygao.xyz/2018/12/12/python%20timeit/</loc>
     
-    <lastmod>2019-09-06T00:49:46.113Z</lastmod>
+    <lastmod>2019-09-20T06:53:57.828Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/04/12/stack/</loc>
+    
+    <lastmod>2019-09-20T06:53:46.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/05/07/svm/</loc>
+    
+    <lastmod>2019-09-20T06:53:39.336Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/02/08/kmeans/</loc>
+    
+    <lastmod>2019-09-20T06:53:11.919Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2018/07/08/Joint/</loc>
+    
+    <lastmod>2019-09-20T06:52:35.129Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/08/10/linux/</loc>
+    
+    <lastmod>2019-09-20T06:51:43.148Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/01/05/bp/</loc>
+    
+    <lastmod>2019-09-20T06:51:34.683Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/06/08/gbdt/</loc>
+    
+    <lastmod>2019-09-20T06:51:25.775Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/07/12/lightweight/</loc>
+    
+    <lastmod>2019-09-20T06:51:19.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/04/12/yolo/</loc>
+    
+    <lastmod>2019-09-20T06:51:10.441Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/05/19/compression/</loc>
+    
+    <lastmod>2019-09-20T06:51:06.490Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/03/09/xgboost/</loc>
+    
+    <lastmod>2019-09-20T06:50:59.224Z</lastmod>
     
   </url>
   
@@ -82,20 +124,6 @@
     <loc>https://www.cygao.xyz/2019/09/05/l1l2/</loc>
     
     <lastmod>2019-09-05T13:23:22.929Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/05/nms/</loc>
-    
-    <lastmod>2019-09-05T12:34:12.670Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/05/pca/</loc>
-    
-    <lastmod>2019-09-05T11:41:04.569Z</lastmod>
     
   </url>
   
@@ -121,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/08/22/algorithm40/</loc>
-    
-    <lastmod>2019-09-02T01:53:04.951Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.cygao.xyz/2018/12/09/RCAA%20Relational%20Context%20Aware%20Agents%20for%20Person%20Search/</loc>
     
     <lastmod>2019-09-02T01:52:56.673Z</lastmod>
@@ -138,13 +159,6 @@
     <loc>https://www.cygao.xyz/2019/08/13/sort/</loc>
     
     <lastmod>2019-09-02T01:52:52.105Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/08/12/python%20timeit/</loc>
-    
-    <lastmod>2019-09-02T01:52:40.212Z</lastmod>
     
   </url>
   
@@ -184,23 +198,9 @@
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/08/12/stack/</loc>
-    
-    <lastmod>2019-08-29T13:46:32.268Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.cygao.xyz/2018/10/21/Neural%20Person%20Search%20Machines/</loc>
     
     <lastmod>2019-08-29T13:44:03.563Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/06/08/Joint/</loc>
-    
-    <lastmod>2019-08-29T13:42:07.019Z</lastmod>
     
   </url>
   

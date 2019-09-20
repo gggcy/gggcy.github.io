@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.8.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>【python】 timeit模块,list及dict操作复杂度 - Cy的学习日常</title>
+
+
+    <meta name="description" content="简单减少一个性能分析的模块timeit，以及利用该模块测试list及dict的一些基本操作。">
+<meta name="keywords" content="编程语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【python】 timeit模块,list及dict操作复杂度">
+<meta property="og:url" content="http://www.cygao.xyz/2018/12/12/python timeit/index.html">
+<meta property="og:site_name" content="Cy的学习日常">
+<meta property="og:description" content="简单减少一个性能分析的模块timeit，以及利用该模块测试list及dict的一些基本操作。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
+<meta property="og:updated_time" content="2019-09-20T06:53:57.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【python】 timeit模块,list及dict操作复杂度">
+<meta name="twitter:description" content="简单减少一个性能分析的模块timeit，以及利用该模块测试list及dict的一些基本操作。">
+<meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/assets/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="【python】 timeit模块,list及dict操作复杂度" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/laboratory">统计</a>
+                
+                <a class="navbar-item"
+                href="/photos/">相册</a>
+                
+                <a class="navbar-item"
+                href="/music">音乐</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-12T01:01:55.000Z">2018-12-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python/">python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 526 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                【python】 timeit模块,list及dict操作复杂度
+            
+        </h1>
+        <div class="content">
+            <p>简单减少一个性能分析的模块timeit，以及利用该模块测试list及dict的一些基本操作。<br><a id="more"></a></p>
+<h1 id="Python内置类型性能分析"><a href="#Python内置类型性能分析" class="headerlink" title="Python内置类型性能分析"></a>Python内置类型性能分析</h1><h2 id="timeit模块"><a href="#timeit模块" class="headerlink" title="timeit模块"></a>timeit模块</h2><p>timeit模块可以用来测试一小段Python代码的执行速度。</p>
+<h3 id="class-timeit-Timer-stmt-’pass’-setup-’pass’-timer"><a href="#class-timeit-Timer-stmt-’pass’-setup-’pass’-timer" class="headerlink" title="class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)"></a>class timeit.Timer(stmt=’pass’, setup=’pass’ timer=<timer function>)</timer></h3><p>Timer是测量小段代码执行速度的类。</p>
+<p>stmt参数是要测试的代码语句（statment）；</p>
+<p>setup参数是运行代码时需要的设置；</p>
+<p>timer参数是一个定时器函数，与平台有关。</p>
+<h3 id="timeit-Timer-timeit-number-1000000"><a href="#timeit-Timer-timeit-number-1000000" class="headerlink" title="timeit.Timer.timeit(number=1000000)"></a>timeit.Timer.timeit(number=1000000)</h3><p>Timer类中测试语句执行速度的对象方法。number参数是测试代码时的测试次数，默认为1000000次。方法返回执行代码的平均耗时，一个float类型的秒数。</p>
+<h2 id="比较list的操作复杂度"><a href="#比较list的操作复杂度" class="headerlink" title="比较list的操作复杂度"></a>比较list的操作复杂度</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span>:</span></span><br><span class="line">   l = []</span><br><span class="line">   <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):</span><br><span class="line">      l = l + [i] <span class="hljs-comment">#会先创建一个新的列表l + [i]再赋值到新的l上，效率很差。尽量使用l+=[i]，已在python内部优化了。 </span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span>:</span></span><br><span class="line">   l = []</span><br><span class="line">   <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):</span><br><span class="line">      l.append(i)</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span>:</span></span><br><span class="line">   l = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>)]</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test4</span><span class="hljs-params">()</span>:</span></span><br><span class="line">   l = list(range(<span class="hljs-number">1000</span>))</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test5</span><span class="hljs-params">()</span>:</span></span><br><span class="line">   l =[]</span><br><span class="line">   <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):</span><br><span class="line">      l.extend([i]) <span class="hljs-comment"># 类似于 l+=[i]，是直接在列表l上操作</span></span><br><span class="line"><span class="hljs-keyword">from</span> timeit <span class="hljs-keyword">import</span> Timer</span><br><span class="line"></span><br><span class="line">t1 = Timer(<span class="hljs-string">"test1()"</span>, <span class="hljs-string">"from __main__ import test1"</span>)</span><br><span class="line">print(<span class="hljs-string">"concat "</span>,t1.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line">t2 = Timer(<span class="hljs-string">"test2()"</span>, <span class="hljs-string">"from __main__ import test2"</span>)</span><br><span class="line">print(<span class="hljs-string">"append "</span>,t2.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line">t3 = Timer(<span class="hljs-string">"test3()"</span>, <span class="hljs-string">"from __main__ import test3"</span>)</span><br><span class="line">print(<span class="hljs-string">"comprehension "</span>,t3.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line">t4 = Timer(<span class="hljs-string">"test4()"</span>, <span class="hljs-string">"from __main__ import test4"</span>)</span><br><span class="line">print(<span class="hljs-string">"list range "</span>,t4.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line">t4 = Timer(<span class="hljs-string">"test5()"</span>, <span class="hljs-string">"from __main__ import test5"</span>)</span><br><span class="line">print(<span class="hljs-string">"extend "</span>,t5.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line"><span class="hljs-comment"># ('concat ', 1.7890608310699463, 'seconds')</span></span><br><span class="line"><span class="hljs-comment"># ('append ', 0.13796091079711914, 'seconds')</span></span><br><span class="line"><span class="hljs-comment"># ('comprehension ', 0.05671119689941406, 'seconds')</span></span><br><span class="line"><span class="hljs-comment"># ('list range ', 0.014147043228149414, 'seconds')</span></span><br><span class="line"><span class="hljs-comment"># ('extend ', 0.12147043228149414, 'seconds')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>list range(迭代转化) &lt; comprehension(包含) &lt; extend &lt; append &lt; concat </p>
+</blockquote>
+<h3 id="pop操作比较"><a href="#pop操作比较" class="headerlink" title="pop操作比较"></a>pop操作比较</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = range(<span class="hljs-number">2000000</span>)</span><br><span class="line">pop_zero = Timer(<span class="hljs-string">"x.pop(0)"</span>,<span class="hljs-string">"from __main__ import x"</span>)</span><br><span class="line">print(<span class="hljs-string">"pop_zero "</span>,pop_zero.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line">x = range(<span class="hljs-number">2000000</span>)</span><br><span class="line">pop_end = Timer(<span class="hljs-string">"x.pop()"</span>,<span class="hljs-string">"from __main__ import x"</span>)</span><br><span class="line">print(<span class="hljs-string">"pop_end "</span>,pop_end.timeit(number=<span class="hljs-number">1000</span>), <span class="hljs-string">"seconds"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ('pop_zero ', 1.9101738929748535, 'seconds')</span></span><br><span class="line"><span class="hljs-comment"># ('pop_end ', 0.00023603439331054688, 'seconds')</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试pop操作：从结果可以看出，pop最后一个元素的效率远远高于pop第一个元素</p>
+</blockquote>
+<h3 id="切片赋值"><a href="#切片赋值" class="headerlink" title="切片赋值"></a>切片赋值</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]</span><br><span class="line">l1[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>] = [<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>] <span class="hljs-comment">#可以是任意长度</span></span><br><span class="line">&gt;&gt; l1 = [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]</span><br></pre></td></tr></table></figure>
+<div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/python1.png" alt></div>  
+
+<div align="center">!<img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/python2.png" alt></div>  
+            
+        </div>
+                
+                        <ul class="post-copyright">
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2018/12/12/python timeit/">【python】 timeit模块,list及dict操作复杂度</a></li>
+                        <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2018/12/12/python timeit/">http://www.cygao.xyz/2018/12/12/python timeit/</a></li>
+                        <li><strong>发布时间：</strong>2018-12-12</li>
+                        <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                        </li>
+                        </ul>
+                    
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/编程语言/">编程语言</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/ali.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/05/bp/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">简单粗暴的BP图示及公式,CNN的BP及权值共享</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/09/RCAA Relational Context Aware Agents for Person Search/">
+                <span class="level-item">【Person Search】 RCAA Relational Context-Aware Agents for Person Search</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: true,
+        verify: false,
+        app_id: '5bpmqQ4MrKPysDXE0gVbfMKG-gzGzoHsz',
+        app_key: 'pP0cI6JOgjj5FVYXF6gh5aFh',
+        placeholder: '有话要说？'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Python内置类型性能分析">
+        <span class="has-mr-6">1</span>
+        <span>Python内置类型性能分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#timeit模块">
+        <span class="has-mr-6">1.1</span>
+        <span>timeit模块</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#class-timeit-Timer-stmt-’pass’-setup-’pass’-timer">
+        <span class="has-mr-6">1.1.1</span>
+        <span>class timeit.Timer(stmt=’pass’, setup=’pass’ timer=)</span>
+        </a></li><li>
+        <a class="is-flex" href="#timeit-Timer-timeit-number-1000000">
+        <span class="has-mr-6">1.1.2</span>
+        <span>timeit.Timer.timeit(number=1000000)</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#比较list的操作复杂度">
+        <span class="has-mr-6">1.2</span>
+        <span>比较list的操作复杂度</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#pop操作比较">
+        <span class="has-mr-6">1.2.1</span>
+        <span>pop操作比较</span>
+        </a></li><li>
+        <a class="is-flex" href="#切片赋值">
+        <span class="has-mr-6">1.2.2</span>
+        <span>切片赋值</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow  ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="【python】 timeit模块,list及dict操作复杂度" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Cunyuan&nbsp;
+                
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'true'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

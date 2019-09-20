@@ -1,20 +1,20 @@
-http://www.cygao.xyz/2019/09/19/compression/
-http://www.cygao.xyz/2019/09/15/networks/
-http://www.cygao.xyz/2019/09/12/lightweight/
-http://www.cygao.xyz/2019/09/12/yolo/
-http://www.cygao.xyz/2019/09/10/linux/
-http://www.cygao.xyz/2019/09/09/xgboost/
-http://www.cygao.xyz/2019/09/08/gbdt/
-http://www.cygao.xyz/2019/09/08/lr/
-http://www.cygao.xyz/2019/09/07/svm/
-http://www.cygao.xyz/2019/09/06/kmeans/
 http://www.cygao.xyz/2019/09/05/l1l2/
-http://www.cygao.xyz/2019/09/05/bp/
-http://www.cygao.xyz/2019/09/05/pca/
-http://www.cygao.xyz/2019/09/05/nms/
-http://www.cygao.xyz/2019/08/22/algorithm40/
 http://www.cygao.xyz/2019/08/13/sort/
 http://www.cygao.xyz/2019/08/12/linked list/
 http://www.cygao.xyz/2019/08/12/list/
-http://www.cygao.xyz/2019/08/12/stack/
-http://www.cygao.xyz/2019/08/12/python timeit/
+http://www.cygao.xyz/2019/08/10/linux/
+http://www.cygao.xyz/2019/07/25/jian offer/
+http://www.cygao.xyz/2019/07/12/lightweight/
+http://www.cygao.xyz/2019/07/05/nms/
+http://www.cygao.xyz/2019/06/08/gbdt/
+http://www.cygao.xyz/2019/06/05/pca/
+http://www.cygao.xyz/2019/05/19/compression/
+http://www.cygao.xyz/2019/05/07/svm/
+http://www.cygao.xyz/2019/04/12/stack/
+http://www.cygao.xyz/2019/04/12/yolo/
+http://www.cygao.xyz/2019/03/09/xgboost/
+http://www.cygao.xyz/2019/02/15/networks/
+http://www.cygao.xyz/2019/02/08/kmeans/
+http://www.cygao.xyz/2019/01/05/bp/
+http://www.cygao.xyz/2018/12/12/python timeit/
+http://www.cygao.xyz/2018/12/09/RCAA Relational Context Aware Agents for Person Search/

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.8.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>简单粗暴的BP图示及公式,CNN的BP及权值共享 - Cy的学习日常</title>
+
+
+    <meta name="description" content="权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。来源是Introduction to Deep Learning MIT 6.S191；https://blog.csdn.net/login_sonata/article/details/77488383">
+<meta name="keywords" content="机器学习,神经网络,深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单粗暴的BP图示及公式,CNN的BP及权值共享">
+<meta property="og:url" content="http://www.cygao.xyz/2019/01/05/bp/index.html">
+<meta property="og:site_name" content="Cy的学习日常">
+<meta property="og:description" content="权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。来源是Introduction to Deep Learning MIT 6.S191；https://blog.csdn.net/login_sonata/article/details/77488383">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
+<meta property="og:updated_time" content="2019-09-20T06:51:34.683Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单粗暴的BP图示及公式,CNN的BP及权值共享">
+<meta name="twitter:description" content="权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。来源是Introduction to Deep Learning MIT 6.S191；https://blog.csdn.net/login_sonata/article/details/77488383">
+<meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/assets/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="简单粗暴的BP图示及公式,CNN的BP及权值共享" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/laboratory">统计</a>
+                
+                <a class="navbar-item"
+                href="/photos/">相册</a>
+                
+                <a class="navbar-item"
+                href="/music">音乐</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-05T12:20:06.000Z">2019-01-05</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1617 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                简单粗暴的BP图示及公式,CNN的BP及权值共享
+            
+        </h1>
+        <div class="content">
+            <p>权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。<br>来源是Introduction to Deep Learning MIT 6.S191；<a href="https://blog.csdn.net/login_sonata/article/details/77488383" target="_blank" rel="noopener">https://blog.csdn.net/login_sonata/article/details/77488383</a>   </p>
+<a id="more"></a>
+<h2 id="BP"><a href="#BP" class="headerlink" title="BP"></a>BP</h2><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp1.png" alt></div> 
+
+<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp2.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp3.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp4.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp5.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp6.png" alt></div> 
+
+<h1 id="卷积神经网络的反向传播："><a href="#卷积神经网络的反向传播：" class="headerlink" title="卷积神经网络的反向传播："></a>卷积神经网络的反向传播：</h1><p> 首先回顾一下一般的前馈神经网络的反向传播：<br> <img src="https://img-blog.csdn.net/20170824170432450" alt="这里写图片描述"><br> 详细内容可参看：<a href="http://blog.csdn.net/login_sonata/article/details/76737482" target="_blank" rel="noopener">神经网络基础和反向传播推导</a></p>
+<h2 id="1，CNN的前向传播"><a href="#1，CNN的前向传播" class="headerlink" title="1，CNN的前向传播"></a>1，CNN的前向传播</h2><p> a）对于卷积层，卷积核与输入矩阵对应位置求积再求和，作为输出矩阵对应位置的值。如果输入矩阵inputX为M<em>N大小，卷积核为a</em>b大小，那么输出Y为（M-a+1）*（N-b+1）大小。<br> <img src="https://img-blog.csdn.net/20170824180524581" alt="这里写图片描述"><br> b）对于池化层，按照池化标准把输入张量缩小。<br> c）对于全连接层，按照普通网络的前向传播计算。</p>
+<h2 id="2，CNN反向传播的不同之处："><a href="#2，CNN反向传播的不同之处：" class="headerlink" title="2，CNN反向传播的不同之处："></a>2，CNN反向传播的不同之处：</h2><p> 首先要注意的是，一般神经网络中每一层输入输出a,z都只是一个向量，<strong>而CNN中的a,z是一个三维张量</strong>，即由若干个输入的子矩阵组成。其次：</p>
+<ol start="2">
+<li><strong>池化层没有激活函数</strong>。这个问题倒比较好解决，我们可以令池化层的激活函数为σ(z)=z，即激活后就是自己本身。这样池化层激活函数的导数为1。 </li>
+<li>池化层在前向传播的时候，对输入进行了压缩，那么我们向前反向推导上一层的误差时，<strong>需要做upsample处理</strong>。 </li>
+<li>卷积层是通过张量卷积，或者说<strong>若干个矩阵卷积求和而得到当前层的输出</strong>，这和一般的网络直接进行矩阵乘法得到当前层的输出不同。这样在卷积层反向传播的时候，上一层误差的递推计算方法肯定有所不同。 </li>
+<li>对于卷积层，由于W使用的运算是卷积，那么由该层误差推导出该层的所有卷积核的W,b的方式也不同。  由于卷积层可以有多个卷积核，各个卷积核的处理方法是完全相同且独立的，为了简化算法公式的复杂度，我们下面提到卷积核都是卷积层中若干卷积核中的一个。接下来看具体的CNN反向传播步骤。</li>
+</ol>
+<h2 id="3，已知池化层的误差，反向推导上一隐藏层的误差"><a href="#3，已知池化层的误差，反向推导上一隐藏层的误差" class="headerlink" title="3，已知池化层的误差，反向推导上一隐藏层的误差"></a>3，已知池化层的误差，反向推导上一隐藏层的误差</h2><p> 在前向传播时，池化层我们会用MAX或者Average对输入进行池化，池化的区域大小已知。现在我们反过来，要从缩小后区域的误差，还原前一层较大区域的误差。这个过程叫做upsample。假设我们的池化区域大小是2x2。第l层误差的第k个子矩阵δlk为:<br> <img src="https://img-blog.csdn.net/20170824182603912" alt="这里写图片描述"><br> 如果池化区域表示为a*a大小，那么我们把上述矩阵上下左右各扩展a-1行和列进行<strong>还原</strong>：<br> <img src="https://img-blog.csdn.net/20170824181456863" alt="这里写图片描述"><br> 如果是MAX，假设我们之前在前向传播时记录的最大值位置分别是左上，右下，右上，左下，则转换后的矩阵为：<br> <img src="https://img-blog.csdn.net/20170824183635544" alt="这里写图片描述"><br> 如果是Average，则进行平均，转换后的矩阵为：<br> <img src="https://img-blog.csdn.net/20170824183714077" alt="这里写图片描述"><br> 上边这个矩阵就是误差矩阵经过upsample之后的矩阵，那么，由后一层误差推导出前一层误差的公式为：<br> <img src="https://img-blog.csdn.net/20170826144238437" alt="这里写图片描述"><br> 上式和普通网络的反向推导误差很类似：<br> <img src="https://img-blog.csdn.net/20170826145756406" alt="这里写图片描述"><br> 可以看到，只有第一项不同。</p>
+<h2 id="4，已知卷积层的误差，反向推导上一隐藏层的误差"><a href="#4，已知卷积层的误差，反向推导上一隐藏层的误差" class="headerlink" title="4，已知卷积层的误差，反向推导上一隐藏层的误差"></a>4，已知卷积层的误差，反向推导上一隐藏层的误差</h2><p> 公式如下：<br> <img src="https://img-blog.csdn.net/20170826150333441" alt="这里写图片描述"><br> 我们再看一次普通网络的反向推导误差的公式：<br> <img src="https://img-blog.csdn.net/20170826145756406" alt="这里写图片描述"><br> 可以看到区别在于，下一层的权重w的转置操作，变成了旋转180度的操作，也就是上下翻转一次，左右再翻转一次，这其实就是“卷积”一词的意义（我们可简单理解为数学上的trick），可参考下图，Q是下一层的误差，周围补0方便计算，W是180度翻转后的卷积核，P是W和Q做卷积的结果：<br> <img src="https://img-blog.csdn.net/20170826151721741" alt="这里写图片描述"></p>
+<h2 id="5，已知卷积层的误差，推导该层的W-b的梯度"><a href="#5，已知卷积层的误差，推导该层的W-b的梯度" class="headerlink" title="5，已知卷积层的误差，推导该层的W,b的梯度"></a>5，已知卷积层的误差，推导该层的W,b的梯度</h2><p> 经过以上各步骤，我们已经算出每一层的误差了，那么：<br> a）对于全连接层，可以按照普通网络的反向传播算法求该层W,b的梯度。<br> b）对于池化层，它并没有W,b,也不用求W,b的梯度。<br> c）只有卷积层的W,b需要求出，先看w：<br> <img src="https://img-blog.csdn.net/20170826154408701" alt="这里写图片描述"><br> 再对比一下普通网络的求w梯度的公式，发现区别在于，对前一层的输出做翻转180度的操作：<br> <img src="https://img-blog.csdn.net/20170826154512559" alt="这里写图片描述"><br> 而对于b,则稍微有些特殊，因为在CNN中，误差δ是三维张量，而b只是一个向量，不能像普通网络中那样直接和误差δ相等。通常的做法是将误差δ的各个子矩阵的项分别求和，得到一个误差向量，即为b的梯度：<br> <img src="https://img-blog.csdn.net/20170826155032222" alt="这里写图片描述"> </p>
+
+            
+        </div>
+                
+                        <ul class="post-copyright">
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/01/05/bp/">简单粗暴的BP图示及公式,CNN的BP及权值共享</a></li>
+                        <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/01/05/bp/">http://www.cygao.xyz/2019/01/05/bp/</a></li>
+                        <li><strong>发布时间：</strong>2019-01-05</li>
+                        <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                        </li>
+                        </ul>
+                    
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/机器学习/">机器学习</a>, <a class="has-link-grey -link" href="/tags/深度学习/">深度学习</a>, <a class="has-link-grey -link" href="/tags/神经网络/">神经网络</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/ali.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/08/kmeans/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">K-means原理及常见问题</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/12/python timeit/">
+                <span class="level-item">【python】 timeit模块,list及dict操作复杂度</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: true,
+        verify: false,
+        app_id: '5bpmqQ4MrKPysDXE0gVbfMKG-gzGzoHsz',
+        app_key: 'pP0cI6JOgjj5FVYXF6gh5aFh',
+        placeholder: '有话要说？'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#BP">
+        <span class="has-mr-6">1.1</span>
+        <span>BP</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#卷积神经网络的反向传播：">
+        <span class="has-mr-6">2</span>
+        <span>卷积神经网络的反向传播：</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1，CNN的前向传播">
+        <span class="has-mr-6">2.1</span>
+        <span>1，CNN的前向传播</span>
+        </a></li><li>
+        <a class="is-flex" href="#2，CNN反向传播的不同之处：">
+        <span class="has-mr-6">2.2</span>
+        <span>2，CNN反向传播的不同之处：</span>
+        </a></li><li>
+        <a class="is-flex" href="#3，已知池化层的误差，反向推导上一隐藏层的误差">
+        <span class="has-mr-6">2.3</span>
+        <span>3，已知池化层的误差，反向推导上一隐藏层的误差</span>
+        </a></li><li>
+        <a class="is-flex" href="#4，已知卷积层的误差，反向推导上一隐藏层的误差">
+        <span class="has-mr-6">2.4</span>
+        <span>4，已知卷积层的误差，反向推导上一隐藏层的误差</span>
+        </a></li><li>
+        <a class="is-flex" href="#5，已知卷积层的误差，推导该层的W-b的梯度">
+        <span class="has-mr-6">2.5</span>
+        <span>5，已知卷积层的误差，推导该层的W,b的梯度</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow  ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="简单粗暴的BP图示及公式,CNN的BP及权值共享" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Cunyuan&nbsp;
+                
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'true'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
