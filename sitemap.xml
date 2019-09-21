@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.cygao.xyz/2019/07/12/lightweight/</loc>
+    
+    <lastmod>2019-09-21T03:13:05.931Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.cygao.xyz/2018/09/22/algorithm40/</loc>
     
     <lastmod>2019-09-20T06:54:56.309Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>https://www.cygao.xyz/2019/06/08/gbdt/</loc>
     
     <lastmod>2019-09-20T06:51:25.775Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/07/12/lightweight/</loc>
-    
-    <lastmod>2019-09-20T06:51:19.875Z</lastmod>
     
   </url>
   
