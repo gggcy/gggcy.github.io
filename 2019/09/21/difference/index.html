@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.8.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>AdaBoost、GBDT、RF、XGboost、LightGBM的对比 - Cy的学习日常</title>
+
+
+    <meta name="description" content="覆盖优缺点和对比。">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AdaBoost、GBDT、RF、XGboost、LightGBM的对比">
+<meta property="og:url" content="http://www.cygao.xyz/2019/09/21/difference/index.html">
+<meta property="og:site_name" content="Cy的学习日常">
+<meta property="og:description" content="覆盖优缺点和对比。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
+<meta property="og:updated_time" content="2019-09-22T03:46:43.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AdaBoost、GBDT、RF、XGboost、LightGBM的对比">
+<meta name="twitter:description" content="覆盖优缺点和对比。">
+<meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/assets/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="AdaBoost、GBDT、RF、XGboost、LightGBM的对比" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/laboratory">统计</a>
+                
+                <a class="navbar-item"
+                href="/photos/">相册</a>
+                
+                <a class="navbar-item"
+                href="/music">音乐</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-21T14:39:52.000Z">2019-09-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    33 分钟 读完 (大约 4995 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                AdaBoost、GBDT、RF、XGboost、LightGBM的对比
+            
+        </h1>
+        <div class="content">
+            <p>覆盖优缺点和对比。<br><a id="more"></a></p>
+<h2 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h2><h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>AdaBoost是基于boosting的思想，通过多个弱分类器的线性组合来得到强分类器，训练时重点关注被错分的样本，准确率高的弱分类器权重大。</p>
+<h3 id="更深一步的介绍"><a href="#更深一步的介绍" class="headerlink" title="更深一步的介绍"></a>更深一步的介绍</h3><p>在训练过程中，它不改变所给的训练数据，而是不断改变训练数据权值的分布，使得被误分类的数据再后一轮的分类中受到更大的关注。<br>同时采用加权多数表决的方法，加大分类误差率小的弱分类器的权值，使其在最后的表决中起更大的作用，减小分类误差率大的弱分类器的权值，使其在最后的表决中起较小的作用。所有弱分类器的权值之和并不为1，是通过最后结果的符号来决定实例的类别，该结果的绝对值表示分类的确信度。（参考《统计学习方法》P140）<br>Adaboost 还有另外一种理解，即可以认为其模型是加法模型、损失函数为指数函数、学习算法为前向分步算法的二类分类学习方法。(参考《统计学习方法》P143)<br>加法模型就是多个基函数线性组合得到的模型<br>前向分步算法：对于加法模型，从前往后，每一步只学习一个基函数及其系数，而不是一次性学习所有的基函数，从而简化优化的复杂度。<br>损失函数是根据 adaboost 算法特点推导而来的。</p>
+<h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><h3 id="简单介绍-1"><a href="#简单介绍-1" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>GBDT是基于boosting的思想，串行地构造多棵决策树来进行数据的预测，它是在损失函数所在的函数空间中做梯度下降，即把待求的决策树模型当作参数，每轮迭代都去拟合损失函数在当前模型下的负梯度，从而使得参数朝着最小化损失函数的方向更新。</p>
+<h3 id="更深一步的介绍-1"><a href="#更深一步的介绍-1" class="headerlink" title="更深一步的介绍"></a>更深一步的介绍</h3><p>GBDT可以看作是AdaBoost的一个推广，AdaBoost是通过错分数据点来识别问题，通过调整错分数据点的权重来改进模型，GBDT是通过负梯度来识别问题，通过计算负梯度来改进模型，实际上，负梯度绝对值大的样例同样会在之后的训练中受到更大的关注，因为它造成的损失更容易在最后的损失函数中占很大的比重，因此，需要更多地偏向于它去减小损失。这也是GBDT和AdaBoost相似的一个点，而相比AdaBoost, Gradient Boosting可以使用更多类型的损失函数，因此可以解决更多的问题。<br>最常见的损失函数是平方损失函数，square loss的优点是便于理解和实现，它的负梯度就是残差，而其他损失函数的负梯度只能看作残差的近似值，它的缺点在于对于异常值它的鲁棒性较差，因此会常用absolute loss或Huber loss来代替。</p>
+<h2 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h2><h3 id="简单介绍-2"><a href="#简单介绍-2" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>随机森林算法背后的思想是群体智慧的体现，它通过随机的行采样(bagging)和列采样(feature bagging)构造不同的训练集，建立一个决策树森林，利用加权平均方式或多数表决的方式得到最后的预测结果，能够并行学习，对噪声和异常数据具有很好的过滤作用，因此有很广泛的应用。</p>
+<h3 id="更深一步的介绍-2"><a href="#更深一步的介绍-2" class="headerlink" title="更深一步的介绍"></a>更深一步的介绍</h3><p>随机森林的行采样(bagging)和列采样(feature bagging)都是为了减小模型之间的相关性使基学习器变得不同从而减小集成模型的方差，但这种随机性会导致随机森林的偏差有所增加（相比于单棵不随机树），因此随机森林的单棵树都会采用很深的决策树，并不进行剪枝操作，以减小每棵树的偏差，这使得每一棵决策树就是一个精通于某一个窄领域的专家（因为我们从全部特征中选择部分来让每一棵决策树学习），这样在随机森林中就有了很多个精通不同领域的专家，对一个新的问题（新的输入数据），可以用不同的角度去看待它，最终再通过投票或平均得到结果。这也正是群体智慧的体现。</p>
+<h2 id="XGboost"><a href="#XGboost" class="headerlink" title="XGboost"></a>XGboost</h2><h3 id="简单介绍-3"><a href="#简单介绍-3" class="headerlink" title="简单介绍"></a>简单介绍</h3><p>xgboost是梯度提升树的一种高效系统实现，是对GBDT进一步的改进，包括对代价函数进行了二阶泰勒展开，在代价函数里加入了正则项，借鉴了随机森林的列采样方法，支持并行计算等</p>
+<h3 id="更深一步的介绍-3"><a href="#更深一步的介绍-3" class="headerlink" title="更深一步的介绍"></a>更深一步的介绍</h3><ul>
+<li>传统GBDT在优化时只用到一阶导数信息，xgboost则对代价函数进行了二阶泰勒展开，同时用到了一阶和二阶导数。顺便提一下，xgboost工具支持自定义代价函数，只要函数可一阶和二阶求导。</li>
+<li>xgboost在代价函数里加入了正则项，用于控制模型的复杂度。正则项里包含了树的叶子节点个数、每个叶子节点上输出的score的L2模的平方和。从Bias-variance tradeoff角度来讲，正则项降低了模型的variance，使学习出来的模型更加简单，防止过拟合，这也是xgboost优于传统GBDT的一个特性。</li>
+<li>Shrinkage（缩减），相当于学习速率（xgboost中的eta）。xgboost在进行完一次迭代后，会将叶子节点的权重乘上该系数，主要是为了削弱每棵树的影响，让后面有更大的学习空间。实际应用中，一般把eta设置得小一点，然后迭代次数设置得大一点。（补充：传统GBDT的实现也有学习速率）</li>
+<li>列抽样（column subsampling）。xgboost借鉴了随机森林的做法，支持列抽样，不仅能降低过拟合，还能减少计算，这也是xgboost异于传统gbdt的一个特性。<br>对缺失值的处理。对于特征的值有缺失的样本，xgboost可以自动学习出它的分裂方向。</li>
+<li>xgboost工具支持并行。boosting不是一种串行的结构吗?怎么并行的？注意xgboost的并行不是tree粒度的并行，xgboost也是一次迭代完才能进行下一次迭代的（第t次迭代的代价函数里包含了前面t-1次迭代的预测值）。xgboost的并行是在特征粒度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），xgboost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构，大大减小计算量。这个block结构也使得并行成为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。</li>
+<li>可并行的近似直方图算法。树节点在进行分裂时，我们需要计算每个特征的每个分割点对应的增益，即用贪心法枚举所有可能的分割点。当数据无法一次载入内存或者在分布式情况下，贪心算法效率就会变得很低，所以xgboost还提出了一种可并行的近似直方图算法，用于高效地生成候选的分割点。<h2 id="LightGBM"><a href="#LightGBM" class="headerlink" title="LightGBM"></a>LightGBM</h2><h3 id="简单介绍-4"><a href="#简单介绍-4" class="headerlink" title="简单介绍"></a>简单介绍</h3>LightGBM是一个实现GBDT算法的分布式高效框架。它通过leaf-wise分裂方法进行决策树的生成，通过基于直方图的算法寻找特征分割点，并支持并行学习，能够更高效的处理大数据，也得到了越来越广泛的应用。<h3 id="更深一步的介绍-4"><a href="#更深一步的介绍-4" class="headerlink" title="更深一步的介绍"></a>更深一步的介绍</h3>要减少训练的复杂度，可以通过减少特征量和数据量来实现，即从行和列两个角度来减少数据，同时要尽可能少的影响最后的精度。在LightGBM中，就是这样做的，对应着GOSS和EFB<br><strong><em>Gradient-based One-Side Sampling (GOSS)</em></strong>：GBDT虽然没有数据权重，但每个数据实例有不同的梯度，根据计算信息增益的定义，梯度大的实例对信息增益有更大的影响，因此在下采样时，我们应该尽量保留梯度大的样本（预先设定阈值，或者最高百分位间），随机去掉梯度小的样本。此措施在相同的采样率下比随机采样获得更准确的结果，尤其是在信息增益范围较大时。<br><strong><em>Exclusive Feature Bundling (EFB)</em></strong>：通常在真实应用中，虽然特征量比较多，但是由于特征空间十分稀疏，许多特征几乎是互斥的（例如许多特征不会同时为非零值，像one-hot），EFB通过捆绑互斥的特征，并将捆绑问题归约到图着色问题，通过贪心算法求得近似解，以减少特征数量。<br>对于树的分裂方法，它通过leaf-wise分裂产生比level-wise分裂更复杂的树，能够实现更高的准确率。虽然这样有时候会导致过拟合，但可以通过设置 max-depth 参数来防止过拟合的发生。（每一次的生长都是选取分裂增益最高的节点，而不是对一层中的所有节点都进行分裂）。<br>其次，它使用基于直方图的算法，将连续的特征值分桶(buckets)装进离散的箱子(bins)，并通过直方图做差加速计算兄弟节点的直方图，能够加速训练过程，并实现更少的内存占用。<br>另外，它支持并行学习，包括<strong>特征并行</strong>和<strong>数据并行</strong></li>
+<li>特征并行的主要思想是不同机器在不同的特征集合上分别寻找最优的分割点，然后在机器间同步最优的分割点。（mapreduce思想）</li>
+<li>数据并行则是让不同的机器先在不同的记录集合上构造直方图，然后进行全局的合并，最后在合并的直方图上面寻找最优分割点。</li>
+</ul>
+<p>它还支持直接输入类别特征，在对离散类别特征分裂时，每个取值都当作一个桶，分裂时的增益算的是”是否属于某个类别“的增益，对于类别特征的操作类似于one-hot编码。<br>CatBoost<br>简单介绍<br>CatBoost是Category 和 Boosting的缩写，最大的特点就是可以直接处理类别特征，不需要任何预处理来将类别转换为数字。</p>
+<h2 id="随机森林的优缺点："><a href="#随机森林的优缺点：" class="headerlink" title="随机森林的优缺点："></a>随机森林的优缺点：</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><p>训练可以高度并行化，对于大数据时代的大样本训练速度有优势。<br>由于可以随机选择决策树节点划分特征，这样在样本特征维度很高的时候，仍然能高效的训练模型。<br>在训练后，可以给出各个特征对于输出的重要性<br>由于采用了随机采样，训练出的模型的方差小，泛化能力强。<br>相对于 Boosting 系列的 Adaboost 和 GBDT， RF 实现比较简单。<br>对部分特征缺失不敏感。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p>在某些噪音比较大的样本集上，RF 模型容易陷入过拟合。<br>取值划分比较多的特征容易对 RF 的决策产生更大的影响，从而影响拟合的模型的效果。</p>
+<h2 id="随机森林-和-GBDT-的区别："><a href="#随机森林-和-GBDT-的区别：" class="headerlink" title="随机森林 和 GBDT 的区别："></a>随机森林 和 GBDT 的区别：</h2><ol>
+<li>组成随机森林的树可以是分类树，也可以是回归树；而 GBDT 只由回归树组成。</li>
+<li>组成随机森林的树可以并行生成（Bagging）；而 GBDT 只能是串行生成（Boosting）。</li>
+<li>对于最终的输出结果而言，随机森林采用多数投票；而 GBDT 则是将所有结果加权累加起来。</li>
+<li>随机森林对异常值不敏感，GBDT 对异常值非常敏感。</li>
+<li>随机森林对训练集一视同仁，GBDT 是基于权值的弱分类器的集成。</li>
+<li>随机森林是通过减少模型方差提高性能，GBDT 是通过减少模型偏差提高性能。</li>
+</ol>
+<h2 id="GBDT-和-DT（决策树）区别："><a href="#GBDT-和-DT（决策树）区别：" class="headerlink" title="GBDT 和 DT（决策树）区别："></a>GBDT 和 DT（决策树）区别：</h2><ol>
+<li>GBDT 是一种 boosting 集成算法，是由多个 CART 回归树集成得到，CART 树是决策树的其中一种；</li>
+<li>决策树是针对样本的预测正确率进行构建，而 GBDT 是针对之前生成的树的残差进行拟合而构建一系列树；<br>GBDT 和 XGBoost 区别：</li>
+<li>优化方法：GBDT 利用梯度下降法进行优化，而 XGBoost 利用牛顿法进行优化；前者只计算一阶梯度，而后者同时用到了一阶梯度和二阶梯度，能加快收敛速度。</li>
+<li>正则项：GBDT 没有正则项，XGBoost 中加入了正则项来防止过拟合，正则项中包含了树的叶结点个数和每个叶结点的得分值的 L2 的平方和。</li>
+<li>XGBoost 增加了处理缺失值的方案，能够自动学习缺失值的处理策略。</li>
+<li>XGBoost 借鉴了随机森林的做法，支持特征抽样，防止过拟合，并减少计算量。</li>
+<li>XGBoost 支持特征粒度上的并行(不是树粒度上并行，因为整体还是boosting算法，需要串行生成树)，在确定最佳分割点之前，提前对特征进行预排序。</li>
+<li>GBDT 以 CART 回归树作为基学习器，XGBoost 不仅如此还支持线性分类器，此时 XGBoost 就相当于带正则项的逻辑斯蒂回归或线性回归。</li>
+<li>XGBoost 带有 Shrinkage 参数，相当于学习率的作用。<h2 id="XGBoost-和-LightGBM-区别："><a href="#XGBoost-和-LightGBM-区别：" class="headerlink" title="XGBoost 和 LightGBM 区别："></a>XGBoost 和 LightGBM 区别：</h2></li>
+<li><p>树的切分策略不同：XGB 是 level-wise，而 LGB 是leaf-wise。level-wise 的建树方式对当前层的所有叶节点一视同仁，有些叶节点的分裂收益很小仍然需要进行分裂，增加了计算代价。leaf-wise 方式的精度更高，但容易过拟合，所以要控制树的最大深度。</p>
+</li>
+<li><p>在选择数据分割点时：XGB 是通过预排序的方式，空间消耗较大；LGB是通过直方图算法，不需要进行预排序，内存占用更低。</p>
+</li>
+<li><p>在并行策略上，XGB 主要集中在特征并行上，而 LGB 的并行策略包含特征并行、数据并行和投票并行（Data parallel，Feature parallel， Voting parallel）。</p>
+</li>
+</ol>
+<h2 id="xgb是对gbdt的优化改进"><a href="#xgb是对gbdt的优化改进" class="headerlink" title="xgb是对gbdt的优化改进"></a>xgb是对gbdt的优化改进</h2><ol>
+<li>目标函数中加入了正则项来控制模型的复杂度，替代原来的剪枝方法。</li>
+<li>利用了one-hot编码等情况中的特征稀疏性。（仅对特征值为非缺失值的样本的特征进行遍历）</li>
+<li>支持列抽样（同random forest）。</li>
+<li>数据事先排序并按block结构保存，有利于并行运算（树的生成还是串行的，这里说的并行计算指并行计算各个特征的增益或是基尼系数）。除此之外，xgb还通过一种可并行的近似直方图算法来高效生成候选的分割点。</li>
+<li>对损失函数进行了优化，gbdt只用到了其一阶导数信息，而xgb同时用到其一阶导与二阶导。</li>
+</ol>
+<h2 id="lgb则是在xgb基础上进一步改进"><a href="#lgb则是在xgb基础上进一步改进" class="headerlink" title="lgb则是在xgb基础上进一步改进"></a>lgb则是在xgb基础上进一步改进</h2><ol>
+<li>内存需求小：xgb使用基于pre-sorted的决策树算法，而lgb使用基于histogram的决策树算法。histogram算法占用的内存很小：pre-sorted需要两倍数据大小的内存空间，一半用于数据（float32），一半用于存放排好序的索引，而histogram不需要存放索引，且特征值只需要存放离散后的值，用uint8即可，故内存需求仅为pre-sorted的1/8。</li>
+<li>计算速度快：决策树算法的主要操作包括“寻找分割点”与“数据分割”两步，pre-sorted算法和histogram算法在“寻找分割点”上的时间复杂度是一致的；但是在“数据分割”上histogram要快，histogram所有特征共享一张索引，而pre-sorted一个特征对应一张索引，若集合level-wise，pre-sorted也可以共用一张索引，但是会带来很多随机访问的问题，速度仍不及histogram。此外，histogram算法还减少了计算分割点增益的次数。</li>
+<li>通信代价小：histogram算法的通信代价远远小于pre-sorted，可用于分布式计算。<br>但是，histogram不能找到很精确的分割点，训练误差不如pre-sorted算法，可以说是牺牲一定精度来换取速度。需要指出的是，这种粗犷的分割相当于自带正则效果，所以测试集的误差两种决策树算法差距不大。</li>
+</ol>
+<h2 id="关键两点差别"><a href="#关键两点差别" class="headerlink" title="关键两点差别"></a>关键两点差别</h2><ol>
+<li>决策树算法</li>
+</ol>
+<p>XGBoost使用的是pre-sorted算法，能够更精确的找到数据分隔点；LightGBM使用的是histogram算法，占用的内存更低，数据分隔的复杂度更低。</p>
+<ol start="2">
+<li>决策树生长策略</li>
+</ol>
+<p>XGBoost采用的是level（depth）-wise生长策略，能够同时分裂同一层的叶子，从而进行多线程优化，不容易过拟合；但不加区分的对待同一层的叶子，带来了很多没必要的开销。</p>
+<p>LightGBM采用leaf-wise生长策略，每次从当前所有叶子中找到分裂增益最大（一般也是数据量最大）的一个叶子，然后分裂，如此循环；但会生长出比较深的决策树，产生过拟合。因此，LightGBM 在leaf-wise 之上增加了一个最大深度的限制，在保证高效率的同时防止过拟合。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://zhuanlan.zhihu.com/p/56137208" target="_blank" rel="noopener">AdaBoost、GBDT、RF、XGboost、LightGBM的对比分析
+</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/72247243" target="_blank" rel="noopener">RF、GBDT、XGBoost、LightGBM</a></p>
+
+            
+        </div>
+                
+                        <ul class="post-copyright">
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/09/21/difference/">AdaBoost、GBDT、RF、XGboost、LightGBM的对比</a></li>
+                        <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/09/21/difference/">http://www.cygao.xyz/2019/09/21/difference/</a></li>
+                        <li><strong>发布时间：</strong>2019-09-21</li>
+                        <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                        </li>
+                        </ul>
+                    
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/机器学习/">机器学习</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/ali.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/05/l1l2/">
+                <span class="level-item">L1正则&amp;L2正则常见问题</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: true,
+        verify: false,
+        app_id: '5bpmqQ4MrKPysDXE0gVbfMKG-gzGzoHsz',
+        app_key: 'pP0cI6JOgjj5FVYXF6gh5aFh',
+        placeholder: '有话要说？'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#AdaBoost">
+        <span class="has-mr-6">1</span>
+        <span>AdaBoost</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#简单介绍">
+        <span class="has-mr-6">1.1</span>
+        <span>简单介绍</span>
+        </a></li><li>
+        <a class="is-flex" href="#更深一步的介绍">
+        <span class="has-mr-6">1.2</span>
+        <span>更深一步的介绍</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#GBDT">
+        <span class="has-mr-6">2</span>
+        <span>GBDT</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#简单介绍-1">
+        <span class="has-mr-6">2.1</span>
+        <span>简单介绍</span>
+        </a></li><li>
+        <a class="is-flex" href="#更深一步的介绍-1">
+        <span class="has-mr-6">2.2</span>
+        <span>更深一步的介绍</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Random-Forest">
+        <span class="has-mr-6">3</span>
+        <span>Random Forest</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#简单介绍-2">
+        <span class="has-mr-6">3.1</span>
+        <span>简单介绍</span>
+        </a></li><li>
+        <a class="is-flex" href="#更深一步的介绍-2">
+        <span class="has-mr-6">3.2</span>
+        <span>更深一步的介绍</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#XGboost">
+        <span class="has-mr-6">4</span>
+        <span>XGboost</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#简单介绍-3">
+        <span class="has-mr-6">4.1</span>
+        <span>简单介绍</span>
+        </a></li><li>
+        <a class="is-flex" href="#更深一步的介绍-3">
+        <span class="has-mr-6">4.2</span>
+        <span>更深一步的介绍</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#LightGBM">
+        <span class="has-mr-6">5</span>
+        <span>LightGBM</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#简单介绍-4">
+        <span class="has-mr-6">5.1</span>
+        <span>简单介绍</span>
+        </a></li><li>
+        <a class="is-flex" href="#更深一步的介绍-4">
+        <span class="has-mr-6">5.2</span>
+        <span>更深一步的介绍</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#随机森林的优缺点：">
+        <span class="has-mr-6">6</span>
+        <span>随机森林的优缺点：</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#优点：">
+        <span class="has-mr-6">6.1</span>
+        <span>优点：</span>
+        </a></li><li>
+        <a class="is-flex" href="#缺点：">
+        <span class="has-mr-6">6.2</span>
+        <span>缺点：</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#随机森林-和-GBDT-的区别：">
+        <span class="has-mr-6">7</span>
+        <span>随机森林 和 GBDT 的区别：</span>
+        </a></li><li>
+        <a class="is-flex" href="#GBDT-和-DT（决策树）区别：">
+        <span class="has-mr-6">8</span>
+        <span>GBDT 和 DT（决策树）区别：</span>
+        </a></li><li>
+        <a class="is-flex" href="#XGBoost-和-LightGBM-区别：">
+        <span class="has-mr-6">9</span>
+        <span>XGBoost 和 LightGBM 区别：</span>
+        </a></li><li>
+        <a class="is-flex" href="#xgb是对gbdt的优化改进">
+        <span class="has-mr-6">10</span>
+        <span>xgb是对gbdt的优化改进</span>
+        </a></li><li>
+        <a class="is-flex" href="#lgb则是在xgb基础上进一步改进">
+        <span class="has-mr-6">11</span>
+        <span>lgb则是在xgb基础上进一步改进</span>
+        </a></li><li>
+        <a class="is-flex" href="#关键两点差别">
+        <span class="has-mr-6">12</span>
+        <span>关键两点差别</span>
+        </a></li><li>
+        <a class="is-flex" href="#参考资料">
+        <span class="has-mr-6">13</span>
+        <span>参考资料</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow  ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="AdaBoost、GBDT、RF、XGboost、LightGBM的对比" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Cunyuan&nbsp;
+                
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'true'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
