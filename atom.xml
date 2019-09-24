@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-09-24T07:07:46.700Z</updated>
+  <updated>2019-09-24T10:38:44.124Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python常见问题</title>
+    <link href="http://www.cygao.xyz/2019/09/24/python/"/>
+    <id>http://www.cygao.xyz/2019/09/24/python/</id>
+    <published>2019-09-24T09:02:55.000Z</published>
+    <updated>2019-09-24T10:38:44.124Z</updated>
+    
+    <content type="html"><![CDATA[<p>持续更新中。。。。<br><a id="more"></a></p><h2 id="函数传参会改变参数本身吗"><a href="#函数传参会改变参数本身吗" class="headerlink" title="函数传参会改变参数本身吗"></a>函数传参会改变参数本身吗</h2><p>具体详见<a href="https://blog.csdn.net/liuxiao214/article/details/81673093" target="_blank" rel="noopener">python：函数传参是否会改变函数外参数的值</a></p><p>简单总结：</p><ul><li>当我们传的参数是int、字符串(string)、float、（数值型number）、元组（tuple) 时，无论函数中对其做什么操作，都不会改变函数外这个参数的值；</li><li>传的是字典型(dictionary)、列表型(list)时，如果是重新对其进行赋值，则不会改变函数外参数的值，如果是对其进行操作，则会改变。</li></ul><h2 id="python的字典为什么不选用红黑树而用哈希表做数据结构？"><a href="#python的字典为什么不选用红黑树而用哈希表做数据结构？" class="headerlink" title="python的字典为什么不选用红黑树而用哈希表做数据结构？"></a>python的字典为什么不选用红黑树而用哈希表做数据结构？</h2><p>红黑树在插入后恢复，删除后恢复有优势，就是但是查找较慢，字典类型更多的是查找，</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;持续更新中。。。。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
+    
+    
+      <category term="编程语言" scheme="http://www.cygao.xyz/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>感受野相关</title>
@@ -45,9 +67,9 @@
     <link href="http://www.cygao.xyz/2019/09/24/optimizer/"/>
     <id>http://www.cygao.xyz/2019/09/24/optimizer/</id>
     <published>2019-09-24T03:03:58.000Z</published>
-    <updated>2019-09-24T06:52:20.036Z</updated>
+    <updated>2019-09-24T10:43:05.157Z</updated>
     
-    <content type="html"><![CDATA[<p>参考<a href="https://blog.csdn.net/qsczse943062710/article/details/76763739" target="_blank" rel="noopener">最全的机器学习中的优化算法介绍</a>，<a href="https://www.cnblogs.com/shixiangwan/p/7532830.html" target="_blank" rel="noopener">常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）</a></p><a id="more"></a><h2 id="梯度下降法（Gradient-Descent）"><a href="#梯度下降法（Gradient-Descent）" class="headerlink" title="梯度下降法（Gradient Descent）"></a>梯度下降法（Gradient Descent）</h2><p>一阶泰勒展开</p><p>梯度下降法根据每次求解损失函数L带入的样本数，可以分为：<strong>全量梯度下降</strong>（计算所有样本的损失），<strong>批量梯度下降</strong>（每次计算一个batch样本的损失）和<strong>随机梯度下降</strong>（每次随机选取一个样本计算损失）。<br>现在所说的SGD（随机梯度下降）多指Mini-batch-Gradient-Descent（批量梯度下降）。</p><h3 id="SGD的优缺点"><a href="#SGD的优缺点" class="headerlink" title="SGD的优缺点"></a>SGD的优缺点</h3><ol><li>优点：操作简单，计算量小，在损失函数是凸函数的情况下能够保证收敛到一个较好的全局最优解。 </li><li>缺点：α是个定值（在最原始的版本），它的选取直接决定了解的好坏，过小会导致收敛太慢，过大会导致震荡而无法收敛到最优解。</li><li>缺点: 对于非凸问题，只能收敛到局部最优，并且没有任何摆脱局部最优的能力（一旦梯度为0就不会再有任何变化）。</li></ol><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>Momentum在每次更新时，保留一部分上次的更新方向： </p><ol><li>优点：一定程度上缓解了SGD收敛不稳定的问题，并且有一定的摆脱局部最优的能力（当前梯度为0时，仍可能按照上次迭代的方向冲出局部最优点）。</li><li>缺点：这里又多了另外一个超参数ρ需要我们设置，它的选取同样会影响到结果。</li></ol><h2 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h2><p>所以牛顿法就更快。如果更通俗地说的话，比如你想找一条最短的路径走到一个盆地的最底部，梯度下降法每次只从你当前所处位置选一个坡度最大的方向走一步，牛顿法在选择方向时，不仅会考虑坡度是否够大，还会考虑你走了一步之后，坡度是否会变得更大。所以，可以说牛顿法比梯度下降法看得更远一点，能更快地走到最底部。（牛顿法目光更加长远，所以少走弯路；相对而言，梯度下降法只考虑了局部的最优，没有全局思想。）</p><ol><li>优点：二阶收敛，收敛速度快；</li><li>缺点：牛顿法是一种迭代算法，每一步都需要求解目标函数的Hessian矩阵的逆矩阵，计算比较复杂。</li></ol><h3 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h3><p>拟牛顿法的本质思想是改善牛顿法每次需要求解复杂的Hessian矩阵的逆矩阵的缺陷，它使用正定矩阵来近似Hessian矩阵的逆，从而简化了运算的复杂度。</p><h2 id="共轭梯度法"><a href="#共轭梯度法" class="headerlink" title="共轭梯度法"></a>共轭梯度法</h2><p>共轭梯度法是介于最速下降法与牛顿法之间的一个方法，它仅需利用一阶导数信息，但克服了最速下降法收敛慢的缺点，又避免了牛顿法需要存储和计算Hesse矩阵并求逆的缺点，共轭梯度法不仅是解决大型线性方程组最有用的方法之一，也是解大型非线性最优化最有效的算法之一。</p><h2 id="为什么大部分都是SGD"><a href="#为什么大部分都是SGD" class="headerlink" title="为什么大部分都是SGD"></a>为什么大部分都是SGD</h2><p>需要注意的是，其他的方法在计算性能和收敛方面确实优秀很多，有的甚至不用认为干涉，它会自适应的调整参数，但是，在良好的调参情况下，SGD收敛到的最优解一般是最好的。</p>]]></content>
+    <content type="html"><![CDATA[<p>参考<a href="https://blog.csdn.net/qsczse943062710/article/details/76763739" target="_blank" rel="noopener">最全的机器学习中的优化算法介绍</a>，<a href="https://www.cnblogs.com/shixiangwan/p/7532830.html" target="_blank" rel="noopener">常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）</a></p><a id="more"></a><h2 id="梯度下降法（Gradient-Descent）"><a href="#梯度下降法（Gradient-Descent）" class="headerlink" title="梯度下降法（Gradient Descent）"></a>梯度下降法（Gradient Descent）</h2><p>一阶泰勒展开</p><p>梯度下降法根据每次求解损失函数L带入的样本数，可以分为：<strong>全量梯度下降</strong>（计算所有样本的损失），<strong>批量梯度下降</strong>（每次计算一个batch样本的损失）和<strong>随机梯度下降</strong>（每次随机选取一个样本计算损失）。<br>现在所说的SGD（随机梯度下降）多指Mini-batch-Gradient-Descent（批量梯度下降）。</p><h3 id="SGD的优缺点"><a href="#SGD的优缺点" class="headerlink" title="SGD的优缺点"></a>SGD的优缺点</h3><ol><li>优点：操作简单，计算量小，在损失函数是凸函数的情况下能够保证收敛到一个较好的全局最优解。 </li><li>缺点：α是个定值（在最原始的版本），它的选取直接决定了解的好坏，过小会导致收敛太慢，过大会导致震荡而无法收敛到最优解。</li><li>缺点: 对于非凸问题，只能收敛到局部最优，并且没有任何摆脱局部最优的能力（一旦梯度为0就不会再有任何变化）。</li></ol><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>Momentum在每次更新时，保留一部分上次的更新方向： </p><ol><li>优点：一定程度上缓解了SGD收敛不稳定的问题，并且有一定的摆脱局部最优的能力（当前梯度为0时，仍可能按照上次迭代的方向冲出局部最优点）。</li><li>缺点：这里又多了另外一个超参数ρ需要我们设置，它的选取同样会影响到结果。</li></ol><h2 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h2><p>所以牛顿法就更快。如果更通俗地说的话，比如你想找一条最短的路径走到一个盆地的最底部，梯度下降法每次只从你当前所处位置选一个坡度最大的方向走一步，牛顿法在选择方向时，不仅会考虑坡度是否够大，还会考虑你走了一步之后，坡度是否会变得更大。所以，可以说牛顿法比梯度下降法看得更远一点，能更快地走到最底部。（牛顿法目光更加长远，所以少走弯路；相对而言，梯度下降法只考虑了局部的最优，没有全局思想。）</p><ol><li>优点：二阶收敛，收敛速度快；</li><li>缺点：牛顿法是一种迭代算法，每一步都需要求解目标函数的Hessian矩阵的逆矩阵，计算比较复杂。</li></ol><h3 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h3><p>拟牛顿法的本质思想是改善牛顿法每次需要求解复杂的Hessian矩阵的逆矩阵的缺陷，它使用正定矩阵来近似Hessian矩阵的逆，从而简化了运算的复杂度。</p><h2 id="共轭梯度法"><a href="#共轭梯度法" class="headerlink" title="共轭梯度法"></a>共轭梯度法</h2><p>共轭梯度法是介于最速下降法与牛顿法之间的一个方法，它仅需利用一阶导数信息，但克服了最速下降法收敛慢的缺点，又避免了牛顿法需要存储和计算Hesse矩阵并求逆的缺点，共轭梯度法不仅是解决大型线性方程组最有用的方法之一，也是解大型非线性最优化最有效的算法之一。</p><hr><p>  不同于上述算法对前进方向进行选择和调整，后面这些算法主要研究沿着梯度方向走多远的问题，也即如何选择合适的学习率α。</p><h2 id="Adagrad-adaptive-gradient"><a href="#Adagrad-adaptive-gradient" class="headerlink" title="Adagrad(adaptive gradient)"></a>Adagrad(adaptive gradient)</h2><p>自适应梯度法。它通过记录每次迭代过程中的前进方向和距离，从而使得针对不同问题，有一套自适应调整学习率的方法： </p><ol><li>优点：解决了SGD中学习率不能自适应调整的问题 </li><li>缺点：学习率单调递减，在迭代后期可能导致学习率变得特别小而导致收敛及其缓慢。<br>同样的，我们还需要手动设置初始α。</li></ol><h2 id="Adagrad-like"><a href="#Adagrad-like" class="headerlink" title="Adagrad-like"></a>Adagrad-like</h2><ol><li>优点：缓解了Adagrad中学习率单调递减的问题 </li><li>缺点：Hession矩阵的计算必须采用较好的近似解，其次t也成为了新的超参数需要手动设置，即我们需要保留参数前多少个梯度值用来缩放学习率。</li></ol><h2 id="Adadelta"><a href="#Adadelta" class="headerlink" title="Adadelta"></a>Adadelta</h2><ol><li>优点：完全自适应全局学习率，加速效果好 </li><li>缺点：后期容易在小范围内产生震荡</li></ol><h2 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h2><p>Adam是Momentum和Adaprop的结合体, 它利用误差函数的一阶矩估计和二阶矩估计来约束全局学习率。 </p><ol><li>优点：结合Momentum和Adaprop，稳定性好，同时相比于Adagrad，不用存储全局所有的梯度，适合处理大规模数据 </li></ol><h2 id="为什么大部分都是SGD"><a href="#为什么大部分都是SGD" class="headerlink" title="为什么大部分都是SGD"></a>为什么大部分都是SGD</h2><p>需要注意的是，其他的方法在计算性能和收敛方面确实优秀很多，有的甚至不用认为干涉，它会自适应的调整参数，但是，在良好的调参情况下，SGD收敛到的最优解一般是最好的。</p>]]></content>
     
     <summary type="html">
     
@@ -458,30 +480,6 @@
     
     
       <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>经典卷积神经网络总结</title>
-    <link href="http://www.cygao.xyz/2019/02/15/networks/"/>
-    <id>http://www.cygao.xyz/2019/02/15/networks/</id>
-    <published>2019-02-15T11:42:08.000Z</published>
-    <updated>2019-09-20T06:54:26.071Z</updated>
-    
-    <content type="html"><![CDATA[<p>Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet，详解其中的部分。<br><a id="more"></a></p><p><a href="https://blog.csdn.net/liuxiao214/article/details/81914743" target="_blank" rel="noopener">经典卷积神经网络总结：Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet等</a></p><p><a href="https://blog.csdn.net/u014380165/article/details/71667916" target="_blank" rel="noopener">ResNeXt算法详解</a></p><p><a href="https://blog.csdn.net/wangkun1340378/article/details/79092001" target="_blank" rel="noopener">SENet详解</a></p><p><a href="https://blog.csdn.net/u014380165/article/details/75142664" target="_blank" rel="noopener">DenseNet算法详解</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet，详解其中的部分。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
-    
-    
-      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="深度学习" scheme="http://www.cygao.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

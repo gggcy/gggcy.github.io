@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>感受野相关 - Cy的学习日常</title>
+<title>python常见问题 - Cy的学习日常</title>
 
 
-    <meta name="description" content="感受野的计算，如何增加感受野。">
-<meta name="keywords" content="神经网络,深度学习">
+    <meta name="description" content="持续更新中。。。。">
+<meta name="keywords" content="编程语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="感受野相关">
-<meta property="og:url" content="http://www.cygao.xyz/2019/09/24/receptive/index.html">
+<meta property="og:title" content="python常见问题">
+<meta property="og:url" content="http://www.cygao.xyz/2019/09/24/python/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
-<meta property="og:description" content="感受野的计算，如何增加感受野。">
+<meta property="og:description" content="持续更新中。。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-24T07:07:46.700Z">
+<meta property="og:updated_time" content="2019-09-24T10:38:44.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="感受野相关">
-<meta name="twitter:description" content="感受野的计算，如何增加感受野。">
+<meta name="twitter:title" content="python常见问题">
+<meta name="twitter:description" content="持续更新中。。。。">
 <meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
 
 
@@ -93,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="感受野相关" height="28">
+                <img src="/images/logo.svg" alt="python常见问题" height="28">
             
             </a>
         </div>
@@ -162,7 +162,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-24T06:56:42.000Z">2019-09-24</time>
+                <time class="level-item has-text-grey" datetime="2019-09-24T09:02:55.000Z">2019-09-24</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/interview/">interview</a>
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 165 个字)
+                    2 分钟 读完 (大约 231 个字)
                 </span>
                 
                 
@@ -181,27 +181,26 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                感受野相关
+                python常见问题
             
         </h1>
         <div class="content">
-            <p>感受野的计算，如何增加感受野。<br><a id="more"></a></p>
-<h2 id="输出维度的计算"><a href="#输出维度的计算" class="headerlink" title="输出维度的计算"></a>输出维度的计算</h2><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/receptive.png" alt></div> 
-
-<h2 id="感受野的计算"><a href="#感受野的计算" class="headerlink" title="感受野的计算"></a>感受野的计算</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">RF: 待计算的feature map上的感受野大小</span></span><br><span class="line"><span class="hljs-string">stride: 卷积的步长(之前所有层stride的乘积)</span></span><br><span class="line"><span class="hljs-string">fsize: 卷积层滤波器的大小</span></span><br><span class="line"><span class="hljs-string">'''</span></span><br><span class="line">RF = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">for</span> layer <span class="hljs-keyword">in</span> （high layer To low layer）:</span><br><span class="line">　　RF = ((RF <span class="hljs-number">-1</span>)* stride) + fsize</span><br></pre></td></tr></table></figure>
-<h2 id="如何增加感受野"><a href="#如何增加感受野" class="headerlink" title="如何增加感受野"></a>如何增加感受野</h2><ul>
-<li>增加pooling层，但是会降低准确性（pooling过程中造成了信息损失）</li>
-<li>增大卷积核的kernel size，但是会增加参数</li>
-<li>增加卷积层的个数，但是会面临梯度消失的问题</li>
+            <p>持续更新中。。。。<br><a id="more"></a></p>
+<h2 id="函数传参会改变参数本身吗"><a href="#函数传参会改变参数本身吗" class="headerlink" title="函数传参会改变参数本身吗"></a>函数传参会改变参数本身吗</h2><p>具体详见<a href="https://blog.csdn.net/liuxiao214/article/details/81673093" target="_blank" rel="noopener">python：函数传参是否会改变函数外参数的值</a></p>
+<p>简单总结：</p>
+<ul>
+<li>当我们传的参数是int、字符串(string)、float、（数值型number）、元组（tuple) 时，无论函数中对其做什么操作，都不会改变函数外这个参数的值；</li>
+<li>传的是字典型(dictionary)、列表型(list)时，如果是重新对其进行赋值，则不会改变函数外参数的值，如果是对其进行操作，则会改变。</li>
 </ul>
+<h2 id="python的字典为什么不选用红黑树而用哈希表做数据结构？"><a href="#python的字典为什么不选用红黑树而用哈希表做数据结构？" class="headerlink" title="python的字典为什么不选用红黑树而用哈希表做数据结构？"></a>python的字典为什么不选用红黑树而用哈希表做数据结构？</h2><p>红黑树在插入后恢复，删除后恢复有优势，就是但是查找较慢，字典类型更多的是查找，</p>
 
             
         </div>
                 
                         <ul class="post-copyright">
-                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/09/24/receptive/">感受野相关</a></li>
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/09/24/python/">python常见问题</a></li>
                         <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
-                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/09/24/receptive/">http://www.cygao.xyz/2019/09/24/receptive/</a></li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/09/24/python/">http://www.cygao.xyz/2019/09/24/python/</a></li>
                         <li><strong>发布时间：</strong>2019-09-24</li>
                         <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                         </li>
@@ -212,7 +211,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/深度学习/">深度学习</a>, <a class="has-link-grey -link" href="/tags/神经网络/">神经网络</a>
+                    <a class="has-link-grey -link" href="/tags/编程语言/">编程语言</a>
                 </div>
             </div>
         </div>
@@ -258,17 +257,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/24/python/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">python常见问题</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/24/optimizer/">
-                <span class="level-item">optimizer</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/24/receptive/">
+                <span class="level-item">感受野相关</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -314,17 +306,13 @@
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#输出维度的计算">
+        <a class="is-flex" href="#函数传参会改变参数本身吗">
         <span class="has-mr-6">1</span>
-        <span>输出维度的计算</span>
+        <span>函数传参会改变参数本身吗</span>
         </a></li><li>
-        <a class="is-flex" href="#感受野的计算">
+        <a class="is-flex" href="#python的字典为什么不选用红黑树而用哈希表做数据结构？">
         <span class="has-mr-6">2</span>
-        <span>感受野的计算</span>
-        </a></li><li>
-        <a class="is-flex" href="#如何增加感受野">
-        <span class="has-mr-6">3</span>
-        <span>如何增加感受野</span>
+        <span>python的字典为什么不选用红黑树而用哈希表做数据结构？</span>
         </a></li></ul>
         </div>
     </div>
@@ -349,7 +337,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="感受野相关" height="28">
+                    <img src="/images/logo.svg" alt="python常见问题" height="28">
                 
                 </a>
                 <p class="is-size-7">

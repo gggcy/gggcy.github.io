@@ -19,7 +19,7 @@
 <meta property="og:description" content="参考最全的机器学习中的优化算法介绍，常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-24T06:52:20.036Z">
+<meta property="og:updated_time" content="2019-09-24T10:43:05.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="optimizer">
 <meta name="twitter:description" content="参考最全的机器学习中的优化算法介绍，常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1018 个字)
+                    9 分钟 读完 (大约 1410 个字)
                 </span>
                 
                 
@@ -206,6 +206,25 @@
 </ol>
 <h3 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h3><p>拟牛顿法的本质思想是改善牛顿法每次需要求解复杂的Hessian矩阵的逆矩阵的缺陷，它使用正定矩阵来近似Hessian矩阵的逆，从而简化了运算的复杂度。</p>
 <h2 id="共轭梯度法"><a href="#共轭梯度法" class="headerlink" title="共轭梯度法"></a>共轭梯度法</h2><p>共轭梯度法是介于最速下降法与牛顿法之间的一个方法，它仅需利用一阶导数信息，但克服了最速下降法收敛慢的缺点，又避免了牛顿法需要存储和计算Hesse矩阵并求逆的缺点，共轭梯度法不仅是解决大型线性方程组最有用的方法之一，也是解大型非线性最优化最有效的算法之一。</p>
+<hr>
+<p>  不同于上述算法对前进方向进行选择和调整，后面这些算法主要研究沿着梯度方向走多远的问题，也即如何选择合适的学习率α。</p>
+<h2 id="Adagrad-adaptive-gradient"><a href="#Adagrad-adaptive-gradient" class="headerlink" title="Adagrad(adaptive gradient)"></a>Adagrad(adaptive gradient)</h2><p>自适应梯度法。它通过记录每次迭代过程中的前进方向和距离，从而使得针对不同问题，有一套自适应调整学习率的方法： </p>
+<ol>
+<li>优点：解决了SGD中学习率不能自适应调整的问题 </li>
+<li>缺点：学习率单调递减，在迭代后期可能导致学习率变得特别小而导致收敛及其缓慢。<br>同样的，我们还需要手动设置初始α。</li>
+</ol>
+<h2 id="Adagrad-like"><a href="#Adagrad-like" class="headerlink" title="Adagrad-like"></a>Adagrad-like</h2><ol>
+<li>优点：缓解了Adagrad中学习率单调递减的问题 </li>
+<li>缺点：Hession矩阵的计算必须采用较好的近似解，其次t也成为了新的超参数需要手动设置，即我们需要保留参数前多少个梯度值用来缩放学习率。</li>
+</ol>
+<h2 id="Adadelta"><a href="#Adadelta" class="headerlink" title="Adadelta"></a>Adadelta</h2><ol>
+<li>优点：完全自适应全局学习率，加速效果好 </li>
+<li>缺点：后期容易在小范围内产生震荡</li>
+</ol>
+<h2 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h2><p>Adam是Momentum和Adaprop的结合体, 它利用误差函数的一阶矩估计和二阶矩估计来约束全局学习率。 </p>
+<ol>
+<li>优点：结合Momentum和Adaprop，稳定性好，同时相比于Adagrad，不用存储全局所有的梯度，适合处理大规模数据 </li>
+</ol>
 <h2 id="为什么大部分都是SGD"><a href="#为什么大部分都是SGD" class="headerlink" title="为什么大部分都是SGD"></a>为什么大部分都是SGD</h2><p>需要注意的是，其他的方法在计算性能和收敛方面确实优秀很多，有的甚至不用认为干涉，它会自适应的调整参数，但是，在良好的调参情况下，SGD收敛到的最优解一般是最好的。</p>
 
             
@@ -351,8 +370,24 @@
         <span class="has-mr-6">4</span>
         <span>共轭梯度法</span>
         </a></li><li>
-        <a class="is-flex" href="#为什么大部分都是SGD">
+        <a class="is-flex" href="#Adagrad-adaptive-gradient">
         <span class="has-mr-6">5</span>
+        <span>Adagrad(adaptive gradient)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Adagrad-like">
+        <span class="has-mr-6">6</span>
+        <span>Adagrad-like</span>
+        </a></li><li>
+        <a class="is-flex" href="#Adadelta">
+        <span class="has-mr-6">7</span>
+        <span>Adadelta</span>
+        </a></li><li>
+        <a class="is-flex" href="#Adam">
+        <span class="has-mr-6">8</span>
+        <span>Adam</span>
+        </a></li><li>
+        <a class="is-flex" href="#为什么大部分都是SGD">
+        <span class="has-mr-6">9</span>
         <span>为什么大部分都是SGD</span>
         </a></li></ul>
         </div>
