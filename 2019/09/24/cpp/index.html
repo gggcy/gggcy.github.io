@@ -19,7 +19,7 @@
 <meta property="og:description" content="持续更新中。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-24T08:18:40.666Z">
+<meta property="og:updated_time" content="2019-09-24T08:47:04.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++常见题">
 <meta name="twitter:description" content="持续更新中。。。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    29 分钟 读完 (大约 4345 个字)
+                    33 分钟 读完 (大约 5015 个字)
                 </span>
                 
                 
@@ -200,7 +200,17 @@
 <h3 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h3><p>类型转换函数,在编译期完成，可以转换任何类型的指针，所以极不安全。非极端情况不要使用。<br><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> *ip;</span><br><span class="line"><span class="hljs-keyword">char</span> *pc = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(ip);</span><br></pre></td></tr></table></figure></p>
 <h3 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h3><p>会在运行时检查类型转换是否合法，具有一定的安全性。由于运行时的检查，所以会额外消耗一些性能。</p>
 <p>从父类到子类，这也是dynamic_cast最常用的情况，这依赖于父类指针是否真实的指向了对应的子类类型，标示这是不是一个真实的子类对象，会检查转换的类型，相比static_cast更安全。</p>
-<h2 id="C-中指针和引用的区别"><a href="#C-中指针和引用的区别" class="headerlink" title="C++ 中指针和引用的区别"></a>C++ 中指针和引用的区别</h2><p>1)    指针是一个实体，需要分配内存空间。引用只是变量的别名，不需要分配内存空间。<br>2)    引用在定义的时候必须进行初始化，并且不能够改变。指针在定义的时候不一定要初始化，并且指向的空间可变。（注：不能有引用的值不能为NULL）<br>3)    有多级指针，但是没有多级引用，只能有一级引用。<br>4)    指针和引用的自增运算结果不一样。（指针是指向下一个空间，引用时引用的变量值加1）<br>5)    sizeof 引用得到的是所指向的变量（对象）的大小，而sizeof 指针得到的是指针本身的大小。<br>6)    引用访问一个变量是直接访问，而指针访问一个变量是间接访问。<br>7)    使用指针前最好做类型检查，防止野指针的出现；<br>8)    引用底层是通过指针实现的；<br>9)    作为参数时也不同，传指针的实质是传值，传递的值是指针的地址；传引用的实质是传地址，传递的是变量的地址。</p>
+<h2 id="C-中指针和引用的区别"><a href="#C-中指针和引用的区别" class="headerlink" title="C++ 中指针和引用的区别"></a>C++ 中指针和引用的区别</h2><ol>
+<li>指针是一个实体，需要分配内存空间。引用只是变量的别名，不需要分配内存空间。</li>
+<li>引用在定义的时候必须进行初始化，并且不能够改变。指针在定义的时候不一定要初始化，并且指向的空间可变。（注：不能有引用的值不能为NULL）</li>
+<li>有多级指针，但是没有多级引用，只能有一级引用。</li>
+<li>指针和引用的自增运算结果不一样。（指针是指向下一个空间，引用时引用的变量值加1）</li>
+<li>sizeof 引用得到的是所指向的变量（对象）的大小，而sizeof 指针得到的是指针本身的大小。</li>
+<li>引用访问一个变量是直接访问，而指针访问一个变量是间接访问。</li>
+<li>使用指针前最好做类型检查，防止野指针的出现；</li>
+<li>引用底层是通过指针实现的；</li>
+<li>作为参数时也不同，传指针的实质是传值，传递的值是指针的地址；传引用的实质是传地址，传递的是变量的地址。</li>
+</ol>
 <h2 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h2><p>一个由C/C++编译的程序占用的内存分为以下几个部分：</p>
 <ul>
 <li>栈区（stack）：由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其 操作方式类似于数据结构中的栈。</li>
@@ -262,7 +272,19 @@
 <p>测试的结果:</p>
 <p><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/cpp.jpg" alt></div><br>由上图我们可以看到Ap1在 赋值=之前和之后都指向的地址都是00620FB8，说明赋值并没有改变智能指针的指向，只是将拥有的标志owns改变了。通过reset函数可以重新绑定智能指针！</p>
 <h2 id="c-中的smart-pointer-智能指针"><a href="#c-中的smart-pointer-智能指针" class="headerlink" title="c++中的smart pointer-智能指针"></a>c++中的smart pointer-智能指针</h2><p>智能指针有很多，其中最开始使用的是auto_ptr指针，但是这个指针因为有缺陷已经被废弃。所以在新的C++标准中我们建议使用unique_ptr、shared_ptr、weak_ptr以及intrusive_ptr，这几个指针都是比较常用的，都是轻量级对象，速度与原始的指针相差无几，都是异常安全的，而且对于所指向的类型T只有一个要求，类型T的析构函数不能抛出异常(但是在实际工程的时候，在嵌入式等cpu比较弱的平台使用这些智能指针需要好好考虑一下，另外如果你不懂得如何使用这些智能指针，那就别使用它们)。</p>
-<h3 id="使用智能指针管理内存资源，RAII"><a href="#使用智能指针管理内存资源，RAII" class="headerlink" title="使用智能指针管理内存资源，RAII"></a>使用智能指针管理内存资源，RAII</h3><p>1)    RAII全称是“Resource Acquisition is Initialization”，直译过来是“资源获取即初始化”，也就是说在构造函数中申请分配资源，在析构函数中释放资源。因为C++的语言机制保证了，当一个对象创建的时候，自动调用构造函数，当对象超出作用域的时候会自动调用析构函数。所以，在RAII的指导下，我们应该使用类来管理资源，将资源和对象的生命周期绑定。<br>2)    智能指针（std::shared_ptr和std::unique_ptr）即RAII最具代表的实现，使用智能指针，可以实现自动的内存管理，再也不需要担心忘记delete造成的内存泄漏。毫不夸张的来讲，有了智能指针，代码中几乎不需要再出现delete了。</p>
+<h3 id="使用智能指针管理内存资源，RAII"><a href="#使用智能指针管理内存资源，RAII" class="headerlink" title="使用智能指针管理内存资源，RAII"></a>使用智能指针管理内存资源，RAII</h3><ol>
+<li>RAII全称是“Resource Acquisition is Initialization”，直译过来是“资源获取即初始化”，也就是说在构造函数中申请分配资源，在析构函数中释放资源。因为C++的语言机制保证了，当一个对象创建的时候，自动调用构造函数，当对象超出作用域的时候会自动调用析构函数。所以，在RAII的指导下，我们应该使用类来管理资源，将资源和对象的生命周期绑定。</li>
+<li>智能指针（std::shared_ptr和std::unique_ptr）即RAII最具代表的实现，使用智能指针，可以实现自动的内存管理，再也不需要担心忘记delete造成的内存泄漏。毫不夸张的来讲，有了智能指针，代码中几乎不需要再出现delete了。</li>
+</ol>
+<h3 id="智能指针的作用"><a href="#智能指针的作用" class="headerlink" title="智能指针的作用"></a>智能指针的作用</h3><h4 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h4><p>shared_ptr多个指针指向相同的对象，调用一个名为make_shared的标准库函数，shared_ptr<int> p = make_shared<int>(42);通常用auto更方便，auto p = …;shared_ptr<int> p2(new int(2));<br>每个shared_ptr都有一个关联的计数器，通常称为引用计数，一旦一个shared_ptr的计数器变为0，它就会自动释放自己所管理的对象；shared_ptr的析构函数就会递减它所指的对象的引用计数。如果引用计数变为0，shared_ptr的析构函数就会销毁对象，并释放它占用的内存。</int></int></int></p>
+<h4 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a>unique_ptr</h4><p>一个unique_ptr拥有它所指向的对象。某个时刻只能有一个unique_ptr指向一个给定对象。当unique_ptr被销毁时，它所指向的对象也被销毁。</p>
+<h4 id="weak-ptr"><a href="#weak-ptr" class="headerlink" title="weak_ptr"></a>weak_ptr</h4><p>weak_ptr是一种不控制所指向对象生存期的智能指针，它指向由一个shared_ptr管理的对象，将一个weak_ptr绑定到一个shared_ptr不会改变引用计数，一旦最后一个指向对象的shared_ptr被销毁，对象就会被释放，即使有weak_ptr指向对象，对象还是会被释放。</p>
+<p>弱指针用于专门解决shared_ptr循环引用的问题，weak_ptr不会修改引用计数，即其存在与否并不影响对象的引用计数器。循环引用就是：两个对象互相使用一个shared_ptr成员变量指向对方。弱引用并不对对象的内存进行管理，在功能上类似于普通指针，然而一个比较大的区别是，弱引用能检测到所管理的对象是否已经被释放，从而避免访问非法内存。</p>
+<h2 id="关于赋值操作与自我赋值"><a href="#关于赋值操作与自我赋值" class="headerlink" title="关于赋值操作与自我赋值"></a>关于赋值操作与自我赋值</h2><ul>
+<li>赋值操作的返回值应该是一个引用，也就是operator=返回一个reference to *this，这样可以保证连续赋值。</li>
+<li>传入赋值函数的参数应该声明为常量引用，并且加上const关键字。<br>-赋值操作中自身内存空间的问题，在赋值新的内存空间之后之前的空间是否已经释放，否则会造成空间泄漏。</li>
+<li>要留意自我赋值的操作，如果发生了自我赋值，直接返回原本的指针即可。<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> CMyString&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span> != &amp;str)   <span class="hljs-comment">// 如果不等于自己</span></span><br><span class="line">    &#123;</span><br><span class="line">        CMyString strTemp(str);</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">char</span>* pTemp = strTemp.m_pdata;</span><br><span class="line">        strTemp.m_pdata = m_pdata;</span><br><span class="line">        m_pdata = pTemp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
             
         </div>
@@ -454,7 +476,27 @@
         <a class="is-flex" href="#使用智能指针管理内存资源，RAII">
         <span class="has-mr-6">9.1</span>
         <span>使用智能指针管理内存资源，RAII</span>
-        </a></li></ul></li></ul>
+        </a></li><li>
+        <a class="is-flex" href="#智能指针的作用">
+        <span class="has-mr-6">9.2</span>
+        <span>智能指针的作用</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#shared-ptr">
+        <span class="has-mr-6">9.2.1</span>
+        <span>shared_ptr</span>
+        </a></li><li>
+        <a class="is-flex" href="#unique-ptr">
+        <span class="has-mr-6">9.2.2</span>
+        <span>unique_ptr</span>
+        </a></li><li>
+        <a class="is-flex" href="#weak-ptr">
+        <span class="has-mr-6">9.2.3</span>
+        <span>weak_ptr</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#关于赋值操作与自我赋值">
+        <span class="has-mr-6">10</span>
+        <span>关于赋值操作与自我赋值</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
