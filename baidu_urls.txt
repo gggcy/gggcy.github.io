@@ -1,3 +1,6 @@
+http://www.cygao.xyz/2019/09/24/receptive/
+http://www.cygao.xyz/2019/09/24/optimizer/
+http://www.cygao.xyz/2019/09/24/cpp/
 http://www.cygao.xyz/2019/09/21/difference/
 http://www.cygao.xyz/2019/09/05/l1l2/
 http://www.cygao.xyz/2019/08/13/sort/
@@ -15,6 +18,3 @@ http://www.cygao.xyz/2019/04/12/stack/
 http://www.cygao.xyz/2019/04/12/yolo/
 http://www.cygao.xyz/2019/03/09/xgboost/
 http://www.cygao.xyz/2019/02/15/networks/
-http://www.cygao.xyz/2019/02/08/kmeans/
-http://www.cygao.xyz/2019/01/05/bp/
-http://www.cygao.xyz/2018/12/12/python timeit/
