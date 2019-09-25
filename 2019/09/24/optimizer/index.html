@@ -19,7 +19,7 @@
 <meta property="og:description" content="参考最全的机器学习中的优化算法介绍，常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-24T10:43:05.157Z">
+<meta property="og:updated_time" content="2019-09-25T01:21:49.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="optimizer">
 <meta name="twitter:description" content="参考最全的机器学习中的优化算法介绍，常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1410 个字)
+                    10 分钟 读完 (大约 1439 个字)
                 </span>
                 
                 
@@ -187,6 +187,20 @@
         <div class="content">
             <p>参考<a href="https://blog.csdn.net/qsczse943062710/article/details/76763739" target="_blank" rel="noopener">最全的机器学习中的优化算法介绍</a>，<a href="https://www.cnblogs.com/shixiangwan/p/7532830.html" target="_blank" rel="noopener">常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）</a></p>
 <a id="more"></a>
+<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><ul>
+<li>随机梯度下降（SGD）</li>
+<li>Mini-Batch</li>
+<li>动量（Momentum）</li>
+<li>Nesterov 动量</li>
+<li>AdaGrad</li>
+<li>AdaDelta</li>
+<li>RMSProp</li>
+<li>Adam</li>
+<li>Adamax</li>
+<li>Nadam</li>
+<li>AMSGrad</li>
+<li>AdaBound</li>
+</ul>
 <h2 id="梯度下降法（Gradient-Descent）"><a href="#梯度下降法（Gradient-Descent）" class="headerlink" title="梯度下降法（Gradient Descent）"></a>梯度下降法（Gradient Descent）</h2><p>一阶泰勒展开</p>
 <p>梯度下降法根据每次求解损失函数L带入的样本数，可以分为：<strong>全量梯度下降</strong>（计算所有样本的损失），<strong>批量梯度下降</strong>（每次计算一个batch样本的损失）和<strong>随机梯度下降</strong>（每次随机选取一个样本计算损失）。<br>现在所说的SGD（随机梯度下降）多指Mini-batch-Gradient-Descent（批量梯度下降）。</p>
 <h3 id="SGD的优缺点"><a href="#SGD的优缺点" class="headerlink" title="SGD的优缺点"></a>SGD的优缺点</h3><ol>
@@ -346,48 +360,52 @@
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#梯度下降法（Gradient-Descent）">
+        <a class="is-flex" href="#总览">
         <span class="has-mr-6">1</span>
+        <span>总览</span>
+        </a></li><li>
+        <a class="is-flex" href="#梯度下降法（Gradient-Descent）">
+        <span class="has-mr-6">2</span>
         <span>梯度下降法（Gradient Descent）</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#SGD的优缺点">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">2.1</span>
         <span>SGD的优缺点</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#Momentum">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">3</span>
         <span>Momentum</span>
         </a></li><li>
         <a class="is-flex" href="#牛顿法">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">4</span>
         <span>牛顿法</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#拟牛顿法">
-        <span class="has-mr-6">3.1</span>
+        <span class="has-mr-6">4.1</span>
         <span>拟牛顿法</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#共轭梯度法">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">5</span>
         <span>共轭梯度法</span>
         </a></li><li>
         <a class="is-flex" href="#Adagrad-adaptive-gradient">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">6</span>
         <span>Adagrad(adaptive gradient)</span>
         </a></li><li>
         <a class="is-flex" href="#Adagrad-like">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">7</span>
         <span>Adagrad-like</span>
         </a></li><li>
         <a class="is-flex" href="#Adadelta">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">8</span>
         <span>Adadelta</span>
         </a></li><li>
         <a class="is-flex" href="#Adam">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">9</span>
         <span>Adam</span>
         </a></li><li>
         <a class="is-flex" href="#为什么大部分都是SGD">
-        <span class="has-mr-6">9</span>
+        <span class="has-mr-6">10</span>
         <span>为什么大部分都是SGD</span>
         </a></li></ul>
         </div>

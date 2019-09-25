@@ -19,7 +19,7 @@
 <meta property="og:description" content="Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet，详解其中的部分。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-20T06:54:26.071Z">
+<meta property="og:updated_time" content="2019-09-25T08:34:11.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典卷积神经网络总结">
 <meta name="twitter:description" content="Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet，详解其中的部分。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 89 个字)
+                    15 分钟 读完 (大约 2196 个字)
                 </span>
                 
                 
@@ -190,6 +190,52 @@
 <p><a href="https://blog.csdn.net/u014380165/article/details/71667916" target="_blank" rel="noopener">ResNeXt算法详解</a></p>
 <p><a href="https://blog.csdn.net/wangkun1340378/article/details/79092001" target="_blank" rel="noopener">SENet详解</a></p>
 <p><a href="https://blog.csdn.net/u014380165/article/details/75142664" target="_blank" rel="noopener">DenseNet算法详解</a></p>
+<h1 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h1><p>是Oxford的Visual Geometry Group的组提出的，主要工作是证明了增加网络的深度能够在一定程度上影响网络最终的性能。</p>
+<p>简单来说，使用了3个3x3卷积核来代替7x7卷积核，使用了2个3x3卷积核来代替5*5卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果。</p>
+<p>VGG优点：</p>
+<ol>
+<li>VGGNet的结构非常简洁，整个网络都使用了同样大小的卷积核尺寸（3x3）和最大池化尺寸（2x2）。</li>
+<li>几个小滤波器（3x3）卷积层的组合比一个大滤波器（5x5或7x7）卷积层好：</li>
+<li>验证了通过不断加深网络结构可以提升性能。</li>
+</ol>
+<p>VGG缺点：</p>
+<ol>
+<li>VGG耗费更多计算资源，并且使用了更多的参数（这里不是3x3卷积的锅），导致更多的内存占用（140M）。其中绝大多数的参数都是来自于第一个全连接层。VGG可是有3个全连接层啊！</li>
+</ol>
+<h1 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h1><h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>随着网络的加深，出现了训练集准确率下降的现象，我们可以确定这不是由于Overfit过拟合造成的(过拟合的情况训练集应该准确率很高)；所以作者针对这个问题提出了一种全新的网络，叫深度残差网络，它允许网络尽可能的加深</p>
+<h2 id="残差指的是什么？"><a href="#残差指的是什么？" class="headerlink" title="残差指的是什么？"></a>残差指的是什么？</h2><p>其中ResNet提出了两种mapping：一种是identity mapping，指的就是图1中”弯弯的曲线”，另一种residual mapping，指的就是除了”弯弯的曲线“那部分，所以最后的输出是 y=F(x)+x identity mapping顾名思义，就是指本身，也就是公式中的x，而residual mapping指的是“差”，也就是y−x，所以残差指的就是F(x)部分。</p>
+<h2 id="为什么ResNet可以解决“随着网络加深，准确率不下降”的问题？"><a href="#为什么ResNet可以解决“随着网络加深，准确率不下降”的问题？" class="headerlink" title="为什么ResNet可以解决“随着网络加深，准确率不下降”的问题？"></a>为什么ResNet可以解决“随着网络加深，准确率不下降”的问题？</h2><p>理论上，对于“随着网络加深，准确率下降”的问题，Resnet提供了两种选择方式，也就是identity mapping和residual mapping，如果网络已经到达最优，继续加深网络，residual mapping将被push为0，只剩下identity mapping，这样理论上网络一直处于最优状态了，网络的性能也就不会随着深度增加而降低了。</p>
+<h2 id="ResNet结构"><a href="#ResNet结构" class="headerlink" title="ResNet结构"></a>ResNet结构</h2><ul>
+<li>它使用了一种连接方式叫做“shortcut connection”，顾名思义，shortcut就是“抄近道”的意思<h2 id="ResNet为什么不用Dropout"><a href="#ResNet为什么不用Dropout" class="headerlink" title="ResNet为什么不用Dropout?"></a>ResNet为什么不用Dropout?</h2></li>
+<li><p>自从BN出来后，现在主流网络都不再用Dropout了。<br>Batch Normalization和Dropout并用会导致方差偏移，所以不并用。但最近貌似有人提出了BN+Dropout的方法，感兴趣也可以去看看。</p>
+</li>
+<li><p>谷歌已经对dropout申请专利并授权成功</p>
+</li>
+</ul>
+<h2 id="为什么-ResNet-不在一开始就使用residual-block-而是使用一个7×7的卷积？"><a href="#为什么-ResNet-不在一开始就使用residual-block-而是使用一个7×7的卷积？" class="headerlink" title="为什么 ResNet 不在一开始就使用residual block,而是使用一个7×7的卷积？"></a>为什么 ResNet 不在一开始就使用residual block,而是使用一个7×7的卷积？</h2><ul>
+<li><p>原因: 7x7卷积实际上是用来直接对输入图片降采样(early downsampling), 注意像7x7这样的大卷积核一般只出现在input layer</p>
+</li>
+<li><p>目的是: 尽可能保留原始图像的信息, 而不需要增加channels数.</p>
+</li>
+<li>本质上是: 多channels的非线性激活层是非常昂贵的, 在input layer用big kernel换多channels是划算的</li>
+</ul>
+<p>注意一下, resnet接入residual block前pixel为56x56的layer, channels数才64, 但是同样大小的layer, 在vgg-19里已经有256个channels了。</p>
+<p>这里要强调一下, 只有在input layer层, 也就是最靠近输入图片的那层, 才用大卷积, 原因如下:</p>
+<p>深度学习领域, 有一种广泛的直觉，即更大的卷积更好，但更昂贵。输入层中的特征数量(224x224)是如此之小（相对于隐藏层），第一卷积可以非常大而不会大幅增加实际的权重数。<strong>如果你想在某个地方进行大卷积，第一层通常是唯一的选择</strong>。</p>
+<h1 id="Faster-R-CNN的RPN网络"><a href="#Faster-R-CNN的RPN网络" class="headerlink" title="Faster R-CNN的RPN网络"></a>Faster R-CNN的RPN网络</h1><p>RPN结构说明：</p>
+<ol>
+<li><p>从基础网络提取的第五卷积层特征进入RPN后分为两个分支，其中一个分支进行针对feature map（上图conv-5-3共有512个feature-map）的每一个位置预测共（9*4=36）个参数，其中9代表的是每一个位置预设的9种形状的anchor-box，4对应的是每一个anchor-box的预测值（该预测值表示的是预设anchor-box到ground-truth-box之间的变换参数），上图中指向rpn-bbox-pred层的箭头上面的数字36即是代表了上述的36个参数，所以rpn-bbox-pred层的feature-map数量是36，而每一张feature-map的形状（大小）实际上跟conv5-3一模一样的；</p>
+</li>
+<li><p>另一分支预测该anchor-box所框定的区域属于前景和背景的概率（网上很对博客说的是，指代该点属于前景背景的概率，那样是不对的，不然怎么会有18个feature-map输出呢？否则2个就足够了），前景背景的真值给定是根据当前像素（anchor-box中心）是否在ground-truth-box内；</p>
+</li>
+<li><p>上图RPN-data(python)运算框内所进行的操作是读取图像信息（原始宽高），groun-truth boxes的信息（bounding-box的位置，形状，类别）等，作好相应的转换，输入到下面的层当中。</p>
+</li>
+<li><p>要注意的是RPN内部有两个loss层，一个是BBox的loss,该loss通过减小ground-truth-box与预测的anchor-box之间的差异来进行参数学习，从而使RPN网络中的权重能够学习到预测box的能力。实现细节是每一个位置的anchor-box与ground-truth里面的box进行比较，选择IOU最大的一个作为该anchor-box的真值，若没有，则将之class设为背景（概率值0，否则1），这样背景的anchor-box的损失函数中每个box乘以其class的概率后就不会对bbox的损失函数造成影响。另一个loss是class-loss,该处的loss是指代的前景背景并不是实际的框中物体类别，它的存在可以使得在最后生成roi时能快速过滤掉预测值是背景的box。也可实现bbox的预测函数不受影响，使得anchor-box能（专注于）正确的学习前景框的预测，正如前所述。所以，综合来讲，整个RPN的作用就是替代了以前的selective-search方法，因为网络内的运算都是可GPU加速的，所以一下子提升了ROI生成的速度。可以将RPN理解为一个预测前景背景，并将前景框定的一个网络，并进行单独的训练，实际上论文里面就有一个分阶段训练的训练策略，实际上就是这个原因。</p>
+</li>
+<li><p>最后经过非极大值抑制，RPN层产生的输出是一系列的ROI-data，它通过ROI的相对映射关系，将conv5-3中的特征已经存入ROI-data中，以供后面的分类网使用。</p>
+</li>
+</ol>
+<p>另外两个loss层的说明： 也许你注意到了，最后还有两个loss层，这里的class-loss指代的不再是前景背景loss，而是真正的类别loss了，这个应该就很好理解了。而bbox-loss则是因为rpn提取的只是前景背景的预测，往往很粗糙，这里其实是通过ROI-pooling后加上两层全连接实现更精细的box修正（这里其实是我猜的）。 ROI-Pooing的作用是为了将不同大小的Roi映射（重采样）成统一的大小输入到全连接层去。</p>
 
             
         </div>
@@ -309,7 +355,43 @@
             <h3 class="menu-label">
                 目录
             </h3>
-            
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#VGG">
+        <span class="has-mr-6">1</span>
+        <span>VGG</span>
+        </a></li><li>
+        <a class="is-flex" href="#ResNet">
+        <span class="has-mr-6">2</span>
+        <span>ResNet</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#意义">
+        <span class="has-mr-6">2.1</span>
+        <span>意义</span>
+        </a></li><li>
+        <a class="is-flex" href="#残差指的是什么？">
+        <span class="has-mr-6">2.2</span>
+        <span>残差指的是什么？</span>
+        </a></li><li>
+        <a class="is-flex" href="#为什么ResNet可以解决“随着网络加深，准确率不下降”的问题？">
+        <span class="has-mr-6">2.3</span>
+        <span>为什么ResNet可以解决“随着网络加深，准确率不下降”的问题？</span>
+        </a></li><li>
+        <a class="is-flex" href="#ResNet结构">
+        <span class="has-mr-6">2.4</span>
+        <span>ResNet结构</span>
+        </a></li><li>
+        <a class="is-flex" href="#ResNet为什么不用Dropout">
+        <span class="has-mr-6">2.5</span>
+        <span>ResNet为什么不用Dropout?</span>
+        </a></li><li>
+        <a class="is-flex" href="#为什么-ResNet-不在一开始就使用residual-block-而是使用一个7×7的卷积？">
+        <span class="has-mr-6">2.6</span>
+        <span>为什么 ResNet 不在一开始就使用residual block,而是使用一个7×7的卷积？</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Faster-R-CNN的RPN网络">
+        <span class="has-mr-6">3</span>
+        <span>Faster R-CNN的RPN网络</span>
+        </a></li></ul>
         </div>
     </div>
 </div>

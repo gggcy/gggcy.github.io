@@ -19,7 +19,7 @@
 <meta property="og:description" content="持续更新中。。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-24T10:38:44.124Z">
+<meta property="og:updated_time" content="2019-09-25T08:34:07.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python常见问题">
 <meta name="twitter:description" content="持续更新中。。。。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 231 个字)
+                    3 分钟 读完 (大约 464 个字)
                 </span>
                 
                 
@@ -193,6 +193,11 @@
 <li>传的是字典型(dictionary)、列表型(list)时，如果是重新对其进行赋值，则不会改变函数外参数的值，如果是对其进行操作，则会改变。</li>
 </ul>
 <h2 id="python的字典为什么不选用红黑树而用哈希表做数据结构？"><a href="#python的字典为什么不选用红黑树而用哈希表做数据结构？" class="headerlink" title="python的字典为什么不选用红黑树而用哈希表做数据结构？"></a>python的字典为什么不选用红黑树而用哈希表做数据结构？</h2><p>红黑树在插入后恢复，删除后恢复有优势，就是但是查找较慢，字典类型更多的是查找，</p>
+<h2 id="Python中的可变对象和不可变对象"><a href="#Python中的可变对象和不可变对象" class="headerlink" title="Python中的可变对象和不可变对象"></a>Python中的可变对象和不可变对象</h2><ul>
+<li>不可变对象，该对象所指向的内存中的值不能被改变。当改变某个变量时候，由于其所指的值不能被改变，相当于把原来的值复制一份后再改变，这会开辟一个新的地址，变量再指向这个新的地址。</li>
+<li>可变对象，该对象所指向的内存中的值可以被改变。变量（准确的说是引用）改变后，实际上是其所指的值直接发生改变，并没有发生复制行为，也没有开辟新的出地址，通俗点说就是原地改变。</li>
+</ul>
+<p>Python中，数值类型（int和float）、字符串str、元组tuple都是不可变类型。而列表list、字典dict、集合set是可变类型。</p>
 
             
         </div>
@@ -257,6 +262,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/24/vision/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">计算机视觉杂七杂八</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/24/receptive/">
@@ -313,6 +325,10 @@
         <a class="is-flex" href="#python的字典为什么不选用红黑树而用哈希表做数据结构？">
         <span class="has-mr-6">2</span>
         <span>python的字典为什么不选用红黑树而用哈希表做数据结构？</span>
+        </a></li><li>
+        <a class="is-flex" href="#Python中的可变对象和不可变对象">
+        <span class="has-mr-6">3</span>
+        <span>Python中的可变对象和不可变对象</span>
         </a></li></ul>
         </div>
     </div>

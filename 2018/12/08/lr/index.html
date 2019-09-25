@@ -19,7 +19,7 @@
 <meta property="og:description" content="概念，公式推导，常见问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-20T06:54:35.387Z">
+<meta property="og:updated_time" content="2019-09-24T11:15:22.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手推LR（Logistic Regression）逻辑斯蒂回归及常见问题">
 <meta name="twitter:description" content="概念，公式推导，常见问题。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 484 个字)
+                    4 分钟 读完 (大约 645 个字)
                 </span>
                 
                 
@@ -199,6 +199,13 @@
 <h2 id="3、LR怎么加入非线性"><a href="#3、LR怎么加入非线性" class="headerlink" title="3、LR怎么加入非线性"></a>3、LR怎么加入非线性</h2><p>套用了一个逻辑函数（sigmoid），逻辑回归是一个非线性的二分类模型。</p>
 <h2 id="4、LR的LOSS"><a href="#4、LR的LOSS" class="headerlink" title="4、LR的LOSS"></a>4、LR的LOSS</h2><p>上述图片中的J(θ)。</p>
 <h2 id="5、极大似然的概念"><a href="#5、极大似然的概念" class="headerlink" title="5、极大似然的概念"></a>5、极大似然的概念</h2><p>先验概率是<strong>知因求果</strong>，后验概率是<strong>知果求因</strong>，极大似然是<strong>知果求最可能的原因</strong>,就是在参数θ的可能取值范围内，选取使L(θ)达到最大的参数值θ，作为参数θ的估计值。</p>
+<h2 id="6、为什么-LR-要使用-sigmoid-函数？"><a href="#6、为什么-LR-要使用-sigmoid-函数？" class="headerlink" title="6、为什么 LR 要使用 sigmoid 函数？"></a>6、为什么 LR 要使用 sigmoid 函数？</h2><ol>
+<li>广义模型推导所得 </li>
+<li>满足统计的最大熵模型  </li>
+<li>性质优秀，方便使用（Sigmoid函数是平滑的，而且任意阶可导，一阶二阶导数可以直接由函数值得到不用进行求导，这在实现中很实用）</li>
+</ol>
+<h2 id="7、为什么要使用交叉熵函数作为代价函数，而不是平方误差函数"><a href="#7、为什么要使用交叉熵函数作为代价函数，而不是平方误差函数" class="headerlink" title="7、为什么要使用交叉熵函数作为代价函数，而不是平方误差函数"></a>7、为什么要使用交叉熵函数作为代价函数，而不是平方误差函数</h2><p><a href="https://blog.csdn.net/syyyy712/article/details/78252722" target="_blank" rel="noopener">逻辑回归算法之交叉熵函数理解</a></p>
+<h2 id="8、线性回归和逻辑回归的比较"><a href="#8、线性回归和逻辑回归的比较" class="headerlink" title="8、线性回归和逻辑回归的比较"></a>8、线性回归和逻辑回归的比较</h2><p><a href="https://blog.csdn.net/ddydavie/article/details/82668141" target="_blank" rel="noopener">参考博客</a></p>
 
             
         </div>
@@ -342,6 +349,18 @@
         <a class="is-flex" href="#5、极大似然的概念">
         <span class="has-mr-6">5</span>
         <span>5、极大似然的概念</span>
+        </a></li><li>
+        <a class="is-flex" href="#6、为什么-LR-要使用-sigmoid-函数？">
+        <span class="has-mr-6">6</span>
+        <span>6、为什么 LR 要使用 sigmoid 函数？</span>
+        </a></li><li>
+        <a class="is-flex" href="#7、为什么要使用交叉熵函数作为代价函数，而不是平方误差函数">
+        <span class="has-mr-6">7</span>
+        <span>7、为什么要使用交叉熵函数作为代价函数，而不是平方误差函数</span>
+        </a></li><li>
+        <a class="is-flex" href="#8、线性回归和逻辑回归的比较">
+        <span class="has-mr-6">8</span>
+        <span>8、线性回归和逻辑回归的比较</span>
         </a></li></ul>
         </div>
     </div>

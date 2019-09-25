@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/24/optimizer/</loc>
+    <loc>https://www.cygao.xyz/2019/02/15/networks/</loc>
     
-    <lastmod>2019-09-24T10:43:05.157Z</lastmod>
+    <lastmod>2019-09-25T08:34:11.032Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/09/24/vision/</loc>
+    
+    <lastmod>2019-09-25T08:34:08.934Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.cygao.xyz/2019/09/24/python/</loc>
     
-    <lastmod>2019-09-24T10:38:44.124Z</lastmod>
+    <lastmod>2019-09-25T08:34:07.816Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/09/24/optimizer/</loc>
+    
+    <lastmod>2019-09-25T01:21:49.489Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/09/24/bagging/</loc>
+    
+    <lastmod>2019-09-24T13:28:31.546Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/05/07/svm/</loc>
+    
+    <lastmod>2019-09-24T11:47:10.611Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2018/12/08/lr/</loc>
+    
+    <lastmod>2019-09-24T11:15:22.528Z</lastmod>
     
   </url>
   
@@ -51,20 +86,6 @@
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2018/12/08/lr/</loc>
-    
-    <lastmod>2019-09-20T06:54:35.387Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/02/15/networks/</loc>
-    
-    <lastmod>2019-09-20T06:54:26.071Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.cygao.xyz/2019/07/05/nms/</loc>
     
     <lastmod>2019-09-20T06:54:12.318Z</lastmod>
@@ -89,13 +110,6 @@
     <loc>https://www.cygao.xyz/2019/04/12/stack/</loc>
     
     <lastmod>2019-09-20T06:53:46.054Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/05/07/svm/</loc>
-    
-    <lastmod>2019-09-20T06:53:39.336Z</lastmod>
     
   </url>
   

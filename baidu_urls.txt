@@ -1,3 +1,5 @@
+http://www.cygao.xyz/2019/09/24/bagging/
+http://www.cygao.xyz/2019/09/24/vision/
 http://www.cygao.xyz/2019/09/24/python/
 http://www.cygao.xyz/2019/09/24/receptive/
 http://www.cygao.xyz/2019/09/24/optimizer/
@@ -16,5 +18,3 @@ http://www.cygao.xyz/2019/06/05/pca/
 http://www.cygao.xyz/2019/05/19/compression/
 http://www.cygao.xyz/2019/05/07/svm/
 http://www.cygao.xyz/2019/04/12/stack/
-http://www.cygao.xyz/2019/04/12/yolo/
-http://www.cygao.xyz/2019/03/09/xgboost/

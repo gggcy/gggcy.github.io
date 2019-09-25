@@ -19,7 +19,7 @@
 <meta property="og:description" content="面试必备">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-20T06:53:39.336Z">
+<meta property="og:updated_time" content="2019-09-24T11:47:10.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手推SVM及常见面试问题">
 <meta name="twitter:description" content="面试必备">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 974 个字)
+                    9 分钟 读完 (大约 1337 个字)
                 </span>
                 
                 
@@ -215,6 +215,18 @@
 <li>自然引入核函数，进而推广到非线性分类问题。</li>
 </ol>
 <h2 id="6、SVM为什么可以处理非线性问题"><a href="#6、SVM为什么可以处理非线性问题" class="headerlink" title="6、SVM为什么可以处理非线性问题"></a>6、SVM为什么可以处理非线性问题</h2><p>非线性的话通过核函数将其隐射到高维空间，在高维空间非线性问题转化为线性问题。 </p>
+<h2 id="LR-与-SVM的区别"><a href="#LR-与-SVM的区别" class="headerlink" title="LR 与 SVM的区别"></a>LR 与 SVM的区别</h2><h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><ol>
+<li>LR和SVM都是分类算法。</li>
+<li>如果不考虑核函数，LR和SVM都是线性分类算法，也就是说他们的分类决策面都是线性的。</li>
+<li>LR和SVM都是监督学习算法。</li>
+<li>LR和SVM都是判别模型。<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3></li>
+<li>本质上是其损失函数（loss function）不同。lr的损失函数是 cross entropy loss。svm是hinge loss。</li>
+<li>支持向量机只考虑局部的边界线附近的点，而逻辑回归考虑全局（远离的点对边界线的确定也起作用）。</li>
+<li>在解决非线性问题时，支持向量机采用核函数的机制，而LR通常不采用核函数的方法。</li>
+<li>​线性SVM依赖数据表达的距离测度，所以需要对数据先做normalization，LR不受其影响。一个基于概率，一个基于距离！​</li>
+<li>第五，SVM的损失函数就自带正则！！！（损失函数中的1/2||w||^2项），这就是为什么SVM是结构风险最小化算法的原因！！！而LR必须另外在损失函数上添加正则项！！！</li>
+</ol>
+<h4 id="机器学习中的各种损失函数（Hinge-loss，交叉熵，softmax）"><a href="#机器学习中的各种损失函数（Hinge-loss，交叉熵，softmax）" class="headerlink" title="机器学习中的各种损失函数（Hinge loss，交叉熵，softmax）"></a>机器学习中的各种损失函数（Hinge loss，交叉熵，softmax）</h4><p><a href="https://blog.csdn.net/edogawachia/article/details/80052884" target="_blank" rel="noopener">参考博客</a>，尤其是不熟悉的hinge loss。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>周志华的<br>《机器学习》</p>
 
             
@@ -360,8 +372,24 @@
         <span class="has-mr-6">6</span>
         <span>6、SVM为什么可以处理非线性问题</span>
         </a></li><li>
-        <a class="is-flex" href="#参考">
+        <a class="is-flex" href="#LR-与-SVM的区别">
         <span class="has-mr-6">7</span>
+        <span>LR 与 SVM的区别</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#相同点">
+        <span class="has-mr-6">7.1</span>
+        <span>相同点</span>
+        </a></li><li>
+        <a class="is-flex" href="#不同点">
+        <span class="has-mr-6">7.2</span>
+        <span>不同点</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#机器学习中的各种损失函数（Hinge-loss，交叉熵，softmax）">
+        <span class="has-mr-6">7.2.1</span>
+        <span>机器学习中的各种损失函数（Hinge loss，交叉熵，softmax）</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#参考">
+        <span class="has-mr-6">8</span>
         <span>参考</span>
         </a></li></ul>
         </div>
