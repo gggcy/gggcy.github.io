@@ -19,7 +19,7 @@
 <meta property="og:description" content="Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet，详解其中的部分。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-25T08:34:11.032Z">
+<meta property="og:updated_time" content="2019-09-25T10:49:36.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典卷积神经网络总结">
 <meta name="twitter:description" content="Inception v1\v2\v3\v4、ResNet、ResNext、DenseNet、SENet，详解其中的部分。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 分钟 读完 (大约 2196 个字)
+                    15 分钟 读完 (大约 2240 个字)
                 </span>
                 
                 
@@ -236,6 +236,8 @@
 </li>
 </ol>
 <p>另外两个loss层的说明： 也许你注意到了，最后还有两个loss层，这里的class-loss指代的不再是前景背景loss，而是真正的类别loss了，这个应该就很好理解了。而bbox-loss则是因为rpn提取的只是前景背景的预测，往往很粗糙，这里其实是通过ROI-pooling后加上两层全连接实现更精细的box修正（这里其实是我猜的）。 ROI-Pooing的作用是为了将不同大小的Roi映射（重采样）成统一的大小输入到全连接层去。</p>
+<h1 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h1><p><a href="https://blog.csdn.net/xiaohu2022/article/details/79833786" target="_blank" rel="noopener">目标检测算法之SSD</a></p>
+<h1 id="Cascade-R-CNN"><a href="#Cascade-R-CNN" class="headerlink" title="Cascade R-CNN"></a>Cascade R-CNN</h1><p><a href="https://blog.csdn.net/qq_21949357/article/details/80046867" target="_blank" rel="noopener">目标检测论文阅读：Cascade R-CNN: Delving into High Quality Object Detection</a></p>
 
             
         </div>
@@ -391,6 +393,14 @@
         <a class="is-flex" href="#Faster-R-CNN的RPN网络">
         <span class="has-mr-6">3</span>
         <span>Faster R-CNN的RPN网络</span>
+        </a></li><li>
+        <a class="is-flex" href="#SSD">
+        <span class="has-mr-6">4</span>
+        <span>SSD</span>
+        </a></li><li>
+        <a class="is-flex" href="#Cascade-R-CNN">
+        <span class="has-mr-6">5</span>
+        <span>Cascade R-CNN</span>
         </a></li></ul>
         </div>
     </div>
