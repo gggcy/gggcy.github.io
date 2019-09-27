@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.cygao.xyz/2019/09/24/bagging/</loc>
+    
+    <lastmod>2019-09-26T12:27:26.641Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.cygao.xyz/2019/09/24/vision/</loc>
+    
+    <lastmod>2019-09-26T12:13:45.561Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.cygao.xyz/2019/08/13/sort/</loc>
     
     <lastmod>2019-09-26T08:52:58.076Z</lastmod>
@@ -23,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://www.cygao.xyz/2019/09/24/vision/</loc>
-    
-    <lastmod>2019-09-25T08:34:08.934Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.cygao.xyz/2019/09/24/python/</loc>
     
     <lastmod>2019-09-25T08:34:07.816Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://www.cygao.xyz/2019/09/24/optimizer/</loc>
     
     <lastmod>2019-09-25T01:21:49.489Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.cygao.xyz/2019/09/24/bagging/</loc>
-    
-    <lastmod>2019-09-24T13:28:31.546Z</lastmod>
     
   </url>
   

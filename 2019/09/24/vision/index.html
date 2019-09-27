@@ -19,7 +19,7 @@
 <meta property="og:description" content="啥都有。持续更新中。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-25T08:34:08.934Z">
+<meta property="og:updated_time" content="2019-09-26T12:13:45.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机视觉杂七杂八">
 <meta name="twitter:description" content="啥都有。持续更新中。。。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1520 个字)
+                    13 分钟 读完 (大约 1906 个字)
                 </span>
                 
                 
@@ -257,6 +257,24 @@
 </ul>
 <h2 id="ROIAlign"><a href="#ROIAlign" class="headerlink" title="ROIAlign"></a>ROIAlign</h2><p>为了解决上述的缺陷，ROIAlign从原图到特征图直接的ROI映射直接使用双线性插值，不取整，这样误差会小很多，经过池化后再对应回原图的准确性也更高些。 </p>
 <h2 id="ROIWarp"><a href="#ROIWarp" class="headerlink" title="ROIWarp"></a>ROIWarp</h2><p>在pooling层前面，添加一层，将特征图crop一块，然后warp到固定的尺寸，这里的warp采用长度和宽度两个方向的双线性插值。 </p>
+<h1 id="梯度消失、爆炸产生的原因以及解决方法"><a href="#梯度消失、爆炸产生的原因以及解决方法" class="headerlink" title="梯度消失、爆炸产生的原因以及解决方法"></a>梯度消失、爆炸产生的原因以及解决方法</h1><h2 id="梯度消失和梯度爆炸的原因："><a href="#梯度消失和梯度爆炸的原因：" class="headerlink" title="梯度消失和梯度爆炸的原因："></a>梯度消失和梯度爆炸的原因：</h2><ol>
+<li><strong>深度网络</strong>：神经网络的反向传播是逐层对函数偏导相乘，因此当神经网络层数非常深的时候，最后一层产生的偏差就因为乘了很多的小于1的数而越来越小，最终就会变为0，从而导致层数比较浅的权重没有更新，这就是<strong>梯度消失</strong>。</li>
+</ol>
+<p><strong>梯度爆炸</strong>就是由于初始化权值过大，前面层会比后面层变化的更快，就会导致权值越来越大，<strong>梯度爆炸</strong>的现象就发生了。</p>
+<p>网络层之间的梯度（值大于 1.0/值小于1）重复相乘导致的指数级增长会产生<strong>梯度爆炸/梯度消失</strong>。</p>
+<ol start="2">
+<li><p><strong>采用了不合适的激活函数</strong>：通常神经网络所用的激活函数是<strong>sigmoid</strong>函数，这个函数有个特点，就是能将负无穷到正无穷的数映射到0和1之间，并且对这个函数求导的结果是f′(x)=f(x)(1−f(x))。因此两个0到1之间的数相乘，得到的结果就会变得很小了。</p>
+</li>
+<li><p>梯度弥散有点类似于梯度消失，解决方法也类似。</p>
+</li>
+</ol>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><ol>
+<li>与训练加微调</li>
+<li>梯度剪切，正则化</li>
+<li>采用relu，leakrelu等激活函数</li>
+<li>batchnorm</li>
+<li>残差结构</li>
+</ol>
 
             
         </div>
@@ -324,7 +342,7 @@
         <div class="level-start">
             <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/24/bagging/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Bagging和Boosting概念及区别、决策树相关</span>
+                <span class="level-item">Bagging和Boosting概念及区别、决策树相关、贝叶斯</span>
             </a>
         </div>
         
@@ -432,6 +450,18 @@
         <a class="is-flex" href="#ROIWarp">
         <span class="has-mr-6">10.3</span>
         <span>ROIWarp</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#梯度消失、爆炸产生的原因以及解决方法">
+        <span class="has-mr-6">11</span>
+        <span>梯度消失、爆炸产生的原因以及解决方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#梯度消失和梯度爆炸的原因：">
+        <span class="has-mr-6">11.1</span>
+        <span>梯度消失和梯度爆炸的原因：</span>
+        </a></li><li>
+        <a class="is-flex" href="#解决方法：">
+        <span class="has-mr-6">11.2</span>
+        <span>解决方法：</span>
         </a></li></ul></li></ul>
         </div>
     </div>
