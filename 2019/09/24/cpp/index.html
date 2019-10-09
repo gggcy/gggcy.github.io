@@ -19,7 +19,7 @@
 <meta property="og:description" content="持续更新中。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-24T08:47:04.346Z">
+<meta property="og:updated_time" content="2019-10-09T07:49:13.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++常见题">
 <meta name="twitter:description" content="持续更新中。。。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    33 分钟 读完 (大约 5015 个字)
+                    34 分钟 读完 (大约 5039 个字)
                 </span>
                 
                 
@@ -283,8 +283,10 @@
 <h2 id="关于赋值操作与自我赋值"><a href="#关于赋值操作与自我赋值" class="headerlink" title="关于赋值操作与自我赋值"></a>关于赋值操作与自我赋值</h2><ul>
 <li>赋值操作的返回值应该是一个引用，也就是operator=返回一个reference to *this，这样可以保证连续赋值。</li>
 <li>传入赋值函数的参数应该声明为常量引用，并且加上const关键字。<br>-赋值操作中自身内存空间的问题，在赋值新的内存空间之后之前的空间是否已经释放，否则会造成空间泄漏。</li>
-<li>要留意自我赋值的操作，如果发生了自我赋值，直接返回原本的指针即可。<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> CMyString&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span> != &amp;str)   <span class="hljs-comment">// 如果不等于自己</span></span><br><span class="line">    &#123;</span><br><span class="line">        CMyString strTemp(str);</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">char</span>* pTemp = strTemp.m_pdata;</span><br><span class="line">        strTemp.m_pdata = m_pdata;</span><br><span class="line">        m_pdata = pTemp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>要留意自我赋值的操作，如果发生了自我赋值，直接返回原本的指针即可。<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="hljs-keyword">operator</span>=(<span class="hljs-keyword">const</span> CMyString&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span> != &amp;str)   <span class="hljs-comment">// 如果不等于自己</span></span><br><span class="line">    &#123;</span><br><span class="line">        CMyString strTemp(str);</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">char</span>* pTemp = strTemp.m_pdata;</span><br><span class="line">        strTemp.m_pdata = m_pdata;</span><br><span class="line">        m_pdata = pTemp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>最简单的一种<br><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CSingleton</span>    </span></span><br><span class="line"><span class="hljs-class">&#123;</span>    </span><br><span class="line"><span class="hljs-keyword">private</span>:    </span><br><span class="line">    CSingleton()      </span><br><span class="line">    &#123;    </span><br><span class="line">    &#125;    </span><br><span class="line"><span class="hljs-keyword">public</span>:    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">static</span> CSingleton * <span class="hljs-title">GetInstance</span><span class="hljs-params">()</span>    </span></span><br><span class="line"><span class="hljs-function">    </span>&#123;    </span><br><span class="line">        <span class="hljs-keyword">static</span> CSingleton instance;     </span><br><span class="line">        <span class="hljs-keyword">return</span> &amp;instance;    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
             
         </div>
@@ -496,6 +498,10 @@
         <a class="is-flex" href="#关于赋值操作与自我赋值">
         <span class="has-mr-6">10</span>
         <span>关于赋值操作与自我赋值</span>
+        </a></li><li>
+        <a class="is-flex" href="#单例模式">
+        <span class="has-mr-6">11</span>
+        <span>单例模式</span>
         </a></li></ul>
         </div>
     </div>

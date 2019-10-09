@@ -19,7 +19,7 @@
 <meta property="og:description" content="持续更新中。。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-25T08:34:07.816Z">
+<meta property="og:updated_time" content="2019-10-09T07:47:07.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python常见问题">
 <meta name="twitter:description" content="持续更新中。。。。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 464 个字)
+                    4 分钟 读完 (大约 565 个字)
                 </span>
                 
                 
@@ -198,7 +198,8 @@
 <li>可变对象，该对象所指向的内存中的值可以被改变。变量（准确的说是引用）改变后，实际上是其所指的值直接发生改变，并没有发生复制行为，也没有开辟新的出地址，通俗点说就是原地改变。</li>
 </ul>
 <p>Python中，数值类型（int和float）、字符串str、元组tuple都是不可变类型。而列表list、字典dict、集合set是可变类型。</p>
-
+<h2 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h2><p><a href="https://www.runoob.com/python3/python3-iterator-generator.html" target="_blank" rel="noopener">Python3 迭代器与生成器</a></p>
+<h2 id="实现单例模式"><a href="#实现单例模式" class="headerlink" title="实现单例模式"></a>实现单例模式</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Earth</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    __instance=<span class="hljs-literal">None</span> <span class="hljs-comment">#定义一个类属性做判断</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls)</span>:</span></span><br><span class="line">        <span class="hljs-keyword">if</span> cls.__instance==<span class="hljs-literal">None</span>:</span><br><span class="line">            <span class="hljs-comment">#如果__instance为空证明是第一次创建实例</span></span><br><span class="line">            <span class="hljs-comment">#通过父类的__new__(cls)创建实例</span></span><br><span class="line">            cls.__instance=object.__new__(cls)</span><br><span class="line">            <span class="hljs-keyword">return</span>  cls.__instance</span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            <span class="hljs-comment">#返回上一个对象的引用</span></span><br><span class="line">            <span class="hljs-keyword">return</span> cls.__instance</span><br></pre></td></tr></table></figure>
             
         </div>
                 
@@ -329,6 +330,14 @@
         <a class="is-flex" href="#Python中的可变对象和不可变对象">
         <span class="has-mr-6">3</span>
         <span>Python中的可变对象和不可变对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#迭代器与生成器">
+        <span class="has-mr-6">4</span>
+        <span>迭代器与生成器</span>
+        </a></li><li>
+        <a class="is-flex" href="#实现单例模式">
+        <span class="has-mr-6">5</span>
+        <span>实现单例模式</span>
         </a></li></ul>
         </div>
     </div>

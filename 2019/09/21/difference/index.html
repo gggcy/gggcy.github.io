@@ -19,7 +19,7 @@
 <meta property="og:description" content="覆盖优缺点和对比。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-22T03:46:43.581Z">
+<meta property="og:updated_time" content="2019-10-02T13:47:27.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AdaBoost、GBDT、RF、XGboost、LightGBM的对比">
 <meta name="twitter:description" content="覆盖优缺点和对比。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    33 分钟 读完 (大约 4995 个字)
+                    35 分钟 读完 (大约 5181 个字)
                 </span>
                 
                 
@@ -252,6 +252,10 @@
 </ol>
 <p>XGBoost采用的是level（depth）-wise生长策略，能够同时分裂同一层的叶子，从而进行多线程优化，不容易过拟合；但不加区分的对待同一层的叶子，带来了很多没必要的开销。</p>
 <p>LightGBM采用leaf-wise生长策略，每次从当前所有叶子中找到分裂增益最大（一般也是数据量最大）的一个叶子，然后分裂，如此循环；但会生长出比较深的决策树，产生过拟合。因此，LightGBM 在leaf-wise 之上增加了一个最大深度的限制，在保证高效率的同时防止过拟合。</p>
+<h2 id="AdaBoost和GBDT的区别-AdaBoost和GBDT的区别"><a href="#AdaBoost和GBDT的区别-AdaBoost和GBDT的区别" class="headerlink" title="AdaBoost和GBDT的区别,AdaBoost和GBDT的区别"></a>AdaBoost和GBDT的区别,AdaBoost和GBDT的区别</h2><ol>
+<li>AdaBoost通过调整错分的数据点的权重来改进模型,而GBDT是从负梯度的方向去拟合改进模型。 </li>
+<li>AdaBoost改变了训练数据的权值,即样本的概率分布,减少上一轮被正确分类的样本权值,提高被错误分类的样本权值,而随机森林在训练每棵树的时候,随机挑选部分训练集进行训练。在对新数据进行预测时,AdaBoost中所有树加权投票进行预测,每棵树的权重和错误率有关,而随机森林对所有树的结果按照少数服从多数的原则进行预测。 </li>
+</ol>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://zhuanlan.zhihu.com/p/56137208" target="_blank" rel="noopener">AdaBoost、GBDT、RF、XGboost、LightGBM的对比分析
 </a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/72247243" target="_blank" rel="noopener">RF、GBDT、XGBoost、LightGBM</a></p>
@@ -471,8 +475,12 @@
         <span class="has-mr-6">12</span>
         <span>关键两点差别</span>
         </a></li><li>
-        <a class="is-flex" href="#参考资料">
+        <a class="is-flex" href="#AdaBoost和GBDT的区别-AdaBoost和GBDT的区别">
         <span class="has-mr-6">13</span>
+        <span>AdaBoost和GBDT的区别,AdaBoost和GBDT的区别</span>
+        </a></li><li>
+        <a class="is-flex" href="#参考资料">
+        <span class="has-mr-6">14</span>
         <span>参考资料</span>
         </a></li></ul>
         </div>
