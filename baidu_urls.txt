@@ -1,3 +1,4 @@
+http://www.cygao.xyz/2019/10/10/operation/
 http://www.cygao.xyz/2019/09/25/mianjing/
 http://www.cygao.xyz/2019/09/24/bagging/
 http://www.cygao.xyz/2019/09/24/vision/
@@ -17,4 +18,3 @@ http://www.cygao.xyz/2019/07/05/nms/
 http://www.cygao.xyz/2019/06/08/gbdt/
 http://www.cygao.xyz/2019/06/05/pca/
 http://www.cygao.xyz/2019/05/19/compression/
-http://www.cygao.xyz/2019/05/07/svm/
