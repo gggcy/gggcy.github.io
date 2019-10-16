@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>简单粗暴的BP图示及公式,CNN的BP及权值共享 - Cy的学习日常</title>
+<title>MOT相关算法，sort和deepsort - Cy的学习日常</title>
 
 
-    <meta name="description" content="权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。来源是Introduction to Deep Learning MIT 6.S191；https://blog.csdn.net/login_sonata/article/details/77488383">
-<meta name="keywords" content="神经网络,机器学习,深度学习">
+    <meta name="description" content="MOT初入门。对于MOT各个指标以及如何提升对应指标需要做的改进还差很多。">
+<meta name="keywords" content="代码踩坑,pytorch,神经网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单粗暴的BP图示及公式,CNN的BP及权值共享">
-<meta property="og:url" content="http://www.cygao.xyz/2019/01/05/bp/index.html">
+<meta property="og:title" content="MOT相关算法，sort和deepsort">
+<meta property="og:url" content="http://www.cygao.xyz/2019/10/14/deepsort/index.html">
 <meta property="og:site_name" content="Cy的学习日常">
-<meta property="og:description" content="权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。来源是Introduction to Deep Learning MIT 6.S191；https://blog.csdn.net/login_sonata/article/details/77488383">
+<meta property="og:description" content="MOT初入门。对于MOT各个指标以及如何提升对应指标需要做的改进还差很多。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-20T06:51:34.683Z">
+<meta property="og:updated_time" content="2019-10-16T15:17:42.311Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单粗暴的BP图示及公式,CNN的BP及权值共享">
-<meta name="twitter:description" content="权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。来源是Introduction to Deep Learning MIT 6.S191；https://blog.csdn.net/login_sonata/article/details/77488383">
+<meta name="twitter:title" content="MOT相关算法，sort和deepsort">
+<meta name="twitter:description" content="MOT初入门。对于MOT各个指标以及如何提升对应指标需要做的改进还差很多。">
 <meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
 
 
@@ -93,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="简单粗暴的BP图示及公式,CNN的BP及权值共享" height="28">
+                <img src="/images/logo.svg" alt="MOT相关算法，sort和deepsort" height="28">
             
             </a>
         </div>
@@ -162,17 +162,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-05T12:20:06.000Z">2019-01-05</time>
+                <time class="level-item has-text-grey" datetime="2019-10-14T05:20:29.000Z">2019-10-14</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/interview/">interview</a>
+                <a class="has-link-grey -link" href="/categories/TX/">TX</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1617 个字)
+                    4 分钟 读完 (大约 620 个字)
                 </span>
                 
                 
@@ -181,37 +181,37 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                简单粗暴的BP图示及公式,CNN的BP及权值共享
+                MOT相关算法，sort和deepsort
             
         </h1>
         <div class="content">
-            <p>权值共享:同一层的每个感受野被卷积时，卷积参数都是相同的。<br>来源是Introduction to Deep Learning MIT 6.S191；<a href="https://blog.csdn.net/login_sonata/article/details/77488383" target="_blank" rel="noopener">https://blog.csdn.net/login_sonata/article/details/77488383</a>   </p>
-<a id="more"></a>
-<h2 id="BP"><a href="#BP" class="headerlink" title="BP"></a>BP</h2><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp1.png" alt></div> 
-
-<div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp2.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp3.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp4.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp5.png" alt></div><br><div align="center"><img src="https://picture-1259281112.cos.ap-shanghai.myqcloud.com/bp6.png" alt></div> 
-
-<h1 id="卷积神经网络的反向传播："><a href="#卷积神经网络的反向传播：" class="headerlink" title="卷积神经网络的反向传播："></a>卷积神经网络的反向传播：</h1><p> 首先回顾一下一般的前馈神经网络的反向传播：<br> <img src="https://img-blog.csdn.net/20170824170432450" alt="这里写图片描述"><br> 详细内容可参看：<a href="http://blog.csdn.net/login_sonata/article/details/76737482" target="_blank" rel="noopener">神经网络基础和反向传播推导</a></p>
-<h2 id="1，CNN的前向传播"><a href="#1，CNN的前向传播" class="headerlink" title="1，CNN的前向传播"></a>1，CNN的前向传播</h2><p> a）对于卷积层，卷积核与输入矩阵对应位置求积再求和，作为输出矩阵对应位置的值。如果输入矩阵inputX为M<em>N大小，卷积核为a</em>b大小，那么输出Y为（M-a+1）*（N-b+1）大小。<br> <img src="https://img-blog.csdn.net/20170824180524581" alt="这里写图片描述"><br> b）对于池化层，按照池化标准把输入张量缩小。<br> c）对于全连接层，按照普通网络的前向传播计算。</p>
-<h2 id="2，CNN反向传播的不同之处："><a href="#2，CNN反向传播的不同之处：" class="headerlink" title="2，CNN反向传播的不同之处："></a>2，CNN反向传播的不同之处：</h2><p> 首先要注意的是，一般神经网络中每一层输入输出a,z都只是一个向量，<strong>而CNN中的a,z是一个三维张量</strong>，即由若干个输入的子矩阵组成。其次：</p>
-<ol start="2">
-<li><strong>池化层没有激活函数</strong>。这个问题倒比较好解决，我们可以令池化层的激活函数为σ(z)=z，即激活后就是自己本身。这样池化层激活函数的导数为1。 </li>
-<li>池化层在前向传播的时候，对输入进行了压缩，那么我们向前反向推导上一层的误差时，<strong>需要做upsample处理</strong>。 </li>
-<li>卷积层是通过张量卷积，或者说<strong>若干个矩阵卷积求和而得到当前层的输出</strong>，这和一般的网络直接进行矩阵乘法得到当前层的输出不同。这样在卷积层反向传播的时候，上一层误差的递推计算方法肯定有所不同。 </li>
-<li>对于卷积层，由于W使用的运算是卷积，那么由该层误差推导出该层的所有卷积核的W,b的方式也不同。  由于卷积层可以有多个卷积核，各个卷积核的处理方法是完全相同且独立的，为了简化算法公式的复杂度，我们下面提到卷积核都是卷积层中若干卷积核中的一个。接下来看具体的CNN反向传播步骤。</li>
-</ol>
-<h2 id="3，已知池化层的误差，反向推导上一隐藏层的误差"><a href="#3，已知池化层的误差，反向推导上一隐藏层的误差" class="headerlink" title="3，已知池化层的误差，反向推导上一隐藏层的误差"></a>3，已知池化层的误差，反向推导上一隐藏层的误差</h2><p> 在前向传播时，池化层我们会用MAX或者Average对输入进行池化，池化的区域大小已知。现在我们反过来，要从缩小后区域的误差，还原前一层较大区域的误差。这个过程叫做upsample。假设我们的池化区域大小是2x2。第l层误差的第k个子矩阵δlk为:<br> <img src="https://img-blog.csdn.net/20170824182603912" alt="这里写图片描述"><br> 如果池化区域表示为a*a大小，那么我们把上述矩阵上下左右各扩展a-1行和列进行<strong>还原</strong>：<br> <img src="https://img-blog.csdn.net/20170824181456863" alt="这里写图片描述"><br> 如果是MAX，假设我们之前在前向传播时记录的最大值位置分别是左上，右下，右上，左下，则转换后的矩阵为：<br> <img src="https://img-blog.csdn.net/20170824183635544" alt="这里写图片描述"><br> 如果是Average，则进行平均，转换后的矩阵为：<br> <img src="https://img-blog.csdn.net/20170824183714077" alt="这里写图片描述"><br> 上边这个矩阵就是误差矩阵经过upsample之后的矩阵，那么，由后一层误差推导出前一层误差的公式为：<br> <img src="https://img-blog.csdn.net/20170826144238437" alt="这里写图片描述"><br> 上式和普通网络的反向推导误差很类似：<br> <img src="https://img-blog.csdn.net/20170826145756406" alt="这里写图片描述"><br> 可以看到，只有第一项不同。</p>
-<h2 id="4，已知卷积层的误差，反向推导上一隐藏层的误差"><a href="#4，已知卷积层的误差，反向推导上一隐藏层的误差" class="headerlink" title="4，已知卷积层的误差，反向推导上一隐藏层的误差"></a>4，已知卷积层的误差，反向推导上一隐藏层的误差</h2><p> 公式如下：<br> <img src="https://img-blog.csdn.net/20170826150333441" alt="这里写图片描述"><br> 我们再看一次普通网络的反向推导误差的公式：<br> <img src="https://img-blog.csdn.net/20170826145756406" alt="这里写图片描述"><br> 可以看到区别在于，下一层的权重w的转置操作，变成了旋转180度的操作，也就是上下翻转一次，左右再翻转一次，这其实就是“卷积”一词的意义（我们可简单理解为数学上的trick），可参考下图，Q是下一层的误差，周围补0方便计算，W是180度翻转后的卷积核，P是W和Q做卷积的结果：<br> <img src="https://img-blog.csdn.net/20170826151721741" alt="这里写图片描述"></p>
-<h2 id="5，已知卷积层的误差，推导该层的W-b的梯度"><a href="#5，已知卷积层的误差，推导该层的W-b的梯度" class="headerlink" title="5，已知卷积层的误差，推导该层的W,b的梯度"></a>5，已知卷积层的误差，推导该层的W,b的梯度</h2><p> 经过以上各步骤，我们已经算出每一层的误差了，那么：<br> a）对于全连接层，可以按照普通网络的反向传播算法求该层W,b的梯度。<br> b）对于池化层，它并没有W,b,也不用求W,b的梯度。<br> c）只有卷积层的W,b需要求出，先看w：<br> <img src="https://img-blog.csdn.net/20170826154408701" alt="这里写图片描述"><br> 再对比一下普通网络的求w梯度的公式，发现区别在于，对前一层的输出做翻转180度的操作：<br> <img src="https://img-blog.csdn.net/20170826154512559" alt="这里写图片描述"><br> 而对于b,则稍微有些特殊，因为在CNN中，误差δ是三维张量，而b只是一个向量，不能像普通网络中那样直接和误差δ相等。通常的做法是将误差δ的各个子矩阵的项分别求和，得到一个误差向量，即为b的梯度：<br> <img src="https://img-blog.csdn.net/20170826155032222" alt="这里写图片描述"> </p>
+            <p>MOT初入门。对于MOT各个指标以及如何提升对应指标需要做的改进还差很多。<br><a id="more"></a><br>现在才慢慢理解这个图的第一象限。</p>
+<p><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/chendi.jpg" alt></div><br>MOT和MTMC还是存在差异吧，但是也结合了re-id，detection，tracking三个方向~巨恐怖。</p>
+<h1 id="SORT"><a href="#SORT" class="headerlink" title="SORT"></a>SORT</h1><p><a href="https://blog.csdn.net/yiran103/article/details/89421140" target="_blank" rel="noopener">SORT 多目标跟踪算法笔记</a></p>
+<p><a href="https://blog.csdn.net/HaoBBNuanMM/article/details/85555547" target="_blank" rel="noopener">【算法分析】SORT/Deep SORT 物体跟踪算法解析</a></p>
+<p>比如一开始看不懂为什么linear_assignment(-iou_matrix)，为什么是负的。第一个参考有解答。</p>
+<p>困惑1： 貌似每次都是input的检测的结果，用Sort算法输出tracker的BBox，分为跟踪成功/新出现/消失。但是到了下一帧时，input的还是当前检测的BBox？然后与sort保留的前一帧输出的tracker BBox进行卡尔曼滤波的预测，进行匈牙利算法匹配的关联算法，度量是以IOU。</p>
+<h1 id="Deep-Sort"><a href="#Deep-Sort" class="headerlink" title="Deep Sort"></a>Deep Sort</h1><p>不知道是切入时机的准确还是过于延后。这篇知乎概括的太好了。<br><a href="https://zhuanlan.zhihu.com/p/80764724" target="_blank" rel="noopener">关于 Deep Sort 的一些理解</a></p>
+<h2 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h2><p>这个例子概括的很好，相比欧式距离多了一个方差归一化，为了防止不同数据的单位不同，方差较大的问题。<a href="https://blog.csdn.net/lzhf1122/article/details/72935323" target="_blank" rel="noopener">马氏距离</a></p>
+<h2 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h2><p><a href="https://blog.csdn.net/sgfmby1994/article/list/1?" target="_blank" rel="noopener">超详细复现过程博客</a></p>
+<p>这里面总结的已经超级到位了。</p>
+<p><a href="https://www.cnblogs.com/wemo/p/10600454.html" target="_blank" rel="noopener">《deep sort》复现过程</a></p>
+<p>还有MOT数据集的详解，挺到位的。</p>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p><a href="https://www.cnblogs.com/YiXiaoZhou/p/7074037.html" target="_blank" rel="noopener">多目标跟踪方法：deep-sort</a></p>
+<p>包括底下的回答，可以更快地理解deep sort整体。</p>
+<h1 id="DeepSort-yolo3"><a href="#DeepSort-yolo3" class="headerlink" title="DeepSort + yolo3"></a>DeepSort + yolo3</h1><p><a href="https://github.com/ZQPei/deep_sort_pytorch" target="_blank" rel="noopener">开源项目代码</a></p>
+<p>如果只需要改变re-id的部分，只要更改checkpoint，保存的是训练好的re-id的model的结构和参数。和featrue_extractor里Net更改成自己训练的model of re-id，很简单。特征维度的大小，128？256？512？等等，维度对apperance的影响还不确定。</p>
+<p>跑demo，只是看fps，控制变量下反推模型的参数。</p>
+<p>下一步考虑如MOT的eval metric得如何引入了。</p>
 
             
         </div>
                 
                         <ul class="post-copyright">
-                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/01/05/bp/">简单粗暴的BP图示及公式,CNN的BP及权值共享</a></li>
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2019/10/14/deepsort/">MOT相关算法，sort和deepsort</a></li>
                         <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
-                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/01/05/bp/">http://www.cygao.xyz/2019/01/05/bp/</a></li>
-                        <li><strong>发布时间：</strong>2019-01-05</li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2019/10/14/deepsort/">http://www.cygao.xyz/2019/10/14/deepsort/</a></li>
+                        <li><strong>发布时间：</strong>2019-10-14</li>
                         <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                         </li>
                         </ul>
@@ -221,7 +221,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/机器学习/">机器学习</a>, <a class="has-link-grey -link" href="/tags/深度学习/">深度学习</a>, <a class="has-link-grey -link" href="/tags/神经网络/">神经网络</a>
+                    <a class="has-link-grey -link" href="/tags/pytorch/">pytorch</a>, <a class="has-link-grey -link" href="/tags/代码踩坑/">代码踩坑</a>, <a class="has-link-grey -link" href="/tags/神经网络/">神经网络</a>
                 </div>
             </div>
         </div>
@@ -267,17 +267,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/08/kmeans/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">K-means原理及常见问题</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/12/python timeit/">
-                <span class="level-item">【python】 timeit模块,list及dict操作复杂度</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/10/operation/">
+                <span class="level-item">PCB+RPP 相关代码</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -322,35 +315,31 @@
             <h3 class="menu-label">
                 目录
             </h3>
-            <ul class="menu-list"><ul class="menu-list"><li>
-        <a class="is-flex" href="#BP">
-        <span class="has-mr-6">1.1</span>
-        <span>BP</span>
-        </a></li></ul><li>
-        <a class="is-flex" href="#卷积神经网络的反向传播：">
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#SORT">
+        <span class="has-mr-6">1</span>
+        <span>SORT</span>
+        </a></li><li>
+        <a class="is-flex" href="#Deep-Sort">
         <span class="has-mr-6">2</span>
-        <span>卷积神经网络的反向传播：</span>
+        <span>Deep Sort</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1，CNN的前向传播">
+        <a class="is-flex" href="#马氏距离">
         <span class="has-mr-6">2.1</span>
-        <span>1，CNN的前向传播</span>
+        <span>马氏距离</span>
         </a></li><li>
-        <a class="is-flex" href="#2，CNN反向传播的不同之处：">
+        <a class="is-flex" href="#复现过程">
         <span class="has-mr-6">2.2</span>
-        <span>2，CNN反向传播的不同之处：</span>
+        <span>复现过程</span>
         </a></li><li>
-        <a class="is-flex" href="#3，已知池化层的误差，反向推导上一隐藏层的误差">
+        <a class="is-flex" href="#细节">
         <span class="has-mr-6">2.3</span>
-        <span>3，已知池化层的误差，反向推导上一隐藏层的误差</span>
-        </a></li><li>
-        <a class="is-flex" href="#4，已知卷积层的误差，反向推导上一隐藏层的误差">
-        <span class="has-mr-6">2.4</span>
-        <span>4，已知卷积层的误差，反向推导上一隐藏层的误差</span>
-        </a></li><li>
-        <a class="is-flex" href="#5，已知卷积层的误差，推导该层的W-b的梯度">
-        <span class="has-mr-6">2.5</span>
-        <span>5，已知卷积层的误差，推导该层的W,b的梯度</span>
-        </a></li></ul></li></ul>
+        <span>细节</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#DeepSort-yolo3">
+        <span class="has-mr-6">3</span>
+        <span>DeepSort + yolo3</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
@@ -374,7 +363,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="简单粗暴的BP图示及公式,CNN的BP及权值共享" height="28">
+                    <img src="/images/logo.svg" alt="MOT相关算法，sort和deepsort" height="28">
                 
                 </a>
                 <p class="is-size-7">

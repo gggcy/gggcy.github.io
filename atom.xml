@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-10-11T09:51:15.709Z</updated>
+  <updated>2019-10-16T15:17:42.311Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MOT相关算法，sort和deepsort</title>
+    <link href="http://www.cygao.xyz/2019/10/14/deepsort/"/>
+    <id>http://www.cygao.xyz/2019/10/14/deepsort/</id>
+    <published>2019-10-14T05:20:29.000Z</published>
+    <updated>2019-10-16T15:17:42.311Z</updated>
+    
+    <content type="html"><![CDATA[<p>MOT初入门。对于MOT各个指标以及如何提升对应指标需要做的改进还差很多。<br><a id="more"></a><br>现在才慢慢理解这个图的第一象限。</p><p><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/chendi.jpg" alt></div><br>MOT和MTMC还是存在差异吧，但是也结合了re-id，detection，tracking三个方向~巨恐怖。</p><h1 id="SORT"><a href="#SORT" class="headerlink" title="SORT"></a>SORT</h1><p><a href="https://blog.csdn.net/yiran103/article/details/89421140" target="_blank" rel="noopener">SORT 多目标跟踪算法笔记</a></p><p><a href="https://blog.csdn.net/HaoBBNuanMM/article/details/85555547" target="_blank" rel="noopener">【算法分析】SORT/Deep SORT 物体跟踪算法解析</a></p><p>比如一开始看不懂为什么linear_assignment(-iou_matrix)，为什么是负的。第一个参考有解答。</p><p>困惑1： 貌似每次都是input的检测的结果，用Sort算法输出tracker的BBox，分为跟踪成功/新出现/消失。但是到了下一帧时，input的还是当前检测的BBox？然后与sort保留的前一帧输出的tracker BBox进行卡尔曼滤波的预测，进行匈牙利算法匹配的关联算法，度量是以IOU。</p><h1 id="Deep-Sort"><a href="#Deep-Sort" class="headerlink" title="Deep Sort"></a>Deep Sort</h1><p>不知道是切入时机的准确还是过于延后。这篇知乎概括的太好了。<br><a href="https://zhuanlan.zhihu.com/p/80764724" target="_blank" rel="noopener">关于 Deep Sort 的一些理解</a></p><h2 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h2><p>这个例子概括的很好，相比欧式距离多了一个方差归一化，为了防止不同数据的单位不同，方差较大的问题。<a href="https://blog.csdn.net/lzhf1122/article/details/72935323" target="_blank" rel="noopener">马氏距离</a></p><h2 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h2><p><a href="https://blog.csdn.net/sgfmby1994/article/list/1?" target="_blank" rel="noopener">超详细复现过程博客</a></p><p>这里面总结的已经超级到位了。</p><p><a href="https://www.cnblogs.com/wemo/p/10600454.html" target="_blank" rel="noopener">《deep sort》复现过程</a></p><p>还有MOT数据集的详解，挺到位的。</p><h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p><a href="https://www.cnblogs.com/YiXiaoZhou/p/7074037.html" target="_blank" rel="noopener">多目标跟踪方法：deep-sort</a></p><p>包括底下的回答，可以更快地理解deep sort整体。</p><h1 id="DeepSort-yolo3"><a href="#DeepSort-yolo3" class="headerlink" title="DeepSort + yolo3"></a>DeepSort + yolo3</h1><p><a href="https://github.com/ZQPei/deep_sort_pytorch" target="_blank" rel="noopener">开源项目代码</a></p><p>如果只需要改变re-id的部分，只要更改checkpoint，保存的是训练好的re-id的model的结构和参数。和featrue_extractor里Net更改成自己训练的model of re-id，很简单。特征维度的大小，128？256？512？等等，维度对apperance的影响还不确定。</p><p>跑demo，只是看fps，控制变量下反推模型的参数。</p><p>下一步考虑如MOT的eval metric得如何引入了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;MOT初入门。对于MOT各个指标以及如何提升对应指标需要做的改进还差很多。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="TX" scheme="http://www.cygao.xyz/categories/TX/"/>
+    
+    
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+    
+      <category term="pytorch" scheme="http://www.cygao.xyz/tags/pytorch/"/>
+    
+      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>PCB+RPP 相关代码</title>
@@ -37,9 +63,9 @@
     
       <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
-      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
       <category term="pytorch" scheme="http://www.cygao.xyz/tags/pytorch/"/>
+    
+      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -243,9 +269,9 @@
       <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
     
     
-      <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="深度学习" scheme="http://www.cygao.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
@@ -458,31 +484,6 @@
     
     
       <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Valse笔记「浓缩的都是精华」之网络压缩</title>
-    <link href="http://www.cygao.xyz/2019/05/19/compression/"/>
-    <id>http://www.cygao.xyz/2019/05/19/compression/</id>
-    <published>2019-05-19T08:21:45.000Z</published>
-    <updated>2019-09-20T06:51:06.490Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://valser.org/webinar/slide/slides/20190911/2019.9.11-神经网络量化压缩%EF%BC%9A从算法到芯片-webinar.pdf" target="_blank" rel="noopener">程建老师的PPT</a></p><p><a href="http://valser.org/webinar/slide/slides/20190911/2019.9.11-valse_DNN%20compression.pdf" target="_blank" rel="noopener">林绍辉老师的PPT</a><br><a id="more"></a></p><h2 id="DNN-compression-and-acceleration"><a href="#DNN-compression-and-acceleration" class="headerlink" title="DNN compression and acceleration"></a>DNN compression and acceleration</h2><h3 id="5-main-groups"><a href="#5-main-groups" class="headerlink" title="5 main groups"></a>5 main groups</h3><ul><li>Parameter pruning</li><li>Parameter sharing</li><li>Low-rank decomposition</li><li>Compact network design</li><li>Knowledge distillation<h3 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h3></li><li>FFT、DCT</li><li>Winograd </li><li>Neural architecure search </li></ul><h2 id="Parameter-pruning"><a href="#Parameter-pruning" class="headerlink" title="Parameter pruning"></a>Parameter pruning</h2><ol><li>Fine-grained</li><li>Vector-level</li><li>Kernel-level</li><li>Filter-level</li><li>Group-level</li></ol><h2 id="基于量化学习的模型压缩表示"><a href="#基于量化学习的模型压缩表示" class="headerlink" title="基于量化学习的模型压缩表示"></a>基于量化学习的模型压缩表示</h2><ol><li>基于哈希的二值量化方法，二值权重-1或1。</li></ol><p>Qinghao Hu, Peisong Wang, Jian Cheng. From Hashing to CNNs: Training Binary Weight Networks via Hashing. AAAI 2018</p><ol start="2"><li>基于三值定点量化方法。<br>提出一种定点分解网络（FFN），把CNN网络权重量化成[-1,0,1]，从<br>而把乘法计算转变成加法，有效提高网络inference速度。</li></ol><p>Peisong Wang and Jian Cheng, “Fixed-point Factorized Networks”. CVPR 2017</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://valser.org/webinar/slide/slides/20190911/2019.9.11-神经网络量化压缩%EF%BC%9A从算法到芯片-webinar.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;程建老师的PPT&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://valser.org/webinar/slide/slides/20190911/2019.9.11-valse_DNN%20compression.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;林绍辉老师的PPT&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="valse" scheme="http://www.cygao.xyz/categories/valse/"/>
-    
-    
-      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="深度学习" scheme="http://www.cygao.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
