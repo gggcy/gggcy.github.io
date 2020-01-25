@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.8.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>linux及shell常见命令 - Cy的学习日常</title>
+
+
+    <meta name="description" content="直接搬运的，侵权删。">
+<meta name="keywords" content="linux,shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux及shell常见命令">
+<meta property="og:url" content="http://www.cygao.xyz/2020/01/25/linux100/index.html">
+<meta property="og:site_name" content="Cy的学习日常">
+<meta property="og:description" content="直接搬运的，侵权删。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
+<meta property="og:updated_time" content="2020-01-25T05:51:26.789Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux及shell常见命令">
+<meta name="twitter:description" content="直接搬运的，侵权删。">
+<meta name="twitter:image" content="http://www.cygao.xyz/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/assets/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="linux及shell常见命令" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/laboratory">统计</a>
+                
+                <a class="navbar-item"
+                href="/photos/">相册</a>
+                
+                <a class="navbar-item"
+                href="/music">音乐</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-25T05:37:58.000Z">2020-01-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/工作日常/">工作日常</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1153 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                linux及shell常见命令
+            
+        </h1>
+        <div class="content">
+            <p>直接搬运的，侵权删。<br><a id="more"></a></p>
+<h3 id="Shell篇"><a href="#Shell篇" class="headerlink" title="Shell篇"></a>Shell篇</h3><ul>
+<li><a href="#55_Shell_4">55 Shell</a></li>
+<li><a href="#65__90">65 数组</a></li>
+<li><a href="#66__101">66 转义和引用</a></li>
+<li><a href="#67__122">67 运算符</a></li>
+<li><a href="#69_test_174">69 test比较</a></li>
+<li><a href="#79__234">79 函数</a></li>
+<li><a href="#81__244">81 脚本控制</a></li>
+<li><a href="#83__249">83 计划任务</a>  </li>
+</ul>
+<p> 其实将Shell看作一门语言，和C、Java也没啥太大区别。还是那句话，看有没有需求吧，有需求，查资料，总是能搞定的，然后在这个过程中，积累经验。</p>
+<h1 id="55-Shell"><a href="#55-Shell" class="headerlink" title="55 Shell"></a><a href></a>55 Shell</h1><p> Shell是命令解释器，用于解释用户对操作系统的操作。CentOS7默认使用的Shell是bash</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
+<p> Linux的启动过程，BIOS-MBR-BootLoader（grub）-kernel-systemd-系统初始化-shell</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd /var/ ; ls</span><br><span class="line">du -sh *</span><br><span class="line">vim 1.sh</span><br><span class="line">chmod u+x 1.sh</span><br><span class="line">bash 1.sh            不会影响当前的环境</span><br><span class="line"></span><br><span class="line">#!/bin/bash        ./1.sh</span><br><span class="line"></span><br><span class="line">source ./1.sh  在当前进程运行，会影响当前的运行环境</span><br><span class="line">. 1.sh</span><br><span class="line"></span><br><span class="line">内建命令不需要创建子进程</span><br><span class="line">内建命令对当前shell生效</span><br></pre></td></tr></table></figure>
+<p> 管道</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 123 | ps</span><br><span class="line">cat | ps -f  外部命令，会建立子进程</span><br></pre></td></tr></table></figure>
+<p> 重定向</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">标准输入、标准输出、错误输出，0、1、2</span><br><span class="line">输入重定向 &lt;</span><br><span class="line">输出重定向符号 &gt; 覆盖  &gt;&gt; 追加  2&gt;   &amp;&gt;  全部重定向</span><br><span class="line"></span><br><span class="line">wc -l   ctrl + d结束</span><br><span class="line">wc -l &lt; /etc/passwd</span><br><span class="line">read var </span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line">cat &gt; /root/a.sh &lt;&lt; EOF</span><br><span class="line">echo &quot;hello bash&quot;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p> 变量赋值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">变量的定义</span><br><span class="line">    a=123                   等号两侧不允许出现空格</span><br><span class="line">    let a=10+20             进行计算，但计算效率低，不建议使用</span><br><span class="line">    l=ls</span><br><span class="line">    letc=$(ls -l /etc)      命令结果赋值给变量，也可以使用``</span><br><span class="line">    &quot;hello bash&quot;            单双引号</span><br><span class="line">赋值</span><br><span class="line"></span><br><span class="line">引用</span><br><span class="line">    $&#123;变量名&#125;      &#123;&#125;在部分情况下可省略</span><br><span class="line">    $&#123;name&#125;sth</span><br><span class="line">作用范围</span><br><span class="line">    默认作用范围，当前进程，不包含子进程、父进程、平行进程</span><br><span class="line">    source *.sh     对当前终端生效，vs. bash *.sh</span><br><span class="line">    export name     子进程获取父进程的取值</span><br><span class="line">    unset name      取消赋值</span><br><span class="line">环境变量</span><br><span class="line">    env         环境变量查看</span><br><span class="line">    PATH=$PATH:/root        命令搜索路径，对当前终端生效</span><br><span class="line">    PS1         当前终端显示的配置</span><br><span class="line">    $?          上一条命令是否执行成功</span><br><span class="line">    $$          当前进程的PID</span><br><span class="line">    $0          当前进程的名称</span><br><span class="line">    $1  $&#123;10&#125;   位置参数</span><br><span class="line">    $&#123;2-_&#125;      如果$2为空，则返回_</span><br><span class="line">环境变量配置文件，差异？？C64</span><br><span class="line">    /etc/profile</span><br><span class="line">    /etc/profile.d/</span><br><span class="line">    ~/.bash_profile</span><br><span class="line">    ~/.bashrc</span><br><span class="line">    /etc/bashrc</span><br><span class="line"></span><br><span class="line">su - root           login shell</span><br><span class="line">/etc/profile</span><br><span class="line">.bash_profile</span><br><span class="line">.bashrc</span><br><span class="line">/etc/bashrc</span><br><span class="line"></span><br><span class="line">su root             no login shell</span><br><span class="line">.bashrc</span><br><span class="line">/etc/bashrc</span><br></pre></td></tr></table></figure>
+<h1 id="65-数组"><a href="#65-数组" class="headerlink" title="65 数组"></a><a href></a>65 数组</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">定义数组</span><br><span class="line">    IPTS=(10.0.0.1 10.0.0.2 10.0.0.3)</span><br><span class="line">显示数组的所有元素</span><br><span class="line">    echo $&#123;IPTS[@]&#125;</span><br><span class="line">显示数组元素个数</span><br><span class="line">    echo $&#123;#IPTS[@]&#125;</span><br><span class="line">显示数组的第一个元素</span><br><span class="line">    echo $&#123;IPTS[0]&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="66-转义和引用"><a href="#66-转义和引用" class="headerlink" title="66 转义和引用"></a><a href></a>66 转义和引用</h1><p> 特殊字符</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 注释</span><br><span class="line">; </span><br><span class="line">\ 转义符号</span><br><span class="line">&quot;&quot;  &apos;&apos;</span><br></pre></td></tr></table></figure>
+<p> 转义符号</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单个字符前的转义符号</span><br><span class="line">\n \r \t</span><br><span class="line">\$ \&quot; \\</span><br></pre></td></tr></table></figure>
+<p> 引用</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;   &quot;$var&quot;--&gt;value</span><br><span class="line">&apos;&apos;  完全引用  &apos;$var&apos;--&gt;$var</span><br><span class="line">``</span><br></pre></td></tr></table></figure>
+<h1 id="67-运算符"><a href="#67-运算符" class="headerlink" title="67 运算符"></a><a href></a>67 运算符</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">=</span><br><span class="line">unset</span><br></pre></td></tr></table></figure>
+<p> 算数运算符</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expr 4 + 5    + - * / ** %   expr不支持浮点数，符号之间要有空格</span><br><span class="line">num1=`expr 4 + 5`</span><br></pre></td></tr></table></figure>
+<p> 数字常量</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let 变量名=变量值</span><br><span class="line">((a=10))</span><br><span class="line">((a++))</span><br><span class="line">echo $((10 + 20))</span><br></pre></td></tr></table></figure>
+<p> 特殊符号</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&apos;&apos;   完全引用</span><br><span class="line">&quot;&quot;   不完全引用</span><br><span class="line">``   执行命令</span><br><span class="line"></span><br><span class="line">() (()) $()</span><br><span class="line">单独使用圆括号会产生一个子shell(xyz=123)</span><br><span class="line">数组初始化IPS=(ip1 ip2 ip3)</span><br><span class="line">(()) 算术运算</span><br><span class="line">$(ls)</span><br><span class="line"></span><br><span class="line">[] [[]]</span><br><span class="line">单独使用方括号是测试(test)或数组元素功能</span><br><span class="line">两个方括号表示测试表达式</span><br><span class="line"></span><br><span class="line">&lt;&gt; 重定向符号</span><br><span class="line"></span><br><span class="line">&#123;&#125;</span><br><span class="line">输出范围  echo &#123;0..9&#125;</span><br><span class="line">文件复制  cp /etc/passwd&#123;,.bak&#125;</span><br><span class="line"></span><br><span class="line">+-*/%</span><br><span class="line">&lt;&gt;=</span><br><span class="line">&amp;&amp; || !</span><br><span class="line"></span><br><span class="line">; 命令分隔符</span><br><span class="line">    case语句的分隔符要转义;;</span><br><span class="line">: 空指令</span><br><span class="line">. 和 source 命令相同</span><br><span class="line">~ home目录</span><br><span class="line">, 分隔目录</span><br><span class="line">cd ~</span><br><span class="line">cd -</span><br></pre></td></tr></table></figure>
+<h1 id="69-test比较"><a href="#69-test比较" class="headerlink" title="69 test比较"></a><a href></a>69 test比较</h1><p> 测试与判断</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">退出与退出状态</span><br><span class="line">    exit</span><br><span class="line">    exit N</span><br><span class="line">    echo $?</span><br><span class="line">测试命令test</span><br><span class="line">    man test</span><br><span class="line">    文件测试</span><br><span class="line">    整数比较测试</span><br><span class="line">    字符串测试</span><br><span class="line">    0 True  ！0  False</span><br><span class="line">    []符号哈有扩展写法[[]]，支持&amp;&amp;、||、&lt;、&gt;</span><br><span class="line">使用if-then语句</span><br><span class="line">if []</span><br><span class="line">then</span><br><span class="line">    ...</span><br><span class="line">fi</span><br><span class="line">使用if-then-else语句</span><br><span class="line"></span><br><span class="line">嵌套if的使用</span><br><span class="line">if</span><br><span class="line">then</span><br><span class="line">elif</span><br><span class="line">then</span><br><span class="line">else</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">分支</span><br><span class="line">case &quot;$var&quot; in</span><br><span class="line">    &quot;cond1&quot; )</span><br><span class="line">      command ;;</span><br><span class="line">    &quot;cond2&quot; )</span><br><span class="line">      command ;;</span><br><span class="line">    * )</span><br><span class="line">      command ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">测试时可能会用到，比如重复请求某个页面N次</span><br><span class="line">for ((变量初始化; 循环判断条件; 变量变化))</span><br><span class="line">do</span><br><span class="line">    ...</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">while test测试是否成立</span><br><span class="line">do</span><br><span class="line">    ...</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">until  为真退出</span><br><span class="line">do</span><br><span class="line">    ...</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">$# 代表位置参数的数量</span><br><span class="line">$0 代表脚本名称</span><br><span class="line">$*  $@ </span><br><span class="line">shift 参数左移</span><br></pre></td></tr></table></figure>
+<h1 id="79-函数"><a href="#79-函数" class="headerlink" title="79 函数"></a><a href></a>79 函数</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fname()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 系统自建了函数库，可以在脚本中引用</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/init.d/functions</span><br></pre></td></tr></table></figure>
+<h1 id="81-脚本控制"><a href="#81-脚本控制" class="headerlink" title="81 脚本控制"></a><a href></a>81 脚本控制</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trap 信号捕获，-9不能被捕获</span><br></pre></td></tr></table></figure>
+<h1 id="83-计划任务"><a href="#83-计划任务" class="headerlink" title="83 计划任务"></a><a href></a>83 计划任务</h1><p> 一次性计划任务</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">at time</span><br><span class="line">ctrl + d 提交</span><br><span class="line">atq 查看</span><br></pre></td></tr></table></figure>
+<p> 周期性计划任务</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cron</span><br><span class="line">crontab -e 配置方式</span><br><span class="line">crontab -l 查看现有的计划任务</span><br><span class="line">配置格式</span><br><span class="line">    分钟 小时 日期 月份 星期 执行的命令</span><br><span class="line">    30 3 * * 1</span><br><span class="line">    30 3 15 * *</span><br><span class="line">    0 3 15 * * 三点整</span><br><span class="line">    /var/spool/cron</span><br><span class="line">    注意命令的路径问题</span><br><span class="line">        /usr/bin/date</span><br><span class="line"></span><br><span class="line">anacontab 延时计划任务</span><br><span class="line">/etc/anacrontab</span><br><span class="line">flock -xn &quot;/tmp/f.lock&quot; -c &apos;/root/a.sh&apos; 锁文件，防止多实例运行</span><br></pre></td></tr></table></figure>
+
+            
+        </div>
+                
+                        <ul class="post-copyright">
+                        <li><strong>本文标题：</strong><a href="http://www.cygao.xyz/2020/01/25/linux100/">linux及shell常见命令</a></li>
+                        <li><strong>本文作者：</strong><a href="http://www.cygao.xyz">Cunyuan</a></li>
+                        <li><strong>本文链接：</strong><a href="http://www.cygao.xyz/2020/01/25/linux100/">http://www.cygao.xyz/2020/01/25/linux100/</a></li>
+                        <li><strong>发布时间：</strong>2020-01-25</li>
+                        <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                        </li>
+                        </ul>
+                    
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/linux/">linux</a>, <a class="has-link-grey -link" href="/tags/shell/">shell</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/ali.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/02/0108recordleetcode/">
+                <span class="level-item">c++,python刷题，STL常见函数</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: true,
+        verify: false,
+        app_id: '5bpmqQ4MrKPysDXE0gVbfMKG-gzGzoHsz',
+        app_key: 'pP0cI6JOgjj5FVYXF6gh5aFh',
+        placeholder: '有话要说？'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#Shell篇">
+        <span class="has-mr-6">1.1</span>
+        <span>Shell篇</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#55-Shell">
+        <span class="has-mr-6">2</span>
+        <span>55 Shell</span>
+        </a></li><li>
+        <a class="is-flex" href="#65-数组">
+        <span class="has-mr-6">3</span>
+        <span>65 数组</span>
+        </a></li><li>
+        <a class="is-flex" href="#66-转义和引用">
+        <span class="has-mr-6">4</span>
+        <span>66 转义和引用</span>
+        </a></li><li>
+        <a class="is-flex" href="#67-运算符">
+        <span class="has-mr-6">5</span>
+        <span>67 运算符</span>
+        </a></li><li>
+        <a class="is-flex" href="#69-test比较">
+        <span class="has-mr-6">6</span>
+        <span>69 test比较</span>
+        </a></li><li>
+        <a class="is-flex" href="#79-函数">
+        <span class="has-mr-6">7</span>
+        <span>79 函数</span>
+        </a></li><li>
+        <a class="is-flex" href="#81-脚本控制">
+        <span class="has-mr-6">8</span>
+        <span>81 脚本控制</span>
+        </a></li><li>
+        <a class="is-flex" href="#83-计划任务">
+        <span class="has-mr-6">9</span>
+        <span>83 计划任务</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow  ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="linux及shell常见命令" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Cunyuan&nbsp;
+                
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/gggcy">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+
+    
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'true'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

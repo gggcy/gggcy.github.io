@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cygao.xyz/"/>
-  <updated>2019-10-17T14:17:56.331Z</updated>
+  <updated>2020-01-25T05:51:26.789Z</updated>
   <id>http://www.cygao.xyz/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux及shell常见命令</title>
+    <link href="http://www.cygao.xyz/2020/01/25/linux100/"/>
+    <id>http://www.cygao.xyz/2020/01/25/linux100/</id>
+    <published>2020-01-25T05:37:58.000Z</published>
+    <updated>2020-01-25T05:51:26.789Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接搬运的，侵权删。<br><a id="more"></a></p><h3 id="Shell篇"><a href="#Shell篇" class="headerlink" title="Shell篇"></a>Shell篇</h3><ul><li><a href="#55_Shell_4">55 Shell</a></li><li><a href="#65__90">65 数组</a></li><li><a href="#66__101">66 转义和引用</a></li><li><a href="#67__122">67 运算符</a></li><li><a href="#69_test_174">69 test比较</a></li><li><a href="#79__234">79 函数</a></li><li><a href="#81__244">81 脚本控制</a></li><li><a href="#83__249">83 计划任务</a>  </li></ul><p> 其实将Shell看作一门语言，和C、Java也没啥太大区别。还是那句话，看有没有需求吧，有需求，查资料，总是能搞定的，然后在这个过程中，积累经验。</p><h1 id="55-Shell"><a href="#55-Shell" class="headerlink" title="55 Shell"></a><a href></a>55 Shell</h1><p> Shell是命令解释器，用于解释用户对操作系统的操作。CentOS7默认使用的Shell是bash</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure><p> Linux的启动过程，BIOS-MBR-BootLoader（grub）-kernel-systemd-系统初始化-shell</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd /var/ ; ls</span><br><span class="line">du -sh *</span><br><span class="line">vim 1.sh</span><br><span class="line">chmod u+x 1.sh</span><br><span class="line">bash 1.sh            不会影响当前的环境</span><br><span class="line"></span><br><span class="line">#!/bin/bash        ./1.sh</span><br><span class="line"></span><br><span class="line">source ./1.sh  在当前进程运行，会影响当前的运行环境</span><br><span class="line">. 1.sh</span><br><span class="line"></span><br><span class="line">内建命令不需要创建子进程</span><br><span class="line">内建命令对当前shell生效</span><br></pre></td></tr></table></figure><p> 管道</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 123 | ps</span><br><span class="line">cat | ps -f  外部命令，会建立子进程</span><br></pre></td></tr></table></figure><p> 重定向</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">标准输入、标准输出、错误输出，0、1、2</span><br><span class="line">输入重定向 &lt;</span><br><span class="line">输出重定向符号 &gt; 覆盖  &gt;&gt; 追加  2&gt;   &amp;&gt;  全部重定向</span><br><span class="line"></span><br><span class="line">wc -l   ctrl + d结束</span><br><span class="line">wc -l &lt; /etc/passwd</span><br><span class="line">read var </span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line">cat &gt; /root/a.sh &lt;&lt; EOF</span><br><span class="line">echo &quot;hello bash&quot;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p> 变量赋值</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">变量的定义</span><br><span class="line">    a=123                   等号两侧不允许出现空格</span><br><span class="line">    let a=10+20             进行计算，但计算效率低，不建议使用</span><br><span class="line">    l=ls</span><br><span class="line">    letc=$(ls -l /etc)      命令结果赋值给变量，也可以使用``</span><br><span class="line">    &quot;hello bash&quot;            单双引号</span><br><span class="line">赋值</span><br><span class="line"></span><br><span class="line">引用</span><br><span class="line">    $&#123;变量名&#125;      &#123;&#125;在部分情况下可省略</span><br><span class="line">    $&#123;name&#125;sth</span><br><span class="line">作用范围</span><br><span class="line">    默认作用范围，当前进程，不包含子进程、父进程、平行进程</span><br><span class="line">    source *.sh     对当前终端生效，vs. bash *.sh</span><br><span class="line">    export name     子进程获取父进程的取值</span><br><span class="line">    unset name      取消赋值</span><br><span class="line">环境变量</span><br><span class="line">    env         环境变量查看</span><br><span class="line">    PATH=$PATH:/root        命令搜索路径，对当前终端生效</span><br><span class="line">    PS1         当前终端显示的配置</span><br><span class="line">    $?          上一条命令是否执行成功</span><br><span class="line">    $$          当前进程的PID</span><br><span class="line">    $0          当前进程的名称</span><br><span class="line">    $1  $&#123;10&#125;   位置参数</span><br><span class="line">    $&#123;2-_&#125;      如果$2为空，则返回_</span><br><span class="line">环境变量配置文件，差异？？C64</span><br><span class="line">    /etc/profile</span><br><span class="line">    /etc/profile.d/</span><br><span class="line">    ~/.bash_profile</span><br><span class="line">    ~/.bashrc</span><br><span class="line">    /etc/bashrc</span><br><span class="line"></span><br><span class="line">su - root           login shell</span><br><span class="line">/etc/profile</span><br><span class="line">.bash_profile</span><br><span class="line">.bashrc</span><br><span class="line">/etc/bashrc</span><br><span class="line"></span><br><span class="line">su root             no login shell</span><br><span class="line">.bashrc</span><br><span class="line">/etc/bashrc</span><br></pre></td></tr></table></figure><h1 id="65-数组"><a href="#65-数组" class="headerlink" title="65 数组"></a><a href></a>65 数组</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">定义数组</span><br><span class="line">    IPTS=(10.0.0.1 10.0.0.2 10.0.0.3)</span><br><span class="line">显示数组的所有元素</span><br><span class="line">    echo $&#123;IPTS[@]&#125;</span><br><span class="line">显示数组元素个数</span><br><span class="line">    echo $&#123;#IPTS[@]&#125;</span><br><span class="line">显示数组的第一个元素</span><br><span class="line">    echo $&#123;IPTS[0]&#125;</span><br></pre></td></tr></table></figure><h1 id="66-转义和引用"><a href="#66-转义和引用" class="headerlink" title="66 转义和引用"></a><a href></a>66 转义和引用</h1><p> 特殊字符</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 注释</span><br><span class="line">; </span><br><span class="line">\ 转义符号</span><br><span class="line">&quot;&quot;  &apos;&apos;</span><br></pre></td></tr></table></figure><p> 转义符号</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单个字符前的转义符号</span><br><span class="line">\n \r \t</span><br><span class="line">\$ \&quot; \\</span><br></pre></td></tr></table></figure><p> 引用</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;   &quot;$var&quot;--&gt;value</span><br><span class="line">&apos;&apos;  完全引用  &apos;$var&apos;--&gt;$var</span><br><span class="line">``</span><br></pre></td></tr></table></figure><h1 id="67-运算符"><a href="#67-运算符" class="headerlink" title="67 运算符"></a><a href></a>67 运算符</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">=</span><br><span class="line">unset</span><br></pre></td></tr></table></figure><p> 算数运算符</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expr 4 + 5    + - * / ** %   expr不支持浮点数，符号之间要有空格</span><br><span class="line">num1=`expr 4 + 5`</span><br></pre></td></tr></table></figure><p> 数字常量</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let 变量名=变量值</span><br><span class="line">((a=10))</span><br><span class="line">((a++))</span><br><span class="line">echo $((10 + 20))</span><br></pre></td></tr></table></figure><p> 特殊符号</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&apos;&apos;   完全引用</span><br><span class="line">&quot;&quot;   不完全引用</span><br><span class="line">``   执行命令</span><br><span class="line"></span><br><span class="line">() (()) $()</span><br><span class="line">单独使用圆括号会产生一个子shell(xyz=123)</span><br><span class="line">数组初始化IPS=(ip1 ip2 ip3)</span><br><span class="line">(()) 算术运算</span><br><span class="line">$(ls)</span><br><span class="line"></span><br><span class="line">[] [[]]</span><br><span class="line">单独使用方括号是测试(test)或数组元素功能</span><br><span class="line">两个方括号表示测试表达式</span><br><span class="line"></span><br><span class="line">&lt;&gt; 重定向符号</span><br><span class="line"></span><br><span class="line">&#123;&#125;</span><br><span class="line">输出范围  echo &#123;0..9&#125;</span><br><span class="line">文件复制  cp /etc/passwd&#123;,.bak&#125;</span><br><span class="line"></span><br><span class="line">+-*/%</span><br><span class="line">&lt;&gt;=</span><br><span class="line">&amp;&amp; || !</span><br><span class="line"></span><br><span class="line">; 命令分隔符</span><br><span class="line">    case语句的分隔符要转义;;</span><br><span class="line">: 空指令</span><br><span class="line">. 和 source 命令相同</span><br><span class="line">~ home目录</span><br><span class="line">, 分隔目录</span><br><span class="line">cd ~</span><br><span class="line">cd -</span><br></pre></td></tr></table></figure><h1 id="69-test比较"><a href="#69-test比较" class="headerlink" title="69 test比较"></a><a href></a>69 test比较</h1><p> 测试与判断</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">退出与退出状态</span><br><span class="line">    exit</span><br><span class="line">    exit N</span><br><span class="line">    echo $?</span><br><span class="line">测试命令test</span><br><span class="line">    man test</span><br><span class="line">    文件测试</span><br><span class="line">    整数比较测试</span><br><span class="line">    字符串测试</span><br><span class="line">    0 True  ！0  False</span><br><span class="line">    []符号哈有扩展写法[[]]，支持&amp;&amp;、||、&lt;、&gt;</span><br><span class="line">使用if-then语句</span><br><span class="line">if []</span><br><span class="line">then</span><br><span class="line">    ...</span><br><span class="line">fi</span><br><span class="line">使用if-then-else语句</span><br><span class="line"></span><br><span class="line">嵌套if的使用</span><br><span class="line">if</span><br><span class="line">then</span><br><span class="line">elif</span><br><span class="line">then</span><br><span class="line">else</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">分支</span><br><span class="line">case &quot;$var&quot; in</span><br><span class="line">    &quot;cond1&quot; )</span><br><span class="line">      command ;;</span><br><span class="line">    &quot;cond2&quot; )</span><br><span class="line">      command ;;</span><br><span class="line">    * )</span><br><span class="line">      command ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">测试时可能会用到，比如重复请求某个页面N次</span><br><span class="line">for ((变量初始化; 循环判断条件; 变量变化))</span><br><span class="line">do</span><br><span class="line">    ...</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">while test测试是否成立</span><br><span class="line">do</span><br><span class="line">    ...</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">until  为真退出</span><br><span class="line">do</span><br><span class="line">    ...</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">$# 代表位置参数的数量</span><br><span class="line">$0 代表脚本名称</span><br><span class="line">$*  $@ </span><br><span class="line">shift 参数左移</span><br></pre></td></tr></table></figure><h1 id="79-函数"><a href="#79-函数" class="headerlink" title="79 函数"></a><a href></a>79 函数</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fname()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 系统自建了函数库，可以在脚本中引用</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/init.d/functions</span><br></pre></td></tr></table></figure><h1 id="81-脚本控制"><a href="#81-脚本控制" class="headerlink" title="81 脚本控制"></a><a href></a>81 脚本控制</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trap 信号捕获，-9不能被捕获</span><br></pre></td></tr></table></figure><h1 id="83-计划任务"><a href="#83-计划任务" class="headerlink" title="83 计划任务"></a><a href></a>83 计划任务</h1><p> 一次性计划任务</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">at time</span><br><span class="line">ctrl + d 提交</span><br><span class="line">atq 查看</span><br></pre></td></tr></table></figure><p> 周期性计划任务</p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cron</span><br><span class="line">crontab -e 配置方式</span><br><span class="line">crontab -l 查看现有的计划任务</span><br><span class="line">配置格式</span><br><span class="line">    分钟 小时 日期 月份 星期 执行的命令</span><br><span class="line">    30 3 * * 1</span><br><span class="line">    30 3 15 * *</span><br><span class="line">    0 3 15 * * 三点整</span><br><span class="line">    /var/spool/cron</span><br><span class="line">    注意命令的路径问题</span><br><span class="line">        /usr/bin/date</span><br><span class="line"></span><br><span class="line">anacontab 延时计划任务</span><br><span class="line">/etc/anacrontab</span><br><span class="line">flock -xn &quot;/tmp/f.lock&quot; -c &apos;/root/a.sh&apos; 锁文件，防止多实例运行</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;直接搬运的，侵权删。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工作日常" scheme="http://www.cygao.xyz/categories/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="linux" scheme="http://www.cygao.xyz/tags/linux/"/>
+    
+      <category term="shell" scheme="http://www.cygao.xyz/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c++,python刷题，STL常见函数</title>
+    <link href="http://www.cygao.xyz/2020/01/02/0108recordleetcode/"/>
+    <id>http://www.cygao.xyz/2020/01/02/0108recordleetcode/</id>
+    <published>2020-01-02T02:43:23.000Z</published>
+    <updated>2020-01-25T05:30:17.646Z</updated>
+    
+    <content type="html"><![CDATA[<p>技巧，和常见的模板函数<br><a id="more"></a></p><h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="defluatdict"><a href="#defluatdict" class="headerlink" title="defluatdict"></a>defluatdict</h2><pre><code>from collections import defaultdictlookup = defaultdict(int)</code></pre><p>默认lookup[‘xxx’] = 0</p><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><pre><code>set.add()set.remove()</code></pre><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h2 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h2><pre><code>unordered_set&lt;char&gt; lookup;lookup.find(s[i]) != lookup.end()//查找不到s[i]则look.find()会返回lookup.end()lookup.erase(s[left]); //删除lookup.insert(s[i]); //插入</code></pre><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><pre><code>int romanCharToInt(char c){    int r = -1;    switch (c)    {        case &apos;I&apos;:            r = 1;            break;    }       return r;}</code></pre><h2 id="字符串string"><a href="#字符串string" class="headerlink" title="字符串string"></a>字符串string</h2><pre><code>string c = &quot;abcdefg&quot;;c.find(&quot;b&quot;);  //返回1，返回b的下标，find即在字符串c中查找对应字符串的下标位置。c = c.substr(0,c.length()-1); //substr，args为下标初始和结束位置。</code></pre><h2 id="二维数组定义方式"><a href="#二维数组定义方式" class="headerlink" title="二维数组定义方式"></a>二维数组定义方式</h2><p>如设计到动态规划时，</p><ol><li>用vector表示二维数组：<br>表示m行，n列，所有的数为0。</li></ol><p>vector&lt;vector<int>&gt; dp(m, vector<int>(n,0));</int></int></p><ol start="2"><li><p>普通的定义方式<br>int dp[m][n];<br>在线笔试不会报错，但是VS可能会报错</p><p> std::vector&lt;std::vector<int> &gt; vec(row,vector<int>(col,0));</int></int></p><p> int size_row = vec.size();  //获取行数</p><p> int size_col = vec[0].size();  //获取列数</p></li></ol><h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符 ? :"></a>条件运算符 ? :</h2><p>if(y &lt; 10){<br>   var = 30;<br>}else{<br>   var = 40;<br>}</p><p>可以写成</p><p>var = (y &lt; 10) ? 30 : 40;</p><p>## </p><p>class Solution {<br>public:<br>    int rob(vector<int>&amp; nums) {<br>        int dp1 = 0, dp2 = 0;<br>        for (int n : nums)<br>        {<br>            int tmp = dp1;<br>            dp1 = max(dp1, dp2 + n);<br>            dp2 = tmp;<br>        }<br>        return dp1;<br>    }<br>};</int></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;技巧，和常见的模板函数&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="编程语言" scheme="http://www.cygao.xyz/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>行人重识别突发奇想</title>
+    <link href="http://www.cygao.xyz/2019/10/18/reid/"/>
+    <id>http://www.cygao.xyz/2019/10/18/reid/</id>
+    <published>2019-10-18T07:51:08.000Z</published>
+    <updated>2019-10-18T09:19:09.560Z</updated>
+    
+    <content type="html"><![CDATA[<p>感叹可能是国人冒出来的方向，做re-id相关的人实在是太多了，知乎上愿意分享的也特别多。<br><a id="more"></a><br>参考<a href="https://zhuanlan.zhihu.com/c_1019882976158449664" target="_blank" rel="noopener">阿远的科研笔记</a><br><a href="https://zhuanlan.zhihu.com/p/86778344" target="_blank" rel="noopener">旷世10/16关于reid的报告</a></p><ol><li>行人的视频相较于行人的静态图片蕴含更多信息，比如<strong>行人行走的姿态，动作</strong>，这些时序信息都不会在静态图片中得到体现。</li><li>基于视频的行人再识别更符合现实场景的应用，因为真正的现实场景中的原始数据都是视频，很少会有刻意单独选出几帧单独进行行人再识别的情况。</li></ol><p>是否用于tracking中appearance更加适合用video re-id的model呢？</p><p>基于静态图片的神经网络，主要利用空间布局、纹理、色彩等信息对静态图像进行分析，但是这个网络很难学习到步态和姿态。</p><ol start="3"><li><a href="https://zhuanlan.zhihu.com/p/85383077" target="_blank" rel="noopener">视频行人重识别2019各顶会顶刊文章阅读笔记</a> 里谈到了《Occlusion-Free Video Person Re-Identification》</li></ol><p><strong>利用多帧信息进行遮挡恢复网络的设计，感觉这个工作通用性应该很广的</strong>，不光可以用来做reID，感觉应用到目标追踪上其实更为适合。不过reID MOT不分家嘛。很适合MOT</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;感叹可能是国人冒出来的方向，做re-id相关的人实在是太多了，知乎上愿意分享的也特别多。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="TX" scheme="http://www.cygao.xyz/categories/TX/"/>
+    
+    
+      <category term="工作日常" scheme="http://www.cygao.xyz/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>Perceive Where to Focus:Learning Visibility-aware Part-level Features for Partial Person Re-identification VPM</title>
@@ -37,11 +103,11 @@
     
       <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+    
       <category term="pytorch" scheme="http://www.cygao.xyz/tags/pytorch/"/>
     
       <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
   </entry>
   
@@ -63,11 +129,11 @@
       <category term="TX" scheme="http://www.cygao.xyz/categories/TX/"/>
     
     
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+    
       <category term="pytorch" scheme="http://www.cygao.xyz/tags/pytorch/"/>
     
       <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
   </entry>
   
@@ -92,11 +158,11 @@
     
       <category term="论文笔记" scheme="http://www.cygao.xyz/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
+      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
+    
       <category term="pytorch" scheme="http://www.cygao.xyz/tags/pytorch/"/>
     
       <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="代码踩坑" scheme="http://www.cygao.xyz/tags/%E4%BB%A3%E7%A0%81%E8%B8%A9%E5%9D%91/"/>
     
   </entry>
   
@@ -326,9 +392,9 @@
       <category term="python" scheme="http://www.cygao.xyz/categories/python/"/>
     
     
-      <category term="基本算法" scheme="http://www.cygao.xyz/tags/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95/"/>
-    
       <category term="编程语言" scheme="http://www.cygao.xyz/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="基本算法" scheme="http://www.cygao.xyz/tags/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -423,76 +489,6 @@
       <category term="数据结构" scheme="http://www.cygao.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="刷题笔记" scheme="http://www.cygao.xyz/tags/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MobileNetv1~v3,ShufflNet等轻量级网络</title>
-    <link href="http://www.cygao.xyz/2019/07/12/lightweight/"/>
-    <id>http://www.cygao.xyz/2019/07/12/lightweight/</id>
-    <published>2019-07-12T11:45:33.000Z</published>
-    <updated>2019-09-22T03:43:20.469Z</updated>
-    
-    <content type="html"><![CDATA[<p>直接搬运知乎高质量文章，通俗易懂。<br><a id="more"></a><br><a href="https://zhuanlan.zhihu.com/p/45496826" target="_blank" rel="noopener">轻量化神经网络综述</a> </p><p><a href="https://zhuanlan.zhihu.com/p/67009992" target="_blank" rel="noopener">轻量级神经网络“巡礼”（一）—— ShuffleNetV2</a> </p><p><a href="https://zhuanlan.zhihu.com/p/70703846" target="_blank" rel="noopener">轻量级神经网络“巡礼”（二）—— MobileNet，从V1到V3</a> </p><h2 id="MobileNet-v1"><a href="#MobileNet-v1" class="headerlink" title="MobileNet v1"></a>MobileNet v1</h2><ol><li>深度可分离卷积（Depthwise separable convolution）代替标准的卷积，并使用宽度因子(width multiply)减少参数量。深度可分离卷积把标准的卷积因式分解成一个深度卷积(depthwise convolution)和一个逐点卷积(pointwise convolution)。</li></ol><h2 id="MobileNet-v2"><a href="#MobileNet-v2" class="headerlink" title="MobileNet v2"></a>MobileNet v2</h2><ol><li>继续使用Mobilenet V1的深度可分离卷积降低卷积计算量。</li><li>增加skip connection，使前向传播时提供特征复用。</li><li>采用Inverted residual block结构。该结构使用Point wise convolution先对feature map进行升维，再在升维后的特征接ReLU，减少ReLU对特征的破坏。</li></ol><h2 id="MobileNet-v3"><a href="#MobileNet-v3" class="headerlink" title="MobileNet v3"></a>MobileNet v3</h2><ol><li>网络的架构基于NAS实现的MnasNet，神经结构搜索（NAS）</li><li>引入MobileNetV1的深度可分离卷积</li><li>引入MobileNetV2的具有线性瓶颈的倒残差结构</li><li>引入基于squeeze and excitation结构的轻量级注意力模型(SE)</li><li>使用了一种新的激活函数h-swish(x)</li></ol><h2 id="ShuffleNet-v1"><a href="#ShuffleNet-v1" class="headerlink" title="ShuffleNet v1"></a>ShuffleNet v1</h2><ol><li>Group convolution。其中输入特征通道被为G组(图4)，并且对于每个分组的信道独立地执行卷积，则分组卷积计算量是HWNK²M/G，为标准卷积计算量的1/G。</li><li>Channel shuffle。Grouped Convlution导致模型的信息流限制在各个group内，组与组之间没有信息交换，这会影响模型的表示能力。因此，需要引入group之间信息交换的机制，即Channel Shuffle操作。</li></ol><p>引入的问题：</p><ol><li>channel shuffle在工程实现占用大量内存和指针跳转，这部分很耗时。</li><li>channel shuffle的规则是人工设计，分组之间信息交流存在随意性，没有理论指导。</li></ol><h2 id="ShuffleNet-v2"><a href="#ShuffleNet-v2" class="headerlink" title="ShuffleNet v2"></a>ShuffleNet v2</h2><ol><li>channel split，通道分割将输入的feature maps分为两部分：一个分支为shortcut流，另一个分支含三个卷积（且三个分支的通道数一样）。分支合并采用拼接（concat），让前后的channel数相同，最后进行Channel Shuffle（完成和ShuffleNet V1一样的功能）。元素级的三个运算channel split、concat、Channel Shuffle合并一个Element-wise，显著降低计算复杂度。</li><li>仍采用Depthwise和Pointwise降低计算量。</li></ol><h2 id="ShuffleNet和MobileNet系列的异同"><a href="#ShuffleNet和MobileNet系列的异同" class="headerlink" title="ShuffleNet和MobileNet系列的异同"></a>ShuffleNet和MobileNet系列的异同</h2><p>手工设计轻量化模型主要得益于depth-wise convolution减少计算量，而解决信息不流畅的问题，MobileNet 系列采用了 point-wise convolution，ShuffleNet 采用的是 channel shuffle。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;直接搬运知乎高质量文章，通俗易懂。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
-    
-    
-      <category term="神经网络" scheme="http://www.cygao.xyz/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="深度学习" scheme="http://www.cygao.xyz/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NMS算法（NonMaximumSuppression）</title>
-    <link href="http://www.cygao.xyz/2019/07/05/nms/"/>
-    <id>http://www.cygao.xyz/2019/07/05/nms/</id>
-    <published>2019-07-05T01:58:02.000Z</published>
-    <updated>2019-09-20T06:54:12.318Z</updated>
-    
-    <content type="html"><![CDATA[<p>NMS算法原理及其python代码实现,其中也包含了IOU交并比的实现。</p><a id="more"></a><h1 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h1><hr><p>非极大值抑制（NMS）顾名思义就是抑制不是极大值的元素，搜索局部的极大值。这个局部代表的是一个邻域，邻域有两个参数可变，一是邻域的维数，二是邻域的大小。这里不讨论通用的NMS算法，而是用于在目标检测中用于提取分数最高的窗口的。<br>例如在行人检测中，滑动窗口经提取特征，经分类器分类识别后，每个窗口都会得到一个分数。但是滑动窗口会导致很多窗口与其他窗口存在包含或者大部分交叉的情况。这时就需要用到NMS来选取那些邻域里分数最高（是行人的概率最大），并且抑制那些分数低的窗口。</p><h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><p>给出一张图片和上面许多物体检测的候选框（即每个框可能都代表某种物体），但是这些框很可能有互相重叠的部分，我们要做的就是只保留最优的框。假设有N个框，每个框被分类器计算得到的分数为Si ,  1&lt;=i&lt;=N。</p><ol><li><p>建造一个存放待处理候选框的集合H，初始化为包含全部N个框；建造一个存放最优框的集合M，初始化为空集。</p></li><li><p>将所有集合 H 中的框进行排序，选出分数最高的框 m，从集合 H 移到集合 M；</p></li><li><p>遍历集合 H 中的框，分别与框m计算交并比（Interection-over-union，IoU），如果高于某个阈值（一般为0~0.5），则认为此框与 m重叠，将此框从集合 H 中去除。</p></li><li><p>回到第2步进行迭代，直到集合 H 为空。集合 M 中的框为我们所需。</p></li></ol><h3 id="需要优化的参数"><a href="#需要优化的参数" class="headerlink" title="需要优化的参数"></a>需要优化的参数</h3><p>IoU 的阈值是一个可优化的参数，一般范围为0~0.5，可以使用交叉验证来选择最优的参数。</p><hr><h2 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">py_cpu_nms</span><span class="hljs-params">(dets, thresh)</span>:</span></span><br><span class="line">    <span class="hljs-string">"""Pure Python NMS baseline."""</span></span><br><span class="line">    <span class="hljs-comment">#x1、y1、x2、y2、以及score赋值</span></span><br><span class="line">    x1 = dets[:, <span class="hljs-number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="hljs-number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="hljs-number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="hljs-number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="hljs-number">4</span>]</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">#每一个检测框的面积</span></span><br><span class="line">    areas = (x2 - x1 + <span class="hljs-number">1</span>) * (y2 - y1 + <span class="hljs-number">1</span>)</span><br><span class="line">    <span class="hljs-comment">#按照score置信度降序排序</span></span><br><span class="line">    order = scores.argsort()[::<span class="hljs-number">-1</span>]</span><br><span class="line"></span><br><span class="line">    keep = [] <span class="hljs-comment">#保留的结果框集合</span></span><br><span class="line">    <span class="hljs-keyword">while</span> order.size &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        i = order[<span class="hljs-number">0</span>]</span><br><span class="line">        keep.append(i) <span class="hljs-comment">#保留该类剩余box中得分最高的一个</span></span><br><span class="line">        <span class="hljs-comment">#得到相交区域,左上及右下</span></span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="hljs-number">1</span>:]])</span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="hljs-number">1</span>:]])</span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="hljs-number">1</span>:]])</span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="hljs-number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">#计算相交的面积,不重叠时面积为0</span></span><br><span class="line">        w = np.maximum(<span class="hljs-number">0.0</span>, xx2 - xx1 + <span class="hljs-number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="hljs-number">0.0</span>, yy2 - yy1 + <span class="hljs-number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        <span class="hljs-comment">#计算IoU：重叠面积 /（面积1+面积2-重叠面积）</span></span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="hljs-number">1</span>:]] - inter)</span><br><span class="line">        <span class="hljs-comment">#保留IoU小于阈值的box</span></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="hljs-number">0</span>]</span><br><span class="line">        order = order[inds + <span class="hljs-number">1</span>] <span class="hljs-comment">#因为ovr数组的长度比order数组少一个,所以这里要将所有下标后移一位</span></span><br><span class="line">       </span><br><span class="line">    <span class="hljs-keyword">return</span> keep</span><br><span class="line">`</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NMS算法原理及其python代码实现,其中也包含了IOU交并比的实现。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
-    
-    
-      <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="检测算法" scheme="http://www.cygao.xyz/tags/%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手推GBDT和常见问题</title>
-    <link href="http://www.cygao.xyz/2019/06/08/gbdt/"/>
-    <id>http://www.cygao.xyz/2019/06/08/gbdt/</id>
-    <published>2019-06-08T09:48:01.000Z</published>
-    <updated>2019-09-20T06:51:25.775Z</updated>
-    
-    <content type="html"><![CDATA[<p>主要是手推算法。<br><a id="more"></a></p><h2 id="手推GBDT"><a href="#手推GBDT" class="headerlink" title="手推GBDT"></a>手推GBDT</h2><div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/gbdt.jpg" alt></div> <h2 id="GBDT中的CART回归树每个叶子结点的输出值是什么"><a href="#GBDT中的CART回归树每个叶子结点的输出值是什么" class="headerlink" title="GBDT中的CART回归树每个叶子结点的输出值是什么"></a>GBDT中的CART回归树每个叶子结点的输出值是什么</h2><ol><li>对于分类树，其输出变量的众数就是分类结果。</li><li>对于回归树，其输出变量的平均值就是预测结果。​</li></ol><h2 id="GDBT的GB是什么意思，如何体现？"><a href="#GDBT的GB是什么意思，如何体现？" class="headerlink" title="GDBT的GB是什么意思，如何体现？"></a>GDBT的GB是什么意思，如何体现？</h2><p><strong>Gradient Boosting</strong><br>Boosting是一种可将弱学习器提升为强学习器的算法，属于集成学习（ensemble learning）的范畴，</p><p>Gradient Boosting是一种实现Boosting的方法，它的主要思想是，每一次建立模型，是在之前建立模型损失函数的梯度下降方向。损失函数描述的是模型的不靠谱程度，损失函数越大，说明模型越容易出错。如果我们的模型能够让损失函数持续的下降，说明我们的模型在不停的改进，而最好的方式就是让损失函数在其梯度的方向下降。</p><h2 id="介绍一下GBDT的原理和推导"><a href="#介绍一下GBDT的原理和推导" class="headerlink" title="介绍一下GBDT的原理和推导"></a>介绍一下GBDT的原理和推导</h2><p>见手推GBDT</p><h2 id="GBDT是回归树还是分类树"><a href="#GBDT是回归树还是分类树" class="headerlink" title="GBDT是回归树还是分类树"></a>GBDT是回归树还是分类树</h2><p>CART决策树既可以用于分类也可以用于回归，决策树分为分类树和回归树，分类树的衡量标准是最大熵，回归树的衡量标准是最小化均方差，所以<strong>GBDT中的树都是回归树，不是分类树</strong>.<br><strong>回归树！！！</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;主要是手推算法。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="interview" scheme="http://www.cygao.xyz/categories/interview/"/>
-    
-    
-      <category term="机器学习" scheme="http://www.cygao.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
