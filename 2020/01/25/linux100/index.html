@@ -19,7 +19,7 @@
 <meta property="og:description" content="直接搬运的，侵权删。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2020-01-25T05:51:26.789Z">
+<meta property="og:updated_time" content="2020-01-25T12:59:53.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux及shell常见命令">
 <meta name="twitter:description" content="直接搬运的，侵权删。">
@@ -172,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1153 个字)
+                    14 分钟 读完 (大约 2025 个字)
                 </span>
                 
                 
@@ -231,6 +231,15 @@
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">at time</span><br><span class="line">ctrl + d 提交</span><br><span class="line">atq 查看</span><br></pre></td></tr></table></figure>
 <p> 周期性计划任务</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cron</span><br><span class="line">crontab -e 配置方式</span><br><span class="line">crontab -l 查看现有的计划任务</span><br><span class="line">配置格式</span><br><span class="line">    分钟 小时 日期 月份 星期 执行的命令</span><br><span class="line">    30 3 * * 1</span><br><span class="line">    30 3 15 * *</span><br><span class="line">    0 3 15 * * 三点整</span><br><span class="line">    /var/spool/cron</span><br><span class="line">    注意命令的路径问题</span><br><span class="line">        /usr/bin/date</span><br><span class="line"></span><br><span class="line">anacontab 延时计划任务</span><br><span class="line">/etc/anacrontab</span><br><span class="line">flock -xn &quot;/tmp/f.lock&quot; -c &apos;/root/a.sh&apos; 锁文件，防止多实例运行</span><br></pre></td></tr></table></figure>
+<h2 id="85-文件操作篇"><a href="#85-文件操作篇" class="headerlink" title="85 文件操作篇"></a><a href></a>85 文件操作篇</h2><p>了解元字符、扩展元字符，与通配符是不同的<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">文件的查找命令find</span><br><span class="line">    find 路径 查找内容</span><br><span class="line">    find /etc -name passwd</span><br><span class="line">    find /etc -regex .*wd$</span><br><span class="line">    stat filename</span><br><span class="line">    find *txt -exec rm -v &#123;&#125; \;</span><br><span class="line">文本内容的查找grep</span><br><span class="line">    grep pass /root/anaconda-ks.cfg | cut -d &quot; &quot; -f 1</span><br><span class="line">    cut -d &quot;:&quot; -f7 /etc/passwd | sort | uniq -c uniq相邻行</span><br><span class="line">元字符</span><br><span class="line">    . 匹配除换行符外的任意单个字符</span><br><span class="line">    * 匹配任意一个跟在它前面的字符</span><br><span class="line">    [] 方括号中的任意一个</span><br><span class="line">    ^ 匹配开头</span><br><span class="line">    $ 匹配结尾</span><br><span class="line">    \ 转义后面的特殊字符</span><br><span class="line">扩展元字符</span><br><span class="line">    + 匹配前面的正则表达式至少出现一次</span><br><span class="line">    ? 匹配前面的正则表达式出现零次或一次</span><br><span class="line">    | 匹配它前面或后面的正则表达式</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件操作篇–sed"><a href="#文件操作篇–sed" class="headerlink" title=" 文件操作篇–sed"></a><a href></a> 文件操作篇–sed</h2><p>sed一般用于对文本内容做替换<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/user1/s/user1/u1/&apos; /etc/passwd</span><br><span class="line">sed &apos;s/old/new/&apos; filename</span><br><span class="line">sed -e &apos;s/old/new/&apos; -e &apos;s/old/new/&apos; filename ...</span><br><span class="line">sed &apos;s/old1/new1/;s/old2/new2/&apos; filename</span><br><span class="line">sed -i &apos;s/old/new/&apos; &apos;s/old/new/&apos; filename ... 原样写回文件</span><br><span class="line">sed &apos;s/正则表达式/new/&apos; filename</span><br><span class="line">sed -r &apos;s/扩展正则表达式/new&apos; filename</span><br><span class="line">sed -r &apos;s/(aa)|(bb)/!/&apos; filename</span><br><span class="line">sed &apos;s!/!abc!&apos; filename  /如何和正则匹配的内容冲突可以使用其他符号，如!, @</span><br><span class="line">sed -r &apos;s/(a.*b)/\1:\1/&apos; filename  回调</span><br><span class="line"></span><br><span class="line">全局替换</span><br><span class="line">    s/old/new/g</span><br><span class="line">标志位</span><br><span class="line">    s/old/new/2  只替换第二次</span><br><span class="line">    sed -n &apos;s/old/new/p&apos;  p打印模式空间的内容</span><br><span class="line">    sed -n &apos;s/old/new/w /path&apos;  -n阻止默认输出</span><br><span class="line">寻址</span><br><span class="line">    /正则表达式/s/old/new/g</span><br><span class="line">    行号s/old/new/g    1,$    1,3   1</span><br><span class="line"></span><br><span class="line">分组</span><br><span class="line">    /regular/&#123;s/old/new/;s/old/new/&#125;</span><br><span class="line">sed脚本文件</span><br><span class="line">    sed -f sedscript filename</span><br><span class="line"></span><br><span class="line">删除命令</span><br><span class="line">    sed &apos;/ab/d&apos; filename  整行删除</span><br><span class="line">追加、插入、更改</span><br><span class="line">    sed &apos;/ab/i hello&apos; </span><br><span class="line">    sed &apos;/ab/a hello&apos;</span><br><span class="line">    sed &apos;/ab/c hello&apos;</span><br><span class="line">下一行</span><br><span class="line">    下一行命令n</span><br><span class="line">    打印行号命令=</span><br><span class="line">打印</span><br><span class="line">    打印命令p</span><br><span class="line">    sed -n &apos;/ab/p&apos; filename</span><br><span class="line">退出命令</span><br><span class="line">    sed 10q filename</span><br><span class="line">    sed -n &apos;1,10p&apos; filename</span><br><span class="line"></span><br><span class="line">多行模式，配置文件可能会用到，key、value不在同一行</span><br><span class="line">N、D、P</span><br><span class="line">N 将下一行加入到模式空间</span><br><span class="line">    sed &apos;N;s/hel\nlo/!!!/&apos; filename</span><br><span class="line">    sed &apos;N;s/hel.lo/!!!/&apos; filename</span><br><span class="line">    sed &apos;N;s/\n//;s/hello bash/hello sed\n/;P;D&apos;</span><br><span class="line">    sed &apos;N;N;s/\n//;s/hello bash/hello sed\n/;P;D&apos;  123  234  345</span><br><span class="line">D 删除模式空间中的第一个字符到第一个换行符</span><br><span class="line">P 打印模式空间中的第一个字符到第一个换行符</span><br><span class="line"></span><br><span class="line">保持空间</span><br><span class="line">h和H将模式空间内容存放到保持空间</span><br><span class="line">g和G将保持空间内容取出到模式空间</span><br><span class="line">x交换模式空间和保持空间内容</span><br><span class="line">head -6 /etc/passwd | cat -n | tac  文件，行数反转</span><br><span class="line">sed -n &apos;1h;1!G;$!x;$p&apos;</span><br><span class="line">sed -n &apos;1!G;h;$p&apos;</span><br><span class="line">sed &apos;1!G;h;$!d&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件操作篇–awk"><a href="#文件操作篇–awk" class="headerlink" title=" 文件操作篇–awk"></a><a href></a> 文件操作篇–awk</h2><p>awk一般用于对文本内容进行统计、按需要的格式进行输出</p>
+<p>使用sed将不规范的文本，处理为比较规范的文本</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cut -d ： -f 1 /etc/passwd</span><br><span class="line">awk -F: &apos;/wd$/&#123;print $1&#125;&apos; /etc/passwd</span><br><span class="line"></span><br><span class="line">流程控制</span><br><span class="line">输入数据前例程 BEGIN&#123;&#125;</span><br><span class="line">主输入循环&#123;&#125;</span><br><span class="line">所有文件读取完成例程 END&#123;&#125;</span><br><span class="line"></span><br><span class="line">awk -F &quot;&apos;&quot; &apos;/^menu/&#123;print $2&#125;&apos; /boot/grub2/grub.cfg</span><br><span class="line">awk -F &quot;&apos;&quot; &apos;/^menu/&#123;print x++,$2&#125;&apos; /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>表达式<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">赋值操作符</span><br><span class="line">    =</span><br><span class="line">算数操作符</span><br><span class="line">    + - * / % ^</span><br><span class="line">系统变量</span><br><span class="line">    FS和OFS字段分隔符，OFS表示输出的字段分隔符</span><br><span class="line">    RS记录分隔符</span><br><span class="line">    NR和FNR行数</span><br><span class="line">    NF字段数量，最后一个字段内容可以用$NF取出</span><br><span class="line">关系操作符</span><br><span class="line">布尔操作符</span><br></pre></td></tr></table></figure></p>
+<p> 判断和循环<br> <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for</span><br><span class="line">while</span><br><span class="line">do while</span><br></pre></td></tr></table></figure></p>
+<p> 数组</p>
+<p> 函数</p>
 
             
         </div>
@@ -343,11 +352,11 @@
             <h3 class="menu-label">
                 目录
             </h3>
-            <ul class="menu-list"><ul class="menu-list"><li>
+            <ul class="menu-list"><ul class="menu-list"><ul class="menu-list"><li>
         <a class="is-flex" href="#Shell篇">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1.1.1</span>
         <span>Shell篇</span>
-        </a></li></ul><li>
+        </a></li></ul></ul><li>
         <a class="is-flex" href="#55-Shell">
         <span class="has-mr-6">2</span>
         <span>55 Shell</span>
@@ -379,7 +388,19 @@
         <a class="is-flex" href="#83-计划任务">
         <span class="has-mr-6">9</span>
         <span>83 计划任务</span>
-        </a></li></ul>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#85-文件操作篇">
+        <span class="has-mr-6">9.1</span>
+        <span>85 文件操作篇</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件操作篇–sed">
+        <span class="has-mr-6">9.2</span>
+        <span> 文件操作篇–sed</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件操作篇–awk">
+        <span class="has-mr-6">9.3</span>
+        <span> 文件操作篇–awk</span>
+        </a></li></ul></li></ul>
         </div>
     </div>
 </div>

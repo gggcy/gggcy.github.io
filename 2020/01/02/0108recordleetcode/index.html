@@ -19,7 +19,7 @@
 <meta property="og:description" content="技巧，和常见的模板函数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.cygao.xyz/images/og_image.png">
-<meta property="og:updated_time" content="2020-01-25T05:30:17.646Z">
+<meta property="og:updated_time" content="2020-01-31T14:47:27.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++,python刷题，STL常见函数">
 <meta name="twitter:description" content="技巧，和常见的模板函数">
@@ -168,7 +168,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 284 个字)
+                    3 分钟 读完 (大约 510 个字)
                 </span>
                 
                 
@@ -182,12 +182,16 @@
         </h1>
         <div class="content">
             <p>技巧，和常见的模板函数<br><a id="more"></a></p>
-<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="defluatdict"><a href="#defluatdict" class="headerlink" title="defluatdict"></a>defluatdict</h2><pre><code>from collections import defaultdict
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a>defaultdict</h2><pre><code>from collections import defaultdict
 lookup = defaultdict(int)
 </code></pre><p>默认lookup[‘xxx’] = 0</p>
+<pre><code>还可以 lookup = defaultdict(list)
+</code></pre><p>默认lookup[‘xxx] = []比直接lookup = {}，可以预防keyerror</p>
 <h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><pre><code>set.add()
 set.remove()
-</code></pre><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h2 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h2><pre><code>unordered_set&lt;char&gt; lookup;
+</code></pre><h2 id="和"><a href="#和" class="headerlink" title="/ 和 //"></a>/ 和 //</h2><p> “ / ” 为浮点数除法，返回浮点结果</p>
+<p>“ // ” 表示整数除法，返回不大于结果的一个最大整数</p>
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h2 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h2><pre><code>unordered_set&lt;char&gt; lookup;
 lookup.find(s[i]) != lookup.end()
 //查找不到s[i]则look.find()会返回lookup.end()
 lookup.erase(s[left]); //删除
@@ -207,7 +211,8 @@ lookup.insert(s[i]); //插入
 </code></pre><h2 id="字符串string"><a href="#字符串string" class="headerlink" title="字符串string"></a>字符串string</h2><pre><code>string c = &quot;abcdefg&quot;;
 c.find(&quot;b&quot;);  //返回1，返回b的下标，find即在字符串c中查找对应字符串的下标位置。
 c = c.substr(0,c.length()-1); //substr，args为下标初始和结束位置。
-</code></pre><h2 id="二维数组定义方式"><a href="#二维数组定义方式" class="headerlink" title="二维数组定义方式"></a>二维数组定义方式</h2><p>如设计到动态规划时，</p>
+</code></pre><h2 id="一维数组定义"><a href="#一维数组定义" class="headerlink" title="一维数组定义"></a>一维数组定义</h2><p>vector<int> dp(3,10);</int></p>
+<h2 id="二维数组定义方式"><a href="#二维数组定义方式" class="headerlink" title="二维数组定义方式"></a>二维数组定义方式</h2><p>如设计到动态规划时，</p>
 <ol>
 <li>用vector表示二维数组：<br>表示m行，n列，所有的数为0。</li>
 </ol>
@@ -219,12 +224,18 @@ c = c.substr(0,c.length()-1); //substr，args为下标初始和结束位置。
 <p> int size_col = vec[0].size();  //获取列数</p>
 </li>
 </ol>
-<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符 ? :"></a>条件运算符 ? :</h2><p>if(y &lt; 10){<br>   var = 30;<br>}else{<br>   var = 40;<br>}</p>
+<ol start="3">
+<li>vector<int> ret</int></li>
+</ol>
+<p>res.insert(ret.begin(), 1))</p>
+<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符 ? :"></a>条件运算符 ? :</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(y &lt; 10)&#123; </span><br><span class="line">   var = 30;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">   var = 40;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以写成</p>
 <p>var = (y &lt; 10) ? 30 : 40;</p>
-<p>## </p>
-<p>class Solution {<br>public:<br>    int rob(vector<int>&amp; nums) {<br>        int dp1 = 0, dp2 = 0;<br>        for (int n : nums)<br>        {<br>            int tmp = dp1;<br>            dp1 = max(dp1, dp2 + n);<br>            dp2 = tmp;<br>        }<br>        return dp1;<br>    }<br>};</int></p>
-
+<h2 id="抢劫最大金额"><a href="#抢劫最大金额" class="headerlink" title="抢劫最大金额"></a>抢劫最大金额</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int rob(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int dp1 = 0, dp2 = 0;</span><br><span class="line">        for (int n : nums) // 记忆式动态规划</span><br><span class="line">        &#123;</span><br><span class="line">            int tmp = dp1;</span><br><span class="line">            dp1 = max(dp1, dp2 + n);</span><br><span class="line">            dp2 = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="动态分配内存一定要写析构函数，防内存泄漏"><a href="#动态分配内存一定要写析构函数，防内存泄漏" class="headerlink" title="动态分配内存一定要写析构函数，防内存泄漏"></a>动态分配内存一定要写析构函数，防内存泄漏</h2><p>如vector&lt;TreeNode*&gt;</p>
+<h2 id="定义智能指针省去了构造析构函数的过程"><a href="#定义智能指针省去了构造析构函数的过程" class="headerlink" title="定义智能指针省去了构造析构函数的过程"></a>定义智能指针省去了构造析构函数的过程</h2><p>不用delete，会自动释放。</p>
+<h1 id="二分查找经验"><a href="#二分查找经验" class="headerlink" title="二分查找经验"></a>二分查找经验</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">left = mid </span><br><span class="line">right = mid -1 </span><br><span class="line">最好选择去中间数右边的点</span><br><span class="line">mid = left + (right -left +1)//2</span><br><span class="line"></span><br><span class="line">while left &lt; right:</span><br><span class="line">返回的一定是left = right</span><br><span class="line">最好对nums[left]再做一次判断</span><br><span class="line"></span><br><span class="line">写if else判断，排除法思考，当nums[mid]满足什么性质时，nums[mid]不是目标元素。</span><br></pre></td></tr></table></figure>
+<div align="center"><img src="http://picture-1259281112.cos.ap-shanghai.myqcloud.com/binary_search.png" alt></div> 
             
         </div>
                 
@@ -348,13 +359,17 @@ c = c.substr(0,c.length()-1); //substr，args为下标初始和结束位置。
         <span class="has-mr-6">1</span>
         <span>python</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#defluatdict">
+        <a class="is-flex" href="#defaultdict">
         <span class="has-mr-6">1.1</span>
-        <span>defluatdict</span>
+        <span>defaultdict</span>
         </a></li><li>
         <a class="is-flex" href="#set">
         <span class="has-mr-6">1.2</span>
         <span>set</span>
+        </a></li><li>
+        <a class="is-flex" href="#和">
+        <span class="has-mr-6">1.3</span>
+        <span>/ 和 //</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#C">
         <span class="has-mr-6">2</span>
@@ -372,14 +387,34 @@ c = c.substr(0,c.length()-1); //substr，args为下标初始和结束位置。
         <span class="has-mr-6">2.3</span>
         <span>字符串string</span>
         </a></li><li>
-        <a class="is-flex" href="#二维数组定义方式">
+        <a class="is-flex" href="#一维数组定义">
         <span class="has-mr-6">2.4</span>
+        <span>一维数组定义</span>
+        </a></li><li>
+        <a class="is-flex" href="#二维数组定义方式">
+        <span class="has-mr-6">2.5</span>
         <span>二维数组定义方式</span>
         </a></li><li>
         <a class="is-flex" href="#条件运算符">
-        <span class="has-mr-6">2.5</span>
+        <span class="has-mr-6">2.6</span>
         <span>条件运算符 ? :</span>
-        </a></li></ul></li></ul>
+        </a></li><li>
+        <a class="is-flex" href="#抢劫最大金额">
+        <span class="has-mr-6">2.7</span>
+        <span>抢劫最大金额</span>
+        </a></li><li>
+        <a class="is-flex" href="#动态分配内存一定要写析构函数，防内存泄漏">
+        <span class="has-mr-6">2.8</span>
+        <span>动态分配内存一定要写析构函数，防内存泄漏</span>
+        </a></li><li>
+        <a class="is-flex" href="#定义智能指针省去了构造析构函数的过程">
+        <span class="has-mr-6">2.9</span>
+        <span>定义智能指针省去了构造析构函数的过程</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#二分查找经验">
+        <span class="has-mr-6">3</span>
+        <span>二分查找经验</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
